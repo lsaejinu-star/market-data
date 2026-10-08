@@ -59,6 +59,16 @@ SYMBOLS = {
         "부동산(XLRE)": "XLRE",
         "커뮤니케이션(XLC)": "XLC",
     },
+    "theme_etfs": {
+        "반도체(SMH)": "SMH",
+        "소프트웨어(IGV)": "IGV",
+        "바이오(XBI)": "XBI",
+        "지역은행(KRE)": "KRE",
+        "방산·항공(ITA)": "ITA",
+        "원자력·우라늄(URA)": "URA",
+        "전력망(GRID)": "GRID",
+        "인프라(PAVE)": "PAVE",
+    },
     "stocks": {
         "애플": "AAPL",
         "마이크로소프트": "MSFT",

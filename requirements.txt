@@ -4,3 +4,4 @@ pandas
 requests
 lxml
 beautifulsoup4
+feedparser

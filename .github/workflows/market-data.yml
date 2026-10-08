@@ -58,6 +58,23 @@ jobs:
         timeout-minutes: 5
         run: python fetch_telegram.py
 
+      - name: Fetch news (auctions, central banks, holdings)
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python fetch_news.py
+
+      - name: Fetch KRW official rate (ECOS)
+        continue-on-error: true
+        timeout-minutes: 3
+        env:
+          ECOS_API_KEY: ${{ secrets.ECOS_API_KEY }}
+        run: python fetch_ecos.py
+
+      - name: Build YTD history
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python fetch_history.py
+
       - name: Commit
         if: always()
         run: |
