@@ -1,8 +1,14 @@
 {
  "channel": "insidertracking",
- "fetched_at_utc": "2026-10-08T05:25:02Z",
+ "fetched_at_utc": "2026-10-08T05:37:12Z",
  "hours": 26,
  "posts": [
+  {
+   "time_utc": "2026-10-08T05:32:43Z",
+   "time_kst": "2026-10-08 14:32",
+   "text": "TSMC 9월 매출: 511,857NTD mn\n(-0.6% MoM, +54.6% YoY)",
+   "url": "https://t.me/insidertracking/65715"
+  },
   {
    "time_utc": "2026-10-08T04:37:28Z",
    "time_kst": "2026-10-08 13:37",
@@ -230,12 +236,6 @@
    "time_kst": "2026-10-08 05:59",
    "text": "⚡️\n⚡️\n⚡️\n⚡️\n⚡️\n⚡️\n영국 해사무역기구(UKMTO)에 따르면 10월 7일 19시(UTC), 카타르 마디나트 아시 샤말 북쪽 51해리 해상에서 유조선이 여러 발의 발사체에 피격됐다는 신고 접수.\n인명 피해가 보고됐으며 당국이 사건 조사 진행 중. UKMTO는 인근을 운항하는 선박에 주의를 기울이고 의심스러운 활동을 발견할 경우 신고할 것을 권고.",
    "url": "https://t.me/insidertracking/65673"
-  },
-  {
-   "time_utc": "2026-10-07T20:58:23Z",
-   "time_kst": "2026-10-08 05:58",
-   "text": "오픈AI가 GPT-6와 ‘인텔리전트 UI’를 모든 ChatGPT 사용자 대상으로 순차 출시 중.\n인텔리전트 UI는 사용자가 요청한 주제를 설명할 때 ChatGPT가 대화 안에서 직접 상호작용형 화면과 경험을 생성할 수 있도록 지원하는 기능.",
-   "url": "https://t.me/insidertracking/65672"
   }
  ]
 }
