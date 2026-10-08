@@ -1,0 +1,161 @@
+{
+ "fetched_at_utc": "2026-10-08T05:25:01Z",
+ "constituents_source": "wikipedia",
+ "notes": "S&P500 기준 시장폭. 신고가/신저가는 최근 252거래일 종가 기준. 거래소 전체 집계와 다름.",
+ "last_date": "2026-10-07",
+ "universe": "S&P500 구성종목",
+ "count": 503,
+ "advancers": 138,
+ "decliners": 361,
+ "unchanged": 4,
+ "advance_pct": 27.4,
+ "new_52w_highs": 8,
+ "new_52w_lows": 19,
+ "pct_above_50dma": 29.4,
+ "pct_above_200dma": 46.9,
+ "equal_weight_avg_change_pct": -0.773,
+ "top_gainers": [
+  {
+   "symbol": "NRG",
+   "name": "NRG Energy",
+   "sector": "Utilities",
+   "close": 108.61,
+   "change_pct": 4.84
+  },
+  {
+   "symbol": "MRNA",
+   "name": "Moderna",
+   "sector": "Health Care",
+   "close": 196.48,
+   "change_pct": 4.81
+  },
+  {
+   "symbol": "MU",
+   "name": "Micron Technology",
+   "sector": "Information Technology",
+   "close": 1088.0,
+   "change_pct": 4.06
+  },
+  {
+   "symbol": "VST",
+   "name": "Vistra Corp.",
+   "sector": "Utilities",
+   "close": 166.72,
+   "change_pct": 3.88
+  },
+  {
+   "symbol": "P",
+   "name": "Everpure",
+   "sector": "Information Technology",
+   "close": 152.66,
+   "change_pct": 3.71
+  },
+  {
+   "symbol": "SMCI",
+   "name": "Supermicro",
+   "sector": "Information Technology",
+   "close": 44.94,
+   "change_pct": 3.41
+  },
+  {
+   "symbol": "NTAP",
+   "name": "NetApp",
+   "sector": "Information Technology",
+   "close": 235.77,
+   "change_pct": 3.2
+  },
+  {
+   "symbol": "LLY",
+   "name": "Lilly (Eli)",
+   "sector": "Health Care",
+   "close": 1188.72,
+   "change_pct": 2.7
+  },
+  {
+   "symbol": "AMGN",
+   "name": "Amgen",
+   "sector": "Health Care",
+   "close": 413.08,
+   "change_pct": 2.6
+  },
+  {
+   "symbol": "INTU",
+   "name": "Intuit",
+   "sector": "Information Technology",
+   "close": 297.24,
+   "change_pct": 2.56
+  }
+ ],
+ "top_losers": [
+  {
+   "symbol": "SKYD",
+   "name": "Paramount Skydance Corporation",
+   "sector": "Communication Services",
+   "close": 8.89,
+   "change_pct": -6.72
+  },
+  {
+   "symbol": "CAT",
+   "name": "Caterpillar Inc.",
+   "sector": "Industrials",
+   "close": 813.83,
+   "change_pct": -5.75
+  },
+  {
+   "symbol": "EME",
+   "name": "Emcor",
+   "sector": "Industrials",
+   "close": 784.66,
+   "change_pct": -4.83
+  },
+  {
+   "symbol": "CRWD",
+   "name": "CrowdStrike",
+   "sector": "Information Technology",
+   "close": 265.44,
+   "change_pct": -4.81
+  },
+  {
+   "symbol": "ALLE",
+   "name": "Allegion",
+   "sector": "Industrials",
+   "close": 147.91,
+   "change_pct": -4.7
+  },
+  {
+   "symbol": "MOS",
+   "name": "Mosaic Company (The)",
+   "sector": "Materials",
+   "close": 19.97,
+   "change_pct": -4.63
+  },
+  {
+   "symbol": "ON",
+   "name": "ON Semiconductor",
+   "sector": "Information Technology",
+   "close": 82.51,
+   "change_pct": -4.4
+  },
+  {
+   "symbol": "TER",
+   "name": "Teradyne",
+   "sector": "Information Technology",
+   "close": 411.78,
+   "change_pct": -4.31
+  },
+  {
+   "symbol": "FIX",
+   "name": "Comfort Systems USA",
+   "sector": "Industrials",
+   "close": 1741.36,
+   "change_pct": -4.21
+  },
+  {
+   "symbol": "SLB",
+   "name": "Schlumberger",
+   "sector": "Energy",
+   "close": 47.96,
+   "change_pct": -4.08
+  }
+ ]
+}

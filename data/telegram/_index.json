@@ -1,0 +1,34 @@
+{
+ "fetched_at_utc": "2026-10-08T05:25:02Z",
+ "hours": 26,
+ "channels": {
+  "insidertracking": {
+   "status": "ok",
+   "posts": 39
+  },
+  "FastStockNewsUSA": {
+   "status": "ok",
+   "posts": 15
+  },
+  "harveyspecterMike": {
+   "status": "ok",
+   "posts": 1
+  },
+  "bornlupin": {
+   "status": "ok",
+   "posts": 26
+  },
+  "grmtstudy": {
+   "status": "ok",
+   "posts": 2
+  },
+  "MacroAllocation": {
+   "status": "ok",
+   "posts": 1
+  },
+  "Macrojunglemicrolens": {
+   "status": "ok",
+   "posts": 0
+  }
+ }
+}
