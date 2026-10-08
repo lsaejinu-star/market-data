@@ -1,11 +1,17 @@
 # market-data
 
-매일 미국장 마감 후 GitHub Actions가 시세를 모아 `data/market_latest.json`에 저장합니다.
-매크로 브리핑 예약 작업이 이 파일을 읽어 대시보드에 씁니다.
+매일 미국장 마감 후 GitHub Actions가 데이터를 모아 `data/` 폴더에 저장합니다.
+매크로 브리핑 예약 작업이 이 파일들을 읽어 대시보드에 씁니다.
 
-- 수집 항목: 미국 지수·SOX·VIX, 환율·달러인덱스, 원자재 선물, 코스피·코스닥 및 해외지수, 섹터 ETF 11개, 매그니피센트7·노키아, YTD용 ETF, 비트코인·이더리움
+| 파일 | 내용 | 스크립트 |
+|---|---|---|
+| `data/market_latest.json` | 미국 지수·SOX·VIX, 환율·DXY, 원자재 선물, 코스피·해외지수, 섹터 ETF, 매그니피센트7·노키아, YTD용 ETF, 코인 | `fetch_market.py` |
+| `data/macro_latest.json` | FRED: CPI·PCE·PPI(전월비·전년비), 실업률, 비농업고용, 실업수당청구, EFFR, 국채금리, 10-2 스프레드, HY 스프레드 | `fetch_macro.py` |
+| `data/breadth_latest.json` | S&P500 기준 시장폭: 상승/하락 종목 수, 52주 신고가/신저가, 50·200일선 위 비율, 상승·하락 상위 10 | `fetch_breadth.py` |
+| `data/telegram/<채널>.json` | 텔레그램 공개 채널 최근 26시간 게시물(정확한 게시 시각 포함) | `fetch_telegram.py` |
+
 - 실행 시각: 평일 UTC 20:20, 21:15 (한국 05:20, 06:15)
-- 각 항목의 `last_date`가 그 값의 거래일입니다. 기준일과 다르면 그날 값이 아직 없거나 휴장입니다.
+- 각 수집은 독립적으로 돌아서 하나가 실패해도 나머지는 저장됩니다.
 - 수동 실행: Actions 탭 → market-data → Run workflow
 
 이 저장소에는 API 키나 개인정보를 넣지 마세요.

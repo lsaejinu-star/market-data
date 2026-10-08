@@ -11,7 +11,7 @@ on:
   push: # 스크립트·설정을 바꾸면 바로 한 번 실행 (data 커밋은 제외)
     branches: [main]
     paths:
-      - "fetch_market.py"
+      - "*.py"
       - "requirements.txt"
       - ".github/workflows/market-data.yml"
 
@@ -25,7 +25,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -37,17 +37,37 @@ jobs:
       - name: Install
         run: pip install -r requirements.txt
 
+      # 각 수집은 독립적으로 실행: 하나가 실패해도 나머지는 저장된다
       - name: Fetch market data
+        continue-on-error: true
+        timeout-minutes: 5
         run: python fetch_market.py
 
+      - name: Fetch macro (FRED)
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python fetch_macro.py
+
+      - name: Compute breadth (S&P500)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: python fetch_breadth.py
+
+      - name: Fetch telegram
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python fetch_telegram.py
+
       - name: Commit
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/market_latest.json
+          git add data
           if git diff --cached --quiet; then
-            echo "변경 없음"
+            echo "no change"
           else
-            git commit -m "market data $(date -u +%Y-%m-%dT%H:%MZ)"
+            git commit -m "data $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase
             git push
           fi
