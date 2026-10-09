@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-09T00:28:41Z",
+ "fetched_at_utc": "2026-10-09T01:13:50Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -409,25 +409,11 @@
      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNcFdQd202LU92VDc2SWN2S2FweU82cG9uc3dRLXpSZGdVeUgtTzJGa2FsNVVIbVZyUG54MHBldHFWY3RVV21OZFYyZTRjTURWNFRqMWhDMGJaZmVNQXdxbFJrYmtGVUk1SWZ4T1lyRGVOS0Fma0hwSmNubzRXZEZReWlxLW5jaFU?oc=5"
     },
     {
-     "time_utc": "2026-10-08T21:48:00Z",
-     "time_kst": "2026-10-09 06:48",
-     "title": "Alphabet Tokenized Stock price today, GOOGLX to USD chart, marketcap and volume - CryptoSlate",
-     "source": "CryptoSlate",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE02eTBWU0kxS3lNOFVhWklkcE1XU1RlLWxxX21RYzdFazFlLVdhM1BaSkdORG9idDZJZTkyRFVfaENLSjlzWmtDX0t1R1JnallwbWZ5Nmg4TjdhSFJ0d3hSdjhPbGU4SV8tQnowdTI3WQ?oc=5"
-    },
-    {
      "time_utc": "2026-10-08T21:46:07Z",
      "time_kst": "2026-10-09 06:46",
      "title": "Alphabet: Building The Thing That Could Replace It (NASDAQ:GOOGL) - Seeking Alpha",
      "source": "Seeking Alpha",
      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQQUFTcFRTTDB1a182TU5COThqX1BkNlpMZHhMeGN5LW90SlJVOFFvWE1WVTQxRmRRbjhTQ0VXSkFXQTc0QXd5M2kwUEFUUElfOEhFbWFfMmdJd2JXMGpScWFHZFJBdk1BU1JmdWg5RDUxNGVMaEJhbWwwSXkzSndXMmctRlRSdHMwYUxORFhySjJjNmhN?oc=5"
-    },
-    {
-     "time_utc": "2026-10-08T21:06:10Z",
-     "time_kst": "2026-10-09 06:06",
-     "title": "Hello Computer, Build Me GTA: The AI Threat to Game Studios - Benzinga",
-     "source": "Benzinga",
-     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQ2NzdUhMMkFDUDlJc09OaS15QjhUaXRBeHlRbFBFX0xzNFVBWFFGSnREdU9kY1dlY1ZkZElKMXlwejBXbjRVNi1XUzRKTDFkV1BPcFZ2OVpDS3l3YTFIN0xtdnU1Z1Y1TGNuTE9TNU1Xc2F3aTRQalVTX1htcGlEbzg3dkdMSU9OX05vbEZfVFNvNVVYcGIxQjdEbHhiN1hpckFRSmFFVEN3enZ3VGhn?oc=5"
     },
     {
      "time_utc": "2026-10-08T20:45:22Z",
@@ -444,6 +430,13 @@
      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNTGlncFRKVVdVQUtyYllBR2NROW1FTnpsdFJ1UFJoTExXN0UtVUwySkg2N1U0Tm51UGlZQ2QtcmZDUHE4Y3oxYzB3SHVxdGYxcTJmUFRpdU1qUXVJdkFKYjVGVUhUelU4a3JPQlNzOXNNX2dnaVk2NE9NQ2lfd2FqSzB6RWw3bzNRN0NiWVpLN09NUC1XWGdCLXJJczZRbTEzdHM2QmpfamViYlE?oc=5"
     },
     {
+     "time_utc": "2026-10-08T19:34:00Z",
+     "time_kst": "2026-10-09 04:34",
+     "title": "SpaceX's Google AI Pact Is Worth Up to $29 Billion, but Investors Shouldn't Bank on It - The Motley Fool",
+     "source": "The Motley Fool",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZUpOMGU4TU9vVVlzWU1zRWFfclppR2pQVERYMnV6WWtQTXVRRTYtQ2hUTlk3TXpZOHpOOTVSSTlhbWVXYjdKa3FLUXVpZS1zZlowclk5MU15WmV4UDZMUDBybHZMeUh0MXF0ZV9oN0lqN0QyaHFaTmtlVmdwaFIzbDhQcVA2bjRFU01yRnhKRUJiNkVHdF9vYg?oc=5"
+    },
+    {
      "time_utc": "2026-10-08T19:26:00Z",
      "time_kst": "2026-10-09 04:26",
      "title": "Google Workspace Gets AI Agents. What It Means for Alphabet Stock. - Barron's",
@@ -451,18 +444,18 @@
      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1yY1pHX3kzR3UzXzdZd0lDTjJlM3VLVUFSWW1kaEFLYklVMzFUX2gzRVFhTEJ4RHRTWUltVTB5V2dEMjQ4T2pjV2JxWklzUWk3R0VyS0dNVzlxOXFpVl9iSFh5LTdaUWhjRk85QWE2bm8temJUQkNZc01maVA?oc=5"
     },
     {
-     "time_utc": "2026-10-08T18:42:32Z",
-     "time_kst": "2026-10-09 03:42",
-     "title": "SpaceX's Google AI Pact Is Worth Up to $29 Billion, but Investors Shouldn't Bank on It - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZUpOMGU4TU9vVVlzWU1zRWFfclppR2pQVERYMnV6WWtQTXVRRTYtQ2hUTlk3TXpZOHpOOTVSSTlhbWVXYjdKa3FLUXVpZS1zZlowclk5MU15WmV4UDZMUDBybHZMeUh0MXF0ZV9oN0lqN0QyaHFaTmtlVmdwaFIzbDhQcVA2bjRFU01yRnhKRUJiNkVHdF9vYg?oc=5"
-    },
-    {
      "time_utc": "2026-10-08T18:18:00Z",
      "time_kst": "2026-10-09 03:18",
      "title": "Alphabet Rises as Google Debuts Universal Gemini Agent for Enterprise - BigGo Finance",
      "source": "BigGo Finance",
      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFAydUxyZEtGLUJCR1d1UjBIQWRLbUticEY5ejBlNWdMRWExWDRHdjU5WXpJSWtvaDM2UzUwQlFuUHdPOXIza3U5R3d2RTk5eVFjYm5BLVVweDh2V0JrOHNQOFc5M0lIb2JHeXlldGZXVTBVNXdaOGc?oc=5"
+    },
+    {
+     "time_utc": "2026-10-08T17:08:34Z",
+     "time_kst": "2026-10-09 02:08",
+     "title": "Alphabet stock price forecast: $344 support as GOOGL trades flat - Traders Union",
+     "source": "Traders Union",
+     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPbVc4eG1pVXZKVEdKVTk5UFJwNGpyOVdpZG80eFJ2MFRNUXhaVXI4OXpxcjBPTER2Ny10NXVlV3h5UVdqY2pFUVZCblFjLTMxN3NQUzF5QThUbmJXb0t0d2pPTXlqU0pvMUQyWm9XQTlLeU8wbkNlZS1xSlNpWlUtQU1yY21pNERoX25hZGZJNVI?oc=5"
     },
     {
      "time_utc": "2026-10-08T17:05:09Z",
@@ -486,6 +479,20 @@
      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPRTcwY09NYVhaeURWZTNFbnB2VmNxb0J5MzZnRmxIYllDVmVXU1A0TDFKSG5POU5vMjJJbjVFTjZ5cWVwYU9sTDZUdUNaaVdzb2R2VlFWVkRXd1lldml6bUN3VXhBLVg1cEhKRk9BTEdpNzF6MnVfX19TdFdCd3VtYWtZa0xVRzN3Y09lUm9GVWZUeGJ6?oc=5"
     },
     {
+     "time_utc": "2026-10-08T16:49:31Z",
+     "time_kst": "2026-10-09 01:49",
+     "title": "기능 이름을 몰라도 찾아볼 수 있는 이웃집 토토로 엔딩 테마 - Calgary Roughnecks",
+     "source": "Calgary Roughnecks",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFA0a1MzYkxIdzUzcHFLc2llWXpFdFhkX1VWUGo3R2ljVWNxc3pFVmVyMS1sZjBHUDlmRFVKcEpqeFRZT05rQi1YUWZSYzZteHd2cmJIWTJRcHhWU2pJMlBhb3plYzlMUVpw?oc=5"
+    },
+    {
+     "time_utc": "2026-10-08T16:45:34Z",
+     "time_kst": "2026-10-09 01:45",
+     "title": "GOOGL Stock Rises After Gemini 4 Argon Launch, But JPMorgan Says Google Must Reclaim AI Leadership - Stocktwits",
+     "source": "Stocktwits",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNcjJSRG9ZOEhRSERuWlJZSUFBNTZnaEVMNlBmMDJjemhZMFRaNkk5TUwyZG9FXzY2MmZFRXQ3QmhuTU1xV05lYUYwSjZOUURIZkYwUm1MbGMwOG9iMl9FSnVqdzVUZjUtQjMteW91VW9VTjIwQnZ2Nlg4Z3FvSmhSUERuSVNIZF9ENS0yNXlyU2Q2MXFiQ3A0SlFraUpFZEpFM1Iwb3U1SWNwSDluTjc2NHVXMktWMHM?oc=5"
+    },
+    {
      "time_utc": "2026-10-08T16:29:00Z",
      "time_kst": "2026-10-09 01:29",
      "title": "Apple Rises 24% YTD: Should You Buy, Sell or Hold the AAPL Stock? - TradingView",
@@ -498,19 +505,19 @@
      "title": "2 Stocks Worth Buying and Holding for Life - The Globe and Mail",
      "source": "The Globe and Mail",
      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOV2JmV2hVN1RfajNVbUFQV25KMEVzdWtpdWxPNVZWc1JTSEVGV2o0VklXVW56YVlNLXpuQ3B1NXpMdWhxajB0YTAzbTJzWnQyZ2JsbnlwSnR1NnFLekV3V1N2NTJjVDVlQS1jRElfcjBidmtBdHlDQTY4dXM3eXEzUUdVWVB4SXNmbGUtMEZOQTJsdUE1ekRwYWhNNU4zN3NjMDRzTWtVWDI5azBvZFllc3VoNmxDMVZmMl9wY0E4MnR6WUFTNmFR?oc=5"
-    },
-    {
-     "time_utc": "2026-10-08T16:22:19Z",
-     "time_kst": "2026-10-09 01:22",
-     "title": "Waymo gets $5B in debt funding from outside lenders (GOOG:NASDAQ) - Seeking Alpha",
-     "source": "Seeking Alpha",
-     "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNYkFJVF82d0p5U0ZxNS1EeUMxaGdYNW96NDlTNE1NcC1teFMxM3JibzlKOFhFMDBnNmRmNzN0bEQ3ZmFaSEJ5TVJMQ0k3YjJCbm5HYUtIMzl6Q2dkNzF3RDI4T1BfTkZJejRxTlVCZWtUcFdwd1UwQ0NRY25rU25URVkyaVExdjJtcjJVbkdOYlB3QQ?oc=5"
     }
    ],
    "errors": []
   },
   "NOK": {
    "items": [
+    {
+     "time_utc": "2026-10-08T21:17:11Z",
+     "time_kst": "2026-10-09 06:17",
+     "title": "플레이 전 점검하는 불법토토사이트 탈퇴 설정 항목 - Calgary Roughnecks",
+     "source": "Calgary Roughnecks",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8zQTRULWxPVk9hdWNQT0hUVkdPdXlpSXhWUUpYRVBYT2NUMnJIRjlXSWdYd2pQWEVEMVhCYnJ6WnQ0elVFM0l0RzRrSm9fNTZiX2JEZGp0QXowdXFGcXI5NWNwME0tVUFfNnk1anFWZXE?oc=5"
+    },
     {
      "time_utc": "2026-10-08T20:47:00Z",
      "time_kst": "2026-10-09 05:47",
@@ -608,13 +615,6 @@
      "title": "DECK Stock Falls Overnight As Q2 Sales Growth Slows — Retail Calls The Drop 'Absurd' - Stocktwits",
      "source": "Stocktwits",
      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQLTlxallEempvSGZVZEFuQUtwcWpBRDVxcjdtdWI1dzdoeHVuOWdWa19VcjlIaVR0Z0xscjM3ekhGdVkzdGdWVmJnNldmaDZtNlpEQ2FjaTlhWkJCWGJ0RnlfS1JvOHcydkNNcnlGMWRkelp5WWVYWlAxUGpHVDhiNVFkVlNKSUE2WEE3WDNXODF0SjVXR056YzdLZXd5ay0yeDUwQlRpR0xBX3I0cEZpUG93RHlnbEtFZWs3U09GT0ZLeXFUNUUxMENOMXNlOEZmTDNkaXdETTNhN2ZB?oc=5"
-    },
-    {
-     "time_utc": "2026-10-08T03:32:41Z",
-     "time_kst": "2026-10-08 12:32",
-     "title": "토토사이트 롤링 100 잭팟 기능 유무와 적용 조건 - Calgary Roughnecks",
-     "source": "Calgary Roughnecks",
-     "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxQVktlN3BGcWdzUnBjdUFZMEh1Y3J4NTBYMDBhNWE4M0tRRlJYLWh3U3pJZ2VEY2FDRUhTNHIwV09MVFZPaFBPMmFaRENHdlRoR3NhTF9zMUxFak91dmZvM3FaX3E4UndfZmVtU01GOHFaRnMyWVV1Z2VvX1JoZi1mMy0yMGpZZkJOUnVjSlYxMVo0dG5tUFpadDVvdExaOERocUNYTUpRVkNUQkRHWklvRVJEMU41VTFDVWJlN1RHcXdzN2Rwb0M2N3lKY3hjRmpMSWFyY2Z6S2p0dWtIVmZZMzZhb0hMT0p1S3VRMDMtZERHY2FodjNB?oc=5"
     }
    ],
    "errors": []
