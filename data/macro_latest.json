@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-09T01:12:51Z",
+ "fetched_at_utc": "2026-10-10T00:05:15Z",
  "source": "FRED (St. Louis Fed), fredgraph CSV",
  "notes": {
   "period": "지표의 해당 기간(월간 지표는 그 달 1일로 표시). 발표일이 아님.",
@@ -93,55 +93,55 @@
   "DFF": {
    "name": "실효연방기금금리 EFFR(%)",
    "frequency": "daily",
-   "period": "2026-10-07",
+   "period": "2026-10-08",
    "value": 3.88,
-   "prev_period": "2026-10-06",
+   "prev_period": "2026-10-07",
    "prev_value": 3.88,
    "change": 0.0
   },
   "DGS2": {
    "name": "국채 2년(%)",
    "frequency": "daily",
-   "period": "2026-10-07",
-   "value": 4.77,
-   "prev_period": "2026-10-06",
-   "prev_value": 4.79,
+   "period": "2026-10-08",
+   "value": 4.75,
+   "prev_period": "2026-10-07",
+   "prev_value": 4.77,
    "change": -0.02
   },
   "DGS10": {
    "name": "국채 10년(%)",
    "frequency": "daily",
-   "period": "2026-10-07",
-   "value": 5.28,
-   "prev_period": "2026-10-06",
-   "prev_value": 5.27,
-   "change": 0.01
+   "period": "2026-10-08",
+   "value": 5.22,
+   "prev_period": "2026-10-07",
+   "prev_value": 5.28,
+   "change": -0.06
   },
   "DGS30": {
    "name": "국채 30년(%)",
    "frequency": "daily",
-   "period": "2026-10-07",
-   "value": 5.67,
-   "prev_period": "2026-10-06",
-   "prev_value": 5.64,
-   "change": 0.03
+   "period": "2026-10-08",
+   "value": 5.6,
+   "prev_period": "2026-10-07",
+   "prev_value": 5.67,
+   "change": -0.07
   },
   "T10Y2Y": {
    "name": "10년-2년 스프레드(%p)",
    "frequency": "daily",
-   "period": "2026-10-08",
-   "value": 0.47,
-   "prev_period": "2026-10-07",
-   "prev_value": 0.51,
-   "change": -0.04
+   "period": "2026-10-09",
+   "value": 0.44,
+   "prev_period": "2026-10-08",
+   "prev_value": 0.47,
+   "change": -0.03
   },
   "BAMLH0A0HYM2": {
    "name": "하이일드 스프레드 HY OAS(%p)",
    "frequency": "daily",
-   "period": "2026-10-07",
-   "value": 3.09,
-   "prev_period": "2026-10-06",
-   "prev_value": 3.03,
+   "period": "2026-10-08",
+   "value": 3.15,
+   "prev_period": "2026-10-07",
+   "prev_value": 3.09,
    "change": 0.06
   }
  },
