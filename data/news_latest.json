@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-10T00:05:53Z",
+ "fetched_at_utc": "2026-10-10T00:49:15Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -199,8 +199,32 @@
  },
  "central_banks": {
   "Fed 보도자료": {
-   "status": "error: HTTPError",
-   "items": []
+   "status": "ok",
+   "feed": "https://www.federalreserve.gov/feeds/press_all.xml",
+   "items": [
+    {
+     "time_utc": "2026-10-09T14:00:00Z",
+     "time_kst": "2026-10-09 23:00",
+     "title": "Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families",
+     "source": null,
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261009a.htm"
+    },
+    {
+     "time_utc": "2026-10-08T20:30:00Z",
+     "time_kst": "2026-10-09 05:30",
+     "title": "Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering",
+     "source": null,
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261008a.htm"
+    },
+    {
+     "time_utc": "2026-10-07T18:00:00Z",
+     "time_kst": "2026-10-08 03:00",
+     "title": "Minutes of the Federal Open Market Committee, September 15-16, 2026",
+     "source": null,
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261007a.htm"
+    }
+   ],
+   "latest_any": []
   },
   "Fed 연설": {
    "status": "ok",
@@ -424,6 +448,13 @@
      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQUzhFQTQxcFdKQnVxMWczbllMX2RzRVZrVU1hSF9Zb0s1aFNoMWpqUExNT25tbmNRSmZuRW8tVjRQT05zeUV4RHo0SUt3bzNKWEhyYTk3SFFNYW9Rc0hjQ1h2cWs3NEY1UzM3OHlIcmhwX2xraWd3NHFiWVB2bWJIaEJZSHN6YmdBdEY4UUNfQUNaYU5nd3ZhWGtmMGZMUnFjZkdIWmdjQ0h3NUZybVZ1VXRJbXFxRVhCbmNlcWJxTThNU2pkX3ZxYkUzcDhnUU5iTi1EVkktVks?oc=5"
     },
     {
+     "time_utc": "2026-10-09T18:32:01Z",
+     "time_kst": "2026-10-10 03:32",
+     "title": "How Alphabet Inc. (GOOGL) Affects Rotational Strategy Timing - Stock Traders Daily",
+     "source": "Stock Traders Daily",
+     "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNQ01RdDUwalhfSEZ0Rm5vREY0T0xsdG15NjZwbjNJT2JSYzlXSjk0SU9DVFFMeklFYlJTTFo3WXhSN3JoMHBnZVY0WE1pNV9mbEozUHVzR2hXN3I3Mkt4dEhITTA5WTltQktOR0dnUHVqUWxINEsyZFRCOVZ5S2g2Z2tDSXpJWm5oX2twQUxxWWxidVFoTHlySWRyQ01saTNFckJYeTlaOVQ1cG5McjZXLXVZSmt2c2Q0X2swM2J5WU1nOURNZWk1X183ZGNTTFkxZXJOQg?oc=5"
+    },
+    {
      "time_utc": "2026-10-09T17:25:28Z",
      "time_kst": "2026-10-10 02:25",
      "title": "Alphabet Stocks Rise Higher as Nuclear Deal Locks 3.6 Gigawatts - Yahoo Finance",
@@ -480,24 +511,24 @@
      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZHg4VkpxbEZ6RkU1SVMzS2o4S1ZDaTN4Vnh0Z3lnU0cxSkR6Wi12REkxUmlIRnNiX251dExiZDZjMGtCUHp6MEt2MHZQSGNnU21XNkwtMWZBYUVNOE1yMDF0Q2pyT1dmSnh5RFNLTkRBNUpPOFdHTTE4bkRLc21WS0xvOEpJcFMtTklF?oc=5"
     },
     {
-     "time_utc": "2026-10-09T13:31:00Z",
-     "time_kst": "2026-10-09 22:31",
-     "title": "TD Cowen raises target for Alphabet stock to USD 485.00 - AD HOC NEWS",
-     "source": "AD HOC NEWS",
-     "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQYzhhb2h3WU1WUktTaHg5dFFVVE1LaWtsclNWR1BsX3FydUd5V3RKUEg2RFkxOHNKS2NYeXlEMWVUX0lLT0xjeVJjcTJwcjg0TTRvY2haSjhuTlFrTGpvelVsbExQdUgxY0pENXBuOEdnUFlFYWp4YmdfWVRjWFBJTU04UVZSR3JVYkNGaFBoelRId2Z0ekMySEF2OUpwTVBpQXRSdGFITDdiSjF5N3JHc09uTzBHck1hS2c?oc=5"
-    },
-    {
-     "time_utc": "2026-10-09T13:30:03Z",
-     "time_kst": "2026-10-09 22:30",
-     "title": "Is Alphabet Stock Priced Right Against Its Peers? - Yahoo Finance",
-     "source": "Yahoo Finance",
-     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQTmZ2cm1CTm5vMkdUVk1aRjhTcUpPLUY3Q25jZzhyeDduUmNlTXBMVzVIdThSRGFXNzN3QVBER0dWQnpmRWgtWDZIdGRqbVRCY0pIWlJtZ2xETGpsSXNHeHBwYld4alI4THY1NzZjRlZiUUdRVGZKclBtYTlwaU0tbHZobTd5STVHeXl1Y0haeWRJYXFNb1NiYm5kNG5jSlQ5X0E?oc=5"
+     "time_utc": "2026-10-09T13:33:00Z",
+     "time_kst": "2026-10-09 22:33",
+     "title": "테슬라 주가 2030년 532달러까지 오르나 - 코인리더스",
+     "source": "코인리더스",
+     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9hVzc5MjM5YnhkSnlOanVwdVc2dU1CWW03S091WmpLd1EydEhXSjhTQjJub3pRdC1TbVlLQTE5UVJpSjJzYlhFYkd3?oc=5"
     }
    ],
    "errors": []
   },
   "NOK": {
    "items": [
+    {
+     "time_utc": "2026-10-09T23:09:46Z",
+     "time_kst": "2026-10-10 08:09",
+     "title": "Is KONE Oyj (HLSE:KNEBV) Undervalued Following Its Pune Digital Experience Centre Launch? - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOMlhUT1FadDZmMmRlcFpQMkxZX1FGR1A1SmM5TGxDeVh6RXVIQm9uT1VTSnFETE9MdGJySjFGR2RQbTd5bUtaTkZENzRRdWhQM3FjZHp6SUttakR3dUFwWVFoSTNranhOLXNOb1pVQkNfSy1QTmRvWmtFQTFmalJ3NGVHSkJTYjFDQmxQRHhLYXNhVlVxSEZhTmVGNk0?oc=5"
+    },
     {
      "time_utc": "2026-10-09T18:48:00Z",
      "time_kst": "2026-10-10 03:48",
@@ -548,11 +579,11 @@
      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPREF1M2FVRE1aVmtobGlzNVJqMDlfZ2NESlJ1a3JFOXBmWUl1MVFQck5KTmRrV0xnRW01dW1rLUpWYk52ZFNMNU1MVER4Y1lXTDE0cTNCOGRvcmtuWUpqdk5aRXpKQW44dlhUV0ZHZTY0SjVrTlU2enJmMk1aZjNiSUpOdlRzN0liM090bXNTc1JMdw?oc=5"
     },
     {
-     "time_utc": "2026-10-09T10:57:24Z",
-     "time_kst": "2026-10-09 19:57",
-     "title": "SPCX Stock Jumps Overnight: Cursor Deal Pushes SpaceX Deeper Into 'Most Expensive' Territory, Morningstar Says - Stocktwits",
+     "time_utc": "2026-10-09T10:42:49Z",
+     "time_kst": "2026-10-09 19:42",
+     "title": "RKLB Stock Slips Overnight: Rocket Lab Protests Blue Origin’s $700M NASA Mars Deal, Calls Review ‘Punitive’ - Stocktwits",
      "source": "Stocktwits",
-     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNbVFpNk1LUDB6ZjR6bFdEcTFiUWJhR3BlVWxqSjlMYUZzSWc4eF91b1JCX1dtMS00em1PeG1vNUsyU2tsQ0dUWndXTWhER3RDN1IzUkg0QVljakhGNmJKdHdhNjFCWEREVWFGd0xIeTAtSkhfN2NhTmt0emNwdkpQd0NXd1o5S2ZkMlc5MzhwMGxORlBoUzc1aF9jdkluYkpBOUxpbXEwaHltS0NqalZjd0JhLUFEUjQ2bXRXMWl5Z3p3b0RuaXR1dVB3?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQbjMtSG1aVEJCTUR6dTdVUUVsY0lpNVhLNTNaTngyUFJhdVZobmQ5YkFfbDR4dEx1U1d2akhKaFFnNUx0cTFtN3JhMGFkNFlNUmptNXNHcnpHZnVpRDdvUGg1c0xRTTd1S3MzeUtYeWFUWGJ3Y2pvcjkwMlNFckhTUTNYSEEtRVlzU3NaN2Y5WjRqVk1TbHNBekt6Q1dvUDFmX3d2RTg3T0dFNXljWDlWVTdmZ1ZacEQ4djNabGpBWWZvUVBlQmdGN1g1V3lUVERfT3VR?oc=5"
     },
     {
      "time_utc": "2026-10-09T10:11:22Z",
@@ -567,6 +598,13 @@
      "title": "Nokia India Head Vibha Mehra on 6G, AI and India's Telecom Future - The Economic Times",
      "source": "The Economic Times",
      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOdGRER0lWc0dnSWNDMVd6VjdSOThCTFk1RnEwdV9aay13RnFjUFY5SFRyRU5xVmw0ZG9UTFh2Z2J2NkxKbFRMc0psR1dMd183bHpUU1lDbXR2N05PSGVQUWhVT0dTSWV3ZmhQcDg5UlIxejNtWXVuUjB0ZVJvRUw0aV9TcUpmSTZ0eWZ2aUdEbFF0SURHRU11d3d5SmVVUGQ2aGtZQ3psaWZPQW1nUkVnMXRjcnpEMW04QUR1Z2tnMExwZHNuM2Y1QXJ30gHPAUFVX3lxTE9JQUNKUnp6alRXUmhobUJiSkNkZ2pMYlJSRjlEVTVCeHJZMWYxc29DeGdRUnF2YXUxd3BDenJnREpWMGR5YTMyZDVPRS1BX2p1Z2tsbnpJbnhSV0xhSGZCWExwSVZNWU9TbXRQanNlWURNUzY3ZXBQaTdPelFPZUhaOGJCX013MVBXVUxWM0JYMkdJX2xJMVFndHVIN1lSS0lJdWFXY0tjUzZ6WVNWQVlKb0t3N0FwNXJZa0pqekRSWGZ3UjQ0aUhBY08tN2pKQQ?oc=5"
+    },
+    {
+     "time_utc": "2026-10-09T09:01:49Z",
+     "time_kst": "2026-10-09 18:01",
+     "title": "MU Rises Premarket Ahead Of Q3 Report: Analysts Set High Bar, Retail Investors See Tuesday’s Selloff As Setup For Post-Earnings Rally - Stocktwits",
+     "source": "Stocktwits",
+     "url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxPWS1raE5ENUQyNVFuTzNKSk5hc1VZQmhUYTNDT0lXMnVQWUlzeWUzdnMzb05GVmpTSGhqV29HeHE5b3NIanFKd1ZQY1NjMDZ5ZU9QZWRPLTRjM193NUxtNkZqUG0yUjBBd2dZMjVuNFMycWJIcWRvMkI0RXJTTXhwS2pSMUo0ODRsbkxoaU5KVXY5cnNSYTBCVWpGaV9lc3B2UnU4RTYyclM5ZGNrM3F2QVVLRnFrT1djSXRtQ3ljMFQtYU9RbDZ0V2hLY1dCQlFYOE0wbVFxWWY5UFBFMWdYbDBrZXpVQXVYcXBJZUg1X2hUYXhqRDdCY2JhY1ZSSGtoTXh0R1l4c2VraG1XRGhmY1A2VlpQT0tBdnFPRnQ4d1U?oc=5"
     },
     {
      "time_utc": "2026-10-09T07:41:20Z",
@@ -588,20 +626,6 @@
      "title": "TSLA Stock Sinks Toward Worst Week This Year After Weak Q2 — But CEO Elon Musk Is A 'Big Fan' Of His Insightful Retail Investor Army - Stocktwits",
      "source": "Stocktwits",
      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNVV9KRmdKX0xCWE81Vk03OC1sZnJoaFE3dW1yNW56T3NvU1BKTi1yQ1h1b0NTZWgzazV4Q3ZNTHJCZGlfRnBDZ1FnYXRHaXFtOUxNd1RQVDIxSlJlSmhNMGlTM21Wc0pvWWd5d0R5ZlptbUw3OWVjOGwxR01JZExNRkhOY21SdXFPbmpDeUZHLTVLdThDX0VxQlRrVFhBb2pXc1N2Wll3aFJVblFMNE5WX0txekgyUXZLeXc?oc=5"
-    },
-    {
-     "time_utc": "2026-10-09T06:10:14Z",
-     "time_kst": "2026-10-09 15:10",
-     "title": "Nokia stock pre-market: EUR 9.16, prior close EUR 9.09 - AD HOC NEWS",
-     "source": "AD HOC NEWS",
-     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQOTVwV3BEeFJDUElBUkVnTzBpaWQwdldRU1VRSkg0R0NqRU9hWUFpdzZtZmV1UGdXVXVXTHdVd0pWal9lVzF3MXVqSk5nRFZmTExYcmJUNENzaUpNdHd6emJtWm9GNzZNeVJhaU1DeVhKZmxhM3ZLdFdEaHJjRkkyN1N6Sjh1LVpjY2FzOC1yZ0R5VkdKUzc2SFRDODBJUWJ1MUxGZ0ZUZkxhdkxaaDI4?oc=5"
-    },
-    {
-     "time_utc": "2026-10-09T03:23:22Z",
-     "time_kst": "2026-10-09 12:23",
-     "title": "SMR Stock Powers Ahead After Best Day In Over A Month: What’s Behind The Surge? - Stocktwits",
-     "source": "Stocktwits",
-     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNZE13U25KSTZoekU0U2FSbHFjQk44czIyTGJKT0dTdS11TjhMZnppbVhJdzJzRk43MDN4SDU3MzlNVFRuRHhOWGVHYl96dGFYQTZCYjN5R0ljM3puVTNDREd1THIzMHUxWVpuWGJnRDhuRUpZMmQxVG9CZk5aMjVrYnZ1bWNrd3dhWnlWcFQ4bXJ2SUVvenBoNlduQWFMbFNuTGpkSUJobm84VWhwNGVvU0pFdVRvdmM5Z3JCV0JSMVhxWW8yNEVyT0VZdDBUeGdyamdvMTFmVVo?oc=5"
     }
    ],
    "errors": []

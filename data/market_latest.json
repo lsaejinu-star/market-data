@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-10T00:05:15Z",
+ "fetched_at_utc": "2026-10-10T00:48:35Z",
  "notes": {
   "last_date": "그 종목이 마지막으로 거래된 날짜(거래소 현지 기준). 기준일과 다르면 그날 값이 아직 없거나 휴장이다.",
   "fx": "환율은 글로벌 외환시장 시세로, 서울외환시장 공식 종가가 아니다.",
@@ -205,13 +205,7 @@
    },
    "니케이225": {
     "symbol": "^N225",
-    "source": "yahoo",
-    "last_date": "2026-10-08",
-    "close": 69042.1094,
-    "prev_date": "2026-10-07",
-    "prev_close": 70035.7109,
-    "change": -993.6016,
-    "change_pct": -1.4187
+    "error": "데이터 없음"
    },
    "항셍": {
     "symbol": "^HSI",
@@ -617,23 +611,25 @@
     "symbol": "BTC-USD",
     "source": "yahoo",
     "last_date": "2026-10-10",
-    "close": 82516.3516,
+    "close": 82475.0078,
     "prev_date": "2026-10-08",
     "prev_close": 81676.3359,
-    "change": 840.0156,
-    "change_pct": 1.0285
+    "change": 798.6719,
+    "change_pct": 0.9778
    },
    "이더리움": {
     "symbol": "ETH-USD",
     "source": "yahoo",
     "last_date": "2026-10-10",
-    "close": 2483.8,
+    "close": 2487.6299,
     "prev_date": "2026-10-08",
     "prev_close": 2471.9126,
-    "change": 11.8875,
-    "change_pct": 0.4809
+    "change": 15.7173,
+    "change_pct": 0.6358
    }
   }
  },
- "failed": []
+ "failed": [
+  "니케이225(^N225)"
+ ]
 }
