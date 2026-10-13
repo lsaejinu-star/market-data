@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-13T02:06:48Z",
+ "fetched_at_utc": "2026-10-13T02:35:12Z",
  "hours": 26,
  "channels": {
   "insidertracking": {
@@ -16,7 +16,7 @@
   },
   "bornlupin": {
    "status": "ok",
-   "posts": 18
+   "posts": 17
   },
   "grmtstudy": {
    "status": "ok",
