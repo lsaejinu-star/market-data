@@ -1,25 +1,55 @@
 {
  "channel": "grmtstudy",
- "fetched_at_utc": "2026-10-13T02:35:12Z",
+ "fetched_at_utc": "2026-10-13T23:46:25Z",
  "hours": 26,
  "posts": [
   {
-   "time_utc": "2026-10-12T07:42:54Z",
-   "time_kst": "2026-10-12 16:42",
-   "text": "대단하다",
-   "url": "https://t.me/grmtstudy/10786"
+   "time_utc": "2026-10-13T09:40:41Z",
+   "time_kst": "2026-10-13 18:40",
+   "text": "코스피 대비 코스닥 거래대금 비중 추이",
+   "url": "https://t.me/grmtstudy/10795"
   },
   {
-   "time_utc": "2026-10-12T03:38:49Z",
-   "time_kst": "2026-10-12 12:38",
-   "text": "시장 문제",
-   "url": "https://t.me/grmtstudy/10782"
+   "time_utc": "2026-10-13T08:58:29Z",
+   "time_kst": "2026-10-13 17:58",
+   "text": "코스닥 상대 우위 국면 정리",
+   "url": "https://t.me/grmtstudy/10793"
   },
   {
-   "time_utc": "2026-10-12T03:26:01Z",
-   "time_kst": "2026-10-12 12:26",
-   "text": "시황",
-   "url": "https://t.me/grmtstudy/10781"
+   "time_utc": "2026-10-13T08:56:48Z",
+   "time_kst": "2026-10-13 17:56",
+   "text": "코스닥 주도 업종 순환 지도",
+   "url": "https://t.me/grmtstudy/10792"
+  },
+  {
+   "time_utc": "2026-10-13T07:07:04Z",
+   "time_kst": "2026-10-13 16:07",
+   "text": "주요 지수 YTD 퍼포먼스 (달러 환산)",
+   "url": "https://t.me/grmtstudy/10791"
+  },
+  {
+   "time_utc": "2026-10-13T05:41:38Z",
+   "time_kst": "2026-10-13 14:41",
+   "text": "시장에 대형주를 들어올릴 돈은 없고 새로 유입되는 돈도 없고 하니, 원래 알던 국장으로 돌아간 듯하다",
+   "url": "https://t.me/grmtstudy/10790"
+  },
+  {
+   "time_utc": "2026-10-13T05:37:39Z",
+   "time_kst": "2026-10-13 14:37",
+   "text": "결국 이후 외국인 수급 향방에 달려 있는 거라,\n확인되기 전까지는 현상황을 베이스로 보고 큰 기대는 않을 듯",
+   "url": "https://t.me/grmtstudy/10789"
+  },
+  {
+   "time_utc": "2026-10-13T05:36:00Z",
+   "time_kst": "2026-10-13 14:36",
+   "text": "살벌하다",
+   "url": "https://t.me/grmtstudy/10788"
+  },
+  {
+   "time_utc": "2026-10-13T04:51:25Z",
+   "time_kst": "2026-10-13 13:51",
+   "text": "살벌하다",
+   "url": "https://t.me/grmtstudy/10787"
   }
  ]
 }
