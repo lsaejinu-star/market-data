@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-14T23:19:02Z",
+ "fetched_at_utc": "2026-10-14T23:55:24Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -343,6 +343,13 @@
   "GOOGL": {
    "items": [
     {
+     "time_utc": "2026-10-14T23:40:04Z",
+     "time_kst": "2026-10-15 08:40",
+     "title": "Prediction: Alphabet Will Soar After Oct. 28 - The Globe and Mail",
+     "source": "The Globe and Mail",
+     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPT2xoU0FvUDJqUDl1NWR3Y3psOUMyZDlzN29SSnF2OFgxbnFROWM3Z0dfU2VQbmgwQjJ6RDVtaUJVUmR5ZHdvYXlXeFNCLUtieGlBYmIwQXRoVDdsNG1kSHVSUzI4UlNNakd2ekNfZDN3S1c2YV9nZ2RUdE5IZEJhMFNTNkFIRmRsZ29HZm9WRi1QOTMzZ0pDcTV6cE14ZHd1WkNNaEFXOEMyYk1kcWNVN2l2eFRlSC1rR2RTVW5sSGhqZHlUUkpZ?oc=5"
+    },
+    {
      "time_utc": "2026-10-14T23:08:17Z",
      "time_kst": "2026-10-15 08:08",
      "title": "Prediction: Alphabet Will Soar After Oct. 28 - The Motley Fool",
@@ -355,13 +362,6 @@
      "title": "RKLB Stock Slides 8% After Hours As Neutron Debut Slips Into 2027 Over Manufacturing Issues: CEO Says ‘Possible Success Isn’t Our Standard’ - Stocktwits",
      "source": "Stocktwits",
      "url": "https://news.google.com/rss/articles/CBMipgJBVV95cUxNaG5BWENSV2RQemw3SlF1WTZCRWVNRENUY1RRVENrZWhQTmlIQUxSY2FweWNhZTR0bm1GVTBhRGVpZ0FBTmp5c3ZFSmRORVVpRm9fQ3JCUldYS0I1ZlBEQmNnbGFKdTB5cmNqMFMwbnpuamRYODAzNXlGczdWeGlkTmpUaFJONDhLVFpTOTJtZWprUllfbFY2MV9HNFZhWGVvRnpTbE9OZk5RN0tyVFJBRVZUTFdJTGo0NXVRUUFxbGtZZXVldm14dnhVTS1Kb0tCYTlNOFJQak1WbHg4a3dGcE9yY2loZ0I4Y0Q1c0pYMnBCVXNzRVhPRDg2dXZxWWh0ZkczWHo3Y0k2dUlXR1AtR2d0a2tMRFhtLXg4UmhjeUNtNWlfaFE?oc=5"
-    },
-    {
-     "time_utc": "2026-10-14T22:11:44Z",
-     "time_kst": "2026-10-15 07:11",
-     "title": "Kaplan Fox Encourages Alphabet Inc. (NASDAQ: GOOGL, GOOG) Investors to Contact the Firm Before the Deadline on December 1, 2026 - The Globe and Mail",
-     "source": "The Globe and Mail",
-     "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxOUEwweEV2ZF9waWl0M0JYSW9ySURxOHZucXFEZUV1MlpZbXhmMEtHbGhxc3Brdl9YakduNk5oQVBkb1FEaGNLWVNObnpPcEhkRDNDMWJzVjA3eG5QdkpZSVczS1ZrZFd3akxjdWJYcEFaSGVIN3JLTnpwb190d05XdjdYMHZkU2V1b0ZyZ1JFLTZ3bTFWV1ZfNkNNbmdrNVFfZHVYTk9PdW1jcVctWWRqNl9kbWFPMzdnTGlGX0VwdlpMOWhFbjREMU5wTEhGeW5XbnM3cUJFR2kzV1dIakRCdnZycEJyQWlNWVFOMnJYelpkSU5TTzBLRDNnc2NTY00yOGU1aF9STTMwTGJuWEk3bS1xNjAzUjdvSG53OUwyMTFsak9va0NWZ0pzZmJBeW9Q?oc=5"
     },
     {
      "time_utc": "2026-10-14T21:33:59Z",
@@ -378,8 +378,15 @@
      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPT3JJN0JEM2gyTEpkLVVvelVUeEpMd3o1RmZpQTFsN1pjaV9oWTFPNHhpbGpxR2V0MWdKd1EzdnNVd1ptaGxfTm1UZWFkYjBRc2RDMWp5bFF6Z1BVcnE4cGFhYS05N2stc0NyMGdxbXduY0NTalQzbS0xdWJtVnFXS09pNEZyNzBWTjZOczJZM2E3b1BFMkVFRzMxdW41MjBTT2lRdklOTXhhYjBhRUFKVmNtVWtXTFJtOW5oXzNBU3RMNHNIY0dZUFFSNEE5dFdN?oc=5"
     },
     {
-     "time_utc": "2026-10-14T18:40:43Z",
-     "time_kst": "2026-10-15 03:40",
+     "time_utc": "2026-10-14T20:31:00Z",
+     "time_kst": "2026-10-15 05:31",
+     "title": "Alphabet Inc. Cl C stock outperforms competitors despite losses on the day - MarketWatch",
+     "source": "MarketWatch",
+     "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxON2RKNnViTUJsTUUwVnV3VThvY3psSmFjN3ctMzNHTUh6M1ItM1dvVVVFRnZkekFhVElnbVYxcU84ck5GTUlqMGZaNTVHUmVVcFZWZmRPY1ZmSWNuQ3VxOUZneGI1ZzUxRG5BZFdzTldQaWRtbDZNV25Xa0NuaE14QW5XUTh4djd2MGViOWlVeTBuTkozU0k2a1Vfd3dmc0dXOU5md2NGbS1xQnNjcnoyeWplN2VsQlFmYUZzYlFMTVdJYmlQdExvN1lRakFmTXlPek1mc3BoVzk0RnpTdExvb2pVallldw?oc=5"
+    },
+    {
+     "time_utc": "2026-10-14T19:30:00Z",
+     "time_kst": "2026-10-15 04:30",
      "title": "Is Constellation Stock a Buy After Jumping 12% on Google's 20-Year Nuclear Deal? - The Motley Fool",
      "source": "The Motley Fool",
      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQl9OTk5MbmtiTFBnSldyZXZueXBMS05nbU52dURQWGxHQ3pTRGE5MEJLZEc5a0RTYW1UbjdiSklLM29DVWVUa29Gd0g3MTQtTHFFei1nRzRHNXZ5eWdPVVFTR1RhemE4alc2V1Naem96VnJfaWQ1cGlpN3g1VDdRSWdsMk9yRDhHcjdycFN5ZWYxUU1uMnc?oc=5"
@@ -439,13 +446,6 @@
      "title": "Wells Fargo Says Building AI Is Getting More Expensive — Here's Why It Hiked Price Targets For GOOGL, AMZN And META - Stocktwits",
      "source": "Stocktwits",
      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQdDZhbU9pNHhVLWJFYlB3eWhMSWNKWVNoSVNER0hFbHNZOW03YjliZEJLOG9idEJ6a2d1eVZQdHJsU1hteW8wa21VZjlKaWJnRzY3TmR5TnhjRnpMU0NWOGF0WlVLd00xSDI0eEFTZUJCRXdubmlYVU1MY1JWMjZXWjJ1c0NxUEdhY3psRWtSNDFwN0l2QnAzQXJQcE0wQXkzbHM5NC1NT3VSN2lYendaVW9kMHQwdmJRTjV2NlpHV1VoM1BBVEE?oc=5"
-    },
-    {
-     "time_utc": "2026-10-14T15:49:00Z",
-     "time_kst": "2026-10-15 00:49",
-     "title": "Alphabet Class A Tokenized Stock (Ondo) price today, GOOGLon to USD chart, marketcap and volume - CryptoSlate",
-     "source": "CryptoSlate",
-     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0yalVTWnZqRkxsbmJlNE1JVTA0M1VNLW9PX2JJNzBQc2FtdnJvRk1kRHJOZUZjc2UzaUFTRVVoc0Rxek0yOGlHczNGYUw0ZGRpRWJXNjViQzZTdDdfQWRwQW9hLWxEcExrRlI2alR4ZmQ3eURsVFZn?oc=5"
     }
    ],
    "errors": []

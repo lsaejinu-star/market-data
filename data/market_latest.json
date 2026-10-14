@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-14T23:18:01Z",
+ "fetched_at_utc": "2026-10-14T23:54:30Z",
  "notes": {
   "last_date": "그 종목이 마지막으로 거래된 날짜(거래소 현지 기준). 기준일과 다르면 그날 값이 아직 없거나 휴장이다.",
   "fx": "환율은 글로벌 외환시장 시세로, 서울외환시장 공식 종가가 아니다.",
@@ -73,51 +73,51 @@
     "symbol": "KRW=X",
     "source": "yahoo",
     "last_date": "2026-10-15",
-    "close": 1341.34,
+    "close": 1340.34,
     "prev_date": "2026-10-14",
     "prev_close": 1340.3101,
-    "change": 1.0299,
-    "change_pct": 0.0768
+    "change": 0.0299,
+    "change_pct": 0.0022
    },
    "엔/달러": {
     "symbol": "JPY=X",
     "source": "yahoo",
     "last_date": "2026-10-15",
-    "close": 158.094,
+    "close": 157.903,
     "prev_date": "2026-10-14",
     "prev_close": 158.322,
-    "change": -0.228,
-    "change_pct": -0.144
+    "change": -0.419,
+    "change_pct": -0.2647
    },
    "유로/달러": {
     "symbol": "EURUSD=X",
     "source": "yahoo",
     "last_date": "2026-10-15",
-    "close": 1.1178,
+    "close": 1.1199,
     "prev_date": "2026-10-14",
     "prev_close": 1.1204,
-    "change": -0.0026,
-    "change_pct": -0.2347
+    "change": -0.0005,
+    "change_pct": -0.0448
    },
    "위안/달러": {
     "symbol": "CNY=X",
     "source": "yahoo",
-    "last_date": "2026-10-14",
-    "close": 6.692,
-    "prev_date": "2026-10-13",
+    "last_date": "2026-10-15",
+    "close": 6.6876,
+    "prev_date": "2026-10-14",
     "prev_close": 6.692,
-    "change": 0.0,
-    "change_pct": 0.0
+    "change": -0.0044,
+    "change_pct": -0.0657
    },
    "달러인덱스(DXY)": {
     "symbol": "DX-Y.NYB",
     "source": "yahoo",
     "last_date": "2026-10-14",
-    "close": 102.528,
+    "close": 102.391,
     "prev_date": "2026-10-13",
     "prev_close": 102.18,
-    "change": 0.348,
-    "change_pct": 0.3406
+    "change": 0.211,
+    "change_pct": 0.2065
    }
   },
   "commodities": {
@@ -135,51 +135,51 @@
     "symbol": "BZ=F",
     "source": "yahoo",
     "last_date": "2026-10-14",
-    "close": 105.68,
+    "close": 105.7,
     "prev_date": "2026-10-13",
     "prev_close": 105.69,
-    "change": -0.01,
-    "change_pct": -0.0095
+    "change": 0.01,
+    "change_pct": 0.0095
    },
    "금": {
     "symbol": "GC=F",
     "source": "yahoo",
     "last_date": "2026-10-14",
-    "close": 4122.3999,
+    "close": 4126.2002,
     "prev_date": "2026-10-13",
     "prev_close": 4177.2998,
-    "change": -54.8999,
-    "change_pct": -1.3142
+    "change": -51.0996,
+    "change_pct": -1.2233
    },
    "은": {
     "symbol": "SI=F",
     "source": "yahoo",
     "last_date": "2026-10-14",
-    "close": 55.65,
+    "close": 55.795,
     "prev_date": "2026-10-13",
     "prev_close": 59.161,
-    "change": -3.511,
-    "change_pct": -5.9346
+    "change": -3.366,
+    "change_pct": -5.6896
    },
    "구리": {
     "symbol": "HG=F",
     "source": "yahoo",
     "last_date": "2026-10-14",
-    "close": 6.6105,
+    "close": 6.611,
     "prev_date": "2026-10-13",
     "prev_close": 6.678,
-    "change": -0.0675,
-    "change_pct": -1.0108
+    "change": -0.067,
+    "change_pct": -1.0033
    },
    "천연가스": {
     "symbol": "NG=F",
     "source": "yahoo",
     "last_date": "2026-10-14",
-    "close": 3.282,
+    "close": 3.279,
     "prev_date": "2026-10-13",
     "prev_close": 3.283,
-    "change": -0.001,
-    "change_pct": -0.0305
+    "change": -0.004,
+    "change_pct": -0.1218
    }
   },
   "world_indices": {
@@ -617,21 +617,21 @@
     "symbol": "BTC-USD",
     "source": "yahoo",
     "last_date": "2026-10-14",
-    "close": 81465.3203,
+    "close": 81493.6719,
     "prev_date": "2026-10-13",
     "prev_close": 83095.125,
-    "change": -1629.8047,
-    "change_pct": -1.9614
+    "change": -1601.4531,
+    "change_pct": -1.9273
    },
    "이더리움": {
     "symbol": "ETH-USD",
     "source": "yahoo",
     "last_date": "2026-10-14",
-    "close": 2415.8401,
+    "close": 2415.47,
     "prev_date": "2026-10-13",
     "prev_close": 2496.6255,
-    "change": -80.7854,
-    "change_pct": -3.2358
+    "change": -81.1555,
+    "change_pct": -3.2506
    }
   }
  },
