@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-14T23:54:30Z",
+ "fetched_at_utc": "2026-10-15T23:06:40Z",
  "source": "FRED (St. Louis Fed), fredgraph CSV",
  "notes": {
   "period": "지표의 해당 기간(월간 지표는 그 달 1일로 표시). 발표일이 아님.",
@@ -54,13 +54,13 @@
   "PPIFIS": {
    "name": "PPI 최종수요",
    "frequency": "monthly",
-   "period": "2026-08-01",
-   "value": 157.411,
-   "prev_period": "2026-07-01",
-   "prev_value": 156.784,
-   "mom_pct": 0.4,
-   "yoy_pct": 5.41,
-   "prev_yoy_pct": 4.8
+   "period": "2026-09-01",
+   "value": 159.78,
+   "prev_period": "2026-08-01",
+   "prev_value": 157.662,
+   "mom_pct": 1.34,
+   "yoy_pct": 6.35,
+   "prev_yoy_pct": 5.58
   },
   "UNRATE": {
    "name": "실업률(%)",
@@ -84,65 +84,65 @@
   "ICSA": {
    "name": "신규 실업수당청구(건)",
    "frequency": "weekly",
-   "period": "2026-10-03",
-   "value": 197000.0,
-   "prev_period": "2026-09-26",
-   "prev_value": 199000.0,
-   "change": -2000.0
+   "period": "2026-10-10",
+   "value": 199000.0,
+   "prev_period": "2026-10-03",
+   "prev_value": 198000.0,
+   "change": 1000.0
   },
   "DFF": {
    "name": "실효연방기금금리 EFFR(%)",
    "frequency": "daily",
-   "period": "2026-10-13",
+   "period": "2026-10-14",
    "value": 3.88,
-   "prev_period": "2026-10-12",
+   "prev_period": "2026-10-13",
    "prev_value": 3.88,
    "change": 0.0
   },
   "DGS2": {
    "name": "국채 2년(%)",
    "frequency": "daily",
-   "period": "2026-10-13",
-   "value": 4.79,
-   "prev_period": "2026-10-09",
-   "prev_value": 4.8,
-   "change": -0.01
+   "period": "2026-10-14",
+   "value": 4.82,
+   "prev_period": "2026-10-13",
+   "prev_value": 4.79,
+   "change": 0.03
   },
   "DGS10": {
    "name": "국채 10년(%)",
    "frequency": "daily",
-   "period": "2026-10-13",
-   "value": 5.21,
-   "prev_period": "2026-10-09",
-   "prev_value": 5.24,
-   "change": -0.03
+   "period": "2026-10-14",
+   "value": 5.19,
+   "prev_period": "2026-10-13",
+   "prev_value": 5.21,
+   "change": -0.02
   },
   "DGS30": {
    "name": "국채 30년(%)",
    "frequency": "daily",
-   "period": "2026-10-13",
-   "value": 5.56,
-   "prev_period": "2026-10-09",
-   "prev_value": 5.6,
+   "period": "2026-10-14",
+   "value": 5.52,
+   "prev_period": "2026-10-13",
+   "prev_value": 5.56,
    "change": -0.04
   },
   "T10Y2Y": {
    "name": "10년-2년 스프레드(%p)",
    "frequency": "daily",
-   "period": "2026-10-14",
-   "value": 0.37,
-   "prev_period": "2026-10-13",
-   "prev_value": 0.42,
-   "change": -0.05
+   "period": "2026-10-15",
+   "value": 0.33,
+   "prev_period": "2026-10-14",
+   "prev_value": 0.37,
+   "change": -0.04
   },
   "BAMLH0A0HYM2": {
    "name": "하이일드 스프레드 HY OAS(%p)",
    "frequency": "daily",
-   "period": "2026-10-13",
-   "value": 3.16,
-   "prev_period": "2026-10-12",
-   "prev_value": 3.11,
-   "change": 0.05
+   "period": "2026-10-14",
+   "value": 3.25,
+   "prev_period": "2026-10-13",
+   "prev_value": 3.16,
+   "change": 0.09
   }
  },
  "failed": []
