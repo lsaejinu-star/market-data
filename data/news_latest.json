@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-15T23:07:19Z",
+ "fetched_at_utc": "2026-10-15T23:42:17Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -350,8 +350,8 @@
      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1BQXVvNlE4WVN1b2ZNS3lIbUk3QzBlSVJPYUFiR1RlNkZuOUJuajNWVTZwZUJrQUkzUnFBVy1FNm5QTnZmT05RZ1AzZV9oRGJPTUJ5ZGhPdDBVZ2d5YlJ4UlItUnZwOXlaaVVRaGFKcy0?oc=5"
     },
     {
-     "time_utc": "2026-10-15T22:11:36Z",
-     "time_kst": "2026-10-16 07:11",
+     "time_utc": "2026-10-15T22:41:00Z",
+     "time_kst": "2026-10-16 07:41",
      "title": "Here Are the 3 Magnificent Seven Stocks I'd Buy Today - The Motley Fool",
      "source": "The Motley Fool",
      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNeFVkS0xLN09GUzNaal9ySFBXTkxDZ3JvSk9EZm44ZGVzUjVLSUduNEcyUWJuaU1rX3pBQlk3YS1YMDlVd1pnMU5EcE8yWHlEVFc1MkJUSEVCMi1FUXZhVjJOVTcwa2FPRUM4RmtCZ19lQVF6UFJtc3p2RVdreFd0VjBuZ3ppSGtGdmRZTWpvSnU1U1pLX3k1YQ?oc=5"
