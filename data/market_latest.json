@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-16T22:53:48Z",
+ "fetched_at_utc": "2026-10-16T23:34:12Z",
  "notes": {
   "last_date": "그 종목이 마지막으로 거래된 날짜(거래소 현지 기준). 기준일과 다르면 그날 값이 아직 없거나 휴장이다.",
   "fx": "환율은 글로벌 외환시장 시세로, 서울외환시장 공식 종가가 아니다.",
@@ -246,12 +246,12 @@
    "FTSE100": {
     "symbol": "^FTSE",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 10881.9004,
-    "prev_date": "2026-10-15",
-    "prev_close": 10840.4004,
-    "change": 41.5,
-    "change_pct": 0.3828
+    "last_date": "2026-10-15",
+    "close": 10840.4004,
+    "prev_date": "2026-10-14",
+    "prev_close": 10724.9004,
+    "change": 115.5,
+    "change_pct": 1.0769
    },
    "STOXX600": {
     "symbol": "^STOXX",
@@ -617,21 +617,21 @@
     "symbol": "BTC-USD",
     "source": "yahoo",
     "last_date": "2026-10-16",
-    "close": 81680.3203,
+    "close": 81527.4766,
     "prev_date": "2026-10-15",
     "prev_close": 82141.4609,
-    "change": -461.1406,
-    "change_pct": -0.5614
+    "change": -613.9844,
+    "change_pct": -0.7475
    },
    "이더리움": {
     "symbol": "ETH-USD",
     "source": "yahoo",
     "last_date": "2026-10-16",
-    "close": 2420.9099,
+    "close": 2419.8701,
     "prev_date": "2026-10-15",
     "prev_close": 2440.48,
-    "change": -19.5701,
-    "change_pct": -0.8019
+    "change": -20.6099,
+    "change_pct": -0.8445
    }
   }
  },

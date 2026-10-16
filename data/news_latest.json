@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-16T22:54:44Z",
+ "fetched_at_utc": "2026-10-16T23:34:53Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -356,11 +356,25 @@
   "GOOGL": {
    "items": [
     {
+     "time_utc": "2026-10-16T23:14:30Z",
+     "time_kst": "2026-10-17 08:14",
+     "title": "Prediction: Alphabet Will Be a Larger Company Than Apple by the End of 2027 - The Motley Fool",
+     "source": "The Motley Fool",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPZDEwWXFuMW9MblJRby1mM3lWbTl5ZVlIaURJODUyTWF2M1NGY091eFYzN1ZCbm5QT21YSjg4VDd4QTRmRUFXLVFDcHd1QmNldzJmOHlBb2VLWFVRME5XZ3kyVHpmYzFBcWduVWZTXzJDTW4wLVJoUlU1eXphVW9hZ1J2NnVPUTNvYmllS2FvNWtlMWF6WFZN?oc=5"
+    },
+    {
      "time_utc": "2026-10-16T22:00:00Z",
      "time_kst": "2026-10-17 07:00",
      "title": "Alphabet (NASDAQ:GOOG) Funds Capital Spending as Quarterly Free Cash Flow Turns Negative - Kalkine",
      "source": "Kalkine",
      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQbE95czVodU9XUTg2X2otVkZfeFJqdEctYXlQX0MwbkI2MC10U05xbTNiU0FscFF5Q1NUWmZ3VW5BM0cyS0ItRkpUSUdnNkRncFZDc3l4c0xWcjlzVDM3YlQ2OERGVmdmdjBiamhQamgtUnpDQnBDSTBGc0lYRlItb1RxVEp3Z0I4TG5NRFdvZzRnTUI5S1NoZ05ldHluTG16NG1mSlNTWFFIM1JycExTWXJhcGVLOXJWYTV3ZkludFZ4QQ?oc=5"
+    },
+    {
+     "time_utc": "2026-10-16T21:40:24Z",
+     "time_kst": "2026-10-17 06:40",
+     "title": "젠슨 황 약발도 하루…'AI 채무 공포'에 반도체·기술주 비명[뉴욕마감] - 머니투데이 - 머니투데이",
+     "source": "머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBUdDJsRU4tVGlOMWJQd1NNb3RlQ242Z1lfSndkUHVxRHFTSkFLeUd3VHVMVW9QaEdzdldENF9LbXB0bEVjQkhLWjZCdlg4cFBHTkdrRDhGeW5QVXdacUFNYzFfRUJkb2FSZjlBSGV30gFuQVVfeXFMUFR0MmxFTi1UaU4xYlB3U01vdGVDbjZnWV9Kd2RQdXFEcVNKQUt5R3dUdUxVb1BoR3N2V0Q0X0ttcHRsRWNCSEtaNkJ2WDhwUEdOR2tEOEZ5blBVd1pxQU1jMV9FQmRvYVJmOUFIZXc?oc=5"
     },
     {
      "time_utc": "2026-10-16T21:31:30Z",
@@ -370,25 +384,18 @@
      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPN2Nnc0U1UVZtUEswMHVTUksxVkp5X0Z6T0JmSkt3UTA0QkM2b3ZrWVdVSjFfSlpHSm5QY2pBM01JXzJNZkVTT19OU3E1M3otYjltQWNtQ3BQRUFOdGc1RzgzWXJLN0N2OEJ0TWx0VEpJeThBSWhETjZ4c05NZDY0bzhDdU9uVFRFVHRoNWFyZWtEbjZZMFNSUQ?oc=5"
     },
     {
-     "time_utc": "2026-10-16T21:26:00Z",
-     "time_kst": "2026-10-17 06:26",
-     "title": "Snap Inc. stock underperforms Friday when compared to competitors - MarketWatch",
-     "source": "MarketWatch",
-     "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNeUctRzJ6Rk5Td3hwN09ZYXJpTTB5S3dIalVnZEtSWC1BWVU3ZllWMWNQYTM0d0hTRnZqM3hydnA0SFhINkRvWWJNNVlaYjh6MExSVEVwNFpURkhHdlUzYmttcmFDZ0NUQndHOG1QLUZKNEJjWWtmN2EyNG1FSTk3Y2t5SWZkMnZHd3pzU0dGTTJtdjB1TGRkUG5RdjhBbDRualAxdVp5Ml9lMy1EcEk0akRrTTlkaGpnU21mOGJOdEtBWWVsYWpKbWVEYUo3elQ0ZTRJYnhTYVZPQQ?oc=5"
-    },
-    {
      "time_utc": "2026-10-16T21:04:07Z",
      "time_kst": "2026-10-17 06:04",
      "title": "[美증시] AI부채 공포·유가 급등에 3대 지수 동반 하락…코어위브발 반도체 급락 - 미디어펜",
      "source": "미디어펜",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1JRTc3MVR0Wkc1eXBTQ0wzcnBxTzRrdmVyb1ppbDJleEQ4NTlpUUVfMC1NUE9mR3lHSTE3RGh0V2hORENYWmstTDE0enpZbnowSzYxStIBWEFVX3lxTE5WR3IzdGhrRjJlLWpfUmRReDlnT2RlNWh3OFVQYWhwTEZwVjA3V2RjblNxS0J4S0pBQ1FyNkxMSDRRbmZvb3ltVGw1RXREWGpHN0drSWhaZTM?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5WR3IzdGhrRjJlLWpfUmRReDlnT2RlNWh3OFVQYWhwTEZwVjA3V2RjblNxS0J4S0pBQ1FyNkxMSDRRbmZvb3ltVGw1RXREWGpHN0drSWhaZTPSAVhBVV95cUxOVkdyM3Roa0YyZS1qX1JkUXg5Z09kZTVodzhVUGFocExGcFYwN1dkY25TcUtCeEtKQUNRcjZMTEg0UW5mb295bVRsNUV0RFhqRzdHa0loWmUz?oc=5"
     },
     {
      "time_utc": "2026-10-16T20:46:11Z",
      "time_kst": "2026-10-17 05:46",
      "title": "반도체 3배 추종 '속슬(SOXL)', 12.7% 급락...9거래일간 하락율, 무려 53% 넘어 - 비욘드포스트",
      "source": "비욘드포스트",
-     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE4xaHVDSVh0S21CRUVTVGFXSUNoN0h3MU13Z3ZneE8wZm9oNHVUXzBpUlBibDBYaVNsd2YzT0c1RnE5c2ptbTRFOHVWcWQtRmpLSnJkbVRIbThzQ2ZJcHZNanZuaS0zU2syejRmeUFPUFdvN0pSRlJjRV9Faw?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE03a2pIeVZIUzA4X0t2Qk9SSzJFWHl6bERKSDRzbnkzZ3pUSi1PX0tqMXVLTFdaVEUxOW1zb2g3cDhIb19ZWVEtcVExeVZsNFBPbmZBd0NLeHl3c1B1MDdRUm1QbWxiclRHTGxhOWdfdzYwZjBEVGtDeG1zZTU?oc=5"
     },
     {
      "time_utc": "2026-10-16T20:44:48Z",
@@ -433,11 +440,11 @@
      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQYXF2M3VRZjdQZk1XaXNHSS1ubERVVmZxVnZhaHZaRTd0X3RtMnpidWJwV1BOVDZDU3RSR0kyb3lUQ0FqTHJNVGZPdnhTbkFseXFVUm9NTDYzb3U3Q1NRenJJMU96YWJrSGNnS0ZxQ3VkTVRmUmRiaE1SWWI2UUZmMmgzTk5WUDlWZTR0Qi1tcm5UYl9ZR1BIcWZDeFZ1bEdLYTZzLWxZOA?oc=5"
     },
     {
-     "time_utc": "2026-10-16T17:02:46Z",
-     "time_kst": "2026-10-17 02:02",
-     "title": "Alphabet Stocks Fall Although AI-Chip Forecast Signals a Bigger Cloud Business - GuruFocus",
-     "source": "GuruFocus",
-     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPNzZCNWU5WU1ydVE5Z2RJVXpsRmI3QVdqLTVESFBtSFMtSnpFanVzRzA5aXM5YUg3a1VmeGpzNE40cmg4ZXNsT3IzbXJ2QVdkT0JrZUdyOFlHNHJidWxNTDIyZ3VsN0U4X05fYm5zTDZpRVozdWktZHZBSS1ONG9mNUZxNEl6OGp5RTJPcHM4Y0hLUEVuclhQZjhsX1I4eF8zZnFRek5RR2JUcTdvdGdaWDNTVzZHNTg?oc=5"
+     "time_utc": "2026-10-16T17:13:38Z",
+     "time_kst": "2026-10-17 02:13",
+     "title": "Alphabet Stocks Fall Although AI-Chip Forecast Signals a Bigger Cloud Business - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRGJqNWtJUG4wTXdXOXpQR1JjVXhtRzdEaUdDQXlMQWlKVjZIQ3R4V2tuZlBTcG1RWlFDdGNpSDZ3WTMtR1p3Y05PNXhHNV9fd2FfQTgwdkZrQmtXWVREd2ZtRjlScElyQjQtUjMxUUtmYTE4M3plTW1jeDk3TWJYWG1CYlR3aWY4M0gycXdUZU9UUDIwb1ZrUQ?oc=5"
     },
     {
      "time_utc": "2026-10-16T16:45:34Z",
@@ -445,13 +452,6 @@
      "title": "Alphabet’s Cloud Surge and AI Dominance Overshadow Capex Fears and Keep Me Buying - Yahoo Finance",
      "source": "Yahoo Finance",
      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPMW1ZRW1CVWNTOVRXVWNpcHNHRVNkWHNLMFJablM0QzJuVGZxbWFfUk9nWHNfVjl3ZmJoNlBFYTNuUWtBSmgtYlpEWnhsOXFycVNyR2t0THJiZWcyWUlreE16X0FEMElQUTl0N2lQZmpDOEhYR2VDa05MSVNNYkdKTWNGZmExTTNYazFSWjNGeWdHb2I0Um5yR21iaVhFblU?oc=5"
-    },
-    {
-     "time_utc": "2026-10-16T16:45:18Z",
-     "time_kst": "2026-10-17 01:45",
-     "title": "The Next $5 Trillion Dollar Company: Alphabet or Microsoft? - Yahoo Finance",
-     "source": "Yahoo Finance",
-     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxONzFZVkZuZFNkdFU2WTdYejBJX2g5a2ZnU3hqNmJJdTV6Z2FQZDl4eGhGcTY5LUM3Zmp3aDRFalNuY3Q3aG9QLTZUdVRmNDNRUlpXNHNaa2dhTDVRY3p4OU9YTHlLTDlEWS1jS2JDMHhFc0ZQZ1ZqaHR3WlExYWFuMXEzWTRSeTBlMy1pTGJmUWNVbGlMX1ExNlk2Yw?oc=5"
     },
     {
      "time_utc": "2026-10-16T16:45:00Z",
@@ -501,18 +501,18 @@
      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPMThXRzhEXy15bWg1SjdNWHBKZHlOUGNJRm1EdlRDREU2RFlXM3dRcE56NzVmOUNVTFRQdFU1WVpyaDkzcGJ4SHQ4aGJhVzA2V0xQVi1BMVFtdmNqNmhFUEx6cXE3M0NlN0pkSlAxeU9BOWFNdTRkSUFpWFk0bHg3ZlJOS3RadmZQZ1J6TUlWbV9TSDRxWnVvMklZd2hVSXA0LXhoRl9LcnpCcGpxLWtTd0I2UFZVZXg1clRwRlp3UWtSY0dGNmNJdzUxcFhwY05J?oc=5"
     },
     {
+     "time_utc": "2026-10-16T14:14:00Z",
+     "time_kst": "2026-10-16 23:14",
+     "title": "AKAM vs. ANET: Which AI Infrastructure Stock is the Better Buy Now? - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOZWhNVGVZTHhwamRGOTlfRklpcWVwSmZGMDRQWEVLTGFVeHNHc2NHTjlDRDhkaVNrdXV2OENBbExkU3RKdzJ3UXpiWWgzbVlCY283SEU3T1hxMEh5eXNlTHlPUnlBT3V4MzFhWm5MWUE0eklZV2d0MnlaUjFfM3JZTmx3RUh1SmdKMTN1MjR1S3A0V0JWQklSSWtB?oc=5"
+    },
+    {
      "time_utc": "2026-10-16T12:11:42Z",
      "time_kst": "2026-10-16 21:11",
      "title": "Nokia Lines Up 2027 Field Trial With SoftBank as Fiber Card and Campus-Edge Sale Reshape the Story - ad-hoc-news.de",
      "source": "ad-hoc-news.de",
      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQVnF1UWh0QkQwbXpnUnliV2JkZXdpT2xyQXJmdm4yT1FLRVEtYXpNZHpVMGJoWDFEVnJRSnNMWGNVaDhyVTFzR3V0NUpud1RpOG42OWNwU2lLa0Jyd1JtMVM2a3otOFE4Y3J2Qzd6eE91RUFlWVBXejI3aEgxUG92NTdfUVN0UVhGWHdOeUNMQjVoVWdoMDRpa2NsR0V1bV8xTUhINFVNZHZvVVc0aHpvdng5YTQ1endRNFV3SDBuT0FwUmx0NXlpaHFDU1pPUDZh?oc=5"
-    },
-    {
-     "time_utc": "2026-10-16T11:57:17Z",
-     "time_kst": "2026-10-16 20:57",
-     "title": "Anthropic Researcher QUITS: “AI Could Kill Us All” Prabhsimran Singh (6U5BHKy2LA) - Unisba Media",
-     "source": "Unisba Media",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE53TTFnamVzY0ptRVV5S2xEMElmay1fR3pqYUIyUnIwWXd2NlRhaktRRVJWLXo3X1o2UHpHUnFYZHBZYlN1NG5yZFNuVDNVYVB6aGhPWW5DMnVoZ0tpSmRoZE9hVS1jdUc3UElr?oc=5"
     },
     {
      "time_utc": "2026-10-16T11:20:52Z",
@@ -564,11 +564,11 @@
      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOb1p1WG1yRlhsS1dRRjZxdTNTbncxM2hkYjBqX0RtTTUwYmg5ajVBaEhVMUtKQXg5OU5KeURVUmswMkdCUU95a0xWV1ljQkdteThEdlNfdHplMC1sNmZBOEptR2ktd3ZVRng1Y0szLXgyOEp2THhxMVFTRVBidnYyZDRB?oc=5"
     },
     {
-     "time_utc": "2026-10-16T03:30:01Z",
-     "time_kst": "2026-10-16 12:30",
-     "title": "BIDU Stock In For A Rough Ride: China Reportedly Hits Brakes On Robotaxi Licenses After 100 Apollo Go Cars Stall In Wuhan - Stocktwits",
-     "source": "Stocktwits",
-     "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxNNThTQU4zZ0R2Q3lwUEZDTlZWd3k3TUVKVndYNFlsMEFfeVIxY3pZZDBuN3c1ZzlxZEhlNXBFUjJMQ1JWcm1EeG5OSDdLTW9hZkR5MERLOGhwNk9IVlhrQ3JjQlBiQkE0Q3gxdTdJbnQ2UkFUZ1dVM2NsYmtTeEpjVk5aaEY0TTRZNW9GTVFneE9RRlAzUEp1cUlzYlFlOTlOTnUzZ2g1OWN5d2tvanJXZU9lZFB5SDAwX080aTNrUFFXa2RvUnQ1b29SWHNoY2ZTakhyWmY0MWhpMS12eHM1ZmZoWmhjYmNZZlA0dTBsQUIxMGRFZzU3eWV6dGpzTHYxdGNBMVNDRVdMdV9WN1J1LXZB?oc=5"
+     "time_utc": "2026-10-16T03:34:04Z",
+     "time_kst": "2026-10-16 12:34",
+     "title": "ETFs Investing in Nokia Oyj Stocks - TradingView",
+     "source": "TradingView",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1hUy1sMGJLWUNHaEtZa1M5RDZJNzVmZ2l4TGVaSE5BbUtRS0ppVThUdXBVYmFpYWt0U2xUOHJvY2pVRlRlTndGYkE1cTZDME1kRFVZbFBraEJ2dWQxbTZN?oc=5"
     }
    ],
    "errors": []
