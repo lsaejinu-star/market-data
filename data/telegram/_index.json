@@ -1,22 +1,22 @@
 {
- "fetched_at_utc": "2026-10-16T23:34:43Z",
+ "fetched_at_utc": "2026-10-19T23:47:32Z",
  "hours": 26,
  "channels": {
   "insidertracking": {
    "status": "ok",
-   "posts": 39
+   "posts": 40
   },
   "FastStockNewsUSA": {
    "status": "ok",
-   "posts": 10
+   "posts": 33
   },
   "harveyspecterMike": {
    "status": "ok",
-   "posts": 1
+   "posts": 0
   },
   "bornlupin": {
    "status": "ok",
-   "posts": 22
+   "posts": 33
   },
   "grmtstudy": {
    "status": "ok",
@@ -24,7 +24,7 @@
   },
   "MacroAllocation": {
    "status": "ok",
-   "posts": 1
+   "posts": 0
   },
   "Macrojunglemicrolens": {
    "status": "ok",
