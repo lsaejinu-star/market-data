@@ -1,8 +1,14 @@
 {
  "channel": "FastStockNewsUSA",
- "fetched_at_utc": "2026-10-20T23:14:41Z",
+ "fetched_at_utc": "2026-10-20T23:52:04Z",
  "hours": 26,
  "posts": [
+  {
+   "time_utc": "2026-10-20T23:22:52Z",
+   "time_kst": "2026-10-21 08:22",
+   "text": "[삼성 이영진] 글로벌 AI/SW 뉴스\n🤖\n(26/10/21)\n■ 오픈AI, 신약 개발 플랫폼 Orchestra Bio 인수. 인력과 기술을 자사의 생명과학 연구용 AI 모델 및 도구인 Rosalind와 통합 계획\n■ 아마존, 데이터센터 전력 공급 확보 이전에 수십억 달러 규모 엔비디아 GPU 선제 구매 보도. 구매 GPU를 중간 물류 창고에 보관하는 상황\n■ 딥시크, 자체 AI 추론 프레임워크 DeepInfer를 오픈소스로 공개\n■ 미국 대형 보험사, 2분기 중 메타 계약 기반 코어위브 부채를 7.4억 달러 이상 매입\n■ 세일즈포스, 고객 Engagement 플랫폼 Braze를 부채 포함 56.6억 달러에 인수 합의\n■ 메타, 글로벌 대외협력 최고책임자 Joel Kaplan이 27년 퇴사 예정\n■ Fireworks AI, 300~400억 달러 밸류로 신규 펀딩 논의. 이전 밸류는 175억 달러\n감사합니다.\nhttps://t.me/Samsung_Global_AI_SW",
+   "url": "https://t.me/FastStockNewsUSA/23886"
+  },
   {
    "time_utc": "2026-10-20T22:50:01Z",
    "time_kst": "2026-10-21 07:50",

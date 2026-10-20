@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-20T23:14:06Z",
+ "fetched_at_utc": "2026-10-20T23:51:38Z",
  "notes": {
   "last_date": "그 종목이 마지막으로 거래된 날짜(거래소 현지 기준). 기준일과 다르면 그날 값이 아직 없거나 휴장이다.",
   "fx": "환율은 글로벌 외환시장 시세로, 서울외환시장 공식 종가가 아니다.",
@@ -73,51 +73,51 @@
     "symbol": "KRW=X",
     "source": "yahoo",
     "last_date": "2026-10-21",
-    "close": 1325.92,
+    "close": 1324.3101,
     "prev_date": "2026-10-20",
     "prev_close": 1330.0,
-    "change": -4.08,
-    "change_pct": -0.3068
+    "change": -5.6899,
+    "change_pct": -0.4278
    },
    "엔/달러": {
     "symbol": "JPY=X",
     "source": "yahoo",
     "last_date": "2026-10-21",
-    "close": 158.257,
+    "close": 158.285,
     "prev_date": "2026-10-20",
     "prev_close": 158.523,
-    "change": -0.266,
-    "change_pct": -0.1678
+    "change": -0.238,
+    "change_pct": -0.1501
    },
    "유로/달러": {
     "symbol": "EURUSD=X",
     "source": "yahoo",
     "last_date": "2026-10-21",
-    "close": 1.1231,
+    "close": 1.123,
     "prev_date": "2026-10-20",
     "prev_close": 1.1216,
-    "change": 0.0015,
-    "change_pct": 0.1348
+    "change": 0.0014,
+    "change_pct": 0.1235
    },
    "위안/달러": {
     "symbol": "CNY=X",
     "source": "yahoo",
-    "last_date": "2026-10-20",
-    "close": 6.6909,
-    "prev_date": "2026-10-19",
+    "last_date": "2026-10-21",
+    "close": 6.6673,
+    "prev_date": "2026-10-20",
     "prev_close": 6.6909,
-    "change": 0.0,
-    "change_pct": 0.0
+    "change": -0.0236,
+    "change_pct": -0.3527
    },
    "달러인덱스(DXY)": {
     "symbol": "DX-Y.NYB",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 101.73,
+    "close": 101.778,
     "prev_date": "2026-10-19",
     "prev_close": 101.98,
-    "change": -0.25,
-    "change_pct": -0.2451
+    "change": -0.202,
+    "change_pct": -0.1981
    }
   },
   "commodities": {
@@ -125,61 +125,61 @@
     "symbol": "CL=F",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 98.18,
+    "close": 98.38,
     "prev_date": "2026-10-19",
     "prev_close": 103.66,
-    "change": -5.48,
-    "change_pct": -5.2865
+    "change": -5.28,
+    "change_pct": -5.0936
    },
    "브렌트": {
     "symbol": "BZ=F",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 109.12,
+    "close": 109.35,
     "prev_date": "2026-10-19",
     "prev_close": 109.55,
-    "change": -0.43,
-    "change_pct": -0.3925
+    "change": -0.2,
+    "change_pct": -0.1826
    },
    "금": {
     "symbol": "GC=F",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 4138.6001,
+    "close": 4134.5,
     "prev_date": "2026-10-19",
     "prev_close": 4160.1001,
-    "change": -21.5,
-    "change_pct": -0.5168
+    "change": -25.6001,
+    "change_pct": -0.6154
    },
    "은": {
     "symbol": "SI=F",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 58.05,
+    "close": 57.95,
     "prev_date": "2026-10-19",
     "prev_close": 56.974,
-    "change": 1.076,
-    "change_pct": 1.8886
+    "change": 0.976,
+    "change_pct": 1.7131
    },
    "구리": {
     "symbol": "HG=F",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 6.6155,
+    "close": 6.61,
     "prev_date": "2026-10-19",
     "prev_close": 6.538,
-    "change": 0.0775,
-    "change_pct": 1.1854
+    "change": 0.072,
+    "change_pct": 1.1013
    },
    "천연가스": {
     "symbol": "NG=F",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 2.995,
+    "close": 2.984,
     "prev_date": "2026-10-19",
     "prev_close": 3.058,
-    "change": -0.063,
-    "change_pct": -2.0602
+    "change": -0.074,
+    "change_pct": -2.4199
    }
   },
   "world_indices": {
@@ -617,21 +617,21 @@
     "symbol": "BTC-USD",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 82902.1484,
+    "close": 82945.7891,
     "prev_date": "2026-10-19",
     "prev_close": 81853.5391,
-    "change": 1048.6094,
-    "change_pct": 1.2811
+    "change": 1092.25,
+    "change_pct": 1.3344
    },
    "이더리움": {
     "symbol": "ETH-USD",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 2447.6799,
+    "close": 2447.8401,
     "prev_date": "2026-10-19",
     "prev_close": 2404.8152,
-    "change": 42.8647,
-    "change_pct": 1.7825
+    "change": 43.0249,
+    "change_pct": 1.7891
    }
   }
  },
