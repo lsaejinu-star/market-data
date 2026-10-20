@@ -1,161 +1,161 @@
 {
- "fetched_at_utc": "2026-10-20T00:19:56Z",
+ "fetched_at_utc": "2026-10-20T23:14:40Z",
  "constituents_source": "wikipedia",
  "notes": "S&P500 기준 시장폭. 신고가/신저가는 최근 252거래일 종가 기준. 거래소 전체 집계와 다름.",
- "last_date": "2026-10-16",
+ "last_date": "2026-10-20",
  "universe": "S&P500 구성종목",
  "count": 503,
- "advancers": 249,
- "decliners": 254,
+ "advancers": 404,
+ "decliners": 99,
  "unchanged": 0,
- "advance_pct": 49.5,
- "new_52w_highs": 23,
- "new_52w_lows": 2,
- "pct_above_50dma": 45.5,
- "pct_above_200dma": 54.7,
- "equal_weight_avg_change_pct": -0.4,
+ "advance_pct": 80.3,
+ "new_52w_highs": 29,
+ "new_52w_lows": 1,
+ "pct_above_50dma": 53.3,
+ "pct_above_200dma": 55.7,
+ "equal_weight_avg_change_pct": 1.141,
  "top_gainers": [
   {
-   "symbol": "TRGP",
-   "name": "Targa Resources",
-   "sector": "Energy",
-   "close": 294.9,
-   "change_pct": 4.37
-  },
-  {
-   "symbol": "FANG",
-   "name": "Diamondback Energy",
-   "sector": "Energy",
-   "close": 203.95,
-   "change_pct": 4.27
-  },
-  {
-   "symbol": "EOG",
-   "name": "EOG Resources",
-   "sector": "Energy",
-   "close": 158.01,
-   "change_pct": 4.23
-  },
-  {
-   "symbol": "KMI",
-   "name": "Kinder Morgan",
-   "sector": "Energy",
-   "close": 34.2,
-   "change_pct": 4.2
-  },
-  {
-   "symbol": "APA",
-   "name": "APA Corporation",
-   "sector": "Energy",
-   "close": 49.15,
-   "change_pct": 4.07
-  },
-  {
-   "symbol": "NOC",
-   "name": "Northrop Grumman",
+   "symbol": "EFX",
+   "name": "Equifax",
    "sector": "Industrials",
-   "close": 519.86,
-   "change_pct": 4.05
+   "close": 176.54,
+   "change_pct": 11.33
   },
   {
-   "symbol": "RTX",
-   "name": "RTX Corporation",
-   "sector": "Industrials",
-   "close": 193.92,
-   "change_pct": 3.73
-  },
-  {
-   "symbol": "LMT",
-   "name": "Lockheed Martin",
-   "sector": "Industrials",
-   "close": 552.09,
-   "change_pct": 3.65
-  },
-  {
-   "symbol": "EQT",
-   "name": "EQT Corporation",
-   "sector": "Energy",
-   "close": 54.3,
-   "change_pct": 3.53
-  },
-  {
-   "symbol": "NI",
-   "name": "NiSource",
-   "sector": "Utilities",
-   "close": 42.68,
-   "change_pct": 3.47
-  }
- ],
- "top_losers": [
-  {
-   "symbol": "TWLO",
-   "name": "Twilio",
-   "sector": "Information Technology",
-   "close": 244.37,
-   "change_pct": -10.62
-  },
-  {
-   "symbol": "SMCI",
-   "name": "Supermicro",
-   "sector": "Information Technology",
-   "close": 31.63,
-   "change_pct": -9.86
-  },
-  {
-   "symbol": "FLEX",
-   "name": "Flex Ltd.",
-   "sector": "Information Technology",
-   "close": 90.46,
-   "change_pct": -8.16
+   "symbol": "HAS",
+   "name": "Hasbro",
+   "sector": "Consumer Discretionary",
+   "close": 109.52,
+   "change_pct": 11.2
   },
   {
    "symbol": "MRNA",
    "name": "Moderna",
    "sector": "Health Care",
-   "close": 218.01,
-   "change_pct": -7.82
+   "close": 242.08,
+   "change_pct": 6.69
   },
   {
-   "symbol": "PANW",
-   "name": "Palo Alto Networks",
-   "sector": "Information Technology",
-   "close": 342.0,
-   "change_pct": -7.63
+   "symbol": "MMM",
+   "name": "3M",
+   "sector": "Industrials",
+   "close": 171.37,
+   "change_pct": 5.78
   },
   {
-   "symbol": "STX",
-   "name": "Seagate Technology",
+   "symbol": "IT",
+   "name": "Gartner",
    "sector": "Information Technology",
-   "close": 639.01,
-   "change_pct": -7.5
+   "close": 219.64,
+   "change_pct": 5.74
   },
   {
-   "symbol": "PLTR",
-   "name": "Palantir Technologies",
-   "sector": "Information Technology",
-   "close": 186.03,
-   "change_pct": -7.22
+   "symbol": "CRL",
+   "name": "Charles River Laboratories",
+   "sector": "Health Care",
+   "close": 315.45,
+   "change_pct": 5.14
   },
   {
-   "symbol": "DDOG",
-   "name": "Datadog",
-   "sector": "Information Technology",
-   "close": 247.11,
-   "change_pct": -7.19
+   "symbol": "MSCI",
+   "name": "MSCI",
+   "sector": "Financials",
+   "close": 591.69,
+   "change_pct": 5.0
   },
   {
-   "symbol": "COHR",
-   "name": "Coherent Corp.",
-   "sector": "Information Technology",
-   "close": 232.9,
-   "change_pct": -7.06
+   "symbol": "ARE",
+   "name": "Alexandria Real Estate Equities",
+   "sector": "Real Estate",
+   "close": 42.65,
+   "change_pct": 4.97
   },
   {
-   "symbol": "P",
-   "name": "Everpure",
+   "symbol": "BMY",
+   "name": "Bristol Myers Squibb",
+   "sector": "Health Care",
+   "close": 61.68,
+   "change_pct": 4.84
+  },
+  {
+   "symbol": "TYL",
+   "name": "Tyler Technologies",
    "sector": "Information Technology",
-   "close": 124.01,
-   "change_pct": -7.04
+   "close": 377.17,
+   "change_pct": 4.74
+  }
+ ],
+ "top_losers": [
+  {
+   "symbol": "GM",
+   "name": "General Motors",
+   "sector": "Consumer Discretionary",
+   "close": 77.09,
+   "change_pct": -6.84
+  },
+  {
+   "symbol": "DVA",
+   "name": "DaVita",
+   "sector": "Health Care",
+   "close": 175.35,
+   "change_pct": -6.23
+  },
+  {
+   "symbol": "GPC",
+   "name": "Genuine Parts Company",
+   "sector": "Consumer Discretionary",
+   "close": 123.52,
+   "change_pct": -5.12
+  },
+  {
+   "symbol": "FIX",
+   "name": "Comfort Systems USA",
+   "sector": "Industrials",
+   "close": 1397.09,
+   "change_pct": -4.57
+  },
+  {
+   "symbol": "HWM",
+   "name": "Howmet Aerospace",
+   "sector": "Industrials",
+   "close": 211.63,
+   "change_pct": -3.82
+  },
+  {
+   "symbol": "GE",
+   "name": "GE Aerospace",
+   "sector": "Industrials",
+   "close": 299.87,
+   "change_pct": -3.67
+  },
+  {
+   "symbol": "PWR",
+   "name": "Quanta Services",
+   "sector": "Industrials",
+   "close": 596.0,
+   "change_pct": -3.62
+  },
+  {
+   "symbol": "LRCX",
+   "name": "Lam Research",
+   "sector": "Information Technology",
+   "close": 263.45,
+   "change_pct": -3.21
+  },
+  {
+   "symbol": "KLAC",
+   "name": "KLA Corporation",
+   "sector": "Information Technology",
+   "close": 161.74,
+   "change_pct": -2.8
+  },
+  {
+   "symbol": "ETN",
+   "name": "Eaton Corporation",
+   "sector": "Industrials",
+   "close": 381.98,
+   "change_pct": -2.43
   }
  ]
 }

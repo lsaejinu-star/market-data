@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-20T00:19:14Z",
+ "fetched_at_utc": "2026-10-20T23:14:06Z",
  "notes": {
   "last_date": "그 종목이 마지막으로 거래된 날짜(거래소 현지 기준). 기준일과 다르면 그날 값이 아직 없거나 휴장이다.",
   "fx": "환율은 글로벌 외환시장 시세로, 서울외환시장 공식 종가가 아니다.",
@@ -10,101 +10,101 @@
    "S&P500": {
     "symbol": "^GSPC",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 7690.73,
-    "prev_date": "2026-10-16",
-    "prev_close": 7659.4399,
-    "change": 31.29,
-    "change_pct": 0.4085
+    "last_date": "2026-10-20",
+    "close": 7712.5698,
+    "prev_date": "2026-10-19",
+    "prev_close": 7690.73,
+    "change": 21.8398,
+    "change_pct": 0.284
    },
    "나스닥종합": {
     "symbol": "^IXIC",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 26430.8867,
-    "prev_date": "2026-10-16",
-    "prev_close": 26140.0293,
-    "change": 290.8574,
-    "change_pct": 1.1127
+    "last_date": "2026-10-20",
+    "close": 26424.8164,
+    "prev_date": "2026-10-19",
+    "prev_close": 26430.8906,
+    "change": -6.0742,
+    "change_pct": -0.023
    },
    "다우존스": {
     "symbol": "^DJI",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 51966.0312,
-    "prev_date": "2026-10-16",
-    "prev_close": 52002.4102,
-    "change": -36.3789,
-    "change_pct": -0.07
+    "last_date": "2026-10-20",
+    "close": 52495.8789,
+    "prev_date": "2026-10-19",
+    "prev_close": 51966.0312,
+    "change": 529.8477,
+    "change_pct": 1.0196
    },
    "러셀2000": {
     "symbol": "^RUT",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 2728.2981,
-    "prev_date": "2026-10-16",
-    "prev_close": 2721.3701,
-    "change": 6.928,
-    "change_pct": 0.2546
+    "last_date": "2026-10-20",
+    "close": 2773.4197,
+    "prev_date": "2026-10-19",
+    "prev_close": 2728.3,
+    "change": 45.1196,
+    "change_pct": 1.6538
    },
    "필라델피아반도체(SOX)": {
     "symbol": "^SOX",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 11316.3428,
-    "prev_date": "2026-10-16",
-    "prev_close": 11137.29,
-    "change": 179.0527,
-    "change_pct": 1.6077
+    "last_date": "2026-10-20",
+    "close": 11283.8115,
+    "prev_date": "2026-10-19",
+    "prev_close": 11316.3398,
+    "change": -32.5283,
+    "change_pct": -0.2874
    },
    "VIX": {
     "symbol": "^VIX",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 18.44,
-    "prev_date": "2026-10-16",
-    "prev_close": 19.99,
-    "change": -1.55,
-    "change_pct": -7.7539
+    "last_date": "2026-10-20",
+    "close": 17.31,
+    "prev_date": "2026-10-19",
+    "prev_close": 18.44,
+    "change": -1.13,
+    "change_pct": -6.128
    }
   },
   "fx": {
    "원/달러": {
     "symbol": "KRW=X",
     "source": "yahoo",
-    "last_date": "2026-10-20",
-    "close": 1326.15,
-    "prev_date": "2026-10-19",
-    "prev_close": 1333.4301,
-    "change": -7.28,
-    "change_pct": -0.546
+    "last_date": "2026-10-21",
+    "close": 1325.92,
+    "prev_date": "2026-10-20",
+    "prev_close": 1330.0,
+    "change": -4.08,
+    "change_pct": -0.3068
    },
    "엔/달러": {
     "symbol": "JPY=X",
     "source": "yahoo",
-    "last_date": "2026-10-20",
-    "close": 158.529,
-    "prev_date": "2026-10-19",
-    "prev_close": 157.806,
-    "change": 0.723,
-    "change_pct": 0.4582
+    "last_date": "2026-10-21",
+    "close": 158.257,
+    "prev_date": "2026-10-20",
+    "prev_close": 158.523,
+    "change": -0.266,
+    "change_pct": -0.1678
    },
    "유로/달러": {
     "symbol": "EURUSD=X",
     "source": "yahoo",
-    "last_date": "2026-10-20",
-    "close": 1.1221,
-    "prev_date": "2026-10-19",
-    "prev_close": 1.1225,
-    "change": -0.0005,
-    "change_pct": -0.0415
+    "last_date": "2026-10-21",
+    "close": 1.1231,
+    "prev_date": "2026-10-20",
+    "prev_close": 1.1216,
+    "change": 0.0015,
+    "change_pct": 0.1348
    },
    "위안/달러": {
     "symbol": "CNY=X",
     "source": "yahoo",
-    "last_date": "2026-10-19",
+    "last_date": "2026-10-20",
     "close": 6.6909,
-    "prev_date": "2026-10-16",
+    "prev_date": "2026-10-19",
     "prev_close": 6.6909,
     "change": 0.0,
     "change_pct": 0.0
@@ -112,106 +112,106 @@
    "달러인덱스(DXY)": {
     "symbol": "DX-Y.NYB",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 101.942,
-    "prev_date": "2026-10-16",
-    "prev_close": 101.84,
-    "change": 0.102,
-    "change_pct": 0.1002
+    "last_date": "2026-10-20",
+    "close": 101.73,
+    "prev_date": "2026-10-19",
+    "prev_close": 101.98,
+    "change": -0.25,
+    "change_pct": -0.2451
    }
   },
   "commodities": {
    "WTI": {
     "symbol": "CL=F",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 98.1,
-    "prev_date": "2026-10-16",
-    "prev_close": 101.41,
-    "change": -3.31,
-    "change_pct": -3.264
+    "last_date": "2026-10-20",
+    "close": 98.18,
+    "prev_date": "2026-10-19",
+    "prev_close": 103.66,
+    "change": -5.48,
+    "change_pct": -5.2865
    },
    "브렌트": {
     "symbol": "BZ=F",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 109.07,
-    "prev_date": "2026-10-16",
-    "prev_close": 109.86,
-    "change": -0.79,
-    "change_pct": -0.7191
+    "last_date": "2026-10-20",
+    "close": 109.12,
+    "prev_date": "2026-10-19",
+    "prev_close": 109.55,
+    "change": -0.43,
+    "change_pct": -0.3925
    },
    "금": {
     "symbol": "GC=F",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 4156.0,
-    "prev_date": "2026-10-16",
-    "prev_close": 4181.1001,
-    "change": -25.1001,
-    "change_pct": -0.6003
+    "last_date": "2026-10-20",
+    "close": 4138.6001,
+    "prev_date": "2026-10-19",
+    "prev_close": 4160.1001,
+    "change": -21.5,
+    "change_pct": -0.5168
    },
    "은": {
     "symbol": "SI=F",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 57.08,
-    "prev_date": "2026-10-16",
-    "prev_close": 56.995,
-    "change": 0.085,
-    "change_pct": 0.1491
+    "last_date": "2026-10-20",
+    "close": 58.05,
+    "prev_date": "2026-10-19",
+    "prev_close": 56.974,
+    "change": 1.076,
+    "change_pct": 1.8886
    },
    "구리": {
     "symbol": "HG=F",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 6.574,
-    "prev_date": "2026-10-16",
-    "prev_close": 6.531,
-    "change": 0.043,
-    "change_pct": 0.6584
+    "last_date": "2026-10-20",
+    "close": 6.6155,
+    "prev_date": "2026-10-19",
+    "prev_close": 6.538,
+    "change": 0.0775,
+    "change_pct": 1.1854
    },
    "천연가스": {
     "symbol": "NG=F",
     "source": "yahoo",
-    "last_date": "2026-10-19",
-    "close": 3.041,
-    "prev_date": "2026-10-16",
-    "prev_close": 3.116,
-    "change": -0.075,
-    "change_pct": -2.4069
+    "last_date": "2026-10-20",
+    "close": 2.995,
+    "prev_date": "2026-10-19",
+    "prev_close": 3.058,
+    "change": -0.063,
+    "change_pct": -2.0602
    }
   },
   "world_indices": {
    "코스피": {
     "symbol": "^KS11",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 5668.0498,
-    "prev_date": "2026-10-15",
-    "prev_close": 5554.2202,
-    "change": 113.8296,
-    "change_pct": 2.0494
+    "last_date": "2026-10-19",
+    "close": 5768.0098,
+    "prev_date": "2026-10-16",
+    "prev_close": 5668.0498,
+    "change": 99.96,
+    "change_pct": 1.7636
    },
    "코스닥": {
     "symbol": "^KQ11",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 794.78,
-    "prev_date": "2026-10-15",
-    "prev_close": 760.82,
-    "change": 33.96,
-    "change_pct": 4.4636
+    "last_date": "2026-10-19",
+    "close": 808.89,
+    "prev_date": "2026-10-16",
+    "prev_close": 794.78,
+    "change": 14.11,
+    "change_pct": 1.7753
    },
    "니케이225": {
     "symbol": "^N225",
     "source": "yahoo",
-    "last_date": "2026-10-20",
-    "close": 64554.0586,
+    "last_date": "2026-10-19",
+    "close": 64916.6992,
     "prev_date": "2026-10-16",
     "prev_close": 65324.2891,
-    "change": -770.2305,
-    "change_pct": -1.1791
+    "change": -407.5898,
+    "change_pct": -0.6239
    },
    "항셍": {
     "symbol": "^HSI",
@@ -226,390 +226,390 @@
    "상해종합": {
     "symbol": "000001.SS",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 3716.2839,
-    "prev_date": "2026-10-15",
-    "prev_close": 3707.4761,
-    "change": 8.8079,
-    "change_pct": 0.2376
+    "last_date": "2026-10-19",
+    "close": 3730.9199,
+    "prev_date": "2026-10-16",
+    "prev_close": 3716.2839,
+    "change": 14.636,
+    "change_pct": 0.3938
    },
    "DAX": {
     "symbol": "^GDAXI",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 25622.6094,
-    "prev_date": "2026-10-15",
-    "prev_close": 25382.6191,
-    "change": 239.9902,
-    "change_pct": 0.9455
+    "last_date": "2026-10-19",
+    "close": 25319.7695,
+    "prev_date": "2026-10-16",
+    "prev_close": 25622.6094,
+    "change": -302.8398,
+    "change_pct": -1.1819
    },
    "FTSE100": {
     "symbol": "^FTSE",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 10881.9004,
-    "prev_date": "2026-10-15",
-    "prev_close": 10840.4004,
-    "change": 41.5,
-    "change_pct": 0.3828
+    "last_date": "2026-10-19",
+    "close": 10764.7002,
+    "prev_date": "2026-10-16",
+    "prev_close": 10881.9004,
+    "change": -117.2002,
+    "change_pct": -1.077
    },
    "STOXX600": {
     "symbol": "^STOXX",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 644.74,
-    "prev_date": "2026-10-15",
-    "prev_close": 640.16,
-    "change": 4.58,
-    "change_pct": 0.7154
+    "last_date": "2026-10-19",
+    "close": 639.56,
+    "prev_date": "2026-10-16",
+    "prev_close": 644.74,
+    "change": -5.18,
+    "change_pct": -0.8034
    }
   },
   "sector_etfs": {
    "기술(XLK)": {
     "symbol": "XLK",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 183.47,
-    "prev_date": "2026-10-15",
-    "prev_close": 189.19,
-    "change": -5.72,
-    "change_pct": -3.0234
+    "last_date": "2026-10-20",
+    "close": 185.44,
+    "prev_date": "2026-10-19",
+    "prev_close": 185.96,
+    "change": -0.52,
+    "change_pct": -0.2796
    },
    "금융(XLF)": {
     "symbol": "XLF",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 55.52,
-    "prev_date": "2026-10-15",
-    "prev_close": 55.27,
-    "change": 0.25,
-    "change_pct": 0.4523
+    "last_date": "2026-10-20",
+    "close": 55.72,
+    "prev_date": "2026-10-19",
+    "prev_close": 55.06,
+    "change": 0.66,
+    "change_pct": 1.1987
    },
    "에너지(XLE)": {
     "symbol": "XLE",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 68.24,
-    "prev_date": "2026-10-15",
-    "prev_close": 66.56,
-    "change": 1.68,
-    "change_pct": 2.524
+    "last_date": "2026-10-20",
+    "close": 67.97,
+    "prev_date": "2026-10-19",
+    "prev_close": 67.8,
+    "change": 0.17,
+    "change_pct": 0.2507
    },
    "헬스케어(XLV)": {
     "symbol": "XLV",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 176.71,
-    "prev_date": "2026-10-15",
-    "prev_close": 177.19,
-    "change": -0.48,
-    "change_pct": -0.2709
+    "last_date": "2026-10-20",
+    "close": 179.82,
+    "prev_date": "2026-10-19",
+    "prev_close": 175.65,
+    "change": 4.17,
+    "change_pct": 2.374
    },
    "임의소비재(XLY)": {
     "symbol": "XLY",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 112.46,
-    "prev_date": "2026-10-15",
-    "prev_close": 113.41,
-    "change": -0.95,
-    "change_pct": -0.8377
+    "last_date": "2026-10-20",
+    "close": 115.5,
+    "prev_date": "2026-10-19",
+    "prev_close": 114.46,
+    "change": 1.04,
+    "change_pct": 0.9086
    },
    "필수소비재(XLP)": {
     "symbol": "XLP",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 87.62,
-    "prev_date": "2026-10-15",
-    "prev_close": 86.68,
-    "change": 0.94,
-    "change_pct": 1.0845
+    "last_date": "2026-10-20",
+    "close": 87.75,
+    "prev_date": "2026-10-19",
+    "prev_close": 87.21,
+    "change": 0.54,
+    "change_pct": 0.6192
    },
    "산업재(XLI)": {
     "symbol": "XLI",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 167.76,
-    "prev_date": "2026-10-15",
-    "prev_close": 167.89,
-    "change": -0.13,
-    "change_pct": -0.0774
+    "last_date": "2026-10-20",
+    "close": 166.8,
+    "prev_date": "2026-10-19",
+    "prev_close": 166.68,
+    "change": 0.12,
+    "change_pct": 0.072
    },
    "소재(XLB)": {
     "symbol": "XLB",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 50.92,
-    "prev_date": "2026-10-15",
-    "prev_close": 50.56,
-    "change": 0.36,
-    "change_pct": 0.712
+    "last_date": "2026-10-20",
+    "close": 51.23,
+    "prev_date": "2026-10-19",
+    "prev_close": 50.95,
+    "change": 0.28,
+    "change_pct": 0.5496
    },
    "유틸리티(XLU)": {
     "symbol": "XLU",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 42.21,
-    "prev_date": "2026-10-15",
-    "prev_close": 41.65,
-    "change": 0.56,
-    "change_pct": 1.3445
+    "last_date": "2026-10-20",
+    "close": 41.88,
+    "prev_date": "2026-10-19",
+    "prev_close": 41.36,
+    "change": 0.52,
+    "change_pct": 1.2573
    },
    "부동산(XLRE)": {
     "symbol": "XLRE",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 42.16,
-    "prev_date": "2026-10-15",
-    "prev_close": 41.99,
-    "change": 0.17,
-    "change_pct": 0.4049
+    "last_date": "2026-10-20",
+    "close": 42.38,
+    "prev_date": "2026-10-19",
+    "prev_close": 41.67,
+    "change": 0.71,
+    "change_pct": 1.7039
    },
    "커뮤니케이션(XLC)": {
     "symbol": "XLC",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 110.32,
-    "prev_date": "2026-10-15",
-    "prev_close": 112.44,
-    "change": -2.12,
-    "change_pct": -1.8855
+    "last_date": "2026-10-20",
+    "close": 110.19,
+    "prev_date": "2026-10-19",
+    "prev_close": 110.09,
+    "change": 0.1,
+    "change_pct": 0.0908
    }
   },
   "theme_etfs": {
    "반도체(SMH)": {
     "symbol": "SMH",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 539.79,
-    "prev_date": "2026-10-15",
-    "prev_close": 558.84,
-    "change": -19.05,
-    "change_pct": -3.4089
+    "last_date": "2026-10-20",
+    "close": 546.36,
+    "prev_date": "2026-10-19",
+    "prev_close": 548.46,
+    "change": -2.1,
+    "change_pct": -0.3829
    },
    "소프트웨어(IGV)": {
     "symbol": "IGV",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 104.34,
-    "prev_date": "2026-10-15",
-    "prev_close": 109.6,
-    "change": -5.26,
-    "change_pct": -4.7993
+    "last_date": "2026-10-20",
+    "close": 106.93,
+    "prev_date": "2026-10-19",
+    "prev_close": 105.99,
+    "change": 0.94,
+    "change_pct": 0.8869
    },
    "바이오(XBI)": {
     "symbol": "XBI",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 144.32,
-    "prev_date": "2026-10-15",
-    "prev_close": 149.78,
-    "change": -5.46,
-    "change_pct": -3.6453
+    "last_date": "2026-10-20",
+    "close": 153.24,
+    "prev_date": "2026-10-19",
+    "prev_close": 147.86,
+    "change": 5.38,
+    "change_pct": 3.6386
    },
    "지역은행(KRE)": {
     "symbol": "KRE",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 69.81,
-    "prev_date": "2026-10-15",
-    "prev_close": 69.75,
-    "change": 0.06,
-    "change_pct": 0.086
+    "last_date": "2026-10-20",
+    "close": 70.62,
+    "prev_date": "2026-10-19",
+    "prev_close": 69.26,
+    "change": 1.36,
+    "change_pct": 1.9636
    },
    "방산·항공(ITA)": {
     "symbol": "ITA",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 209.07,
-    "prev_date": "2026-10-15",
-    "prev_close": 206.92,
-    "change": 2.15,
-    "change_pct": 1.0391
+    "last_date": "2026-10-20",
+    "close": 206.15,
+    "prev_date": "2026-10-19",
+    "prev_close": 207.76,
+    "change": -1.61,
+    "change_pct": -0.7749
    },
    "원자력·우라늄(URA)": {
     "symbol": "URA",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 35.43,
-    "prev_date": "2026-10-15",
-    "prev_close": 36.12,
-    "change": -0.69,
-    "change_pct": -1.9103
+    "last_date": "2026-10-20",
+    "close": 35.18,
+    "prev_date": "2026-10-19",
+    "prev_close": 35.27,
+    "change": -0.09,
+    "change_pct": -0.2552
    },
    "전력망(GRID)": {
     "symbol": "GRID",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 169.84,
-    "prev_date": "2026-10-15",
-    "prev_close": 172.11,
-    "change": -2.27,
-    "change_pct": -1.3189
+    "last_date": "2026-10-20",
+    "close": 167.91,
+    "prev_date": "2026-10-19",
+    "prev_close": 168.8,
+    "change": -0.89,
+    "change_pct": -0.5273
    },
    "인프라(PAVE)": {
     "symbol": "PAVE",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 52.78,
-    "prev_date": "2026-10-15",
-    "prev_close": 52.95,
-    "change": -0.17,
-    "change_pct": -0.3211
+    "last_date": "2026-10-20",
+    "close": 52.65,
+    "prev_date": "2026-10-19",
+    "prev_close": 52.77,
+    "change": -0.12,
+    "change_pct": -0.2274
    }
   },
   "stocks": {
    "애플": {
     "symbol": "AAPL",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 343.46,
-    "prev_date": "2026-10-15",
-    "prev_close": 342.0,
-    "change": 1.46,
-    "change_pct": 0.4269
+    "last_date": "2026-10-20",
+    "close": 339.5,
+    "prev_date": "2026-10-19",
+    "prev_close": 342.94,
+    "change": -3.44,
+    "change_pct": -1.0031
    },
    "마이크로소프트": {
     "symbol": "MSFT",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 529.05,
-    "prev_date": "2026-10-15",
-    "prev_close": 539.44,
-    "change": -10.39,
-    "change_pct": -1.9261
+    "last_date": "2026-10-20",
+    "close": 531.87,
+    "prev_date": "2026-10-19",
+    "prev_close": 533.52,
+    "change": -1.65,
+    "change_pct": -0.3093
    },
    "알파벳": {
     "symbol": "GOOGL",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 340.59,
-    "prev_date": "2026-10-15",
-    "prev_close": 349.22,
-    "change": -8.63,
-    "change_pct": -2.4712
+    "last_date": "2026-10-20",
+    "close": 340.275,
+    "prev_date": "2026-10-19",
+    "prev_close": 344.18,
+    "change": -3.905,
+    "change_pct": -1.1346
    },
    "아마존": {
     "symbol": "AMZN",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 250.0,
-    "prev_date": "2026-10-15",
-    "prev_close": 254.76,
-    "change": -4.76,
-    "change_pct": -1.8684
+    "last_date": "2026-10-20",
+    "close": 262.63,
+    "prev_date": "2026-10-19",
+    "prev_close": 262.45,
+    "change": 0.18,
+    "change_pct": 0.0686
    },
    "엔비디아": {
     "symbol": "NVDA",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 214.13,
-    "prev_date": "2026-10-15",
-    "prev_close": 217.23,
-    "change": -3.1,
-    "change_pct": -1.4271
+    "last_date": "2026-10-20",
+    "close": 216.47,
+    "prev_date": "2026-10-19",
+    "prev_close": 217.09,
+    "change": -0.62,
+    "change_pct": -0.2856
    },
    "메타": {
     "symbol": "META",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 709.33,
-    "prev_date": "2026-10-15",
-    "prev_close": 736.72,
-    "change": -27.39,
-    "change_pct": -3.7178
+    "last_date": "2026-10-20",
+    "close": 694.25,
+    "prev_date": "2026-10-19",
+    "prev_close": 705.44,
+    "change": -11.19,
+    "change_pct": -1.5862
    },
    "테슬라": {
     "symbol": "TSLA",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 354.72,
-    "prev_date": "2026-10-15",
-    "prev_close": 362.44,
-    "change": -7.72,
-    "change_pct": -2.13
+    "last_date": "2026-10-20",
+    "close": 373.71,
+    "prev_date": "2026-10-19",
+    "prev_close": 368.06,
+    "change": 5.65,
+    "change_pct": 1.5351
    },
    "노키아": {
     "symbol": "NOK",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 9.14,
-    "prev_date": "2026-10-15",
-    "prev_close": 9.57,
-    "change": -0.43,
-    "change_pct": -4.4932
+    "last_date": "2026-10-20",
+    "close": 9.02,
+    "prev_date": "2026-10-19",
+    "prev_close": 9.08,
+    "change": -0.06,
+    "change_pct": -0.6608
    }
   },
   "ytd_etfs": {
    "SPY": {
     "symbol": "SPY",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 763.25,
-    "prev_date": "2026-10-15",
-    "prev_close": 771.79,
-    "change": -8.54,
-    "change_pct": -1.1065
+    "last_date": "2026-10-20",
+    "close": 769.05,
+    "prev_date": "2026-10-19",
+    "prev_close": 766.48,
+    "change": 2.57,
+    "change_pct": 0.3353
    },
    "QQQ": {
     "symbol": "QQQ",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 709.8,
-    "prev_date": "2026-10-15",
-    "prev_close": 728.0,
-    "change": -18.2,
-    "change_pct": -2.5
+    "last_date": "2026-10-20",
+    "close": 717.63,
+    "prev_date": "2026-10-19",
+    "prev_close": 718.36,
+    "change": -0.73,
+    "change_pct": -0.1016
    },
    "DIA": {
     "symbol": "DIA",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 519.1,
-    "prev_date": "2026-10-15",
-    "prev_close": 521.18,
-    "change": -2.08,
-    "change_pct": -0.3991
+    "last_date": "2026-10-20",
+    "close": 524.36,
+    "prev_date": "2026-10-19",
+    "prev_close": 518.92,
+    "change": 5.44,
+    "change_pct": 1.0483
    },
    "IWM": {
     "symbol": "IWM",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 270.44,
-    "prev_date": "2026-10-15",
-    "prev_close": 275.08,
-    "change": -4.64,
-    "change_pct": -1.6868
+    "last_date": "2026-10-20",
+    "close": 275.78,
+    "prev_date": "2026-10-19",
+    "prev_close": 271.28,
+    "change": 4.5,
+    "change_pct": 1.6588
    },
    "SOXX": {
     "symbol": "SOXX",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 493.39,
-    "prev_date": "2026-10-15",
-    "prev_close": 514.71,
-    "change": -21.32,
-    "change_pct": -4.1421
+    "last_date": "2026-10-20",
+    "close": 500.01,
+    "prev_date": "2026-10-19",
+    "prev_close": 501.93,
+    "change": -1.92,
+    "change_pct": -0.3825
    },
    "VIXY": {
     "symbol": "VIXY",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 17.73,
-    "prev_date": "2026-10-15",
-    "prev_close": 16.4,
-    "change": 1.33,
-    "change_pct": 8.1098
+    "last_date": "2026-10-20",
+    "close": 16.86,
+    "prev_date": "2026-10-19",
+    "prev_close": 17.01,
+    "change": -0.15,
+    "change_pct": -0.8818
    },
    "UUP": {
     "symbol": "UUP",
     "source": "yahoo",
-    "last_date": "2026-10-16",
-    "close": 28.92,
-    "prev_date": "2026-10-15",
+    "last_date": "2026-10-20",
+    "close": 28.9,
+    "prev_date": "2026-10-19",
     "prev_close": 29.0,
-    "change": -0.08,
-    "change_pct": -0.2759
+    "change": -0.1,
+    "change_pct": -0.3448
    }
   },
   "crypto": {
@@ -617,21 +617,21 @@
     "symbol": "BTC-USD",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 81521.0,
-    "prev_date": "2026-10-18",
-    "prev_close": 82017.6016,
-    "change": -496.6016,
-    "change_pct": -0.6055
+    "close": 82902.1484,
+    "prev_date": "2026-10-19",
+    "prev_close": 81853.5391,
+    "change": 1048.6094,
+    "change_pct": 1.2811
    },
    "이더리움": {
     "symbol": "ETH-USD",
     "source": "yahoo",
     "last_date": "2026-10-20",
-    "close": 2393.1101,
-    "prev_date": "2026-10-18",
-    "prev_close": 2408.7415,
-    "change": -15.6313,
-    "change_pct": -0.6489
+    "close": 2447.6799,
+    "prev_date": "2026-10-19",
+    "prev_close": 2404.8152,
+    "change": 42.8647,
+    "change_pct": 1.7825
    }
   }
  },

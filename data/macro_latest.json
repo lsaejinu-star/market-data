@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-20T00:19:15Z",
+ "fetched_at_utc": "2026-10-20T23:14:07Z",
  "source": "FRED (St. Louis Fed), fredgraph CSV",
  "notes": {
   "period": "지표의 해당 기간(월간 지표는 그 달 1일로 표시). 발표일이 아님.",
@@ -93,56 +93,56 @@
   "DFF": {
    "name": "실효연방기금금리 EFFR(%)",
    "frequency": "daily",
-   "period": "2026-10-16",
+   "period": "2026-10-19",
    "value": 3.88,
-   "prev_period": "2026-10-15",
+   "prev_period": "2026-10-18",
    "prev_value": 3.88,
    "change": 0.0
   },
   "DGS2": {
    "name": "국채 2년(%)",
    "frequency": "daily",
-   "period": "2026-10-16",
-   "value": 4.74,
-   "prev_period": "2026-10-15",
-   "prev_value": 4.77,
-   "change": -0.03
+   "period": "2026-10-19",
+   "value": 4.77,
+   "prev_period": "2026-10-16",
+   "prev_value": 4.74,
+   "change": 0.03
   },
   "DGS10": {
    "name": "국채 10년(%)",
    "frequency": "daily",
-   "period": "2026-10-16",
-   "value": 5.09,
-   "prev_period": "2026-10-15",
-   "prev_value": 5.1,
-   "change": -0.01
+   "period": "2026-10-19",
+   "value": 5.15,
+   "prev_period": "2026-10-16",
+   "prev_value": 5.09,
+   "change": 0.06
   },
   "DGS30": {
    "name": "국채 30년(%)",
    "frequency": "daily",
-   "period": "2026-10-16",
-   "value": 5.43,
-   "prev_period": "2026-10-15",
+   "period": "2026-10-19",
+   "value": 5.48,
+   "prev_period": "2026-10-16",
    "prev_value": 5.43,
-   "change": 0.0
+   "change": 0.05
   },
   "T10Y2Y": {
    "name": "10년-2년 스프레드(%p)",
    "frequency": "daily",
-   "period": "2026-10-19",
-   "value": 0.38,
-   "prev_period": "2026-10-16",
-   "prev_value": 0.35,
-   "change": 0.03
+   "period": "2026-10-20",
+   "value": 0.33,
+   "prev_period": "2026-10-19",
+   "prev_value": 0.38,
+   "change": -0.05
   },
   "BAMLH0A0HYM2": {
    "name": "하이일드 스프레드 HY OAS(%p)",
    "frequency": "daily",
-   "period": "2026-10-16",
-   "value": 3.31,
-   "prev_period": "2026-10-15",
-   "prev_value": 3.23,
-   "change": 0.08
+   "period": "2026-10-19",
+   "value": 3.29,
+   "prev_period": "2026-10-16",
+   "prev_value": 3.31,
+   "change": -0.02
   }
  },
  "failed": []
