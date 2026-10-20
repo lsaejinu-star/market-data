@@ -1,6 +1,6 @@
 {
  "channel": "insidertracking",
- "fetched_at_utc": "2026-10-19T23:47:32Z",
+ "fetched_at_utc": "2026-10-20T00:19:56Z",
  "hours": 26,
  "posts": [
   {
@@ -236,12 +236,6 @@
    "time_kst": "2026-10-20 05:43",
    "text": "코스피 야간선물 -0.16%\n코스피 야간선물, 오후 6시 - 다음 날 오전 6시",
    "url": "https://t.me/insidertracking/66713"
-  },
-  {
-   "time_utc": "2026-10-19T20:43:07Z",
-   "time_kst": "2026-10-20 05:43",
-   "text": "공포 탐욕지수는 Extreme Fear 17에서 23으로 이동",
-   "url": "https://t.me/insidertracking/66712"
   }
  ]
 }

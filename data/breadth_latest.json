@@ -1,161 +1,161 @@
 {
- "fetched_at_utc": "2026-10-19T23:47:32Z",
+ "fetched_at_utc": "2026-10-20T00:19:56Z",
  "constituents_source": "wikipedia",
  "notes": "S&P500 기준 시장폭. 신고가/신저가는 최근 252거래일 종가 기준. 거래소 전체 집계와 다름.",
- "last_date": "2026-10-19",
+ "last_date": "2026-10-16",
  "universe": "S&P500 구성종목",
  "count": 503,
- "advancers": 176,
- "decliners": 324,
- "unchanged": 3,
- "advance_pct": 35.0,
- "new_52w_highs": 7,
- "new_52w_lows": 4,
- "pct_above_50dma": 44.1,
- "pct_above_200dma": 51.5,
- "equal_weight_avg_change_pct": -0.34,
+ "advancers": 249,
+ "decliners": 254,
+ "unchanged": 0,
+ "advance_pct": 49.5,
+ "new_52w_highs": 23,
+ "new_52w_lows": 2,
+ "pct_above_50dma": 45.5,
+ "pct_above_200dma": 54.7,
+ "equal_weight_avg_change_pct": -0.4,
  "top_gainers": [
   {
-   "symbol": "WDC",
-   "name": "Western Digital",
-   "sector": "Information Technology",
-   "close": 352.21,
-   "change_pct": 6.09
+   "symbol": "TRGP",
+   "name": "Targa Resources",
+   "sector": "Energy",
+   "close": 294.9,
+   "change_pct": 4.37
   },
   {
-   "symbol": "SNDK",
-   "name": "Sandisk",
-   "sector": "Information Technology",
-   "close": 1371.12,
-   "change_pct": 5.53
+   "symbol": "FANG",
+   "name": "Diamondback Energy",
+   "sector": "Energy",
+   "close": 203.95,
+   "change_pct": 4.27
   },
   {
-   "symbol": "DDOG",
-   "name": "Datadog",
-   "sector": "Information Technology",
-   "close": 260.36,
-   "change_pct": 5.36
+   "symbol": "EOG",
+   "name": "EOG Resources",
+   "sector": "Energy",
+   "close": 158.01,
+   "change_pct": 4.23
   },
   {
-   "symbol": "TWLO",
-   "name": "Twilio",
-   "sector": "Information Technology",
-   "close": 257.29,
-   "change_pct": 5.29
+   "symbol": "KMI",
+   "name": "Kinder Morgan",
+   "sector": "Energy",
+   "close": 34.2,
+   "change_pct": 4.2
   },
   {
-   "symbol": "AMZN",
-   "name": "Amazon",
-   "sector": "Consumer Discretionary",
-   "close": 262.45,
-   "change_pct": 4.98
-  },
-  {
-   "symbol": "PLTR",
-   "name": "Palantir Technologies",
-   "sector": "Information Technology",
-   "close": 194.15,
-   "change_pct": 4.36
-  },
-  {
-   "symbol": "MRNA",
-   "name": "Moderna",
-   "sector": "Health Care",
-   "close": 226.89,
+   "symbol": "APA",
+   "name": "APA Corporation",
+   "sector": "Energy",
+   "close": 49.15,
    "change_pct": 4.07
   },
   {
-   "symbol": "MRVL",
-   "name": "Marvell Technology",
-   "sector": "Information Technology",
-   "close": 237.09,
-   "change_pct": 4.06
+   "symbol": "NOC",
+   "name": "Northrop Grumman",
+   "sector": "Industrials",
+   "close": 519.86,
+   "change_pct": 4.05
   },
   {
-   "symbol": "TSLA",
-   "name": "Tesla, Inc.",
-   "sector": "Consumer Discretionary",
-   "close": 368.06,
-   "change_pct": 3.76
+   "symbol": "RTX",
+   "name": "RTX Corporation",
+   "sector": "Industrials",
+   "close": 193.92,
+   "change_pct": 3.73
   },
   {
-   "symbol": "MPWR",
-   "name": "Monolithic Power Systems",
-   "sector": "Information Technology",
-   "close": 1253.66,
+   "symbol": "LMT",
+   "name": "Lockheed Martin",
+   "sector": "Industrials",
+   "close": 552.09,
+   "change_pct": 3.65
+  },
+  {
+   "symbol": "EQT",
+   "name": "EQT Corporation",
+   "sector": "Energy",
+   "close": 54.3,
    "change_pct": 3.53
+  },
+  {
+   "symbol": "NI",
+   "name": "NiSource",
+   "sector": "Utilities",
+   "close": 42.68,
+   "change_pct": 3.47
   }
  ],
  "top_losers": [
   {
-   "symbol": "MOS",
-   "name": "Mosaic Company (The)",
-   "sector": "Materials",
-   "close": 17.92,
-   "change_pct": -4.78
+   "symbol": "TWLO",
+   "name": "Twilio",
+   "sector": "Information Technology",
+   "close": 244.37,
+   "change_pct": -10.62
   },
   {
-   "symbol": "NRG",
-   "name": "NRG Energy",
-   "sector": "Utilities",
-   "close": 99.38,
-   "change_pct": -4.21
-  },
-  {
-   "symbol": "AMP",
-   "name": "Ameriprise Financial",
-   "sector": "Financials",
-   "close": 480.41,
-   "change_pct": -4.07
-  },
-  {
-   "symbol": "ES",
-   "name": "Eversource Energy",
-   "sector": "Utilities",
-   "close": 64.48,
-   "change_pct": -3.55
-  },
-  {
-   "symbol": "HONA",
-   "name": "Honeywell Aerospace",
-   "sector": "Industrials",
-   "close": 162.49,
-   "change_pct": -3.33
+   "symbol": "SMCI",
+   "name": "Supermicro",
+   "sector": "Information Technology",
+   "close": 31.63,
+   "change_pct": -9.86
   },
   {
    "symbol": "FLEX",
    "name": "Flex Ltd.",
    "sector": "Information Technology",
-   "close": 87.54,
-   "change_pct": -3.23
+   "close": 90.46,
+   "change_pct": -8.16
   },
   {
-   "symbol": "DOC",
-   "name": "Healthpeak Properties",
-   "sector": "Real Estate",
-   "close": 18.4,
-   "change_pct": -3.06
+   "symbol": "MRNA",
+   "name": "Moderna",
+   "sector": "Health Care",
+   "close": 218.01,
+   "change_pct": -7.82
   },
   {
-   "symbol": "CEG",
-   "name": "Constellation Energy",
-   "sector": "Utilities",
-   "close": 263.19,
-   "change_pct": -3.01
+   "symbol": "PANW",
+   "name": "Palo Alto Networks",
+   "sector": "Information Technology",
+   "close": 342.0,
+   "change_pct": -7.63
   },
   {
-   "symbol": "DHI",
-   "name": "D. R. Horton",
-   "sector": "Consumer Discretionary",
-   "close": 135.31,
-   "change_pct": -2.93
+   "symbol": "STX",
+   "name": "Seagate Technology",
+   "sector": "Information Technology",
+   "close": 639.01,
+   "change_pct": -7.5
   },
   {
-   "symbol": "BG",
-   "name": "Bunge Global",
-   "sector": "Consumer Staples",
-   "close": 103.11,
-   "change_pct": -2.85
+   "symbol": "PLTR",
+   "name": "Palantir Technologies",
+   "sector": "Information Technology",
+   "close": 186.03,
+   "change_pct": -7.22
+  },
+  {
+   "symbol": "DDOG",
+   "name": "Datadog",
+   "sector": "Information Technology",
+   "close": 247.11,
+   "change_pct": -7.19
+  },
+  {
+   "symbol": "COHR",
+   "name": "Coherent Corp.",
+   "sector": "Information Technology",
+   "close": 232.9,
+   "change_pct": -7.06
+  },
+  {
+   "symbol": "P",
+   "name": "Everpure",
+   "sector": "Information Technology",
+   "close": 124.01,
+   "change_pct": -7.04
   }
  ]
 }

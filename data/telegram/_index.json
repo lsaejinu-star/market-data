@@ -1,10 +1,10 @@
 {
- "fetched_at_utc": "2026-10-19T23:47:32Z",
+ "fetched_at_utc": "2026-10-20T00:19:56Z",
  "hours": 26,
  "channels": {
   "insidertracking": {
    "status": "ok",
-   "posts": 40
+   "posts": 39
   },
   "FastStockNewsUSA": {
    "status": "ok",
