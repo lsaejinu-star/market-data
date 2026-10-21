@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-20T23:52:14Z",
+ "fetched_at_utc": "2026-10-21T23:27:07Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -7,6 +7,30 @@
  },
  "treasury_auctions": {
   "recent": [
+   {
+    "auction_date": "",
+    "type": "Bill",
+    "term": "17-Week",
+    "reopening": "No",
+    "high_yield": null,
+    "high_discount_rate": null,
+    "bid_to_cover": "2.76",
+    "indirect_pct": null,
+    "direct_pct": null,
+    "offering_amount": "75000000000"
+   },
+   {
+    "auction_date": "",
+    "type": "Bond",
+    "term": "19-Year 10-Month",
+    "reopening": "Yes",
+    "high_yield": "5.469",
+    "high_discount_rate": null,
+    "bid_to_cover": "2.73",
+    "indirect_pct": null,
+    "direct_pct": null,
+    "offering_amount": "13000000000"
+   },
    {
     "auction_date": "",
     "type": "Bill",
@@ -78,65 +102,15 @@
     "indirect_pct": null,
     "direct_pct": null,
     "offering_amount": "75000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "6-Week",
-    "reopening": "Yes",
-    "high_yield": null,
-    "high_discount_rate": null,
-    "bid_to_cover": "2.58",
-    "indirect_pct": null,
-    "direct_pct": null,
-    "offering_amount": "95000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "13-Week",
-    "reopening": "Yes",
-    "high_yield": null,
-    "high_discount_rate": null,
-    "bid_to_cover": "2.68",
-    "indirect_pct": null,
-    "direct_pct": null,
-    "offering_amount": "95000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "26-Week",
-    "reopening": "Yes",
-    "high_yield": null,
-    "high_discount_rate": null,
-    "bid_to_cover": "2.76",
-    "indirect_pct": null,
-    "direct_pct": null,
-    "offering_amount": "82000000000"
    }
   ],
   "upcoming": [
-   {
-    "auction_date": "",
-    "type": "Bond",
-    "term": "19-Year 10-Month",
-    "reopening": "Yes",
-    "offering_amount": "13000000000"
-   },
    {
     "auction_date": "",
     "type": "Note",
     "term": "5-Year",
     "reopening": "No",
     "offering_amount": "26000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "17-Week",
-    "reopening": "No",
-    "offering_amount": "75000000000"
    },
    {
     "auction_date": "",
@@ -151,6 +125,13 @@
     "term": "8-Week",
     "reopening": "Yes",
     "offering_amount": "105000000000"
+   },
+   {
+    "auction_date": "",
+    "type": "Bill",
+    "term": "10-Day",
+    "reopening": "Yes",
+    "offering_amount": "25000000000"
    },
    {
     "auction_date": "",
@@ -273,6 +254,20 @@
    "feed": "https://www.ecb.europa.eu/rss/press.html",
    "items": [
     {
+     "time_utc": "2026-10-21T08:00:00Z",
+     "time_kst": "2026-10-21 17:00",
+     "title": "Piero Cipollone: Pontes and Appia: unlocking opportunities for banks",
+     "source": null,
+     "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261021_1~d190f2c349.en.pdf"
+    },
+    {
+     "time_utc": "2026-10-21T04:15:00Z",
+     "time_kst": "2026-10-21 13:15",
+     "title": "Philip R. Lane: Euro liquidity lines and the international monetary system",
+     "source": null,
+     "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261021~401d6c4b70.en.html"
+    },
+    {
      "time_utc": "2026-10-20T07:00:00Z",
      "time_kst": "2026-10-20 16:00",
      "title": "Frank Elderson: Interview with Die Presse",
@@ -378,109 +373,109 @@
   "GOOGL": {
    "items": [
     {
-     "time_utc": "2026-10-20T22:00:52Z",
-     "time_kst": "2026-10-21 07:00",
-     "title": "Amazon vs Alphabet: Which \"Magnificent Seven\" Stock Is the Better Buy Right Now? - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPajAyVDVsWXRjRWhIaG5JOGMwUU5UQVc3SFRiWWdBZXdoanZoZVdLWXJNY0RHNlpnRm05TURDYnFTekcxR0ZMUkhvNnF3UnNicWhjTm1TOVkwYUVKbkt0ajhib2VZYi1lQ2xTSzI4VzlDWGg0MlNYcENDa1FXWHJra1NFX1RyVnljbGJPYWRCYVBjTWRUNVRYTHV6My1nMmtmb2tKQW1Pb0ZhWkktcWlvOExfTzQwRGJGcVM4?oc=5"
+     "time_utc": "2026-10-21T21:45:00Z",
+     "time_kst": "2026-10-22 06:45",
+     "title": "Markets & Stocks - FinancialContent",
+     "source": "FinancialContent",
+     "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxPT0d6ZUlleEc5WHVsRzlmazg2d3VlNjBDMW1RLWZSZEU5ak5yc1QwenljN1l3aV9zQXF5WVNISGl0YURLdDdzQURTemVWTlZRUi1td04zaEdfRl9nQWxuNTJ4b3NDNUxFel9zZ0pTQ2paMXI1XzhBUmZTYlh5STVYS3NOeEt0OVczdkloVlFVTUlKaUZYZEhwTWpPcElDNzFjSTZPLUJkOFg2cnVjRWVMY29qNEY3SEtCeVJkUXlmeW5SMG9KaTJ0cUFEMTNKcm80RzBFTUpqRHFSTWZ4eWRlaFFNOURub3ZIUzZSLVRDVU5sZjZWS0g0X3Z1eHYzeTF0NURJaDVzaE02cTNubV85emIwemhsSldtRGdDSEJXcVRzd2s?oc=5"
     },
     {
-     "time_utc": "2026-10-20T21:03:32Z",
-     "time_kst": "2026-10-21 06:03",
-     "title": "Michael Rulli sells stocks in Alphabet Inc. and WesBanco Inc. from his Roth IRA - Investing.com",
+     "time_utc": "2026-10-21T21:41:00Z",
+     "time_kst": "2026-10-22 06:41",
+     "title": "Meta Creates New Share Class to Bankroll AI Arms Race - The Tech Buzz",
+     "source": "The Tech Buzz",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNbVQyMXFkQlNHTGlRbzNUV0VsWkZXMVJSclJCeXhvNHhGeld5UkZtVUxsVzhzbVVRSHQzUXRYSDc3MFhWMUk1bGl3eW8zSFNBZEtNT25qeDRPZDlRY3lZOVl3R0RnLVNIeXdDQ0E4LXBFTVVPTDl0YU5jNTNQUE1sSnpUZnAya1B3WDdKTFRlTQ?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T21:36:00Z",
+     "time_kst": "2026-10-22 06:36",
+     "title": "Prediction: This Artificial Intelligence (AI) Stock Will Be the Biggest Winner of 2027 - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQY25DZ0FlNTJMTFBwRkNKV2p1Skg2dFN1djd2ejlTOTE1U1RraXhadzV0NFotcXlLTlhhRXpiWGRwR1otaTAtNWtNY3JxN0lQa2NEc0RaMWxFb2xXV0gwbS1VdmJWSU1pc2ZaNlZuMEMwTmE1ZW12RFlldTEtZ1lZSWpTbVdyTDdNcGNSTW9mdV8xY2tHLUFlX2tMNDZwTEtSb1M3ZjcyMlh2ZnBp?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T20:34:41Z",
+     "time_kst": "2026-10-22 05:34",
+     "title": "Alphabet Stocks Fall Over 2% While Google Cloud Adds OpenAI Models - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPWEF1YWRUcm04eWhNNE9BVmZ3em5fX3pyZjRlRU51N3UwemZZSkN4bUpSRXlsQVZBdkE4SGZBS09kN1VMVHAwQklnM2xOdE1rOThGdFVJOXVVX2laLXU0N0MxVEFMQ2lia0J1NUFXelhXY0NfQkMzR2F6Y2cwU2pFUU9OYTJDMFVReHpfdXlvdkhweWtFeFE?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T20:27:06Z",
+     "time_kst": "2026-10-22 05:27",
+     "title": "Alphabet’s AI Spending Is So Heavy It’s Eating Into Free Cash Flow - AOL.co.uk",
+     "source": "AOL.co.uk",
+     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPczVNZHZabDlMcnUtNGM3QWN3M3pyV2JzRkwtVTR6LXpXNGZHbnVHQmc1YzlwR0tPWldZSGdaXzR1V2owcWtmaVYyUmUzcElkdmt3WHNiWHI0VG5ocmt0UGkwR1dyZlFXeFhhUTY2Z1REY19SUUw5Y1hJSy1USS12aEQtVGI2QQ?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T20:12:31Z",
+     "time_kst": "2026-10-22 05:12",
+     "title": "Netflix Is Down 38% Since Completing Its 10-For-1 Stock Split. Here's Why the Sell-Off Is Worsening After Its Latest Earnings. - The Globe and Mail",
+     "source": "The Globe and Mail",
+     "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxNU2hSZ3BTTi1pbXlKNFh3aW1HV3NFazE1WHMtWG9TM00xQmZVYUE2NWZHaDItQVJjZUw5bHFyV0dVSExDSEFpTEJpZWRNMV83ZEdpVWNpRlJJcklwVjl0YnY2Z1RDSEJVNWh5Q0ZyMVREWmlvOWRRRE5pMkotcmdlbURmZUNSSzNCdVBUM0M0d3R6elNEN3RGT0VIa2s0S3FIUnJkTFNaTzE0SjNaTmtaZENuVlM3RXVSR0dfdVh2UGxJWDlhNWk5RnlHdnowVHA2WDY2OWlsd0UzaW5meENhano3SGp0RWEzRWQxclZwdUZWYW5tLVhGUmFuQjczSTJMRklmWV9lV1EyZXhNNFVfeVlseHU4ZmpQbnc4eW4wVlJtSjFqdHZLTkEycEVkZGQ4?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T20:07:00Z",
+     "time_kst": "2026-10-22 05:07",
+     "title": "Bank of America sees a $300 billion test for Google stock - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOTkZrLUtON3kxMXgzWjFkNFVOS29HQlF0WDduT1RGODBNVHBNek1rTUNCak1oWGZjcVlkdTR3a0YtRlVpb3QtTEhGQmFQV3dmOWsyTDZyZElvVFh5ZUpBZDRiVlNPYUpZQXVKamtlUzNuVVEzQjBfa29vaTh1RVRLbW5zMmdIVzFJRmkwVHNVSlVKNDZpYm1mNA?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T20:01:35Z",
+     "time_kst": "2026-10-22 05:01",
+     "title": "Alphabet Stocks Fall Over 2% While Google Cloud Adds OpenAI Models - GuruFocus",
+     "source": "GuruFocus",
+     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQUEU3T0k0TnRvS3ZrTENhb2JXVE9SZG42VTI0b0hZT19PRFlXWnZ4OFJMZWJyN1ljTEQ1c1pFLUwwVkt6WmtXTDFVbDN1V0k4c3pMRmdTUmQ0amVZYWlzWXZhMDJKbVlBWFNIdVBMUGlLRkxJVzNLVXV3a2g5dWtWNDJNQWJWdG9UVjQwbEZWUDNwN3NzUFYwQWJjZXdVbUtIeWRtd21Vdw?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T19:12:34Z",
+     "time_kst": "2026-10-22 04:12",
+     "title": "[美특징주]알파벳, 오픈AI 모델 구글 클라우드 공급 발표에도 주가 2%↓ - 이데일리",
+     "source": "이데일리",
+     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQaWIzUkc2V2ZaZDdpN0I4WFFHWS1qUWQ0Q3cxa21JOXUzbTMyNHBucENUWDdzODY1SDJWcl9jM1liNVZDcnpVeGVCbFRRTFN4N0JjWERUSElkX3RyQWFIcll2ZWJKTUNiRV9qNlZLUFBoOHJWSXY2ZVpqc0FvOVJqNQ?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T18:49:35Z",
+     "time_kst": "2026-10-22 03:49",
+     "title": "Alphabet stock may move 5.1% on Oct. 28 earnings report - Investing.com",
      "source": "Investing.com",
-     "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQSTRRN2FxcGhpVzdWaXBvakp5QzVXMGJtNFozWDdJM0JrQ2FIZFZPQUlxSVo4ajRNOHZrVWF2LXRwM2JKUHhhZUhMVUpyakdzbkJkWFJBcG1WdTdWSmtWaFMybGxlRjlfN3pOQXB6Rnlvb04yNFhCRHd3dVlyTWhFMHdYdlhoQld3bXpReUFKcE5Iek5IeWRIN3U5bktYLTU0WXVhaHlwOVNDeTIxWXdVZ2s4YnFYdGZmeUhwRUVJU2J4RXgwOWNiendfdlJhejg?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNU3hBc01LcGF5SDBXNUlkYUpGekdtRDlfOFE0WHQ5N1d2dDdZSS0xbWEyNWZRdWxBS1BLendJRUI0RHprVVdlNEVGRTBUOExXallUQlQxTkMzckF6dUtlWTRSbUJtcF8yNlppVU9OTnpISnNTT1pnZ1c4RHB0NXJNb3RIRTd2eTVGb1ZxWUpKbUR1T3BrQnBLa2V6RkJfZjE4MDRWUEpCTzU3OVVfZ3VmQ0RkWjA?oc=5"
     },
     {
-     "time_utc": "2026-10-20T20:46:55Z",
-     "time_kst": "2026-10-21 05:46",
-     "title": "Meta vs. Alphabet: Meta Is Better Built for AGI - The Globe and Mail",
-     "source": "The Globe and Mail",
-     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNSnZHeU94aDlSV1VwaU9OTHBZOHU4SnNBTEszZkE4MXVXblZoTGJ5WEQzRTNWdWVRMjVfbXRwUjk3SUExcENsS3lSQVRHa2hkMkEzcHR5bzkyS0U0REJ3LVJ2cW85dnhXdGRfenpQSUo2T0JLVzlFMnQwYkE4YlNxWWZVMElBbzBOY1JkcTU2UHkyWmVXZGFybGVhOEh5TVVESUg2MGJWWmpZWVBDcVNFSFp4WGtheHZIaENsa3lFdmNWbzcwTXJlSU93?oc=5"
+     "time_utc": "2026-10-21T18:15:31Z",
+     "time_kst": "2026-10-22 03:15",
+     "title": "Alphabet keeps beating earnings but stock under... - Pluang",
+     "source": "Pluang",
+     "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRzNkdzNvdV9yRTVwX1o0WFR2ZUJsUkZxcTREcHRIVEY0cHFSVkFfS3FxMDROWFJ5VGl5RUI5eHY1N0c3emY5TjkwUjdrSUZRN0dsZi1WX1NmTUloWHNuOHpVdVNnQ1RfS0x0LUdpdUxDcVZCbHUwNy1RRmJ6a0lnM19ELXhoZ1QtNWQtNExRUy1SUQ?oc=5"
     },
     {
-     "time_utc": "2026-10-20T20:45:04Z",
-     "time_kst": "2026-10-21 05:45",
-     "title": "Alphabet Inc. (GOOG) Stock Drops Despite Market Gains: Important Facts to Note - Yahoo Finance Australia",
-     "source": "Yahoo Finance Australia",
-     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNM1Q4Q2dxWUNxWW9TRlJkY3hFMTlLRkYweGlKVUZpOC1yWWpvYUlleUFYQjdpVEE4YW16S2ZWYmowVzliRmJjelpzTGhRRTc5ZkM0SVd1bnZhUmVleW9pOGU2R1lDWll5VTlTNk1WVjBldmw0UTdaMUxZZ0pBWU9SS2l3NzU?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T20:45:04Z",
-     "time_kst": "2026-10-21 05:45",
-     "title": "Alphabet (GOOGL) Stock Declines While Market Improves: Some Information for Investors - Yahoo Finance Australia",
-     "source": "Yahoo Finance Australia",
-     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNVzQ3LW5QS3JVcUV0cUZfLTBaamkybGZtRzVnOGRtSl9UTEVkam96ZWM3cjgzV2RiS3czS3U5UHY4RERqNEpNM25qM1JWUk4wWW1vS2pWWmxYN25WOVVsM2Y5Um9oSHo1QlpZazBqTGFrWVFRR3RtM3ViM0dmTGNmek5McXFtdDZydEx6dA?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T20:43:01Z",
-     "time_kst": "2026-10-21 05:43",
-     "title": "Meta vs. Alphabet: Meta Is Better Built for AGI - Yahoo Finance",
+     "time_utc": "2026-10-21T17:50:00Z",
+     "time_kst": "2026-10-22 02:50",
+     "title": "Amazon or Alphabet: If I Could Only Own One for the Next Decade, It Would Be This One - Yahoo Finance",
      "source": "Yahoo Finance",
-     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQSzByeC1vNDdKQU9YakwwMzBGRXZjM1BxRmFzd3Q0YmFVRlp2Yl9xWjQyTW1IQkc4ajFIclZRbmVIdWFzblg1MVRLZDNKUnQ3VjRGajhadGFUUnU3S0tVSmVlaFBnbC1TRWJsc1BvbnJrOHhnT0YwMkJqTDlzYzF5RkY5NEF2R2xJQTkzbjlsWDVjR1kzZmtB?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQaVEzZnNzNEdab3BPMWd2dXNXRWZUdFZBMDNyRVhYM2F1dURQQXpzOHI4eW5oQ3g4YzRTaW5wR2N0NGJ5Y0Z0NW9GbmlZSG05cjJSS1Z3bFRiYjlRWUpxTlM1YWNkYVk4cUJSRFFac3FvMnU0dVNzRGVnTkQzUDk4VFFPX1F1WTdJTF9JVG96anZuQ2VUX2JLdmNJaw?oc=5"
     },
     {
-     "time_utc": "2026-10-20T20:30:00Z",
-     "time_kst": "2026-10-21 05:30",
-     "title": "\"AI 트렌드 하차하면 자칫 큰 후회, 삼전닉스 불안하면 이것 사라\" - 조선일보",
-     "source": "조선일보",
-     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQQlVnUV9NLU5Td2NsRGdoWlBPSUdfQmk1eTJzaUloLWNUZGlGWk1xVVo1M0F5RkFzLWliZ25zWWs2VXcyZzUxN3BNb2RIM2oxc3V1c1F5RFViWGJURHFzZ3hrU2xVSnUxcWZUejg4X2hpY2VaTXpzYlZudmhBTlplSQ?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T20:16:04Z",
-     "time_kst": "2026-10-21 05:16",
-     "title": "Microsoft, Alphabet, Goldman Sachs Join Growing List of Companies Objecting to Tokenized Stocks - Yahoo Finance",
-     "source": "Yahoo Finance",
-     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNYmRnei1WX3ROWmlBbHNXbDZaS3BQMkhhTzR3M1RmdlVmRHV2YU5XOENpeWdHeW9CUDZRU0RwX25hLW1na1VtV2JwNXFEM1pwZHl3UXlHUnpHTDFZYmg0b1U1NGFoaGJXeG9YOFE3Wmp5X2J0bUxHMnRfdUx2Z1dFMGNseUp1MHFKT1BQVWQzMWNpSnNuanM3bVdHTEd2T0Fzd2F5UQ?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T20:08:11Z",
-     "time_kst": "2026-10-21 05:08",
-     "title": "GOOG Stock Price Today: Why is Google Stock Down Today? Alphabet Shares Slips $339 Ahead of Q4 Earnings & Cloud Growth – Check Financial Indicators, Revenue Performance, Market Analysis & More - The Sunday Guardian",
-     "source": "The Sunday Guardian",
-     "url": "https://news.google.com/rss/articles/CBMizgJBVV95cUxQa1Y1WFNoa29ibWVsdnJzRVNmYzdRS2Z5enlXSm1lYlJmMFo4cFBES29ISkRRZzdYcGRDZXMyUzh0bEZLaGFTSFdnN3ZZaFYxT0RKSmdTWmlFYV9BNWEyNDRubzBUX1Y1RFhJeXhVbEZ3bDM1YkdkWmlfdjdRTEFLelB4WUdMRTctT3dSaXpRVjFCNXZLcmdLN3laQ0RBYnQzRE1hNFVVYkhGZjNUTVJhWDZ1NXItT0d4WndYaUFIUklXMVdOUWE5TkU4MnhoWW4xU3NFZW1zeWxubTJab1JDRTJZdXVDT1lxLWdJN3VBUy1qeUkzeThqbGx1SWRrRlA4M0R6STFIbTJpaFBXRmtXVEZQU0p3Z0dVUEJsbWMxNjVhbGRtX2JFWDY3YUhYeUNrWkt5ZmRLZUJEblN4NEV4T1ZIQ2twR1lHSjMxdlFn0gHTAkFVX3lxTE5DQjVsUlQyb2hiM3J2X2ZpQkg5MXpVeDBsUUJXR3l2U3RFWHJsQnZIUnQ4dWF2VHRlNjJmR3pybWZuOGNzWU1JYzVfdmhtem1SeWd0bndFZDJHWE5LT05LRmtER1UzX3dUN3E4eWMybTkxUWxiazdMak83WTF4bHpXZl8zM2xCRUhtd1VvcXdWVndIZVYyeUhKMjBYZWJTRVdHRFJEcTNnNmwzUHBoQi02UVpTWFFNSTZlZ2RfSFhoVnlKTFRIQ1p6VURpTXRxNjRaR25UVzlHdFVwbk9NakViZVQyTVV4VDVrUFdoQm9iOHZ3eU1EUnBEc1FDSENhQ05CSW5aZGkwSUVUTjR4VUlVQ0Y1Wjg5bnRjY0p5ZHdmT3JDOWgxNHdpMmFLZXNjRVFMREpKbldiTGhoaFRac3A2Tm1lTkt5UVM5dzEyczJNWkFYWQ?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T19:57:17Z",
-     "time_kst": "2026-10-21 04:57",
-     "title": "GOOG Stock Risks Breakdown as Alphabet Earnings and Google Legal Risks Weigh - FXLeaders",
-     "source": "FXLeaders",
-     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNZ0NhMG1wVWxEZ01UUi1ja1FGRGZpOHRvUGRKcjVlWURWeHg5VHNDSjJWXzVWYzZFRUUzcHhtVjg3QUE0d2xzcmRQR3REc3FiMjE4cFN0OW5MWGpva1dRQ1JhTm51U0hYS0JkVkRjYk1TVmZBOFNHOUtxTXlrclJ0alB1NHBqMlkyNzd5T0xlV2RSS1JCQkVyanp0Yk16UTlpd2lyOEV0REs0TjZpekRBRDlvVnk5VEk3Sm9z?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T19:12:09Z",
-     "time_kst": "2026-10-21 04:12",
-     "title": "Alphabet Stock And 2 More Undervalued Stocks To Watch - Yahoo! Finance Canada",
-     "source": "Yahoo! Finance Canada",
-     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNaV9mTks0QjA0OVEwSllYZTFEVGEwekdYTF93dkJHbk9ITC11WEJQcjVMaGlBWFkyWjdsU2xSMVhFTkpWNm5FSDR2SFlUYTdTbEdWVW1jQU10Ny10Wms4UXdwQThwQmNicFdjWXkyblBmR0dhLWs0bVhmdDNldFNwT2RiU0NNc2FYYnc?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T18:20:20Z",
-     "time_kst": "2026-10-21 03:20",
-     "title": "Not IonQ. Not Rigetti Computing. This Quantum Computing Stock Is the One I'd Buy and Hold Through 2030. - The Globe and Mail",
+     "time_utc": "2026-10-21T17:19:03Z",
+     "time_kst": "2026-10-22 02:19",
+     "title": "Microsoft Must Say This on Oct. 28 or the Stock Will Go Into Free Fall - The Globe and Mail",
      "source": "The Globe and Mail",
-     "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNRW1DRWF3MWZ0Q3hIUks0WFV0MzF5VDA4S3h3M21uQkN5UzByMkFOZDVLaDZCNWxONjZUVW8xSnpBbU5FWkpqcDgyMEIwMTVVcGdxUTRia0UtWEdMR1BQUGpJVFNRdVVoSkhrQXFlWjRCTEpkY0gzTlp1aUQ5UHhHcDc1SnJuRDB1dnlveW1FV09ha0stWThnOEg5Q2t5QTRZQnU5MkQ1d0dmRm40a3ZMN1Fua1k3TmZqbnZUR3pOZTFBa1hxMjB6Nk9tSDdrdEdFVGduaTlqS2NXMXNYN2RjNGlvWnZ6aTZ1VWc0dlJFUHpJYzkwQ09aUnA4d1RRMllicmNuS1I2LXI0Q1lvWmNQRFdTUUtPQQ?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQaG1QUlUyVlN6RUJtSzVsZ05sTHRNNjlzZU4zVDhwLVVFSHg0cktLdGhYMTd1UWtaWnpYeXhyNHVaRy1UTV9ib215eWJIdl82bWxwa2N4VEExcVVCa2V2Snd6a09tTTlRbzR4aDBTbml0OVo0REtUVXB4ZzFlRmVWbHlNa0JqcUVtdFRCUjY1aFFRMlRBNEhhM3cyZEM0b2R0LU5xOUhaVVVIMjRFcVZlM0IyT1pjR1B4dWMtQTRVOWt3X1d5MHA0d1kybGhucVl0WWtMMjFGN1VaektqcU9XOFk1SU1qckhmZHZDWQ?oc=5"
     },
     {
-     "time_utc": "2026-10-20T18:07:35Z",
-     "time_kst": "2026-10-21 03:07",
-     "title": "Alphabet stock falls as price hovers just above $331.79 support amid continued legal risk - Traders Union",
-     "source": "Traders Union",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNREl6SHJqMnhsRlAyNEFmcUJaTzFOai1ZaU5pWlBmMnl0UjlRVW9CZUZsSllmbl9pUzhCeUxOb0w3Y0w4QlJGY3lXbUR1TG1UN3F2aDhCSUpQRTgwZ1laVkpDMWFYOUphZ2VVMUNLbzVEOWhOT3k2bTVFWDdYQjRHeXRHUXdyZDFDZkVjLWF5WQ?oc=5"
+     "time_utc": "2026-10-21T17:19:00Z",
+     "time_kst": "2026-10-22 02:19",
+     "title": "Alphabet (GOOGL) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+     "source": "Investor's Business Daily",
+     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZ3RHcWtkOUszb3lIUjQ3ZndGU05XWDlWeU5IQVJJMEJsUjh6NnFUaFdwVGR0QjVadkFOcm9IbkVsejNxUlJieEdzekQ4TXRsQmQ0ejVZMkpHRkw4TnQwWnB5MnJDLTBrSXBzTTVzdlpOc1ZnNEZpcDdBVWhDNG5wcF9NTVZHYVcxR3hCMVpvVU9OeVJhMko0Ym1qMDNiM1R2Wk9qREoyeUVOdGcwNjh2Qg?oc=5"
     },
     {
-     "time_utc": "2026-10-20T17:35:15Z",
-     "time_kst": "2026-10-21 02:35",
-     "title": "Alphabet Earnings Ahead: Cloud Growth, Gemini, TPU Sales Could Drive Upside - Benzinga",
-     "source": "Benzinga",
-     "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOQkZYUERWWTB4el83dnpUS01FajRYMlFuNWx4QlJYUTloelhMOXBnY3RlbGdVVV9RaU9MZlZqMjJ0TFU4bkZidm5KVjN2WkNrYXZiUUhFNHBScGlCeVR5VXZmOXJzQXNVa08xb0xrUmpVZVNocE52alJLOEJoV1VYdVdtYXExTW4wTVpCaEdlemxXQzNhbW90cEx4c1B5MDhMYTlFRUJsSF9DMDhRd0htRDZ6QzFmbk1JTnVVTTdMaTFNQVVMWXBvT3EtTFc4MFVpTWNQbmZYMHB4ZnVOUmN0UlhR?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T17:30:00Z",
-     "time_kst": "2026-10-21 02:30",
-     "title": "Kaplan Fox Announces a Securities Class Action Filed Against Alphabet Inc. (NASDAQ: GOOGL, GOOG) - Lead Plaintiff Deadline is December 1, 2026 - Barchart.com",
-     "source": "Barchart.com",
-     "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxQNzBadHhZODN1VERVYlhqQnlRbmJhaUxOemJkbkZhbVJBNmkwTDRDUjF6UjdaN1FYU2djR2YyeGluT2padnZkMTMxbVVlVFF3Wi1SRmhVVnNWX2xPWjF3QVRLZXl6Z2l6TDNJZXZQd1ZvcF85REdBOGt2a29jN2R0TVQ4MEpQRFczcWxTYWJvbW4wb3ZZNTBELWxhZDFRcVlSSFV6YkVBYWpCLVRmVGdzSnJLMFAteW8wZ1pUa1hEYmd1VTgzWkxad3VSMkNPcmphOE9QUldyZ2hIVjJ3U3hiOWZYTVZxOE5hYXZfbnMxTjVfVk5NcVVLZ1NTOF9oYm5XOWR4dzc1S1hKSldvMllj?oc=5"
+     "time_utc": "2026-10-21T17:08:00Z",
+     "time_kst": "2026-10-22 02:08",
+     "title": "Microsoft and Alphabet opt out of tokenized stocks in latest blow to ambitious plan from OKX and NYSE parent firm - Fortune",
+     "source": "Fortune",
+     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOTEpGTXJ6c3M1V3lVWXVITzBBRGFJVXp3TVhRSlBhNDBYanhiZDVJd015ODdleEtJTHFrYVpPRTl4bHpDOFR0MXVRXy1UYVdZdlFnNThtclMtb1V3U1gwZk5CNHFiSV84YmcwNXdxRENrUThuN0MyNEtJT1Ywb25qZU5VNVdQTkdZZjNfaHJiWDVNd2M?oc=5"
     }
    ],
    "errors": []
@@ -488,114 +483,112 @@
   "NOK": {
    "items": [
     {
-     "time_utc": "2026-10-20T21:50:41Z",
-     "time_kst": "2026-10-21 06:50",
-     "title": "Nokia's 2027 Pipeline Takes Shape as Fiber Card, Brazil Win and SoftBank Trial Sit at Different Stag - ad-hoc-news.de",
-     "source": "ad-hoc-news.de",
-     "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQT2RtUURya2hyT0FWSER6d3dSNHNLd3d6ZmtEUERyOHczeWQ1bk5HR0hyZEtuM1RidGtGbmZXS0U2NG9HSWZGYXlhUUtjSWxrckxMcGJIb0NXY2xtdlJQbmdDMWxSbXVNb0ZEeG1MbGdOMjZSM0k3UjUtckFMSGQwYmgwSFNhMG1sRl9hOUNZQmlRM19CSUpuOVVqRHRDZFZaVjEwNWRYS3h5NEh1NjRnbHFTd0dDc24tNGFPcXdZdUtINlRocmItQ0dNWVB5ekRPRmFWUE1IbWt6alpKbWRtVW1UY3FicWg1eG05ckk2cmpTczl0emhOcmRR?oc=5"
+     "time_utc": "2026-10-21T23:07:59Z",
+     "time_kst": "2026-10-22 08:07",
+     "title": "[이슈 체크] 통신장비, 에릭슨 3분기 영업익 50%↑…”국내 무선통신장비주 매수 신호\" - 버핏연구소",
+     "source": "버핏연구소",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1BbHlIS19YbWs3VDdONUJJWTRrbTdRaGhOaVhRT0gzME5VUExLbWRqWnd4RmJSMVBnUkhsMkpQaVRuOFNSelJseHF6Zkx6bUd4a2E3ZnI0d2ptcXZ5d0JFZlhB?oc=5"
     },
     {
-     "time_utc": "2026-10-20T14:21:28Z",
-     "time_kst": "2026-10-20 23:21",
-     "title": "Nokia Oyj (NOKIA.HE) Stock Price, News, Quote & History - Yahoo! Finance Canada",
-     "source": "Yahoo! Finance Canada",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE8tLXdSTFZZN2Nra0t3VjgwMFg2ZkkybFNpVzRQd3NGdEQ0VC1fM0hLLU5WWmNDVERKLXhhNE1XZTRMb243eDBqd2lURUVLZjRqRDVKMU52SQ?oc=5"
+     "time_utc": "2026-10-21T22:00:00Z",
+     "time_kst": "2026-10-22 07:00",
+     "title": "에릭슨은 뛰는데 노키아는 잠잠…증권가가 주목한 韓 무선통신주 - 에너지경제신문",
+     "source": "에너지경제신문",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5aTHU3WFEzVUhQbUlXZThjeFNNU1JyMnYwQm9iU3VHczNsU1JOdmFBRFhKMEFnQ0syOEdEelZoNVZUTnVVUTU4Y3hxLTM0bU5GTzJhM3VILXJjRkU?oc=5"
     },
     {
-     "time_utc": "2026-10-20T13:50:52Z",
-     "time_kst": "2026-10-20 22:50",
-     "title": "Nokia's Pipeline Stretches to 2027 While the Market Waits for October 22 - ad-hoc-news.de",
-     "source": "ad-hoc-news.de",
-     "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOWU9Dc0liUUFhQjFnWkNNWFltVmJ0Y1V2YXY3bGFDay12bzNLV0dDQ3VtUU9Cem5mN0pjZG43V0Rqa1FxaXFVMmxyR19uekVQS2pvd0dTaFl4LTJoR0xhRUhmeUFadmQ1NkVYY1Z2NWxCWWU5WWxURHZTdU5TcFhOdHllcEJjdnF3cENWQUt6cXV1dDdSQ3Vha2t4T0FVbkJrWEpJRVpIU2p0VHhqTmdRdUxZMUh2Uk1PVVppaGFKY0tfVnktU1Y0cUhuTGpvaDRCQXRnUS1mNkFQZnFG?oc=5"
+     "time_utc": "2026-10-21T20:58:51Z",
+     "time_kst": "2026-10-22 05:58",
+     "title": "AI Tokenized Stocks: 5 Potential Picks in the AI Boom - Pintu",
+     "source": "Pintu",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9QT21NVXRtNkdLVGtrT2dOV1JIV2Z1NXFVbktqWnRaQmxiUFRfcmg4YWR1WGRSMjRCaTJBYmxiM2ZndWN5cE5hekF0X19wcnBwVHlqSUhCVExibnJjRWdkTzRUbzZ6dw?oc=5"
     },
     {
-     "time_utc": "2026-10-20T13:32:23Z",
-     "time_kst": "2026-10-20 22:32",
-     "title": "Nokia stock: Inderes forecasts EUR 5.00 billion third-quarter revenue for Nokia stock - ad-hoc-news.de",
-     "source": "ad-hoc-news.de",
-     "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOTmFITlkxVGhfcEpXd1JqMDlLTy03NjRvMUM1ZzdrZjByVS14dHF5cUROajk5d3p1OUk0Z0JSTWhla1NHRHoxbFNRVTV4VWZYS3NtLUhvQlVCeWtDNkMyempxVG41SGI3dWg2bm4yelpNRlp0cWtjU3B0R21OZG9IdEtuT3A4M2RDc0oycnl0QzVMQWFyejNBV3EzN0NoS1hWT195THI1dkpsMDgxR0pRV3JxVHRFeURUdWVXSHNqVW1Gc0JSOGpkS3pBT2V5dm9tbmJqX3VoXzdBYjJ4ZzkxYw?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T12:32:19Z",
-     "time_kst": "2026-10-20 21:32",
-     "title": "Can Nokia's Latest Portfolio Move Strengthen Its AI Networking Focus? - Zacks Investment Research",
-     "source": "Zacks Investment Research",
-     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQRmFVQ3FEV2kyM0dqb0VQZWJGUkFuR0l4YWRFZDlGZ2hIVFBuZmNUeV9wWjY5OVZVLUdwV3J1TEt4MlpWQmpZbDRMOWRUZkF4UGkzb3Q3bEZrSFF6aHhuVENqdjMwNVZGX0hqQnBWbGt4RnhDRVVKNzk1RlBiTFBpazBKWFB1RDRtNktzeUQyQWc3Z0Q0RVVuaDA1d29ya3RqeVh3SE1GRjJMTng3?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T11:01:25Z",
-     "time_kst": "2026-10-20 20:01",
-     "title": "Nokia Q3 2026 Earnings Date and Estimates - MarketBeat",
-     "source": "MarketBeat",
-     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5zTkJkZVRGYXNKMmN4eUVoWlBMZUVIT3g0LTZPSUxlQVlBTk5ERmVFRmlKdHUzV2pFNUNOZWtXdy03ZWFZblJmS1dnMGVKLWZORTJxMGx6YlpETm51MjNZSUdCYXh2UmxDZzNvbmFVSlNFc21FRmZaUWRB?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T10:20:26Z",
-     "time_kst": "2026-10-20 19:20",
-     "title": "Nokia Plots Two 2027 Milestones While Wall Street Fixates on a Single Quarter - ad-hoc-news.de",
-     "source": "ad-hoc-news.de",
-     "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxObFVXSURkMXAyNEtuZEVkNDl6c0tEYUllZlh3QUtKR3p0dWRYem5lR3RabUJGSUpUcDZPNktheER4VkJLOExQdktrMmFWX0pEX29pOVh3RHRjVTNxSzdsZDJCanNnNU1rVm9aamM2MGNRRC1sdjVUaS1kRXJ6R1VPNEZmSkpFR2FuMnl0VFNsM3djN2pMT013ekp0T1l2UzFJTFFIOGtER2VyZ1hvNnVaYnFuTUVoV3ZVaVhvSWc0ODNRS0lqMGJuUW5MUnhNODl3TW9lNFo2eUFrVkhOUHJUcjI3TQ?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T10:02:57Z",
-     "time_kst": "2026-10-20 19:02",
-     "title": "Nokia's AI Ambitions Meet a Capacity Question as Campus Edge Sale and SoftBank Trial Run on Separate - ad-hoc-news.de",
-     "source": "ad-hoc-news.de",
-     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPZ3JrdmhuRm5mV181bFd2bzFWeWVCcXdTVWZyaE93akNiX3hfaWlQQVVBQUQ3RGtZNGZTbFlYdEZxVjJMakZWTEN5Yno1a3ZVZ21nTy1HV28tbzhjZGFsOVBPNEw3bldaRGxkOUtzeXM4NVlYVml1VnNNUmpUS0xCdWhUVXRrRmhxLXY4OTlQY3NYUHVKaXMtUkpieGRISGtNeXk3N3lOenNrbnJCSUhvR1E3RDhDN0liS3ZZa0ZuZ0JtNFktSUZsRk9Td3JfQlBIUEczT0hfMXM?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T08:47:59Z",
-     "time_kst": "2026-10-20 17:47",
-     "title": "NOK 261023 14.00P (NOK261023P14000) Stock Options Chain | Quotes & News - Moomoo",
-     "source": "Moomoo",
-     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOREFTRHRzdUZWbWtCdkJjdHAwaE5fTXVHMElabTV5czAzaFhEX2dNOHFyckJneVVBUFUxc0ZfRndaVGE5QlRuNFdRR1B4ZTE0Rm5JSXJudnRRd25mYnM0WGJhZWlTXzRiSEtldGlNN25hX2JUZVU1ZDNqMlFpbFBSYm1MbEM?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T08:07:05Z",
-     "time_kst": "2026-10-20 17:07",
-     "title": "Bank of America keeps EUR 16.00 target for Nokia stock - ad-hoc-news.de",
-     "source": "ad-hoc-news.de",
-     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQWkJaQ3lXbV90M2psdVZ4UGF0bjg1WXU4amxtOTBTNEpqS2djM0x4QjRpSmhMM0xrWFZGekY4MUttRS1NQW5PcnE0Ul9qT3JiZHRQWnM1Y09kbzVpam1ZV3pGb3l1bmhQa0Zoa3hITVp0WHJYelBIWVR2TVNLNTRRbDk1YUxOeVdIV1lCXzUweHNOdkgzSDVFZ003UDVHV2k3dXNadDB6MEQxenAtb2xZWmlpaS0tN0pm?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T07:32:02Z",
-     "time_kst": "2026-10-20 16:32",
-     "title": "Nokia, SoftBank Plan Commercial AI-RAN Trial in Japan in 2027 - Yahoo Finance",
-     "source": "Yahoo Finance",
-     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOU1N3d0lUSEFHTnQ2d1loWC1QLTQySkJzTnZfMHVOOGxWang4eFB1YUQ4Q1hsYnZhb092RmJXYVpBTFgwRnRTdlBqTW12NFA4RUljU3hwZm1tTWktZ2taSG9RTkhuQUozRVVVeVlyWXBUbkRjVWIxR3VObXlEUjI5SVFJMmlzSFd3OUdUUTh4d3cyb2c3Qkx6anBiNXRZZw?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T05:13:22Z",
-     "time_kst": "2026-10-20 14:13",
-     "title": "NOK 261023 14.50P (NOK261023P14500) Stock Options Chain | Quotes & News - Moomoo",
-     "source": "Moomoo",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBzQXc3YUFtelRfZUxoX3l2VXozMldVLVdfQnhzb050ZnpYQTBSYjBsSmFfMkpMOVdTWHAyRGVaY1BrS3pEZll4ZnBTRUl2RmVObkZPLTlIR1h0VFJ6Tmc?oc=5"
-    },
-    {
-     "time_utc": "2026-10-20T05:07:00Z",
-     "time_kst": "2026-10-20 14:07",
-     "title": "Nokia Oyj expected to post earnings of 6 cents a share - Earnings Preview - TradingView",
+     "time_utc": "2026-10-21T16:00:38Z",
+     "time_kst": "2026-10-22 01:00",
+     "title": "Total equity of Nokia Oyj ADR Cert.Deposito Arg.Repr. 1 ADRs – BCBA:NOKAD - TradingView",
      "source": "TradingView",
-     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxORDl0TFkwaXlYeWtzNjAwQmZWZUJ2TElRdUhqbkQ4TjNtV08xLVNFdlFwTThWSnRzSEx5RHQ1bWIyMDMzNWVFRjNqQkZhSGUxVkVObGlodE1MVWxmUHJlQy1PUG5zQnAyZEN1bG00LVhOeF83dnZjenY5VlpEeXdKbmxmdnIwdll0OVNBMTctVkRPLUZ3RUoyaWx5Sm1pVlNmQmlxQ2pYVnFlMmJ1OHBKbzk4bkpUR1AwMFFkWlJQSDl2NktnUkVfSVBhUjRVZTByWDBIX0RobWg?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNeWFOWWhKNHhiOVROMUdCb3U4akE5LUJvSWp2aGF2RHZGalFXd3RuN2xqVkpkYmFCUG1EMmhmRFVBSXdiSE9feGpQZUFkV0I4NHloREdFWTdSd3lwN0h6OGJkN05LYnU3Z1BBc3J4OWxtMlZOTExJX1pFbndLcF8tek9lUmFRVHZxVUc3MmRR?oc=5"
     },
     {
-     "time_utc": "2026-10-20T04:47:22Z",
-     "time_kst": "2026-10-20 13:47",
-     "title": "Nokia, SoftBank Plan Joint Commercial AI-RAN Field Trial in Japan in 2027 - marketscreener.com",
-     "source": "marketscreener.com",
-     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQMk9GQUdBaGpocXI5X3RhRi1vSUxFY25tblJZUWNCY2NrN2ktLUFxMEMzQjV2UVI3TGYtMjBDWUtGLXVTZVNJdzh0MVk2YklMWkdHXzZFZ2VQWlhnOVJETVlTdDJjWjRxcUoySW1rUVczQm5SaDhBaU1IOHlSdUN0TkY3SHZlSEpfQUlJdjczRmJHbEt3eHNoamt3bzU1cUVfTUZQVFR1UXZZQWc1MHE4RUdGT01fekEtMjVPVTJ2RVo4VFU?oc=5"
+     "time_utc": "2026-10-21T15:55:31Z",
+     "time_kst": "2026-10-22 00:55",
+     "title": "Nokia shares surge after Nvidia CEO highlights it as an AI opportunity - Pluang",
+     "source": "Pluang",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOVVRDeXVTcmJHTDIyMFpUNlRCQTUxZGIxMkhDWEMtdV9nQjhMSF91WktIaEJtcE5UaXhkOUNQanVDZkdZOHc0Yl92NnNMaFRrTG9ROWJ0VDhDdHhsSnlzTi13cjVxUE9Cd0tuTXNCdUlvdFlGcWhHNmQ5ang3cEw3cFJncF96WTVFZ0RCdG9NZmZLZnJuVTJMNjY3akFwcDNGZl9hQVh3?oc=5"
     },
     {
-     "time_utc": "2026-10-20T04:31:19Z",
-     "time_kst": "2026-10-20 13:31",
-     "title": "SoftBank, Nokia to Conduct AI-RAN Field Trial on Commercial Network in 2027 - marketscreener.com",
-     "source": "marketscreener.com",
-     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPd0k4a0Y1dkJRNHJQYU9jOVpNdGlsUHhZaTBEYjhZY0VHb0tfUjBSVEg4b3phQ0ViTk44QU5IdS1jV2hkYWN6bFFMSThqXzJCeWRtYnZiOVJ6Z3IxbXhQeWFkSWtzU3M2WUJ3QlJacTdla3RjUno3U3ZQWURNcWUyeVdPaWxzSEgxWnRiS0R3ZUVwTjliOVdDUFBlaGFmUk95enQzbTlxYS1uemRKcUpkY3NPeUVWc0FmaTVXd2lqVVFvM2xtSnc?oc=5"
+     "time_utc": "2026-10-21T15:40:00Z",
+     "time_kst": "2026-10-22 00:40",
+     "title": "Nokia Stock Jumps Because Vintage Telecom Is Now an AI Trade - Barron's",
+     "source": "Barron's",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5LaEkwbDEyX1JMMXA2NTNFbW1ReTJ5bTkzXzA4Q3Z1QUZicTZ4QnFZZ0dVamx0S3VzRm5ObzUwaVJpZktoeURkTlZST256SGRpZUNjUV82OXhPVFpEYkJEdFFURHQydWRKaGg2VXlfOGMxSTVBUEpEQQ?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T15:31:21Z",
+     "time_kst": "2026-10-22 00:31",
+     "title": "Nokia's AI-RAN Rollout Has a Calendar Problem, Not a Demand Problem - AD HOC NEWS",
+     "source": "AD HOC NEWS",
+     "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNYW52eFJNODVINEhzaVpjbHlHYXYxMm92NTJ3TllpZGhqUUkxMThURHdaV0Q2Q3ZUM2xHTWtQclZfc2RjeEZJM01rTnZGMHBQQi1tb1pVTzhuRFJNQjNTU29vbWhQZmRjejR6dkJOXy1qSE5JZVhQN2tzZTdETU96NklKc1lJYTU3Y3FYT2ZQUy02Y1E5V2lCR0tJbzhtWjliQ25ZaGJkNFNqT19LQUpvb291RzJob2M2aGxQdk53TTRZRlBKbHp2TTBrU2t2TDlYRHV6aw?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T15:24:41Z",
+     "time_kst": "2026-10-22 00:24",
+     "title": "Danaher Beats Profit Estimates, Raises Outlook as Customer Demand Improves - Benzinga",
+     "source": "Benzinga",
+     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNZ0VPMm5EMGxTOW1Id0p5NVM4c0h6SXI4dG02VktxSUxNQS1WYzhublI5SDFVM2laTDZZTnh2YnUxSnpfZmJYblhHSnJjdElacUo2blJsb3VRUVJOLXJ3d2VRSHFNbHNGblNMQ200Tk9KT0dSeWlKSVJXRFFrSGxtekl1cERqUFd6Q1J0a3lJWkQ1NjVyb1BMcy1vYV82S09yZU1pQXlvNzVIekFDLXJaS05ZMC1INFVrQ0RrUmhGUEYzdzhfVWFvN2lB?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T15:12:07Z",
+     "time_kst": "2026-10-22 00:12",
+     "title": "Nokia (NOK) Set to Report Q3 Earnings Amid Dividend Sustainabili - GuruFocus",
+     "source": "GuruFocus",
+     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPOUx0R0lsdVNUalp3YTZSTmU3Z3VQcERiSkdkRWlLaE5UNXFjNnBIdU1mN3FUZXZoUHdUa2hwTmZOeDNoYW53blg1dklHc29QRTIxR290Tjg4S1hqV2MtYlNKSF9YY0NXTFRlV1NUTUxycUJYLXJKN2x1UXpiUGd5MDNGY0J0MTQ0SW9wd1pjUVdGdGRucVBVRWV3NEswMUFLcDNrRl9IRnBUbElJYW9sY3pxUXloZ3ZLbEZUZUZPb2NPbVNRUUE?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T14:46:06Z",
+     "time_kst": "2026-10-21 23:46",
+     "title": "Why is SMCI Stock Rising Today? - Stocktwits",
+     "source": "Stocktwits",
+     "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQRllHREF5VU5CaWRfZmF0UzN1bjNlSHZQR25lTzlrZHZrZUJ0LTNvdW9abU9YUGlvcFlxQmFRVFdWN0NZRUVTRWlrM0htMTNRS2liNkVRdEg3OGdlZUpsOGNQdmw2YkhQS1k1TlI2ZlJ4N0pVQWhqLTRxdENETXRHYkx4Vm9YYVhPLUdkX1ZJVjFJNmNGd3A3OU95XzhaMGp3X0pJbkpRYWw1WjRUYmlVYmZfUTNjYnBFLTBiRGJUMTJfMFJIQ3dUQm0tTDhYSGdiZXptcW5DdUZGR1djOFBIRS0yX0ZZdWVVLVVDN1NDTEt0eF9B?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T14:17:29Z",
+     "time_kst": "2026-10-21 23:17",
+     "title": "Nokia, Nvidia Expand Partnership to Bring AI-native Networks to Commercial Deployment - MarketScreener",
+     "source": "MarketScreener",
+     "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQdEJmVHU1QVVfVTN1dVJkR0wwS1pBN1lHY3NYTVFpWGF4NjkyS3dDTHRoZm8wTko1V1N0aUlFOGUtaDNrVzdPR0gwS29rTnpkcWhSUDRqUnJLQWhqQXFWc1dCMEFKdlVTNEhlU3ZHbC1wZHlPeUJkcHRoOGZwR2kzZmR3MTNVR1l1MkRzVFN4eGN3SXJ5Z2I0dXBiMTNaVF9hMU9ETXZ6bUhDZk9FeTFfaXBwcUs2TjVoemwxdk45QXdfVUhLZ2I3SXdYSmQ5al9xMTA4?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T14:16:03Z",
+     "time_kst": "2026-10-21 23:16",
+     "title": "Nokia Oyj ADR Cert.Deposito Arg.Repr. 1 ADRs Dividends – BCBA:NOKAD - TradingView",
+     "source": "TradingView",
+     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1JU1VPU3pvWEs5V0Nad0R2RlN6dmJyTUs0dWZxVFRsMF9CbVFZaU04TmVjSUtkTm5Xc2l5dzBWcVJCbEYxVDAyemVLYld2WDJ6cFIzUlhFREhmWFMxV3dSYXgyR1dNTnQ5YXpHbFhERWVpa1Z5X1NJ?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T14:04:07Z",
+     "time_kst": "2026-10-21 23:04",
+     "title": "How Is NVIDIA Expanding AI-Powered Telecom Networks Following T-Mobile’s First AI-RAN Call? - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPcGJYMjZpRllXbHJaeGxwQkJ5Zkt5Y2ZsdHdPSUpvbnNQT0VKTnpqeC1Qa0QxRXFJalVPVDRlNnh2NV9tRlhvMnVzYTdfa1UtQS12MkhaYlpOWWJoSndHMHBWUzIwV2ZKRlNqc3JzN3FhRG9oUDVmVldMeXhfRVY2bHYxUnNHUWV3N0VRbno1RFhoNFd5Nnk3WVlkdzRyd0Zh?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T13:51:12Z",
+     "time_kst": "2026-10-21 22:51",
+     "title": "Nokia Q3 earnings on deck: What to expect - TradingView",
+     "source": "TradingView",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOUkZQUm9FYmlCRFJ3WnBMd19ISWtKcTRVenpsazNndngtRjlKMmF2VTcwbHkwbXl1bllyQTFZdENoZmQyMmliZHVpV1hvWTM4dlcwekxBQ19jTkNuc2FMaWVFWkIyaTVabnhZR0Z5TURiamFhU2Rla3FGT0JWbjZrbWhaSS1nTDRNdDBmcHAya0tfYXVFeGdBd3pTZ0ZFYmRzbkRqY21n?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T13:46:01Z",
+     "time_kst": "2026-10-21 22:46",
+     "title": "Nokia stock: Bank of America keeps EUR 16.00 target for Nokia stock - AD HOC NEWS",
+     "source": "AD HOC NEWS",
+     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOeUlSaXptX0dZOFk5Rmt3anRfd0ZmVnRNU0JMS1ZEV3Zxblh1M0Zfcnh2OWlSRFAyaS1xWVZsRVI4OXZwVHNyR0lzQldkUEFkNXJlNzJmQmhtNElHQ0xpWThCcUtJLWhhUEZFV0hHMTRZNUJLbEhrejU2LUgzX1FTOVJhWTdKOU1vYUJjNXJ5ZFFOeDgzTkVLd2p6Y3p2ekdkcEJHdVdnVlpscVFTeFRhZTdKNmZRMndoNDR0Z2J6bU84ZFl4RlYwNQ?oc=5"
     }
    ],
-   "errors": [
-    "노키아 주가: ValueError"
-   ]
+   "errors": []
   }
  }
 }
