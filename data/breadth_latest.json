@@ -1,161 +1,161 @@
 {
- "fetched_at_utc": "2026-10-22T00:00:49Z",
+ "fetched_at_utc": "2026-10-22T23:28:14Z",
  "constituents_source": "wikipedia",
  "notes": "S&P500 기준 시장폭. 신고가/신저가는 최근 252거래일 종가 기준. 거래소 전체 집계와 다름.",
- "last_date": "2026-10-20",
+ "last_date": "2026-10-22",
  "universe": "S&P500 구성종목",
  "count": 503,
- "advancers": 404,
- "decliners": 99,
- "unchanged": 0,
- "advance_pct": 80.3,
- "new_52w_highs": 29,
- "new_52w_lows": 1,
- "pct_above_50dma": 53.3,
- "pct_above_200dma": 55.7,
- "equal_weight_avg_change_pct": 1.142,
+ "advancers": 336,
+ "decliners": 166,
+ "unchanged": 1,
+ "advance_pct": 66.8,
+ "new_52w_highs": 45,
+ "new_52w_lows": 3,
+ "pct_above_50dma": 61.2,
+ "pct_above_200dma": 59.6,
+ "equal_weight_avg_change_pct": 0.741,
  "top_gainers": [
   {
-   "symbol": "EFX",
-   "name": "Equifax",
+   "symbol": "ALLE",
+   "name": "Allegion",
    "sector": "Industrials",
-   "close": 176.54,
-   "change_pct": 11.33
+   "close": 176.52,
+   "change_pct": 11.02
   },
   {
-   "symbol": "HAS",
-   "name": "Hasbro",
+   "symbol": "ROP",
+   "name": "Roper Technologies",
+   "sector": "Information Technology",
+   "close": 436.23,
+   "change_pct": 9.73
+  },
+  {
+   "symbol": "LEN",
+   "name": "Lennar",
    "sector": "Consumer Discretionary",
-   "close": 109.52,
-   "change_pct": 11.2
+   "close": 84.45,
+   "change_pct": 8.69
   },
   {
-   "symbol": "MRNA",
-   "name": "Moderna",
-   "sector": "Health Care",
-   "close": 242.08,
-   "change_pct": 6.69
-  },
-  {
-   "symbol": "MMM",
-   "name": "3M",
-   "sector": "Industrials",
-   "close": 171.37,
-   "change_pct": 5.78
-  },
-  {
-   "symbol": "IT",
-   "name": "Gartner",
-   "sector": "Information Technology",
-   "close": 219.64,
-   "change_pct": 5.74
-  },
-  {
-   "symbol": "CRL",
-   "name": "Charles River Laboratories",
-   "sector": "Health Care",
-   "close": 315.45,
-   "change_pct": 5.14
-  },
-  {
-   "symbol": "MSCI",
-   "name": "MSCI",
+   "symbol": "BX",
+   "name": "Blackstone Inc.",
    "sector": "Financials",
-   "close": 591.69,
-   "change_pct": 5.0
+   "close": 118.75,
+   "change_pct": 8.38
   },
   {
-   "symbol": "ARE",
-   "name": "Alexandria Real Estate Equities",
-   "sector": "Real Estate",
-   "close": 42.65,
-   "change_pct": 4.97
+   "symbol": "GIS",
+   "name": "General Mills",
+   "sector": "Consumer Staples",
+   "close": 35.18,
+   "change_pct": 8.01
   },
   {
-   "symbol": "BMY",
-   "name": "Bristol Myers Squibb",
-   "sector": "Health Care",
-   "close": 61.68,
-   "change_pct": 4.84
+   "symbol": "LULU",
+   "name": "Lululemon Athletica",
+   "sector": "Consumer Discretionary",
+   "close": 104.06,
+   "change_pct": 7.8
   },
   {
-   "symbol": "TYL",
-   "name": "Tyler Technologies",
+   "symbol": "HPQ",
+   "name": "HP Inc.",
    "sector": "Information Technology",
-   "close": 377.17,
-   "change_pct": 4.74
+   "close": 33.76,
+   "change_pct": 7.79
+  },
+  {
+   "symbol": "CSGP",
+   "name": "CoStar Group",
+   "sector": "Real Estate",
+   "close": 35.45,
+   "change_pct": 7.75
+  },
+  {
+   "symbol": "ACN",
+   "name": "Accenture",
+   "sector": "Information Technology",
+   "close": 258.74,
+   "change_pct": 7.69
+  },
+  {
+   "symbol": "NDAQ",
+   "name": "Nasdaq, Inc.",
+   "sector": "Financials",
+   "close": 103.3,
+   "change_pct": 7.47
   }
  ],
  "top_losers": [
   {
-   "symbol": "GM",
-   "name": "General Motors",
-   "sector": "Consumer Discretionary",
-   "close": 77.09,
-   "change_pct": -6.84
-  },
-  {
-   "symbol": "DVA",
-   "name": "DaVita",
+   "symbol": "MRNA",
+   "name": "Moderna",
    "sector": "Health Care",
-   "close": 175.35,
-   "change_pct": -6.23
+   "close": 202.63,
+   "change_pct": -17.57
   },
   {
-   "symbol": "GPC",
-   "name": "Genuine Parts Company",
-   "sector": "Consumer Discretionary",
-   "close": 123.52,
-   "change_pct": -5.12
-  },
-  {
-   "symbol": "FIX",
-   "name": "Comfort Systems USA",
-   "sector": "Industrials",
-   "close": 1397.09,
-   "change_pct": -4.57
-  },
-  {
-   "symbol": "HWM",
-   "name": "Howmet Aerospace",
-   "sector": "Industrials",
-   "close": 211.63,
-   "change_pct": -3.82
-  },
-  {
-   "symbol": "GE",
-   "name": "GE Aerospace",
-   "sector": "Industrials",
-   "close": 299.87,
-   "change_pct": -3.67
-  },
-  {
-   "symbol": "PWR",
-   "name": "Quanta Services",
-   "sector": "Industrials",
-   "close": 596.0,
-   "change_pct": -3.62
+   "symbol": "COHR",
+   "name": "Coherent Corp.",
+   "sector": "Information Technology",
+   "close": 207.82,
+   "change_pct": -12.51
   },
   {
    "symbol": "LRCX",
    "name": "Lam Research",
    "sector": "Information Technology",
-   "close": 263.45,
-   "change_pct": -3.21
+   "close": 230.15,
+   "change_pct": -11.76
+  },
+  {
+   "symbol": "LITE",
+   "name": "Lumentum",
+   "sector": "Information Technology",
+   "close": 752.54,
+   "change_pct": -11.54
+  },
+  {
+   "symbol": "FLEX",
+   "name": "Flex Ltd.",
+   "sector": "Information Technology",
+   "close": 76.69,
+   "change_pct": -11.08
+  },
+  {
+   "symbol": "CIEN",
+   "name": "Ciena",
+   "sector": "Information Technology",
+   "close": 322.64,
+   "change_pct": -10.71
+  },
+  {
+   "symbol": "GEV",
+   "name": "GE Vernova",
+   "sector": "Industrials",
+   "close": 827.42,
+   "change_pct": -10.64
+  },
+  {
+   "symbol": "TER",
+   "name": "Teradyne",
+   "sector": "Information Technology",
+   "close": 308.75,
+   "change_pct": -10.63
+  },
+  {
+   "symbol": "VST",
+   "name": "Vistra Corp.",
+   "sector": "Utilities",
+   "close": 140.83,
+   "change_pct": -9.81
   },
   {
    "symbol": "KLAC",
    "name": "KLA Corporation",
    "sector": "Information Technology",
-   "close": 161.74,
-   "change_pct": -2.8
-  },
-  {
-   "symbol": "ETN",
-   "name": "Eaton Corporation",
-   "sector": "Industrials",
-   "close": 381.98,
-   "change_pct": -2.43
+   "close": 147.83,
+   "change_pct": -9.55
   }
  ]
 }

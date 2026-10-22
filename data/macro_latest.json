@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-22T00:00:21Z",
+ "fetched_at_utc": "2026-10-22T23:27:29Z",
  "source": "FRED (St. Louis Fed), fredgraph CSV",
  "notes": {
   "period": "지표의 해당 기간(월간 지표는 그 달 1일로 표시). 발표일이 아님.",
@@ -9,75 +9,141 @@
  "series": {
   "CPIAUCSL": {
    "name": "CPI 헤드라인(계절조정)",
-   "error": "데이터 없음"
+   "frequency": "monthly",
+   "period": "2026-09-01",
+   "value": 336.298,
+   "prev_period": "2026-08-01",
+   "prev_value": 334.131,
+   "mom_pct": 0.65,
+   "yoy_pct": 3.72,
+   "prev_yoy_pct": 3.35
   },
   "CPILFESL": {
    "name": "CPI 근원(계절조정)",
-   "error": "데이터 없음"
+   "frequency": "monthly",
+   "period": "2026-09-01",
+   "value": 338.896,
+   "prev_period": "2026-08-01",
+   "prev_value": 337.765,
+   "mom_pct": 0.33,
+   "yoy_pct": 2.57,
+   "prev_yoy_pct": 2.45
   },
   "PCEPI": {
    "name": "PCE 헤드라인",
-   "error": "데이터 없음"
+   "frequency": "monthly",
+   "period": "2026-08-01",
+   "value": 131.579,
+   "prev_period": "2026-07-01",
+   "prev_value": 131.172,
+   "mom_pct": 0.31,
+   "yoy_pct": 3.42,
+   "prev_yoy_pct": 3.36
   },
   "PCEPILFE": {
    "name": "PCE 근원",
-   "error": "데이터 없음"
+   "frequency": "monthly",
+   "period": "2026-08-01",
+   "value": 130.455,
+   "prev_period": "2026-07-01",
+   "prev_value": 130.133,
+   "mom_pct": 0.25,
+   "yoy_pct": 3.01,
+   "prev_yoy_pct": 2.98
   },
   "PPIFIS": {
    "name": "PPI 최종수요",
-   "error": "데이터 없음"
+   "frequency": "monthly",
+   "period": "2026-09-01",
+   "value": 159.78,
+   "prev_period": "2026-08-01",
+   "prev_value": 157.662,
+   "mom_pct": 1.34,
+   "yoy_pct": 6.35,
+   "prev_yoy_pct": 5.58
   },
   "UNRATE": {
    "name": "실업률(%)",
-   "error": "데이터 없음"
+   "frequency": "monthly",
+   "period": "2026-09-01",
+   "value": 4.2,
+   "prev_period": "2026-08-01",
+   "prev_value": 4.1,
+   "change": 0.1
   },
   "PAYEMS": {
    "name": "비농업고용(천 명)",
-   "error": "데이터 없음"
+   "frequency": "monthly",
+   "period": "2026-09-01",
+   "value": 159044.0,
+   "prev_period": "2026-08-01",
+   "prev_value": 159015.0,
+   "change": 29.0,
+   "prev_change": 133.0
   },
   "ICSA": {
    "name": "신규 실업수당청구(건)",
-   "error": "데이터 없음"
+   "frequency": "weekly",
+   "period": "2026-10-17",
+   "value": 194000.0,
+   "prev_period": "2026-10-10",
+   "prev_value": 200000.0,
+   "change": -6000.0
   },
   "DFF": {
    "name": "실효연방기금금리 EFFR(%)",
-   "error": "데이터 없음"
+   "frequency": "daily",
+   "period": "2026-10-21",
+   "value": 3.88,
+   "prev_period": "2026-10-20",
+   "prev_value": 3.88,
+   "change": 0.0
   },
   "DGS2": {
    "name": "국채 2년(%)",
-   "error": "데이터 없음"
+   "frequency": "daily",
+   "period": "2026-10-21",
+   "value": 4.81,
+   "prev_period": "2026-10-20",
+   "prev_value": 4.79,
+   "change": 0.02
   },
   "DGS10": {
    "name": "국채 10년(%)",
-   "error": "데이터 없음"
+   "frequency": "daily",
+   "period": "2026-10-21",
+   "value": 5.13,
+   "prev_period": "2026-10-20",
+   "prev_value": 5.12,
+   "change": 0.01
   },
   "DGS30": {
    "name": "국채 30년(%)",
-   "error": "데이터 없음"
+   "frequency": "daily",
+   "period": "2026-10-21",
+   "value": 5.42,
+   "prev_period": "2026-10-20",
+   "prev_value": 5.42,
+   "change": 0.0
   },
   "T10Y2Y": {
    "name": "10년-2년 스프레드(%p)",
-   "error": "데이터 없음"
+   "frequency": "daily",
+   "period": "2026-10-22",
+   "value": 0.31,
+   "prev_period": "2026-10-21",
+   "prev_value": 0.32,
+   "change": -0.01
   },
   "BAMLH0A0HYM2": {
    "name": "하이일드 스프레드 HY OAS(%p)",
-   "error": "데이터 없음"
+   "frequency": "daily",
+   "period": "2026-10-21",
+   "value": 3.27,
+   "prev_period": "2026-10-20",
+   "prev_value": 3.33,
+   "change": -0.06
   }
  },
- "failed": [
-  "CPIAUCSL",
-  "CPILFESL",
-  "PCEPI",
-  "PCEPILFE",
-  "PPIFIS",
-  "UNRATE",
-  "PAYEMS",
-  "ICSA",
-  "DFF",
-  "DGS2",
-  "DGS10",
-  "DGS30",
-  "T10Y2Y",
-  "BAMLH0A0HYM2"
- ]
+ "failed": []
 }
