@@ -1,161 +1,161 @@
 {
- "fetched_at_utc": "2026-10-21T23:26:57Z",
+ "fetched_at_utc": "2026-10-22T00:00:49Z",
  "constituents_source": "wikipedia",
  "notes": "S&P500 기준 시장폭. 신고가/신저가는 최근 252거래일 종가 기준. 거래소 전체 집계와 다름.",
- "last_date": "2026-10-21",
+ "last_date": "2026-10-20",
  "universe": "S&P500 구성종목",
  "count": 503,
- "advancers": 281,
- "decliners": 221,
- "unchanged": 1,
- "advance_pct": 55.9,
- "new_52w_highs": 25,
- "new_52w_lows": 4,
- "pct_above_50dma": 55.7,
- "pct_above_200dma": 56.3,
- "equal_weight_avg_change_pct": 0.327,
+ "advancers": 404,
+ "decliners": 99,
+ "unchanged": 0,
+ "advance_pct": 80.3,
+ "new_52w_highs": 29,
+ "new_52w_lows": 1,
+ "pct_above_50dma": 53.3,
+ "pct_above_200dma": 55.7,
+ "equal_weight_avg_change_pct": 1.142,
  "top_gainers": [
   {
-   "symbol": "SKYD",
-   "name": "Skydance Corporation",
-   "sector": "Communication Services",
-   "close": 7.87,
-   "change_pct": 10.85
+   "symbol": "EFX",
+   "name": "Equifax",
+   "sector": "Industrials",
+   "close": 176.54,
+   "change_pct": 11.33
   },
   {
-   "symbol": "SMCI",
-   "name": "Supermicro",
+   "symbol": "HAS",
+   "name": "Hasbro",
+   "sector": "Consumer Discretionary",
+   "close": 109.52,
+   "change_pct": 11.2
+  },
+  {
+   "symbol": "MRNA",
+   "name": "Moderna",
+   "sector": "Health Care",
+   "close": 242.08,
+   "change_pct": 6.69
+  },
+  {
+   "symbol": "MMM",
+   "name": "3M",
+   "sector": "Industrials",
+   "close": 171.37,
+   "change_pct": 5.78
+  },
+  {
+   "symbol": "IT",
+   "name": "Gartner",
    "sector": "Information Technology",
-   "close": 35.57,
-   "change_pct": 9.55
+   "close": 219.64,
+   "change_pct": 5.74
   },
   {
    "symbol": "CRL",
    "name": "Charles River Laboratories",
    "sector": "Health Care",
-   "close": 344.87,
-   "change_pct": 9.33
+   "close": 315.45,
+   "change_pct": 5.14
   },
   {
-   "symbol": "ECHO",
-   "name": "EchoStar",
-   "sector": "Communication Services",
-   "close": 92.64,
-   "change_pct": 7.23
+   "symbol": "MSCI",
+   "name": "MSCI",
+   "sector": "Financials",
+   "close": 591.69,
+   "change_pct": 5.0
   },
   {
-   "symbol": "BE",
-   "name": "Bloom Energy",
-   "sector": "Industrials",
-   "close": 238.53,
-   "change_pct": 7.13
+   "symbol": "ARE",
+   "name": "Alexandria Real Estate Equities",
+   "sector": "Real Estate",
+   "close": 42.65,
+   "change_pct": 4.97
   },
   {
-   "symbol": "DDOG",
-   "name": "Datadog",
-   "sector": "Information Technology",
-   "close": 273.09,
-   "change_pct": 6.5
-  },
-  {
-   "symbol": "CIEN",
-   "name": "Ciena",
-   "sector": "Information Technology",
-   "close": 361.34,
-   "change_pct": 5.67
-  },
-  {
-   "symbol": "ILMN",
-   "name": "Illumina, Inc.",
+   "symbol": "BMY",
+   "name": "Bristol Myers Squibb",
    "sector": "Health Care",
-   "close": 282.86,
-   "change_pct": 5.57
+   "close": 61.68,
+   "change_pct": 4.84
   },
   {
-   "symbol": "DELL",
-   "name": "Dell Technologies",
+   "symbol": "TYL",
+   "name": "Tyler Technologies",
    "sector": "Information Technology",
-   "close": 485.88,
-   "change_pct": 5.27
-  },
-  {
-   "symbol": "CRWD",
-   "name": "CrowdStrike",
-   "sector": "Information Technology",
-   "close": 239.34,
-   "change_pct": 5.26
+   "close": 377.17,
+   "change_pct": 4.74
   }
  ],
  "top_losers": [
   {
-   "symbol": "T",
-   "name": "AT&T",
-   "sector": "Communication Services",
-   "close": 21.91,
-   "change_pct": -6.45
+   "symbol": "GM",
+   "name": "General Motors",
+   "sector": "Consumer Discretionary",
+   "close": 77.09,
+   "change_pct": -6.84
   },
   {
-   "symbol": "DXCM",
-   "name": "Dexcom",
+   "symbol": "DVA",
+   "name": "DaVita",
    "sector": "Health Care",
-   "close": 80.26,
-   "change_pct": -6.39
+   "close": 175.35,
+   "change_pct": -6.23
   },
   {
-   "symbol": "NFLX",
-   "name": "Netflix",
-   "sector": "Communication Services",
-   "close": 65.04,
-   "change_pct": -5.31
-  },
-  {
-   "symbol": "CMG",
-   "name": "Chipotle Mexican Grill",
+   "symbol": "GPC",
+   "name": "Genuine Parts Company",
    "sector": "Consumer Discretionary",
-   "close": 28.12,
-   "change_pct": -5.16
+   "close": 123.52,
+   "change_pct": -5.12
   },
   {
-   "symbol": "EXPE",
-   "name": "Expedia Group",
-   "sector": "Consumer Discretionary",
-   "close": 285.64,
-   "change_pct": -5.03
+   "symbol": "FIX",
+   "name": "Comfort Systems USA",
+   "sector": "Industrials",
+   "close": 1397.09,
+   "change_pct": -4.57
   },
   {
-   "symbol": "SBAC",
-   "name": "SBA Communications",
-   "sector": "Real Estate",
-   "close": 173.41,
-   "change_pct": -4.18
+   "symbol": "HWM",
+   "name": "Howmet Aerospace",
+   "sector": "Industrials",
+   "close": 211.63,
+   "change_pct": -3.82
   },
   {
-   "symbol": "DASH",
-   "name": "DoorDash",
-   "sector": "Consumer Discretionary",
-   "close": 184.45,
-   "change_pct": -3.77
+   "symbol": "GE",
+   "name": "GE Aerospace",
+   "sector": "Industrials",
+   "close": 299.87,
+   "change_pct": -3.67
   },
   {
-   "symbol": "LULU",
-   "name": "Lululemon Athletica",
-   "sector": "Consumer Discretionary",
-   "close": 96.53,
-   "change_pct": -3.41
+   "symbol": "PWR",
+   "name": "Quanta Services",
+   "sector": "Industrials",
+   "close": 596.0,
+   "change_pct": -3.62
   },
   {
-   "symbol": "BKNG",
-   "name": "Booking Holdings",
-   "sector": "Consumer Discretionary",
-   "close": 158.38,
-   "change_pct": -3.38
+   "symbol": "LRCX",
+   "name": "Lam Research",
+   "sector": "Information Technology",
+   "close": 263.45,
+   "change_pct": -3.21
   },
   {
-   "symbol": "AMT",
-   "name": "American Tower",
-   "sector": "Real Estate",
-   "close": 177.64,
-   "change_pct": -3.23
+   "symbol": "KLAC",
+   "name": "KLA Corporation",
+   "sector": "Information Technology",
+   "close": 161.74,
+   "change_pct": -2.8
+  },
+  {
+   "symbol": "ETN",
+   "name": "Eaton Corporation",
+   "sector": "Industrials",
+   "close": 381.98,
+   "change_pct": -2.43
   }
  ]
 }

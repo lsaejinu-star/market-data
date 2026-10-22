@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-21T23:27:07Z",
+ "fetched_at_utc": "2026-10-22T00:00:58Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -315,30 +315,23 @@
   "BOJ": {
    "status": "ok",
    "feed": "https://www.boj.or.jp/en/rss/whatsnew.xml",
-   "items": [],
-   "latest_any": [
+   "items": [
     {
-     "time_utc": "2026-10-16T08:00:00Z",
-     "time_kst": "2026-10-16 17:00",
-     "title": "BOJ Current Account Balances by Sector (Sept.)",
+     "time_utc": "2026-10-21T23:50:00Z",
+     "time_kst": "2026-10-22 08:50",
+     "title": "Senior Loan Officer Opinion Survey (Oct.)",
      "source": null,
-     "url": "http://www.boj.or.jp/en/statistics/boj/other/cabs/cabs.xlsx"
+     "url": "http://www.boj.or.jp/en/statistics/dl/loan/loos/release/loos2610.pdf"
     },
     {
-     "time_utc": "2026-10-15T01:30:00Z",
-     "time_kst": "2026-10-15 10:30",
-     "title": "Speech by Board Member KOEDA in Kumamoto (Economic Activity, Prices, and Monetary Policy in Japan)",
+     "time_utc": "2026-10-21T23:50:00Z",
+     "time_kst": "2026-10-22 08:50",
+     "title": "Statistics on Securities Financing Transactions in Japan",
      "source": null,
-     "url": "http://www.boj.or.jp/en/about/press/koen_2026/ko261015a.htm"
-    },
-    {
-     "time_utc": "2026-10-15T01:00:00Z",
-     "time_kst": "2026-10-15 10:00",
-     "title": "Summary of the \"Meeting on Market Operations\" (October 2026)",
-     "source": null,
-     "url": "http://www.boj.or.jp/en/paym/market/mkt261015a.pdf"
+     "url": "http://www.boj.or.jp/en/statistics/bis/repo/index.htm"
     }
-   ]
+   ],
+   "latest_any": []
   },
   "BOK(한국은행)": {
    "status": "ok",
@@ -373,11 +366,11 @@
   "GOOGL": {
    "items": [
     {
-     "time_utc": "2026-10-21T21:45:00Z",
-     "time_kst": "2026-10-22 06:45",
-     "title": "Markets & Stocks - FinancialContent",
-     "source": "FinancialContent",
-     "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxPT0d6ZUlleEc5WHVsRzlmazg2d3VlNjBDMW1RLWZSZEU5ak5yc1QwenljN1l3aV9zQXF5WVNISGl0YURLdDdzQURTemVWTlZRUi1td04zaEdfRl9nQWxuNTJ4b3NDNUxFel9zZ0pTQ2paMXI1XzhBUmZTYlh5STVYS3NOeEt0OVczdkloVlFVTUlKaUZYZEhwTWpPcElDNzFjSTZPLUJkOFg2cnVjRWVMY29qNEY3SEtCeVJkUXlmeW5SMG9KaTJ0cUFEMTNKcm80RzBFTUpqRHFSTWZ4eWRlaFFNOURub3ZIUzZSLVRDVU5sZjZWS0g0X3Z1eHYzeTF0NURJaDVzaE02cTNubV85emIwemhsSldtRGdDSEJXcVRzd2s?oc=5"
+     "time_utc": "2026-10-21T23:43:24Z",
+     "time_kst": "2026-10-22 08:43",
+     "title": "Cathie Wood Trimmed Ark's Alphabet Stake Even as Google Search Revenue Grew, While Ark Piled Into Rocket Lab Even After Its Neutron Launch Delay. Is Ark Betting Against the Wrong AI Winner? - The Motley Fool",
+     "source": "The Motley Fool",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRVlNMHhod0x3eWx4OE5KNEJvaElWX1I5VDE3WDNZR2pxZmUtSEdHakVPaWxCM0tlZHVTd0R2RVhKeG5UUmNxQlNKVm5icEZyWjUxSks0a0tlSVpQQmFZWUwxNnRJa1J3eE1UbUVTdTFOcGhTSGtrLWFLcUt5cTQxZWQ4QlQwRmdUWlhvQ2xXWDVpVmt0RndtRA?oc=5"
     },
     {
      "time_utc": "2026-10-21T21:41:00Z",
@@ -567,13 +560,6 @@
      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1JU1VPU3pvWEs5V0Nad0R2RlN6dmJyTUs0dWZxVFRsMF9CbVFZaU04TmVjSUtkTm5Xc2l5dzBWcVJCbEYxVDAyemVLYld2WDJ6cFIzUlhFREhmWFMxV3dSYXgyR1dNTnQ5YXpHbFhERWVpa1Z5X1NJ?oc=5"
     },
     {
-     "time_utc": "2026-10-21T14:04:07Z",
-     "time_kst": "2026-10-21 23:04",
-     "title": "How Is NVIDIA Expanding AI-Powered Telecom Networks Following T-Mobile’s First AI-RAN Call? - Yahoo Finance",
-     "source": "Yahoo Finance",
-     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPcGJYMjZpRllXbHJaeGxwQkJ5Zkt5Y2ZsdHdPSUpvbnNQT0VKTnpqeC1Qa0QxRXFJalVPVDRlNnh2NV9tRlhvMnVzYTdfa1UtQS12MkhaYlpOWWJoSndHMHBWUzIwV2ZKRlNqc3JzN3FhRG9oUDVmVldMeXhfRVY2bHYxUnNHUWV3N0VRbno1RFhoNFd5Nnk3WVlkdzRyd0Zh?oc=5"
-    },
-    {
      "time_utc": "2026-10-21T13:51:12Z",
      "time_kst": "2026-10-21 22:51",
      "title": "Nokia Q3 earnings on deck: What to expect - TradingView",
@@ -586,6 +572,13 @@
      "title": "Nokia stock: Bank of America keeps EUR 16.00 target for Nokia stock - AD HOC NEWS",
      "source": "AD HOC NEWS",
      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOeUlSaXptX0dZOFk5Rmt3anRfd0ZmVnRNU0JMS1ZEV3Zxblh1M0Zfcnh2OWlSRFAyaS1xWVZsRVI4OXZwVHNyR0lzQldkUEFkNXJlNzJmQmhtNElHQ0xpWThCcUtJLWhhUEZFV0hHMTRZNUJLbEhrejU2LUgzX1FTOVJhWTdKOU1vYUJjNXJ5ZFFOeDgzTkVLd2p6Y3p2ekdkcEJHdVdnVlpscVFTeFRhZTdKNmZRMndoNDR0Z2J6bU84ZFl4RlYwNQ?oc=5"
+    },
+    {
+     "time_utc": "2026-10-21T13:19:22Z",
+     "time_kst": "2026-10-21 22:19",
+     "title": "Nvidia’s Jensen Huang Sees 100GW AI Opportunity In Telecom Networks, With TMUS, NOK Already Making Moves - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQZnlXWV9IM2dBVlpDSTY5OWhWTTVFRG1BSTFJQjdyMXlNU0pIOTY2djFoT25FNkduN1BQeVV1Smt5TFQ1TWk5N25ZWlk1WjZoczNvYS1lNUpxcU5SdlFjUEQxMTlva25vUGxYdUcxcm1PdTJRZFprck4zRmQtSUdUUXhjSWpweHJ5STY1RDJwU3RLelBiei1nWFRB?oc=5"
     }
    ],
    "errors": []
