@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-23T23:13:48Z",
+ "fetched_at_utc": "2026-10-23T23:52:24Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -406,13 +406,6 @@
   "GOOGL": {
    "items": [
     {
-     "time_utc": "2026-10-23T20:31:00Z",
-     "time_kst": "2026-10-24 05:31",
-     "title": "Alphabet Inc. Cl C stock underperforms Friday when compared to competitors - MarketWatch",
-     "source": "MarketWatch",
-     "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOc2F5U3RXZWJhTVFjMHU4MDBKQkM5SGRCSTY1MGtxZWZtX1p1bnJ6cjluS1d4b2J3dk1ibkI5Zm9PaFhhblRyaHhpZ3llOEdfRm5LSHI2RzV4OHFQWnY4Ynp0dmNsYWpoWjdKSkZPdHB6VkFuYjhVZDZQZ1VXRkVhSFJRRzJwZmhNYmJreU8wSFNPYzB6QmZBU3gtTDU2bVBFLWo0dFdNMXpuV1N6QU1NWEVSYXg5emd1SUZsbVBiV0h1STRxd1kyYmhnSXFQYjVSdTdNZnZ4alJ4UDRQY05BMXlsRFFSdw?oc=5"
-    },
-    {
      "time_utc": "2026-10-23T19:28:50Z",
      "time_kst": "2026-10-24 04:28",
      "title": "The Trade Desk: Cheap For A Reason, And The Reason Is Getting Worse (Downgrade) (TTD) - Seeking Alpha",
@@ -497,18 +490,25 @@
      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOVEtvTUFTcXhZRWtTakg4M1ZoUWE1a1pCdmt0QU5MUjVRSDhNQktyYXZNUXE0ZUZkQmRJU18weHhLVmlFbXh4TUEyR1VqRkQ4SUJ4M1lCTjNKdjdlTE5ZckRvY29odmN2enNkaFJIcmFVQnJCRVBVOEVmZ0FRblI5Y0wzYVg1MXJmeVQwN1UxanRmUjJCRlhfQmg5dWxOaGc?oc=5"
     },
     {
-     "time_utc": "2026-10-23T15:23:58Z",
-     "time_kst": "2026-10-24 00:23",
-     "title": "알파벳(GOOGL), XPENG 차량 구글 플레이 탑재 이후 주가는 비싼가? - Simply Wall Street",
-     "source": "Simply Wall Street",
-     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQWUJCbFR4NlhPM3FXWVJsLTZYY1duc1ZYQ1BDNUtmLWNQZEhzb0JodGpoYTFCb2Qwb3l6LXJWUmhERkcwVHk5VzNrb2RhSmRfYmdjOFNXRnZIeVRFempya3ZsTlk2b0I4ak1nMUo2cnRFTDVRT2RtZ2c5bVprcXNiZGtvb3ZBbDBIbUpYNdIBkgFBVV95cUxOWlN1UElZeDNLU21mN3VHU1RBdFBEVGVVNndVTTRGWm56UTRLS3Fsam5jR0FfUmFTbDBKdl9xN01YZ05IaFRpUk5NMjhINThwZTJRUlJaZlM2WVlCNk9xb0x1WFNQcWxleDNBTVp6LUg4WE5RVHlKdkpzMVQyaDVpZjdjb0RXSi13VmJXZTMwOVlIdw?oc=5"
+     "time_utc": "2026-10-23T14:37:28Z",
+     "time_kst": "2026-10-23 23:37",
+     "title": "Alphabet ETF outflow ahead of earnings: Can GOOGL hold ground? - Traders Union",
+     "source": "Traders Union",
+     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOVjVWY2c1Mm5Yc2xUVXI4MDYtREk4OFZmV0padkJlYW1pLXV3VGh0bVhxZmlpNGdtR0cwWGVYTWZOVTJGdFVvZkZXdTJpblR1WHppb013UFBERFE1cnRvbDFFUHdaTWN2RldqV0EtZVFBZGdfMU9HNnhSOUdLWVVGR2JEdHk4SEZoSVA3Rmg4U3JCeXE4?oc=5"
     },
     {
-     "time_utc": "2026-10-23T14:56:00Z",
-     "time_kst": "2026-10-23 23:56",
-     "title": "Alphabet Tokenized Stock price today, GOOGLX to USD chart, marketcap and volume - CryptoSlate",
-     "source": "CryptoSlate",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE02eTBWU0kxS3lNOFVhWklkcE1XU1RlLWxxX21RYzdFazFlLVdhM1BaSkdORG9idDZJZTkyRFVfaENLSjlzWmtDX0t1R1JnallwbWZ5Nmg4TjdhSFJ0d3hSdjhPbGU4SV8tQnowdTI3WQ?oc=5"
+     "time_utc": "2026-10-23T14:30:30Z",
+     "time_kst": "2026-10-23 23:30",
+     "title": "Microsoft, Google and Goldman Just Said No to 24/7 Tokenized Shares. AI Stocks Are Leading the Walkout - Memeburn",
+     "source": "Memeburn",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0zaDcxclJ6Q1J0Nm02NlBNb1JJaXVQdGtQNmNhWWp3aHlYQjFIUS1IaF9jTjNiX2RrdklPMGF3SVV1d3ZQMFMxZ09MT1NTOHJWU18wRzY3alZ5VUZxcnc?oc=5"
+    },
+    {
+     "time_utc": "2026-10-23T14:26:47Z",
+     "time_kst": "2026-10-23 23:26",
+     "title": "Alphabet stock: October 28 results date puts Alphabet stock ahead of earnings - AD HOC NEWS",
+     "source": "AD HOC NEWS",
+     "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPUDBKODRqS09sRFVsSi03eHFPUVlxQm52S1Z3bzNOLTJIR3VmRDBSR0gwb1RmTHNReG5OdGxFM1llM0xQaXlfRHRVNHRXSnAydVlPUDZwRUtQejFmT09lc1Y2TEgzbUxyYTZUNnNhem1QN0dNdGoyN0pmMkpfeFhOcE9SVkZYV0lYNXYtUE9vbHZGRmxnQm5DWF9MRVBMSVdEMmd1cE5XQzRzVFFQclRJZl9aOVQtM19WRHZsSm5BT2ZMeFBVZ1FSMjV4RkR3WFVrcWd5Tnd3?oc=5"
     }
    ],
    "errors": []
@@ -565,6 +565,13 @@
      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPV0VYbXVmazE1VzlzMm1uRXlHM1RnWmZsb0lnRFZBTUdXdFg4MlZyOGVUUzFwb3BnZ29OOHFZVmE2WEVPYTZFWlRSZ19uRGo3bWNPaGJUT2dwNjR4MDNIS0F5SzExcmRjcTRkZkptMWU0VTNxall3Nk03X0s3TjlVX3JMS1JkeURlbExoQUdSWHF6OFMyS1E?oc=5"
     },
     {
+     "time_utc": "2026-10-23T17:21:03Z",
+     "time_kst": "2026-10-24 02:21",
+     "title": "Nokia Wins Two Upgrades but Only One Buy Rating as Cash Flow Tests the Bull Case - ad-hoc-news.de",
+     "source": "ad-hoc-news.de",
+     "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPa0dRQV9SeGpPMFpwM3pmS3BsWDNHV0VIX1NrYllsRWFkcFFnSGZDT2NpOFRlbjUyZGRnSFluUDBPMU9qMFNGaUI1SGwtQTBiQXRobVFaV2U2alhLTDZoWEZvMjk2X0c1WF9OQXk5SUpRaUE0N2JrZjVnWHF3TmRONkttUUtQcWk3cXB3amxIY0ZMOXBFRXdINnJFSmFoODNWY3lKNWU0TVVEUUJzQTc4UlIwWVIycWh5TWk4ZC1vNVRVeDFjQ1ZvX28tZlpzc0JMT1RSZS1qUldac0s5bUtESDFRcFJjRms?oc=5"
+    },
+    {
      "time_utc": "2026-10-23T16:56:26Z",
      "time_kst": "2026-10-24 01:56",
      "title": "Nokia (NYSE:NOK) Stock Price Target Cut by JPMorgan Chase & Co. - MarketBeat",
@@ -593,6 +600,13 @@
      "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNRUVPMGFLbmtPNW5DWWNwQ0J0bkJQQnZodWRxQ21kX0VrdF9zSGZ5aEZGcHEwUDA0c2s3blBIRmlmNnF0dWdqSmhMa3ZwcUY3OFlmczZ1aElZYzE2Z1FIVWZXbE1NaW51d05TNjFfOGdocUJFN19sc1IwaldhS2dhbmtGYS1iRGF6UFJCeHBndjNpWGZ3ZlVxcU5HYmVFb3lZWm5IbUh5SnoyT2t2QTNXc1lmNDBQY3JzaXB0MmdTYjNuRG5pdVZWcVhoTGVKMmhLUFNOOW9wY3l1WHU3M1FXZjhBQmZxN2RqZFdVajFZYzJBeE9zTUd2MmI1Q01Id0tMRDlkRFhQdTN6OUh2aWJV?oc=5"
     },
     {
+     "time_utc": "2026-10-23T14:40:19Z",
+     "time_kst": "2026-10-23 23:40",
+     "title": "Nokia shares analysis: Is this AI stock a buy amid oversold conditions? By Investing.com - Investing.com South Africa",
+     "source": "Investing.com South Africa",
+     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUnd5T2tCUm1JSjVlUmVEYzNhMjNVWjFITXRiaU9aRlR3RXg4NzBLUThPUTFTNXJSaDRBdS01R3hvQ3kxNEpWUDh0NFB1dXlWMF9jM2NXdGJNWUxiYWNmUmhYY2Ixd24tSE9tSEhXRnFUanZkazE5Ym5DQ0FDb2UzR3AybzB1b1VESC02RkFrbXo3RFU3YTQtZW9BWVU1Y1VSX004bl9wd1VCeE9xSGlWWGhwM0RlbTZOQjNOTGIySUlyWWxQX0JOOV9R?oc=5"
+    },
+    {
      "time_utc": "2026-10-23T14:08:11Z",
      "time_kst": "2026-10-23 23:08",
      "title": "Ciena vs. Nokia: Which Optical Networking Stock is the Better Buy? - The Globe and Mail",
@@ -605,20 +619,6 @@
      "title": "Why is Nokia stock rallying today? - Investing.com",
      "source": "Investing.com",
      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNenFXMGIzWm1iWEF0UTJpVmxnRWZmdjVwcVF1SjYzTFJOcDEtYnE5eTV5cHlFajR1Rlk3YmNIVVQ1Q1hpNkJfdG4xdUVyQjdCaHo0NXAwMHAxbGttUUJVam9qX21vSUdhWWNoLUJVTzAta2R3VFZOMVZVMzllTFBJamZVVUtoMHN4YkJJX09kYWYtZWpHdmowRnZYSQ?oc=5"
-    },
-    {
-     "time_utc": "2026-10-23T13:52:57Z",
-     "time_kst": "2026-10-23 22:52",
-     "title": "Nokia shares recover after analysts call selloff overdone - StreetInsider",
-     "source": "StreetInsider",
-     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQQ1VORndSdzI4UnJLNWUwOVl3TXJiMWpIRzF3OURnZHRlS0VyblE5Y1dQbzVtbHlNUjZVal9CLVI3WVk4N3lxV09SaEVvenJYU0NVaUdhcWdxTzcxRS1HOUIzb1BmOGFXbHRNYWo4cmRzaHhkVDNjb2pvMHNrYjJEY05XSjNVWFFfcElKNG1yRnpnSktNWWd5NXpvd0VqU0loYjNpcDNhX2RBS2dFYW1DRA?oc=5"
-    },
-    {
-     "time_utc": "2026-10-23T13:37:21Z",
-     "time_kst": "2026-10-23 22:37",
-     "title": "Nokia stock: Bernstein keeps Hold and sets EUR 9.53 target for Nokia stock - AD HOC NEWS",
-     "source": "AD HOC NEWS",
-     "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOSXZpS0RPQ2hjRmY4Q2I2RUY0b19MV1o4VE9neXhSanRadEtVMUpUaEFuV1plMVY1LWJwdmdYSjZDRkJaUTF3NWNyWEptaVZCMFN2TTVfSnlYbW1PZnFtelJ4TzE1MEVtZzJHOXhpcHQ2Y1FTVFM5QXNTcXRjVmI0T1hyd1k3OGhMNkwwUmJQNkVtUGJ1Y2xCSnVUd1AtakVPeGlIZzI5UkszNUluNTltTmJ3NTNxY29NeWlNNG5CaE1HbF9DVnVCLTIzS3AwUXRHX2c?oc=5"
     }
    ],
    "errors": []
