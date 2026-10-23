@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-22T23:59:43Z",
+ "fetched_at_utc": "2026-10-23T23:13:41Z",
  "hours": 26,
  "channels": {
   "insidertracking": {
@@ -8,7 +8,7 @@
   },
   "FastStockNewsUSA": {
    "status": "ok",
-   "posts": 36
+   "posts": 14
   },
   "harveyspecterMike": {
    "status": "ok",
@@ -16,11 +16,11 @@
   },
   "bornlupin": {
    "status": "ok",
-   "posts": 14
+   "posts": 17
   },
   "grmtstudy": {
    "status": "ok",
-   "posts": 7
+   "posts": 4
   },
   "MacroAllocation": {
    "status": "ok",
