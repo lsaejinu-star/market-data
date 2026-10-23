@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-22T23:28:24Z",
+ "fetched_at_utc": "2026-10-22T23:59:51Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -381,13 +381,6 @@
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1wbnVCUXBKTGVFQjhkVnhTdnBwbFZMQldYcTVsMVpidENvX1piVmFqTXEwWnU1WjY2YnBuVHlrR3BVVjdKMVpaUm11VHF3Z0NvcGMyM3JpeHFSLVp0S1ZwWlFSMlAtNmhLR3V4NGtsQ1NHQdIBckFVX3lxTE1wbnVCUXBKTGVFQjhkVnhTdnBwbFZMQldYcTVsMVpidENvX1piVmFqTXEwWnU1WjY2YnBuVHlrR3BVVjdKMVpaUm11VHF3Z0NvcGMyM3JpeHFSLVp0S1ZwWlFSMlAtNmhLR3V4NGtsQ1NHQQ?oc=5"
     },
     {
-     "time_utc": "2026-10-22T22:34:11Z",
-     "time_kst": "2026-10-23 07:34",
-     "title": "JPMorgan Is Blocking Outside AI Agents and Taking Its Deposit Token to Ethereum. Here’s What Both Moves Protect - TIKR.com",
-     "source": "TIKR.com",
-     "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNaS1rMEZJdFE3Y0I1dWc3eEFSaGpKLUdkdUFTTXBPYUd2elVQWG1kUHJpNUdtSTAyRDBneFlERFlYOGFVZWgyVnRnMHViV2ptd0F3U0RLZUdwdDRHLTJSQjNkZ1E4bkRqTHltZUEwdTl6Z2dITks1dHByNDdfRmd2ak1mNE5fZ090YUVBYjF3WkR2OThqR0lQUXg1ay1XLV9uaDZDWktqYXpDUlVPTk1WU3kwRGNQZEdabVhRQ3VpSUJFRjBxbE9zYkNPeGNSdkZzcl9KZGUyRmI5ZmRnWVZ6bVRhT2Fqdw?oc=5"
-    },
-    {
      "time_utc": "2026-10-22T20:42:32Z",
      "time_kst": "2026-10-23 05:42",
      "title": "Alphabet : Announces Dividend on Series A and Series B Mandatory Convertible Preferred Stock - www.marketscreener.com",
@@ -477,6 +470,13 @@
      "title": "Alphabet Inc Class C (GOOG) 주식 움직였습니다 하락 3.02%에 10월22일: 변동을 뒷받침하는 사실 - TradingKey",
      "source": "TradingKey",
      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPM05xTDlxbTNrMFQ3eDZ2ajJxYjVXTm16RXNWOE1nck5OVHRmdEpudm9UTThKR0xkVzJIT0FQM0dqMkZ3cjZvc0YycVNYc0IteW5OcWlvTWVjbkVSWW9iU29VRlJaNGM4Q3RpcHBMS3lwd3dMNWlBUXk4WVlOV0dDclBmdUstX1FmZGp2VTJQMA?oc=5"
+    },
+    {
+     "time_utc": "2026-10-22T18:15:53Z",
+     "time_kst": "2026-10-23 03:15",
+     "title": "Alphabet Inc Class C Stock (GOOG) Moved Down by 3.02% on Oct 22: What Investors Need To Know - TradingKey",
+     "source": "TradingKey",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNMEkyOVVLcDhVMEFfU0Q3SDRkaGhmM1V4Q3puSFJuczhicHBvYXFTeHFDR3EyNGY4U3F5VGpHVmZWZVJMUUdvUTMyYm40UjR3TUVrNFpBYzdmeGtGci0zMU5sWmxkVVpxbWt0MnJURzhKRjd4NU5JY3lKcGdEN3ItdWswWEJ0cjYwZnEw?oc=5"
     }
    ],
    "errors": []
@@ -498,6 +498,13 @@
      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNeVFvZWFLVGtHUFhHMHAxODhDWmZaczhlWmNKckRyTUdqV2J6SlkwM3d5el9QRHhUZHhCMUxxMDF1Sm5yTXdoaGVLZUp6YkkwSVhXblNDcC0tTzVTU0xtRjZvZ1otMVZJUjA2TGtxaDBWandwOXptMEJiMnpRdElLbGpsX1BYR241Z3FIWA?oc=5"
     },
     {
+     "time_utc": "2026-10-22T22:25:59Z",
+     "time_kst": "2026-10-23 07:25",
+     "title": "IonQ Sinks 3%, Rigetti Down 5%, D-Wave Down 4% as Quantum Stocks Slide Again in Tech Selloff - TIKR.com",
+     "source": "TIKR.com",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNc3VRNG5vb09wa3BUZ2NhRzljSXFiQXpuaHAzTUZ3dGZ4aXo5SjFxd3p1SGtreG5nN1VRcFl3VXgxUGl4ODZYZGdRZUlRd2liQXdCWlhzSkdzVlJ5cHlUR2xnX0pMRmRzOWkzNWZ0a216eWZtbWZkbDR1SXEyaDVXYmVoNWlFZGhmMnN0QklwRHdIZ1J0cG8zT0FGZVY0cXl0enJZZmFwZXMyaS1FY1Z4NGI4OGM3Skk?oc=5"
+    },
+    {
      "time_utc": "2026-10-22T21:29:38Z",
      "time_kst": "2026-10-23 06:29",
      "title": "Nokia Stock Plunges 9.7% After €605 Million Profit Beat as Cash-Flow Outlook Is Cut - FinanceFeeds",
@@ -512,18 +519,11 @@
      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPTDNqVDA2LTNvVEV0eVVEdzVZZ3NkV18yZnlVVllLc3BTY0dpU3lCUHk4MW9idnVvMGpvZUZRWXhTNXVVWUlXMHZHbEhDdEdJblRkMERJcDNwcVV3N2F1bkNQdjBvMGFuTjg5Vk1SbWxvWGVoT1IyOEV2eUNMczA4dGZ0TGJ6dVc3NmtfRTY3eV9Dd29PSlBNTHRR?oc=5"
     },
     {
-     "time_utc": "2026-10-22T20:40:30Z",
-     "time_kst": "2026-10-23 05:40",
-     "title": "Allegion Soars 11% as Q3 Beat Fuels Raised 2026 Outlook on “Steady Momentum” - TIKR.com",
-     "source": "TIKR.com",
-     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNT0RpbjVwMUNFNTdZTHJOeVVJanZmU19rUWM2bUVzX0JqaFg2Tk55b2oxcm5OLWhJcmFlR0VGM256WDhJN1BuVlFhTGFFeWpoazBnY2dPdWJzTUNZaGh2dU1vZ1FQTUNyb3VjM3dyMmJfZE8yRVE5X21mX1B6SU9GS3NLb0FpVHZvcWZLUWVOQWdtZjI2ME1ZYlFtME8tRzdEWGx4WVdB?oc=5"
-    },
-    {
-     "time_utc": "2026-10-22T20:40:30Z",
-     "time_kst": "2026-10-23 05:40",
-     "title": "IonQ Sinks 3%, Rigetti Down 5%, D-Wave Down 4% as Quantum Stocks Slide Again in Tech Selloff - TIKR.com",
-     "source": "TIKR.com",
-     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNOXRkTkdPMFdnTjZCWG5LQzU1TlVSYVpiTFo5aHVsSEliOU1xVU5iVWljaFliYUJBblNZX1lUc3k3Y200WHNrMmlZSVkwSTY0UmtIZ2o3Vk1IUVB0bFhTdzhselpKWjkyRks4bXpOenFEaXFvTF9uR3h0SFctZ0d1OVJmUTNGV1RZRmpKV0NMY19nN3dOVXdDWXV4UU42Ymw5Vy1hUEI3R0xLQi1oMnl2UjZnS3YwT0pf?oc=5"
+     "time_utc": "2026-10-22T20:50:00Z",
+     "time_kst": "2026-10-23 05:50",
+     "title": "Why Nokia Sank today - The Motley Fool",
+     "source": "The Motley Fool",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1lWE5LY01rUUpiMlpzWnRtUkNyNE9yMlhSeWtfYVRseFppMlVVLWhmUjE5a3c5dVQ2ZE5zeE91WXg4YkJtRGtkZG5jMjdCYzV1UnEtZHFlWmJkcW12YjhBNWs3Uzl0c0dOUHFqd0JrU1E?oc=5"
     },
     {
      "time_utc": "2026-10-22T20:10:31Z",
@@ -540,13 +540,6 @@
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1MRDBSWllXUzF3UmJJT3ZaazRDbV96M1JTWFc1cEt0RVJzS19fX09rV201T2pzVUtBY0dFSzhwZUxlNkZUWklSZERHSzVtbUFDamF4TkZrQ05CRlFHYm1NY1lxM3hnVDNCTUhsSGRhejByQQ?oc=5"
     },
     {
-     "time_utc": "2026-10-22T19:54:47Z",
-     "time_kst": "2026-10-23 04:54",
-     "title": "Why Nokia Sank today - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1lWE5LY01rUUpiMlpzWnRtUkNyNE9yMlhSeWtfYVRseFppMlVVLWhmUjE5a3c5dVQ2ZE5zeE91WXg4YkJtRGtkZG5jMjdCYzV1UnEtZHFlWmJkcW12YjhBNWs3Uzl0c0dOUHFqd0JrU1E?oc=5"
-    },
-    {
      "time_utc": "2026-10-22T19:20:00Z",
      "time_kst": "2026-10-23 04:20",
      "title": "Nokia Corporation Sponsored Stock 12‑Month Price Target Cut to $12.95, Implies 40% Upside - TradingView",
@@ -559,6 +552,13 @@
      "title": "MSC Industrial Sinks 14% Despite Record Sales as CEO Flags “Inflationary Headwinds” - TIKR.com",
      "source": "TIKR.com",
      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNVHdueGZXQnl1emJhb3J3SzFxb2lUSUxnX3pFdXg0MWQxRWpTbkZzYzhIR0RSNHdGajNka2puYjRKMl84dDJ0RENXdWpnQy1QV3JkM2t0dExqRThkODRFQnY5ZExJOEFBdnR4cVNoYWRyRzRITTVjb0hYaF94c1Y4cnY2SE41S1ZNaFRwR2hTZG4yNndOVG1jRi1fT3E3M1dVcXVERXZFVS05QlRNZUlF?oc=5"
+    },
+    {
+     "time_utc": "2026-10-22T18:27:54Z",
+     "time_kst": "2026-10-23 03:27",
+     "title": "Earnings call transcript: Nokia beats Q3 2026 estimates but shares fall premarket By Investing.com - Investing.com South Africa",
+     "source": "Investing.com South Africa",
+     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQdUxvblQtOXVSb3B5QndUVWtEWGxSM085ZXRBVmFoeWx3cjJUTE5lMTYyT2xvOWVkN3FjNW83T1JPcHdyLXFEeEx5TTAwU2ZueEhsYk1fUjRQa2pEV1g0V2RrNkExY3pIcEJOY21BTlhhR0Y3VmhEQVAwUWVkMDVxamdaNVJvOEZrNG5RbU9xZjAyOENnN21jQ21COG5hR24yTi1NNEJ3S3dnQTVoVHpRNlR5QWt6cjZ0RWVNeFFKdEJKN2RqQU1oSjB0akQ2c2JnZmNnMXMzRGk?oc=5"
     },
     {
      "time_utc": "2026-10-22T18:27:35Z",
