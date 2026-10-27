@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-26T23:57:26Z",
+ "fetched_at_utc": "2026-10-27T00:25:41Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -393,18 +393,18 @@
   "GOOGL": {
    "items": [
     {
+     "time_utc": "2026-10-27T00:00:28Z",
+     "time_kst": "2026-10-27 09:00",
+     "title": "앤트로픽 덕에 심폐소생술 성공함ㅇㅇ [10/27 G모닝]｜Global Money Club - 중앙일보",
+     "source": "중앙일보",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5UcGZabFNFZmhXdjVrZ05TY0llU1l3WmV3NmxyRXBncllVbTNVUjB4WXZ3NDFLeS1uMUxSXzQxS3lNc29lSHZ3Qm5uZ3h4ZmJhNzl1X1gxV1BZNTQ?oc=5"
+    },
+    {
      "time_utc": "2026-10-26T22:45:17Z",
      "time_kst": "2026-10-27 07:45",
      "title": "앤트로픽, 2조달러 몸값으로 IPO 도전…매출 14배 급증에 첫 영업흑자 - 매일경제",
      "source": "매일경제",
      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1palZqYXhOYl9FRXNHT0czMWpIY2tLSjhIYUJRMnVPZ1hmSnRCYUFWck9CcUN1NGZmdEs2Y3UxRGRma0xWcHJPUkZJUFRWdw?oc=5"
-    },
-    {
-     "time_utc": "2026-10-26T22:37:28Z",
-     "time_kst": "2026-10-27 07:37",
-     "title": "메타, AI 투자에 126조원 조달 추진⋯대규모 주식 발행 - 아이뉴스24",
-     "source": "아이뉴스24",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5TMF9VZ1U0aUJIUDFqVS13VlVIbXpva2VvZW1DT3M4Q2hwTVlvWlBGcGNaRDBjbDZhVEVYdmd6RjNEd2Z1LUlqY1dSNA?oc=5"
     },
     {
      "time_utc": "2026-10-26T22:27:08Z",
@@ -419,6 +419,13 @@
      "title": "Will Alphabet Stock Surge After Oct. 28? - Yahoo Finance",
      "source": "Yahoo Finance",
      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPb0JQMTd0VVJ1SXFnZEIyakxDLU9VT3p2bTdOYWk1ZU9ONWV0aVc1MERVM3lhWk0yS0d6UFV5R05lSEk1SmtxM3N6QWlWYzF2eTVMWk1zWlhOM2ZobU9kVkcxaXFiU2NNMjFuaDY1NTQ1aWd1TXZyd3FnTzAycno5Qzl4MEd2NTV6QklzZnFubmwxTXZnVU5B?oc=5"
+    },
+    {
+     "time_utc": "2026-10-26T22:11:43Z",
+     "time_kst": "2026-10-27 07:11",
+     "title": "메타, 증자 등으로 126조원 조달 추진…AI 인프라 구축에 사활 - 연합뉴스",
+     "source": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1BX0ZQcDBaUjUzRTQ0Q21qLVVaYTVZcmVJYjVyUDdSWnRfMDhLcXFDODdPb3VudkFCbl8xRUtkbm9xTlFFc2ZoTlUzQnBuVHFPV3BMRDM1eUd6RldMeUFocdIBYEFVX3lxTE1BX0ZQcDBaUjUzRTQ0Q21qLVVaYTVZcmVJYjVyUDdSWnRfMDhLcXFDODdPb3VudkFCbl8xRUtkbm9xTlFFc2ZoTlUzQnBuVHFPV3BMRDM1eUd6RldMeUFocQ?oc=5"
     },
     {
      "time_utc": "2026-10-26T22:08:24Z",
@@ -470,8 +477,8 @@
      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOcWtBOFBGa0ZEWGRjeXM0aTJQcHRzNjBTanJGeTZybHY0ZmRPVzF5RFk1Q3J6Ulk0S1M0eHVHNmdRT0xkWEU4MFdXVF9hSTdxZjl3R1RwdUdLYmZCN2FpN003bjhpdGJocmN3NHdvY0hlbXpwTS1HbElscG1sUDF3RXFnVXZfWGkxd3lMbA?oc=5"
     },
     {
-     "time_utc": "2026-10-26T20:10:06Z",
-     "time_kst": "2026-10-27 05:10",
+     "time_utc": "2026-10-26T20:05:59Z",
+     "time_kst": "2026-10-27 05:05",
      "title": "Anthropic's IPO Keeps Founders in Control Through a \"Founder LLC\" Voting Structure - The Motley Fool",
      "source": "The Motley Fool",
      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPcm1NMlJMVGVpdDdrOVN6eTMxS0J6THhjTzZsQS03RU0wOUJWb2JIZHJOSFdrUUNsdFNrcjlDMnEzUm9nM1FoM0dqazhNRjU4V3Y1b2lYSkdFdWRpWndfQk5GR0Q3cGxaVVNfSFlwdkZFbHFNSmc3WERaempNVGMzeUpIT0dieGUtb0dj?oc=5"
@@ -489,13 +496,6 @@
      "title": "GOOGL vs. AMZN: One AI Stock Worth Buying Before Earnings, the Other Lacks Clarity, Says Investor - TipRanks",
      "source": "TipRanks",
      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOR3I4QmlsOUxpdnp3SG1URXFMY2pTLXVCS2U3dkVKSXNpc2FPVHBnNE9LYWFZeDJXQ3JpQ2Jiek1jY1J4Ml9YS0VDTW9yN1lIUVk2Rl9fUXdwNHFXVUxYQWt3ZzhRWnozRE1vT3pXYWZCaFBtOG9Wc2J4S19uMG53aHZ6SzdEOU1FUGxJYTF6QWdSRThraXc1bS1vc2MyRm4wRERtUHhjbEJGOUVycEszSzNtelpJSDFWcVY2MDJPZHc?oc=5"
-    },
-    {
-     "time_utc": "2026-10-26T18:15:03Z",
-     "time_kst": "2026-10-27 03:15",
-     "title": "What's Next for Alphabet Inc. Shareholders After 7.13% Stock Drop? Glancy Prongay Wolke & Rotter LLP Explains Securities Fraud Class Action Lead Plaintiff Deadline - PR Newswire",
-     "source": "PR Newswire",
-     "url": "https://news.google.com/rss/articles/CBMiugJBVV95cUxPS3dWVUctdXN3MEJQTklQVEdXcnpNaHIyZnRkMHVRbU1RYnp5VTVXYzE2Q1QwaXdCRU4tczVuLXBqemdELTQ0OHNobVF5bW1Sb1JKbmE0VkF4Uk1lN0czNU9fNVRLa0MwMXNBeXdWM0Q2bVR5MG80NWdnQ1ZIUUx0YTBmNDhQMU96alFMVUpuUmFES29CS1ExSjZGUFZKOHk0cjVLVUk3VklJQUlIU0N2X3MwcXIxakx2NkpNNi1MaFUxNGNuVXdoWVY3NmRZc2MyTzlBOHdVa0RGd1pqakQxNHN2UjlhMHpHTV9CSjVsbVo0VF9MbXd5WVdBTk9QajN6NHlSZ2JBeGhGRVA1UnBfWGpCS05uQlhUTEhndmFtZGlsOU5sek5tM1plRTRmMkF1emVEcGFlcDJtQQ?oc=5"
     }
    ],
    "errors": []
@@ -538,8 +538,8 @@
      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBmMVdmdW9VeUtfZmFVRm1fb0hCMjVTSTllQ1E5UWEtNndYQ3VfeGwzMXZtUElDWG9yOGttVndrbTZaOEdMbDB5eDdGMFRRaVJQMnFVRHZOdjTSAVhBVV95cUxQZjFXZnVvVXlLX2ZhVUZtX29IQjI1U0k5ZUNROVFhLTZ3WEN1X3hsMzF2bVBJQ1hvcjhrbVZ3a202WjhHTGwweXg3RjBUUWlSUDJxVUR2TnY0?oc=5"
     },
     {
-     "time_utc": "2026-10-26T19:21:49Z",
-     "time_kst": "2026-10-27 04:21",
+     "time_utc": "2026-10-26T20:04:00Z",
+     "time_kst": "2026-10-27 05:04",
      "title": "NOK Stock Rebounds As Q3 Beat Collides With AI-RAN Momentum - StocksToTrade",
      "source": "StocksToTrade",
      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONExkU3N0TmpvMHRjdndkNzZVTUdQRDRSZ3ZmUGkxNkhhcWV4VmZCejFzY2phZVVscTNpd2lCNF9qVnBQUGxzUmc0ZVp2MWhWX3JJQkhtbHJGdk1qS2lwM0J1OFpOd1lVVk84QV9XVVdjR3NxWk4zUC1ybWFIRUdzc2JYQXJxUQ?oc=5"
