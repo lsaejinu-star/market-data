@@ -1,161 +1,161 @@
 {
- "fetched_at_utc": "2026-10-27T00:25:31Z",
+ "fetched_at_utc": "2026-10-27T23:50:51Z",
  "constituents_source": "wikipedia",
  "notes": "S&P500 기준 시장폭. 신고가/신저가는 최근 252거래일 종가 기준. 거래소 전체 집계와 다름.",
- "last_date": "2026-10-23",
+ "last_date": "2026-10-27",
  "universe": "S&P500 구성종목",
  "count": 503,
- "advancers": 136,
- "decliners": 366,
+ "advancers": 245,
+ "decliners": 257,
  "unchanged": 1,
- "advance_pct": 27.0,
- "new_52w_highs": 18,
- "new_52w_lows": 10,
- "pct_above_50dma": 59.0,
- "pct_above_200dma": 58.4,
- "equal_weight_avg_change_pct": -0.781,
+ "advance_pct": 48.7,
+ "new_52w_highs": 12,
+ "new_52w_lows": 8,
+ "pct_above_50dma": 61.8,
+ "pct_above_200dma": 61.4,
+ "equal_weight_avg_change_pct": 0.152,
  "top_gainers": [
   {
-   "symbol": "CCI",
-   "name": "Crown Castle",
-   "sector": "Real Estate",
-   "close": 85.97,
-   "change_pct": 9.06
+   "symbol": "PNR",
+   "name": "Pentair",
+   "sector": "Industrials",
+   "close": 62.29,
+   "change_pct": 12.8
   },
   {
-   "symbol": "CRWD",
-   "name": "CrowdStrike",
+   "symbol": "FLEX",
+   "name": "Flex Ltd.",
    "sector": "Information Technology",
-   "close": 257.57,
-   "change_pct": 8.25
+   "close": 83.35,
+   "change_pct": 8.26
   },
   {
-   "symbol": "PANW",
-   "name": "Palo Alto Networks",
+   "symbol": "DELL",
+   "name": "Dell Technologies",
    "sector": "Information Technology",
-   "close": 380.55,
-   "change_pct": 7.22
+   "close": 501.96,
+   "change_pct": 7.47
   },
   {
-   "symbol": "SLB",
-   "name": "Schlumberger",
-   "sector": "Energy",
-   "close": 53.06,
-   "change_pct": 7.08
-  },
-  {
-   "symbol": "HAL",
-   "name": "Halliburton",
-   "sector": "Energy",
-   "close": 34.92,
-   "change_pct": 5.21
-  },
-  {
-   "symbol": "APA",
-   "name": "APA Corporation",
-   "sector": "Energy",
-   "close": 51.9,
-   "change_pct": 4.98
-  },
-  {
-   "symbol": "VYLR",
-   "name": "Vylor",
-   "sector": "Consumer Staples",
-   "close": 74.59,
-   "change_pct": 4.88
-  },
-  {
-   "symbol": "DDOG",
-   "name": "Datadog",
+   "symbol": "SMCI",
+   "name": "Supermicro",
    "sector": "Information Technology",
-   "close": 269.65,
-   "change_pct": 4.62
+   "close": 35.09,
+   "change_pct": 7.34
   },
-  {
-   "symbol": "DVN",
-   "name": "Devon Energy",
-   "sector": "Energy",
-   "close": 51.39,
-   "change_pct": 4.49
-  },
-  {
-   "symbol": "TRGP",
-   "name": "Targa Resources",
-   "sector": "Energy",
-   "close": 302.37,
-   "change_pct": 4.43
-  }
- ],
- "top_losers": [
   {
    "symbol": "BE",
    "name": "Bloom Energy",
    "sector": "Industrials",
-   "close": 193.3,
-   "change_pct": -11.24
+   "close": 218.5,
+   "change_pct": 7.15
   },
   {
-   "symbol": "FIX",
-   "name": "Comfort Systems USA",
+   "symbol": "WDC",
+   "name": "Western Digital",
+   "sector": "Information Technology",
+   "close": 380.88,
+   "change_pct": 6.95
+  },
+  {
+   "symbol": "CDNS",
+   "name": "Cadence Design Systems",
+   "sector": "Information Technology",
+   "close": 343.08,
+   "change_pct": 6.49
+  },
+  {
+   "symbol": "COHR",
+   "name": "Coherent Corp.",
+   "sector": "Information Technology",
+   "close": 235.79,
+   "change_pct": 6.45
+  },
+  {
+   "symbol": "ON",
+   "name": "ON Semiconductor",
+   "sector": "Information Technology",
+   "close": 78.67,
+   "change_pct": 6.22
+  },
+  {
+   "symbol": "MOS",
+   "name": "Mosaic Company (The)",
+   "sector": "Materials",
+   "close": 18.79,
+   "change_pct": 6.1
+  }
+ ],
+ "top_losers": [
+  {
+   "symbol": "XYL",
+   "name": "Xylem Inc.",
    "sector": "Industrials",
-   "close": 1160.86,
-   "change_pct": -9.26
+   "close": 92.86,
+   "change_pct": -14.21
   },
   {
-   "symbol": "GL",
-   "name": "Globe Life",
-   "sector": "Financials",
-   "close": 154.79,
-   "change_pct": -8.09
+   "symbol": "BA",
+   "name": "Boeing",
+   "sector": "Industrials",
+   "close": 168.18,
+   "change_pct": -10.69
   },
   {
-   "symbol": "T",
-   "name": "AT&T",
-   "sector": "Communication Services",
-   "close": 20.93,
-   "change_pct": -7.96
+   "symbol": "VLO",
+   "name": "Valero Energy",
+   "sector": "Energy",
+   "close": 387.34,
+   "change_pct": -9.24
   },
   {
-   "symbol": "TMUS",
-   "name": "T-Mobile US",
-   "sector": "Communication Services",
-   "close": 146.54,
-   "change_pct": -7.71
+   "symbol": "MPC",
+   "name": "Marathon Petroleum",
+   "sector": "Energy",
+   "close": 435.98,
+   "change_pct": -7.36
   },
   {
-   "symbol": "CBRE",
-   "name": "CBRE Group",
+   "symbol": "PSX",
+   "name": "Phillips 66",
+   "sector": "Energy",
+   "close": 268.53,
+   "change_pct": -7.03
+  },
+  {
+   "symbol": "ARE",
+   "name": "Alexandria Real Estate Equities",
    "sector": "Real Estate",
-   "close": 123.3,
-   "change_pct": -6.05
+   "close": 40.86,
+   "change_pct": -5.85
   },
   {
-   "symbol": "DECK",
-   "name": "Deckers Brands",
-   "sector": "Consumer Discretionary",
-   "close": 81.09,
-   "change_pct": -4.91
+   "symbol": "WELL",
+   "name": "Welltower",
+   "sector": "Real Estate",
+   "close": 226.72,
+   "change_pct": -5.77
   },
   {
-   "symbol": "MGM",
-   "name": "MGM Resorts",
-   "sector": "Consumer Discretionary",
-   "close": 28.06,
-   "change_pct": -4.88
+   "symbol": "PAYX",
+   "name": "Paychex",
+   "sector": "Industrials",
+   "close": 109.26,
+   "change_pct": -5.57
   },
   {
-   "symbol": "LULU",
-   "name": "Lululemon Athletica",
-   "sector": "Consumer Discretionary",
-   "close": 99.01,
-   "change_pct": -4.85
+   "symbol": "HUBB",
+   "name": "Hubbell Incorporated",
+   "sector": "Industrials",
+   "close": 434.28,
+   "change_pct": -5.47
   },
   {
-   "symbol": "DG",
-   "name": "Dollar General",
-   "sector": "Consumer Staples",
-   "close": 132.69,
-   "change_pct": -4.62
+   "symbol": "CSGP",
+   "name": "CoStar Group",
+   "sector": "Real Estate",
+   "close": 32.01,
+   "change_pct": -5.01
   }
  ]
 }
