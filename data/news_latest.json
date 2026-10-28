@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-27T23:51:01Z",
+ "fetched_at_utc": "2026-10-28T00:30:49Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -391,11 +391,25 @@
   "GOOGL": {
    "items": [
     {
+     "time_utc": "2026-10-27T23:53:59Z",
+     "time_kst": "2026-10-28 08:53",
+     "title": "Nvidia Stock Is 10% Below Its Record. Does Anthropic's IPO Filing Make It a Buy? - The Globe and Mail",
+     "source": "The Globe and Mail",
+     "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNSE1ZSHluenhnLUR1V1pCaS1jVjJGMHFWWGw4M0NNYXU2dzJwX0dMbHRrSDExcVhyMmVqRXZ5TGpXMlplVXRvSVZFenF6NUFuMXo2LWN4NEZ4NzNGRzQ2LXY0OWtiRDc4cDZYTjRHZzFDVzB6WExTay03b2xpeno0djVOT0xRa1lCWk4tZUxnWW5tX2hBUGlfSTJwOTB6WnNiWHl1UFJQTXJtRmktTjVjeVQ1VGJQTjdqUVVRWE1kRUdrN0huQjlkRF9fVkRPejJUbHdmX0xveUYyeVVUakoweEI5MDg3U1c4TTU1WnJURmJsLXdpTzcw?oc=5"
+    },
+    {
      "time_utc": "2026-10-27T23:43:04Z",
      "time_kst": "2026-10-28 08:43",
      "title": "하루는 급등, 하루는 급락 코스피 ‘공포지수’도 올랐어요 - 네이버페이 머니스토리",
      "source": "네이버페이 머니스토리",
      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9DZHNOOE5PR2FzeERONC1zaVphbmZRSEIzS25hRGtpWk9TUTZLMXZUa0ZJdVFoX21YU3ZHU2Q4TjBTbTR5VUJqT0xaVGEtN25CNlE?oc=5"
+    },
+    {
+     "time_utc": "2026-10-27T22:29:42Z",
+     "time_kst": "2026-10-28 07:29",
+     "title": "SK하이닉스 미국 상장(SKHY) 주가 전망 2026: 목표주가 $245.21, 본주 대비 프리미엄의 의미 - Mitrade",
+     "source": "Mitrade",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOdGc4VW4yZXRWWllhSVhHcmtIdTBhdk9wNXNVa1pXcFkwZjVPZ2pHNFdQTkRPTmUwZjg4bUtzU2RJc05INUgzaW10TEJ2d3VObDY4eVpOdXQyT2laZk5STjdBb05KVFkwNTUwdTZBQnlYRXJOWm5qa0NDUW5TRVB3SUhZQkxwQlMyMGRTMGhqQQ?oc=5"
     },
     {
      "time_utc": "2026-10-27T22:20:00Z",
@@ -480,20 +494,6 @@
      "title": "Alphabet faces Gemini lawsuit deadline: GOOGL remains under pressure - Traders Union",
      "source": "Traders Union",
      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQb2wwQXc0c01oMExDenI1T2RwZ3BfQXh0NFJPT095NDNVT3B6N2draDFQSGowSmkwczIyVmZOdGpqM000ZHg2SV96eTROOVNjN1dVdklmZEhjVkdJa012SmkzbExjQzhfeURHLVhHbVZGUHhMWnEtSkdWYWVBblZaZVNjVHBxaHhWVEsweXY5NHEyTVBi?oc=5"
-    },
-    {
-     "time_utc": "2026-10-27T17:58:00Z",
-     "time_kst": "2026-10-28 02:58",
-     "title": "Can Strong Search and Cloud Growth Drive GOOGL's Q3 Earnings? - Yahoo! Finance Canada",
-     "source": "Yahoo! Finance Canada",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUUhLVm9DeEVZS25TZWFmc09zS2RJN2k4V0NtY0kyZm5KTDRPUkR4dlJTekF3eC1Xb2JKVHZKdE5fYzdzVkxFOWRGblg4ZVE1U2hvRzBKVm9YNXpjTDkzVXBCWm9pWnQzZUxjeXQ4UW9kX2pnaDBrakVvZ0tmU2Z5ZmF4NTExOC0y?oc=5"
-    },
-    {
-     "time_utc": "2026-10-27T17:55:00Z",
-     "time_kst": "2026-10-28 02:55",
-     "title": "Alphabet & Microsoft Earnings Preview: AI Cloud Growth Takes Center Stage - TradingView",
-     "source": "TradingView",
-     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTXJwRmFwemJiTUJuS05oT1FPbmtvakpyYUFicFlyVU5nbVJNRG45TVJrb2FlRXN0MGFoUzJpaUliWjFWT2NaWVJubnUzRFhMTS1xbnZCLXBKVlVQcEl1LVdOY1lPX085ZWE3dVZnOE9DVE9rTmxiWHJBMnBKQldlUHdldVI4V0N3THpiN3pWb3JFRXhtY0FWdmZJVWR4UmlNMmpqMmIzQzdvY0pCV1FqMzdUZnpEWS1Pdl9qcHVka0dIWXND?oc=5"
     }
    ],
    "errors": []
@@ -536,11 +536,11 @@
      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVF9pZUlvVTFfaE10bjh5QW5pQ0ZQUFNSQ0lkcjB2M045XzBFREVCUFdsT29aeE1QME1nNkxMRGtiWkZieTZpZDNjUWNVczItXzlxUmE3LTZ5WWxwRDdpTklKWkhjMkRkb1FScnNRWG40VC1OTzh0ODRJNEFiNzRjY1ZmaWZYNkZqelRFSWdTYTdyX0s2alhFT0xKbjRxMDViUjNtUGNFc2s4Yk9GM1MwYVltY2pOMkU4?oc=5"
     },
     {
-     "time_utc": "2026-10-27T15:52:54Z",
-     "time_kst": "2026-10-28 00:52",
-     "title": "Nokia Oyj (NOKIA.HE) latest stock news and headlines – Yahoo Finance - Yahoo Finance Singapore",
+     "time_utc": "2026-10-27T16:16:46Z",
+     "time_kst": "2026-10-28 01:16",
+     "title": "Nokia Oyj (NOK) latest stock news and headlines – Yahoo Finance - Yahoo Finance Singapore",
      "source": "Yahoo Finance Singapore",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1xQXR0SFJ6X1hQU0NYY3pwM2xzY1hzLVVHN0RJVTB0TTFaN0FDUWdqUGsyMUQ2N2lrMTE3U2dWekdVaF9fbGI5M2c3d2NIeGFWZTg4NE1UMk5NXzd0S1E?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1uYk5mbXhCc3NKSXJkeF8wQnY4dzZNc2xBX190amo1UHZwaTUzMEJQX25RUmo0dHZBRHdUeEQ3Ml9NUWQ5RDRUWmEwMW1wN2t6d0FmTVhnTQ?oc=5"
     },
     {
      "time_utc": "2026-10-27T14:41:05Z",
@@ -599,11 +599,11 @@
      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9nckF6YVZLenM5RjFLdFRjX0dzRG9MQnUtSTl2LVNpX0pjYXRyVnlDbzFzMllFcmVteWtFOGIxX0lSNVdEb3hKdDhBbi1uN0NRMkxoTExnWHhsblRW?oc=5"
     },
     {
-     "time_utc": "2026-10-26T21:34:00Z",
-     "time_kst": "2026-10-27 06:34",
-     "title": "What Is Driving Nokia (NYSE:NOK) Growth Across Network Markets? - Kalkine Media",
-     "source": "Kalkine Media",
-     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNajZsR1AyTGdYd1BMN0pjM0dSbjJUVERTMUFPNnhoWUNZMlVkanJqa0Z5d3Y4dHNSRktMUUk5SDEyUURBTlB6LVdsejJUOS1na1VHOXNYeTRQWUlmcFhkSy11ZkRGSWdZNkZ0VnhuZnFoUUtpMjc5YU9yTWRISzEtb3N0RHBxWG80Qi1Rb1E0UlRGQlpUU3VhMzJvQmtVV3Qtanc?oc=5"
+     "time_utc": "2026-10-26T21:47:00Z",
+     "time_kst": "2026-10-27 06:47",
+     "title": "NOK Stock Drops After Earnings Beat As AI-RAN Bets Grow - Timothy Sykes",
+     "source": "Timothy Sykes",
+     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPR0lZTFFmZ2plVDIteGZ1dmJmX0tQdWxoRXhqYkxqSGNraXB4dHJfazdrVS1IV3FuREhTdVlfTDFscDRSdnBsRHZNNlJ2dmoyY3ZodWU5ME4tRDFMMjktUDhwLV9OTWVab3U3NjJTR09paldhSGx5ZG92MGp1NjBjOEsyekV4cTl1ZllHUQ?oc=5"
     }
    ],
    "errors": []
