@@ -1,8 +1,14 @@
 {
  "channel": "bornlupin",
- "fetched_at_utc": "2026-10-29T00:04:12Z",
+ "fetched_at_utc": "2026-10-29T00:54:14Z",
  "hours": 26,
  "posts": [
+  {
+   "time_utc": "2026-10-29T00:08:27Z",
+   "time_kst": "2026-10-29 09:08",
+   "text": "삼성 SDI\n3분기 경영 하이라이트\n4분기 시장 전망",
+   "url": "https://t.me/bornlupin/20877"
+  },
   {
    "time_utc": "2026-10-29T00:00:46Z",
    "time_kst": "2026-10-29 09:00",
