@@ -1,8 +1,26 @@
 {
  "channel": "grmtstudy",
- "fetched_at_utc": "2026-10-30T00:58:15Z",
+ "fetched_at_utc": "2026-10-30T23:54:21Z",
  "hours": 26,
  "posts": [
+  {
+   "time_utc": "2026-10-30T02:52:47Z",
+   "time_kst": "2026-10-30 11:52",
+   "text": "PHP2Shell — 팔로알토 방화벽 실제 해킹 공격 확인 (10/29)\n‒\n취약점 발견:\n전 세계 웹사이트 서버에서 널리 사용하는 PHP에서 치명적 취약점 2개(PHP2Shell) 발견. 공격자가 메모리 처리 오류를 악용하면 원격으로 서버에서 악성코드를 실행할 수 있으며, 위험도는 9.2점/10점.\n‒\n잠재적 위험 규모:\n팔로알토의 보안 솔루션 Cortex Xpanse가 전 세계에서\n취약점에 노출됐을 가능성이 있는 인스턴스 2,260만 개 이상\n확인. 단, 실제 해킹 피해를 입은 서버가 2,260만 개라는 의미는 아님.\n‒\n실제 공격 발생:\n10월 29일 팔로알토가 인터넷에 공개된 자사 PAN-OS 방화벽 관리화면을 겨냥한 실제 공격을 확인. 공격자들은 PHP2Shell로 침입한 뒤\n리눅스 커널의 또 다른 취약점을 악용해 서버의 최고 관리자(root) 권한까지 확보.\n‒\n공격 사실 검증:\n보안업체 Dream Research가 해당 연쇄 공격을 분석·보고했으며, 팔로알토 산하 보안 전문조직\nUnit 42도 동일 공격자의 해킹 도구와 공격 결과를 독립적으로 검증\n했다고 공식 발표.\n‒\n피해 범위 및 대응:\n팔로알토에 따르면 인터넷에 관리화면을 노출해 영향을 받은 고객은\n글로벌 설치 기반의 약 0.02%.\n해당 고객들에게 개별 통지했으며, 관리화면의 외부 인터넷 접근 차단과 보안 패치 적용을 권고. 패치를 적용한 고객은 이번 공격의 영향…",
+   "url": "https://t.me/grmtstudy/10885"
+  },
+  {
+   "time_utc": "2026-10-30T01:28:58Z",
+   "time_kst": "2026-10-30 10:28",
+   "text": "https://sansatemple.com/",
+   "url": "https://t.me/grmtstudy/10884"
+  },
+  {
+   "time_utc": "2026-10-30T01:22:17Z",
+   "time_kst": "2026-10-30 10:22",
+   "text": "소중한 돈에 대한 엄격한 잣대",
+   "url": "https://t.me/grmtstudy/10883"
+  },
   {
    "time_utc": "2026-10-29T23:57:45Z",
    "time_kst": "2026-10-30 08:57",
@@ -20,30 +38,6 @@
    "time_kst": "2026-10-30 08:25",
    "text": "10월 헤지펀드는 글로벌 주식에서 롱 매수의 약 5배에 달하는 숏 매도를 진행, 롱 레버리지는 5년 기준 73백분위, 숏 레버리지는 99백분위로 최고치에 근접",
    "url": "https://t.me/grmtstudy/10880"
-  },
-  {
-   "time_utc": "2026-10-29T13:58:36Z",
-   "time_kst": "2026-10-29 22:58",
-   "text": "Steve Vintz · 테너블 공동 CEO 준비 발언 “PHP is a real-time example of a broader shift in the market, and that is AI is reshaping the attack surface faster than most organizations can respond. This is more than a moment. It's a mandate and a structural shift for enterprises.…",
-   "url": "https://t.me/grmtstudy/10879"
-  },
-  {
-   "time_utc": "2026-10-29T10:19:48Z",
-   "time_kst": "2026-10-29 19:19",
-   "text": "Steve Vintz · 테너블 공동 CEO 준비 발언\n“PHP is a real-time example of a broader shift in the market, and that is AI is reshaping the attack surface faster than most organizations can respond.\nThis is more than a moment. It's a mandate and a structural shift for enterprises.\nAs a result, every enterprise is adopting AI. Every model, every agent, every MCP server they deploy creates new exposures.”\nPHP 사태는 시장의 더 큰 변화를 실시간으로 보여주는 사례 — AI가 대부분의 조직이 대응하는 속도보다 빠르게 공격 표면을 바꾸고 있다는 것입니다.\n이건 한때의 이벤트가 아니라 '해야만 하는 일(의무)'이자 기업의 구조적 변화\n입니다. 모든 기업이 AI를 도입하고, 그들이 까는 모델·에이전트·MCP 서버 하나하나가 새로운 노출을 만듭니다.\nSteve Vintz · 테너블 공동 CEO Q&A\n“If you look at PHP2Shell ... It signals two things. First, the scale.\nIt took the indu…",
-   "url": "https://t.me/grmtstudy/10878"
-  },
-  {
-   "time_utc": "2026-10-29T08:22:53Z",
-   "time_kst": "2026-10-29 17:22",
-   "text": "‒ 글로벌 헤지펀드의 주식 총포지션(GMV)이 2024년 4.6조달러 → 2025년 6.2조달러 → 2026년 8.7조달러로 급증. 2026년 전년 대비 약 40% 확대.\n‒ 특히 퀀트 전략의 성장세가 두드러지는 모습. 퀀트 포지션은 전년 대비 +53%, 2024년 대비 +124% 증가하며 전체 헤지펀드 익스포저 확대를 주도.\n‒ 펀더멘털 전략(y/y +34%)과 멀티매니저 전략(y/y +27%)도 동반 확대. 헤지펀드의 시장 참여 규모가 전례 없이 커진 만큼, 포지션 축소 국면에서 디레버리징 충격이 구조적으로 확대될 가능성.\nsource: Goldman Sachs",
-   "url": "https://t.me/grmtstudy/10877"
-  },
-  {
-   "time_utc": "2026-10-29T08:19:06Z",
-   "time_kst": "2026-10-29 17:19",
-   "text": "헤지펀드 크라우딩 리스크와 디레버리징\n❚ 1. 구조적 크라우딩 리스크\n‒ 지난 10년간 기관투자자 자금은 안정적이고 상관관계가 낮은 수익률을 제공하는 멀티스트래티지 헤지펀드로 집중.\n‒ 문제는 자금이 늘어날수록 수많은 PM들이 유사한 상대가치(RV)·캐리 트레이드를 높은 레버리지로 반복하게 된다는 점.\n‒ 월가의 QIS(퀀트 투자전략) 상품 확산까지 가세하면서 '영구적인 크라우딩(Perpetual Crowding)' 리스크가 내재화.\n❚ 2. 크라우딩이 위험한 이유 — 비대칭적 손실\n‒ 채권 RV·캐리 전략은 평상시 작은 수익을 꾸준히 쌓지만, 변동성 급등 시 손실이 비대칭적으로 확대되는 Short Vol·Short Gamma 특성.\n‒ 높은 레버리지와 유사한 포지셔닝이 결합되면서 시장 충격 발생 시 연쇄적인 손절(Stop-out) 위험 확대.\n‒ 실제로 올해 이란 전쟁, 7월 모멘텀 언와인딩, 9월 매파적 중앙은행 충격, 10월 프랑스 국채(OAT) 혼란을 거치며 손절 반복.\n❚ 3. 헤지펀드 PM 대규모 퇴출\n‒ 기사에 인용된 업계 추정에 따르면 10월에만 약 100명의 헤지펀드 PM이 자리를 잃은 것으로 집계. 9월 약 40명, 그 이전 약 20명에서 급증.\n‒ 지난 수년간 운용자산 증가에 맞춰 PM 채용이 확대되면서 운용인력의 질적 희석(Talent Dilution) 문제까지 부각.\n‒ 유사한 포지션에 집중된 자금과 높은 레버…",
-   "url": "https://t.me/grmtstudy/10876"
   }
  ]
 }

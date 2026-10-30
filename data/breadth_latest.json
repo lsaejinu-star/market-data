@@ -1,161 +1,161 @@
 {
- "fetched_at_utc": "2026-10-30T00:58:15Z",
+ "fetched_at_utc": "2026-10-30T23:54:21Z",
  "constituents_source": "wikipedia",
  "notes": "S&P500 기준 시장폭. 신고가/신저가는 최근 252거래일 종가 기준. 거래소 전체 집계와 다름.",
- "last_date": "2026-10-28",
+ "last_date": "2026-10-30",
  "universe": "S&P500 구성종목",
  "count": 503,
- "advancers": 249,
- "decliners": 254,
+ "advancers": 226,
+ "decliners": 277,
  "unchanged": 0,
- "advance_pct": 49.5,
- "new_52w_highs": 19,
- "new_52w_lows": 9,
- "pct_above_50dma": 58.6,
- "pct_above_200dma": 61.0,
- "equal_weight_avg_change_pct": -0.006,
+ "advance_pct": 44.9,
+ "new_52w_highs": 33,
+ "new_52w_lows": 4,
+ "pct_above_50dma": 61.0,
+ "pct_above_200dma": 61.2,
+ "equal_weight_avg_change_pct": -0.846,
  "top_gainers": [
   {
-   "symbol": "VRT",
-   "name": "Vertiv",
+   "symbol": "FDXF",
+   "name": "FedEx Freight",
    "sector": "Industrials",
-   "close": 242.94,
-   "change_pct": 16.48
+   "close": 126.04,
+   "change_pct": 14.91
   },
   {
-   "symbol": "FLEX",
-   "name": "Flex Ltd.",
-   "sector": "Information Technology",
-   "close": 93.03,
-   "change_pct": 11.61
-  },
-  {
-   "symbol": "ORCL",
-   "name": "Oracle Corporation",
-   "sector": "Information Technology",
-   "close": 144.54,
-   "change_pct": 10.73
-  },
-  {
-   "symbol": "LH",
-   "name": "Labcorp",
+   "symbol": "REGN",
+   "name": "Regeneron Pharmaceuticals",
    "sector": "Health Care",
-   "close": 360.25,
-   "change_pct": 8.78
+   "close": 927.89,
+   "change_pct": 13.33
   },
   {
-   "symbol": "SNDK",
-   "name": "Sandisk",
+   "symbol": "GPN",
+   "name": "Global Payments",
+   "sector": "Financials",
+   "close": 96.84,
+   "change_pct": 12.97
+  },
+  {
+   "symbol": "GDDY",
+   "name": "GoDaddy",
    "sector": "Information Technology",
-   "close": 1404.77,
-   "change_pct": 7.66
-  },
-  {
-   "symbol": "GEHC",
-   "name": "GE HealthCare",
-   "sector": "Health Care",
-   "close": 75.82,
-   "change_pct": 6.62
-  },
-  {
-   "symbol": "MU",
-   "name": "Micron Technology",
-   "sector": "Information Technology",
-   "close": 983.23,
-   "change_pct": 5.86
-  },
-  {
-   "symbol": "LITE",
-   "name": "Lumentum",
-   "sector": "Information Technology",
-   "close": 913.95,
-   "change_pct": 5.52
-  },
-  {
-   "symbol": "HONA",
-   "name": "Honeywell Aerospace",
-   "sector": "Industrials",
-   "close": 177.03,
-   "change_pct": 5.44
-  },
-  {
-   "symbol": "LRCX",
-   "name": "Lam Research",
-   "sector": "Information Technology",
-   "close": 253.82,
-   "change_pct": 5.39
-  }
- ],
- "top_losers": [
-  {
-   "symbol": "FFIV",
-   "name": "F5, Inc.",
-   "sector": "Information Technology",
-   "close": 365.53,
-   "change_pct": -20.43
+   "close": 117.24,
+   "change_pct": 10.72
   },
   {
    "symbol": "CSGP",
    "name": "CoStar Group",
    "sector": "Real Estate",
-   "close": 27.54,
-   "change_pct": -13.96
+   "close": 30.17,
+   "change_pct": 7.21
   },
   {
-   "symbol": "CHRW",
-   "name": "C.H. Robinson",
+   "symbol": "CBOE",
+   "name": "Cboe Global Markets",
+   "sector": "Financials",
+   "close": 335.53,
+   "change_pct": 6.77
+  },
+  {
+   "symbol": "VLTO",
+   "name": "Veralto",
    "sector": "Industrials",
-   "close": 127.6,
-   "change_pct": -11.14
+   "close": 111.1,
+   "change_pct": 6.77
   },
   {
-   "symbol": "LII",
-   "name": "Lennox International",
-   "sector": "Industrials",
-   "close": 332.64,
-   "change_pct": -10.59
+   "symbol": "TMUS",
+   "name": "T-Mobile US",
+   "sector": "Communication Services",
+   "close": 156.44,
+   "change_pct": 6.21
   },
   {
-   "symbol": "BKR",
-   "name": "Baker Hughes",
-   "sector": "Energy",
-   "close": 54.66,
-   "change_pct": -7.36
-  },
-  {
-   "symbol": "ODFL",
-   "name": "Old Dominion",
-   "sector": "Industrials",
-   "close": 173.32,
-   "change_pct": -7.33
-  },
-  {
-   "symbol": "FTNT",
-   "name": "Fortinet",
+   "symbol": "TYL",
+   "name": "Tyler Technologies",
    "sector": "Information Technology",
-   "close": 174.08,
-   "change_pct": -5.9
+   "close": 394.3,
+   "change_pct": 5.45
   },
   {
-   "symbol": "BSX",
-   "name": "Boston Scientific",
-   "sector": "Health Care",
-   "close": 42.43,
-   "change_pct": -5.84
-  },
-  {
-   "symbol": "GRMN",
-   "name": "Garmin",
-   "sector": "Consumer Discretionary",
-   "close": 272.51,
-   "change_pct": -5.82
-  },
-  {
-   "symbol": "SW",
-   "name": "Smurfit Westrock",
+   "symbol": "LYB",
+   "name": "LyondellBasell",
    "sector": "Materials",
-   "close": 40.33,
-   "change_pct": -5.2
+   "close": 68.64,
+   "change_pct": 5.0
+  }
+ ],
+ "top_losers": [
+  {
+   "symbol": "RDDT",
+   "name": "Reddit",
+   "sector": "Communication Services",
+   "close": 91.73,
+   "change_pct": -29.22
+  },
+  {
+   "symbol": "INTC",
+   "name": "Intel",
+   "sector": "Information Technology",
+   "close": 65.76,
+   "change_pct": -28.58
+  },
+  {
+   "symbol": "ILMN",
+   "name": "Illumina, Inc.",
+   "sector": "Health Care",
+   "close": 235.99,
+   "change_pct": -18.64
+  },
+  {
+   "symbol": "TWLO",
+   "name": "Twilio",
+   "sector": "Information Technology",
+   "close": 205.03,
+   "change_pct": -15.24
+  },
+  {
+   "symbol": "SNDK",
+   "name": "Sandisk",
+   "sector": "Information Technology",
+   "close": 1150.89,
+   "change_pct": -13.47
+  },
+  {
+   "symbol": "DDOG",
+   "name": "Datadog",
+   "sector": "Information Technology",
+   "close": 235.27,
+   "change_pct": -11.5
+  },
+  {
+   "symbol": "COHR",
+   "name": "Coherent Corp.",
+   "sector": "Information Technology",
+   "close": 210.32,
+   "change_pct": -11.34
+  },
+  {
+   "symbol": "QCOM",
+   "name": "Qualcomm",
+   "sector": "Information Technology",
+   "close": 164.79,
+   "change_pct": -11.12
+  },
+  {
+   "symbol": "AMD",
+   "name": "Advanced Micro Devices",
+   "sector": "Information Technology",
+   "close": 504.8,
+   "change_pct": -10.88
+  },
+  {
+   "symbol": "DELL",
+   "name": "Dell Technologies",
+   "sector": "Information Technology",
+   "close": 424.3,
+   "change_pct": -10.77
   }
  ]
 }
