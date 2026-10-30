@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-10-30T00:00:36Z",
+ "fetched_at_utc": "2026-10-30T00:58:23Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -373,6 +373,55 @@
   "GOOGL": {
    "items": [
     {
+     "time_utc": "2026-10-30T00:56:48Z",
+     "time_kst": "2026-10-30 09:56",
+     "title": "Google Parent Alphabet Still Has the Ingredients to Win in an AI Pullback Despite Stock Price Hit - WSJ",
+     "source": "WSJ",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNUUgzSXRFc1hETjM5VjFRbjM1bHRhNGg1Vlc1NzAyUklCSG5IN3A1NGdINDVUYUt2dW1jTnZwQW9UQ0VNQ3FGdHc5OU9Kc1ZpLVpJS3QyeWtTaGJYMGZaLXJUSnUyb01pR096STNBY0Z6NDd6bjNCeWJzVXdSRHR6LTJCM3ZjZVlTUFAwRThXQWFLVjZDbDl3WGllUHk?oc=5"
+    },
+    {
+     "time_utc": "2026-10-30T00:47:00Z",
+     "time_kst": "2026-10-30 09:47",
+     "title": "‘구글’ 알파벳 시가총액 하루만에 669조 증발…美증시 사상 두 번째 - 국제신문",
+     "source": "국제신문",
+     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOUmdhUVJHSFlmNUh2Uk9VVnd0RWVrUzk0Z05jcUJzT0hLZnZBUEhYRzB6SEhHNEc1YUs3dW1SZ0lLWE9nMUJGZkZURVZrWmVEQXJOTUZIeTRENFJ4VjFmZXhaZ3JjWHZVajZpMk9ac2xXWk1WcC14RGwzc0tDQTZhbzMwZXJxMS15MTk5MENnRXFpejA?oc=5"
+    },
+    {
+     "time_utc": "2026-10-30T00:44:18Z",
+     "time_kst": "2026-10-30 09:44",
+     "title": "Alphabet’s worst day ever leaves Google search valued below fossil fuel stocks, BofA says - Fortune",
+     "source": "Fortune",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPVklwb2w0aEhtU3Q4OC11VW15SjFHQ1lqeEZtNV9iaFVHWl9oSVdub2otNzZsSWxzWnhRaUFPczdEUGFmOS1Pb1JDeGQtZ2ROTXEteEJwSFVjdG81OTdUS1htVy1LTlhjUmlBUmlJeWQ5SHphUEVSQVpyb0tYSENHejZxbkxOTE5BSG1xNk54aVZLUzJ4cmRPTQ?oc=5"
+    },
+    {
+     "time_utc": "2026-10-30T00:35:08Z",
+     "time_kst": "2026-10-30 09:35",
+     "title": "Alphabet Sheds $500 Billion in a Single Day Despite Cloud Growth of 103% - The Motley Fool",
+     "source": "The Motley Fool",
+     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOZVdZdWc4LTk4VGVPaEJPNjVvaUZsZXBqdVl3ZjFXdGFOS1o2bjVwbTlPMFE3MDdiaVVDU2N1aWNFMHItWkVpbUZIUUUtOExWTU02RWJGaGlKdExIOEJBQTRBT0d1YWxZRnZnd2JVZHJBS2xwa2dnWl9BRFdfSDJ0a29GRGNQdFFWaWlsQy03SXFhRmpCVUlYa2pxYVJxTHQwYnNEQ25SOW1OR3RPaXBNUzVJVQ?oc=5"
+    },
+    {
+     "time_utc": "2026-10-30T00:10:48Z",
+     "time_kst": "2026-10-30 09:10",
+     "title": "알파벳 12.64% 급락·시총 670조원 증발…AI 투자, 미국 3분기 성장 3.4% 견인 - 아시아투데이",
+     "source": "아시아투데이",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9jeWtqb2RTRmhWRkN0WGsyYURvM0xNOWctOU5hOS1naXlpUlNETXNpMHBFZmotTXo0TWF4dFNxWHI4S1NKSDgzamZTNTllemxFMDVST0pRSTNYb2RnS2wweDkwdUFXaEF3VnZCWHhn?oc=5"
+    },
+    {
+     "time_utc": "2026-10-30T00:07:22Z",
+     "time_kst": "2026-10-30 09:07",
+     "title": "Is Alphabet Stock a Buy After Its Post-Earnings Drop? - The Globe and Mail",
+     "source": "The Globe and Mail",
+     "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWEdWVXA3R1QtbjVoR1RxVkJNOXhINjU3SVBScW52aHgwa3VCWWZXTm1pTklGdkdqNUVtaEtVVHJ0c0xmcEt5cTkxVjNyVHE4T2QyUHpuLUNVTk84Z2lONlRWUHl4azJDNmUySDNOakgwUGc3LWktaWUzS1pKMC1KamNuQTdTQUJpNGd4YTlPTEJ4QlVEMWRtMWFZOEpVN25MNzJ6dWhXdWJsY1NSUlZLVVJrdzhiOU9oMW9QdWZaX2tWT3Zwa0Q3VjB6UkNmel9vcTE3bGF3?oc=5"
+    },
+    {
+     "time_utc": "2026-10-30T00:00:04Z",
+     "time_kst": "2026-10-30 09:00",
+     "title": "Alphabet: Rocked By Cash Flows, But Don't Fret (NASDAQ:GOOG) - Seeking Alpha",
+     "source": "Seeking Alpha",
+     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNTWJ2NXZVT2tnWFhCOC1XdHI5bE92cW5PVEFjTzBQbFU2MDczZS05TUxNNG9xRldyZ1plT0FLZkp0S050YmVYX19ORmFiUVZoMy03bUY5TllLdEJZSjFkbXNBcmRVN25XWUcwdDBoNnp5TUxjenpmazlhM3c2Wl93ZmhlOHhJLUhUTnFWZQ?oc=5"
+    },
+    {
      "time_utc": "2026-10-29T23:56:33Z",
      "time_kst": "2026-10-30 08:56",
      "title": "Is Alphabet Stock a Buy After Its Post-Earnings Drop? - The Motley Fool",
@@ -387,11 +436,25 @@
      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBXRzBnR2owV2RDRW5XMkpueEw4endJclFuZUNxYUxVa2pDUVN3ckdpR1FWRTAyREZYRU1ud0VIOVItbnRhTFo4QzVB?oc=5"
     },
     {
+     "time_utc": "2026-10-29T23:49:16Z",
+     "time_kst": "2026-10-30 08:49",
+     "title": "Markets spooked as Google reports $1 trillion+ AI bill, negative cash flow - Mashable",
+     "source": "Mashable",
+     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1WM08weHBqNXRpcThSTEtwWHl6Ny1haWI2bEllTDROU2djVW1PdkowdXJQRG5rY0Y1cEVnVU1xWFZtVUFmUktlRk9iTDd1RXJCUEJjaDh0WDVBczVUVE9xVUtjNDAzRGVWUW9PckdVTW1mWXhxYnQzVDlfX1c?oc=5"
+    },
+    {
      "time_utc": "2026-10-29T23:40:02Z",
      "time_kst": "2026-10-30 08:40",
      "title": "알파벳 주가 사상 최대 하락…AI 투자 성과 우려 - KBC광주방송",
      "source": "KBC광주방송",
      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9xZzFDOUhNV1QyRVA5Smg4N1JLdVpzOFJmUC05aHZfTE1aVmwtSHp3UURvaV9VcU9PdVNoSnZfLXYyTDFkcDFKeXJCX19jOEw1bjlyeXVuTWhLbVJ4Wnp2dA?oc=5"
+    },
+    {
+     "time_utc": "2026-10-29T23:35:39Z",
+     "time_kst": "2026-10-30 08:35",
+     "title": "Wall Street ends lower as Alphabet revenue miss revives AI capex jitters - Reuters",
+     "source": "Reuters",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxObTRZdktaNHNaUkc2SG45TFV3V3hKRlMwdWdFTEhyUVFSRnBodWFIM0gxSHh5NWZDVkp3WnJOX3RTZGFtUDVIN3ZPQnB6NlNOQ01OOXhTRnNhNjkyajZ2ejhEZkRBS1IxMkxjVWJmY3FYa3lqcHUxajVqRXpWdS1UWjdxZFZYTW8tUjBtN2NZTGlLSWFiRlpjTDNKaVlVbHRiLVRCcA?oc=5"
     },
     {
      "time_utc": "2026-10-29T23:31:27Z",
@@ -405,7 +468,7 @@
      "time_kst": "2026-10-30 08:17",
      "title": "Google parent Alphabet suffers nearly $500B Wall Street wipeout amid AI spending fears - Fox Business",
      "source": "Fox Business",
-     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPYVNFY2lBeUZZS2t3MnBITVE3WGVpdUhPQTRIV3hwWE9aazh5b1BCZWtJNTFIRmdScklnNXRGTWM4ZDE4N0J5REJoUG02V3p6YmV1SjF6dlluSkVpSlNESHV6SWFBV0UyTHUxUjZIbEx1Q3N5SS1uYVRaVmtVTS1COGxSMzVJdzd6LU5MYjZuWnZIYWdXRVU0VkE2YVpCdEJYZmhQQlRIYUluQzVsYlNud2hmTzJPMV9HaFlFeFNn0gHDAUFVX3lxTE9DemkxMlBiTmhWNGtuSGxUSFJ0ekZpR3BQOG0xNkRGdFlibEhXU0FJYWJOZUgybXozamFLdDRUdHExRU9pNzlhNmpPbURmcklCQTEtWnRSMENuN241ZEV3Vy0wd3EwaHRqUE1tQXZtaHRZdVJEeXhrbllqT0dVWnBiM1F6MFdULU5Bd2F5clZaZHBQQmttSFhJckg0a255Tng3SzFvXzE3NENudFF1LXk1Y052N3VETFBMcncxbnRoX1B5MA?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPQ3ppMTJQYk5oVjRrbkhsVEhSdHpGaUdwUDhtMTZERnRZYmxIV1NBSWFiTmVIMm16M2phS3Q0VHRxMUVPaTc5YTZqT21EZnJJQkExLVp0UjBDbjduNWRFd1ctMHdxMGh0alBNbUF2bWh0WXVSRHl4a25Zak9HVVpwYjNRejBXVC1OQXdheXJWWmRwUEJrbUhYSXJINGtueU54N0sxb18xNzRDbnRRdS15NWNOdjd1RExQTHJ3MW50aF9QeTDSAcMBQVVfeXFMT0N6aTEyUGJOaFY0a25IbFRIUnR6RmlHcFA4bTE2REZ0WWJsSFdTQUlhYk5lSDJtejNqYUt0NFR0cTFFT2k3OWE2ak9tRGZySUJBMS1adFIwQ243bjVkRXdXLTB3cTBodGpQTW1Bdm1odFl1UkR5eGtuWWpPR1VacGIzUXowV1QtTkF3YXlyVlpkcFBCa21IWElySDRrbnlOeDdLMW9fMTc0Q250UXUteTVjTnY3dURMUExydzFudGhfUHkw?oc=5"
     },
     {
      "time_utc": "2026-10-29T23:09:40Z",
@@ -413,69 +476,6 @@
      "title": "“구글 주주들은 속이 탑니다”…제미나이 10억명 쓰는데 주가는 왜? - 매일경제",
      "source": "매일경제",
      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBzYkoxdVBrXzMzeHB4TlM3aUFERHFrM3czbWNOdXduNmxvSGIwME41eHhIdnpFMXV3MUQ3MEJOZEppT3R3QUJrMlkxX1htd1pBR2c?oc=5"
-    },
-    {
-     "time_utc": "2026-10-29T23:05:39Z",
-     "time_kst": "2026-10-30 08:05",
-     "title": "구글 주가, 하루 만에 646조원 증발…사상 최대 하락폭 - 이데일리",
-     "source": "이데일리",
-     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOVjZza1g0RHR4dkFqR09JZG9PamNqcEpKUzl1R1RKYWk3b3M1NC1Ub3RKbG1LVk5ObzFndlpFUmMxMDJTTDZDdWszUHlwSUZNVU5jcUhpWmhyd3dMWjh0Mnl2U0tHdFp5Yjdkdjg0NG45S1o4bThmYWpUa1Q3QXJSeg?oc=5"
-    },
-    {
-     "time_utc": "2026-10-29T22:48:00Z",
-     "time_kst": "2026-10-30 07:48",
-     "title": "알파벳, 13% 주가 급락에⋯하루 새 시총 5000억달러 증발 [마켓핫] - 이투데이",
-     "source": "이투데이",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9KSlhDdTI0OU9oWFNBZ3BWUkI4NlY2ZjFFRVdtcUwxbl92SUhwUUtRcWVTckx0Rm5fME5QdnhsVnNXemVWMzc0U2tVczRralY0U0FaZw?oc=5"
-    },
-    {
-     "time_utc": "2026-10-29T22:37:48Z",
-     "time_kst": "2026-10-30 07:37",
-     "title": "\"알파벳 시총 하룻새 669조 증발... 美증시사상 두 번째\" - 글로벌경제신문",
-     "source": "글로벌경제신문",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9CRFhPYWxfMTVzYzA3MjQxWjRqLXV5bl9iYmlKSWgtVW8yMzE5U0Q0T2FOZmtIQ1ZXYklDeldLMWhaWGRSNXFOM29vQXlnZVJlZ1FFNFhVaGRidTRpRTZCSWp0S2tQb3JQY0hlRdIBcEFVX3lxTE53S1BRRnRueFVmN3pyMWR1d2xSM2lPbkZkd1dvOENRRjJLaWRCY1BNbzZzMW9FOUp5UzU0dmk4WU5UNWZubzZqSjRaZTczSWFaX3ZMVnRCSUtkaGdQbmVUakFnVHYxQ1NkQVNSWlA5WnQ?oc=5"
-    },
-    {
-     "time_utc": "2026-10-29T22:36:59Z",
-     "time_kst": "2026-10-30 07:36",
-     "title": "Here's why Alphabet stock plummeted today - Marketplace.org",
-     "source": "Marketplace.org",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWkFqZUlxRFkyUTRSYXoxbEtUOTRZR1BVWnl2WUMyWHJYX0pZYkM4RDRHVkI5bDg1Nm1RUDZ1Z0ItT2hNWHVzRFVIOGwyZFlJX2toOVp4aHdweGNPN1dqNHNlZlBJXzBxalpjZkl0Vm5BTUZPYjJtbXlOSlduT2lKQmFJeFBKeTkz?oc=5"
-    },
-    {
-     "time_utc": "2026-10-29T22:19:40Z",
-     "time_kst": "2026-10-30 07:19",
-     "title": "구글의 사상 최대 낙폭 [10/30 G모닝]｜Global Money Club - 중앙일보",
-     "source": "중앙일보",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0wMThGNWxKM1pKZ3RwN0dFV3pUaTNGd3Qtc3lwN19PR2dNcGNpMnh2cDA0VG1GeHZabnA3N19kbVdOazFRWlJHZy01OVBfZDNNZXNCRWRDdjdKdDg?oc=5"
-    },
-    {
-     "time_utc": "2026-10-29T22:15:33Z",
-     "time_kst": "2026-10-30 07:15",
-     "title": "Shares of Google’s parent company just had their worst day ever. Here’s what it means - CNN",
-     "source": "CNN",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBvbkJ5TjFBalI5U2dYTm9ycjZMNTdCdG1qWVNrem80VzB0eDhWejIxV2M0dndPeER2NjFBUFR3VXBDZmYtQ0Q5eWZUUGg5MFNUTFdZZ0FaWU5NRWRabkZpSWhvX254SlJzMExsR2RDemhXY3c?oc=5"
-    },
-    {
-     "time_utc": "2026-10-29T22:10:00Z",
-     "time_kst": "2026-10-30 07:10",
-     "title": "SA Asks: Is Alphabet's stock a buy after the sell-off? (Update) (GOOG:NASDAQ) - Seeking Alpha",
-     "source": "Seeking Alpha",
-     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQVDkxS21kR0c2Y3B3Y2lUcU5ucEhqcGFXY1NLcTM5d2pzZmJMczlzTU9GRTg4V1lqSXNTVHF1bGRyYXFQNjJPaGRxeDRQcFR4XzlNTkE0TDdrb2k5bGU1M01pcUZFZ1AwNmktVnc2Mmw3VGg2Ym1NbXBVTEJQc3M4dGdXdFhEMk54WVB2MUpaeV8wS0U?oc=5"
-    },
-    {
-     "time_utc": "2026-10-29T22:08:00Z",
-     "time_kst": "2026-10-30 07:08",
-     "title": "구글 주가 12.6% 급락…AI 투자 우려에 시총 5000억달러 증발 : 금융 - 재경일보",
-     "source": "재경일보",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5qek9pRXc5cVlzQ0dNU3RqZW9EdFdrbmc0TDhtdkhOTklhVG1tT05EbDE4SXVnM0ZjNFBzaEtxRURYalcyWDJDWXQ2Zw?oc=5"
-    },
-    {
-     "time_utc": "2026-10-29T22:08:00Z",
-     "time_kst": "2026-10-30 07:08",
-     "title": "알파벳 주가 12.6% 급락…시총 5천억달러 증발 : 국제 - 재경일보",
-     "source": "재경일보",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1GV05GZldHMjFxX1R1U3dpUWRpVVJLdU5acnA3VlFuRENSM2tWMnNjZUVzaWFzMXN3UUYyQVM1cm4yNlM0MlI0bExSSQ?oc=5"
     }
    ],
    "errors": []

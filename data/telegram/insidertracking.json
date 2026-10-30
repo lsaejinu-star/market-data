@@ -1,8 +1,26 @@
 {
  "channel": "insidertracking",
- "fetched_at_utc": "2026-10-30T00:00:27Z",
+ "fetched_at_utc": "2026-10-30T00:58:15Z",
  "hours": 26,
  "posts": [
+  {
+   "time_utc": "2026-10-30T00:23:06Z",
+   "time_kst": "2026-10-30 09:23",
+   "text": "인텔(INTC) Q3 2026 어닝콜 요약\n🟢\n긍정 요인:\n• 실적 예상치 상회. 3분기 매출은 165억달러, 비GAAP 매출총이익률은 44.1%, EPS는 0.52달러로 모두 가이던스 상회. 비용 통제와 영업 효율성 개선 확인.\n• 데이터센터 사업 폭발적 성장. DCAI 매출은 73억달러로 전분기 대비 17%, 전년 대비 약 80% 증가. Granite Rapids와 맞춤형 반도체 수요 확대가 성장 견인.\n• 첨단 파운드리 공정 개선. Intel 3 및 18A 공정의 수율과 생산 주기가 크게 개선. 특히 18A 수율은 업계 표준 수준에 도달했으며 웨이퍼 생산량도 예상치 상회.\n• 신규 제품 및 고객 확보. Clearwater Forest 출하 시작, Diamond Rapids 샘플 공급 진행. 신규 GPU Crescent Island의 초기 수요가 강하게 나타났으며 오라클 클라우드와 전략적 공급 계약 체결.\n• 재무구조 및 유동성 강화. 현금·단기투자자산 540억달러 확보. 8월 230억달러 규모 증자 완료 및 신용한도 150억달러로 확대. 분기 영업현금흐름은 51억달러 기록.\n• 차세대 반도체 투자 확대. 14A·18A·18A-P 공정과 EMIB 첨단 패키징 기술에 투자 지속. 양자 소프트웨어 기업 Classiq 인수도 추진하며 신규 성장동력 확보.\n🔴\n부정 요인:\n• PC 사업 급격한 둔화. CCPG 매출은 81억달러로 전분기 …",
+   "url": "https://t.me/insidertracking/67841"
+  },
+  {
+   "time_utc": "2026-10-30T00:14:56Z",
+   "time_kst": "2026-10-30 09:14",
+   "text": "니케이아시아에 따르면 토스 운영사 비바리퍼블리카가 일본 도카이도쿄파이낸셜홀딩스로부터 증권사 치어증권(Cheer Securities)을 약 40억 엔(2,530만 달러)에 인수할 계획.\n이번 회계연도 내 인수 완료를 목표로 하고 있으며, 거래가 성사되면 토스는 일본 증권업 라이선스를 확보하고 모바일 투자 사업을 확대할 전망.\nhttps://asia.nikkei.com/business/business-deals/operator-of-south-korea-s-toss-app-to-buy-online-japanese-brokerage-cheer",
+   "url": "https://t.me/insidertracking/67840"
+  },
+  {
+   "time_utc": "2026-10-30T00:12:45Z",
+   "time_kst": "2026-10-30 09:12",
+   "text": "영국 해상무역운영국(UKMTO)에 따르면 10월 29일 21시 21분(UTC 기준) 호르무즈 해협 내 오만 하사브 북동쪽 약 25해리(약 46km) 지점에서 선박 화재 발생 보고 접수.\n제3자 제보에 따르면 호르무즈 해협을 빠져나가던 선박에서 화재가 발생했으며, 현재까지 정확한 화재 원인은 확인되지 않은 상황.\n승무원 상태와 선박 피해 규모, 환경에 미치는 영향도 아직 파악되지 않은 가운데 관계 당국이 조사 진행 중.\nUKMTO는 해당 해역을 통과하는 선박에 주의를 기울이고 의심스러운 활동을 발견할 경우 즉시 신고할 것을 권고.",
+   "url": "https://t.me/insidertracking/67839"
+  },
   {
    "time_utc": "2026-10-29T23:59:26Z",
    "time_kst": "2026-10-30 08:59",
@@ -224,24 +242,6 @@
    "time_kst": "2026-10-30 05:52",
    "text": "미국 레딧 관심도\n구글, 아마존, 레딧,인텔",
    "url": "https://t.me/insidertracking/67802"
-  },
-  {
-   "time_utc": "2026-10-29T20:51:06Z",
-   "time_kst": "2026-10-30 05:51",
-   "text": "52주 신고가 (시총 $1B 이상)\n━━━━━━━━━━━━━━\n🧬\n헬스케어\n· AbbVie\n· Absci\n· Addus HomeCare\n· Amgen\n· Bausch + Lomb\n· Bausch Health Companies\n· CeriBell\n· Charles River Laboratories International\n· Eli Lilly and Company\n· Encompass Health\n· Exelixis\n· Gilead Sciences\n· Glaukos\n· Halozyme Therapeutics\n· Hinge Health\n· ICON\n· Kestra Medical Technologies\n· Kiniksa Pharmaceuticals\n· LifeStance Health Group\n· Mettler-Toledo International\n· Pediatrix Medical Group\n· Quest Diagnostics\n· Replimune Group\n· Royalty Pharma\n· SI-BONE\n· SpyGlass Pharma\n· Thermo Fisher Scientific\n· Veradermics\n· Viatris\n· Vir Biotechnology\n· West Pharmaceutical Services\n━━━━━━━━━━━━━━\n🏦\n금융\n· Affiliated Managers Group\n· Amalgamated Financ…",
-   "url": "https://t.me/insidertracking/67801"
-  },
-  {
-   "time_utc": "2026-10-29T20:50:16Z",
-   "time_kst": "2026-10-30 05:50",
-   "text": "Starbucks 2026년 4분기 실적 요약\n📍\n실적\n• 매출 $91.41억, YoY -4.5%, 환율 제외 -3.9%\n• 직영 매장 매출 $74.30억, YoY -5.5%\n• 라이선스 매장 매출 $11.96억, YoY +9.4%\n• GAAP 영업이익 $9.92억, YoY +256.5%\n• GAAP 영업이익률 10.8%, YoY +790bps\n• 조정 영업이익 $12.77억, YoY +42.5%, 환율 제외 +43.0%\n• 조정 영업이익률 14.0%, YoY +460bps, 환율 제외 +450bps\n• 순이익 $6.77억, YoY +408.8%\n• GAAP EPS $0.59, YoY +391.7%\n• 조정 EPS $0.80, YoY +53.8%\n• GAAP 유효세율 27.1%, YoY +830bps\n• 조정 유효세율 24.7%, YoY +100bps\n• 글로벌 동일 매장 매출 +7.2%\n• 글로벌 평균 객단가 +5.2%\n• 글로벌 동일 매장 거래 건수 +1.8%\n• 신규 순증 매장 303개\n• 글로벌 총매장 41,607개\n• 직영 매장 비중 32%, 라이선스 매장 비중 68%\n• 분기 배당금 주당 $0.63\n북미 사업부\n• 매출 $73.28억, YoY +6.2%\n• 영업이익 $8.98억, YoY +191.2%\n• 영업이익률 12.3%, YoY +780bps\n• 동일 매장 매출 +7.9%\n• 평균 객단가 +5.0%\n• 동일 매장 거래…",
-   "url": "https://t.me/insidertracking/67800"
-  },
-  {
-   "time_utc": "2026-10-29T20:48:10Z",
-   "time_kst": "2026-10-30 05:48",
-   "text": "⚡️\n⚡️\n⚡️\n⚡️\n⚡️\n⚡️\nIntel 2026년 3분기 실적 요약\n📍\n실적\n• 매출 $165.13억, YoY +21%\n• GAAP 매출총이익 $70.96억, 전년 $52.18억\n• GAAP 매출총이익률 43.0%, YoY +480bps\n• 조정 매출총이익률 44.1%, YoY +410bps\n• GAAP 영업이익 $25.22억, 전년 $6.83억\n• GAAP 영업이익률 15.3%, YoY +1,030bps\n• 조정 영업이익 $32.34억, 전년 $15.24억\n• 조정 영업이익률 19.6%, YoY +840bps\n• Intel 귀속 순이익 $33.20억, YoY -18%\n• 조정 순이익 $27.56억, YoY +169%\n• GAAP EPS $0.60, YoY -33%\n• 조정 EPS $0.52, YoY +126%\n• 연구개발 및 판매관리비 $45.20억, YoY +4%\n• 조정 연구개발 및 판매관리비 $40.50억, YoY +3%\n• 영업현금흐름 $50.82억, 전년 $25.46억\n• 설비투자 $42.19억, 전년 $29.56억\n• 조정 FCF $16.39억, 전년 $8.96억\n• 현금 및 현금성자산 $218.46억\n• 단기 투자자산 $321.59억\n• 총부채 $501.34억\n• 전체 직원 8만 1,100명, 전년 8만 8,400명\n클라이언트 컴퓨팅 및 피지컬 AI\n• 매출 $80.97억, YoY -5%\n• 영업이익 $22.85억,…",
-   "url": "https://t.me/insidertracking/67799"
   }
  ]
 }
