@@ -1,161 +1,161 @@
 {
- "fetched_at_utc": "2026-10-30T23:54:21Z",
+ "fetched_at_utc": "2026-10-31T00:47:19Z",
  "constituents_source": "wikipedia",
  "notes": "S&P500 기준 시장폭. 신고가/신저가는 최근 252거래일 종가 기준. 거래소 전체 집계와 다름.",
- "last_date": "2026-10-30",
+ "last_date": "2026-10-29",
  "universe": "S&P500 구성종목",
  "count": 503,
- "advancers": 226,
- "decliners": 277,
+ "advancers": 406,
+ "decliners": 97,
  "unchanged": 0,
- "advance_pct": 44.9,
+ "advance_pct": 80.7,
  "new_52w_highs": 33,
- "new_52w_lows": 4,
- "pct_above_50dma": 61.0,
- "pct_above_200dma": 61.2,
- "equal_weight_avg_change_pct": -0.846,
+ "new_52w_lows": 2,
+ "pct_above_50dma": 65.6,
+ "pct_above_200dma": 65.0,
+ "equal_weight_avg_change_pct": 1.2,
  "top_gainers": [
   {
-   "symbol": "FDXF",
-   "name": "FedEx Freight",
-   "sector": "Industrials",
-   "close": 126.04,
-   "change_pct": 14.91
+   "symbol": "GEN",
+   "name": "Gen Digital",
+   "sector": "Information Technology",
+   "close": 28.2,
+   "change_pct": 15.81
   },
   {
-   "symbol": "REGN",
-   "name": "Regeneron Pharmaceuticals",
+   "symbol": "CVNA",
+   "name": "Carvana",
+   "sector": "Consumer Discretionary",
+   "close": 68.31,
+   "change_pct": 15.68
+  },
+  {
+   "symbol": "NCLH",
+   "name": "Norwegian Cruise Line Holdings",
+   "sector": "Consumer Discretionary",
+   "close": 18.22,
+   "change_pct": 13.45
+  },
+  {
+   "symbol": "HII",
+   "name": "Huntington Ingalls Industries",
+   "sector": "Industrials",
+   "close": 316.21,
+   "change_pct": 13.23
+  },
+  {
+   "symbol": "TXT",
+   "name": "Textron",
+   "sector": "Industrials",
+   "close": 87.46,
+   "change_pct": 11.67
+  },
+  {
+   "symbol": "CMG",
+   "name": "Chipotle Mexican Grill",
+   "sector": "Consumer Discretionary",
+   "close": 31.28,
+   "change_pct": 8.88
+  },
+  {
+   "symbol": "LHX",
+   "name": "L3Harris",
+   "sector": "Industrials",
+   "close": 278.43,
+   "change_pct": 6.84
+  },
+  {
+   "symbol": "LLY",
+   "name": "Lilly (Eli)",
    "sector": "Health Care",
-   "close": 927.89,
-   "change_pct": 13.33
+   "close": 1373.7,
+   "change_pct": 6.63
   },
   {
-   "symbol": "GPN",
-   "name": "Global Payments",
-   "sector": "Financials",
-   "close": 96.84,
-   "change_pct": 12.97
+   "symbol": "TSCO",
+   "name": "Tractor Supply",
+   "sector": "Consumer Discretionary",
+   "close": 33.65,
+   "change_pct": 6.45
   },
   {
-   "symbol": "GDDY",
-   "name": "GoDaddy",
-   "sector": "Information Technology",
-   "close": 117.24,
-   "change_pct": 10.72
-  },
-  {
-   "symbol": "CSGP",
-   "name": "CoStar Group",
-   "sector": "Real Estate",
-   "close": 30.17,
-   "change_pct": 7.21
-  },
-  {
-   "symbol": "CBOE",
-   "name": "Cboe Global Markets",
-   "sector": "Financials",
-   "close": 335.53,
-   "change_pct": 6.77
-  },
-  {
-   "symbol": "VLTO",
-   "name": "Veralto",
+   "symbol": "IR",
+   "name": "Ingersoll Rand",
    "sector": "Industrials",
-   "close": 111.1,
-   "change_pct": 6.77
-  },
-  {
-   "symbol": "TMUS",
-   "name": "T-Mobile US",
-   "sector": "Communication Services",
-   "close": 156.44,
-   "change_pct": 6.21
-  },
-  {
-   "symbol": "TYL",
-   "name": "Tyler Technologies",
-   "sector": "Information Technology",
-   "close": 394.3,
-   "change_pct": 5.45
-  },
-  {
-   "symbol": "LYB",
-   "name": "LyondellBasell",
-   "sector": "Materials",
-   "close": 68.64,
-   "change_pct": 5.0
+   "close": 80.01,
+   "change_pct": 6.04
   }
  ],
  "top_losers": [
   {
-   "symbol": "RDDT",
-   "name": "Reddit",
+   "symbol": "NOW",
+   "name": "ServiceNow",
+   "sector": "Information Technology",
+   "close": 109.67,
+   "change_pct": -26.95
+  },
+  {
+   "symbol": "FTNT",
+   "name": "Fortinet",
+   "sector": "Information Technology",
+   "close": 139.1,
+   "change_pct": -20.09
+  },
+  {
+   "symbol": "MRVL",
+   "name": "Marvell Technology",
+   "sector": "Information Technology",
+   "close": 218.34,
+   "change_pct": -13.24
+  },
+  {
+   "symbol": "GOOGL",
+   "name": "Alphabet Inc. (Class A)",
    "sector": "Communication Services",
-   "close": 91.73,
-   "change_pct": -29.22
+   "close": 283.82,
+   "change_pct": -12.64
   },
   {
-   "symbol": "INTC",
-   "name": "Intel",
-   "sector": "Information Technology",
-   "close": 65.76,
-   "change_pct": -28.58
+   "symbol": "GOOG",
+   "name": "Alphabet Inc. (Class C)",
+   "sector": "Communication Services",
+   "close": 282.32,
+   "change_pct": -12.29
   },
   {
-   "symbol": "ILMN",
-   "name": "Illumina, Inc.",
+   "symbol": "HONA",
+   "name": "Honeywell Aerospace",
+   "sector": "Industrials",
+   "close": 160.04,
+   "change_pct": -9.6
+  },
+  {
+   "symbol": "CAT",
+   "name": "Caterpillar Inc.",
+   "sector": "Industrials",
+   "close": 647.39,
+   "change_pct": -9.25
+  },
+  {
+   "symbol": "BAX",
+   "name": "Baxter International",
    "sector": "Health Care",
-   "close": 235.99,
-   "change_pct": -18.64
+   "close": 23.5,
+   "change_pct": -7.7
   },
   {
-   "symbol": "TWLO",
-   "name": "Twilio",
+   "symbol": "CTSH",
+   "name": "Cognizant",
    "sector": "Information Technology",
-   "close": 205.03,
-   "change_pct": -15.24
+   "close": 62.52,
+   "change_pct": -5.79
   },
   {
-   "symbol": "SNDK",
-   "name": "Sandisk",
+   "symbol": "TER",
+   "name": "Teradyne",
    "sector": "Information Technology",
-   "close": 1150.89,
-   "change_pct": -13.47
-  },
-  {
-   "symbol": "DDOG",
-   "name": "Datadog",
-   "sector": "Information Technology",
-   "close": 235.27,
-   "change_pct": -11.5
-  },
-  {
-   "symbol": "COHR",
-   "name": "Coherent Corp.",
-   "sector": "Information Technology",
-   "close": 210.32,
-   "change_pct": -11.34
-  },
-  {
-   "symbol": "QCOM",
-   "name": "Qualcomm",
-   "sector": "Information Technology",
-   "close": 164.79,
-   "change_pct": -11.12
-  },
-  {
-   "symbol": "AMD",
-   "name": "Advanced Micro Devices",
-   "sector": "Information Technology",
-   "close": 504.8,
-   "change_pct": -10.88
-  },
-  {
-   "symbol": "DELL",
-   "name": "Dell Technologies",
-   "sector": "Information Technology",
-   "close": 424.3,
-   "change_pct": -10.77
+   "close": 296.23,
+   "change_pct": -5.43
   }
  ]
 }
