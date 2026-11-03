@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-03T02:26:44Z",
+ "fetched_at_utc": "2026-11-03T02:54:34Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -426,6 +426,13 @@
      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQamlfRi1NNjk1a1pjN0JaTXpSS0FEY25SMEF3UmwtcWwxZmdUUTRhRUpiNWZpazV4QkloNVI5M2luMGlybHdUcDZldHFfcy1WRC1ub01hZmNKM29HRjd5TTJ5S1IxTUdrZHA1UVZGLXJ6UUpzbjJzaEkyaGhCY24zQURQN3M3REJUaWpOSGh5eWVYSHZ0?oc=5"
     },
     {
+     "time_utc": "2026-11-02T23:25:01Z",
+     "time_kst": "2026-11-03 08:25",
+     "title": "Alphabet Lost $500 Billion in Market Value. Should You Really Buy AI Stocks Now? - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNTWloNURTRElEYVYzbE0wcm9wNXhoWGE2a0x2WGR2MkgxdFFhMl9xeV83MkQ2dVFXSXZDOVlUNGJROXQ3NlRja0xRZ2lRV1lEMDNsNUl1UEFaRW1xa01wUzg3S1ZOeXlLbi1FY3BmOVVyMVdldEJiTkhtOFN6dlJpV1hpbUdCWFo3RExGeEdseXFrZXF3Zkx6ZFc4dTA?oc=5"
+    },
+    {
      "time_utc": "2026-11-02T23:18:33Z",
      "time_kst": "2026-11-03 08:18",
      "title": "Alphabet Has Lost $766 Billion in October, Its Worst Month Ever. UBS Warns Against Running for the Exits. - Yahoo Finance",
@@ -433,32 +440,11 @@
      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPeVk0Q2liZDdiNFh0MUJDX1MxWHU5QS1PR0hOMFpXZVhNUTY4VDlJMzJUblZJdWxWOUUtTXFvQU1OODNVYTdibW1CSEJ5NTgwUVRNU1RrY09DbGxtUVEySVU3cmswTldCMU9kRXN6YjBsMDM5MHBSZXdFYXhzdEdoWGNpRXZtYVU?oc=5"
     },
     {
-     "time_utc": "2026-11-02T23:05:00Z",
-     "time_kst": "2026-11-03 08:05",
-     "title": "Alphabet Lost $500 Billion in Market Value. Should You Really Buy AI Stocks Now? - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQb0xPZFhCRUVqYUpBVzAzb3ZzNGFjbjFLd0dDYkZQMDV4dDVUWkk0T1o3UUU2aF9PYmlneDFsUFRKVENfTEd4M3JXQkthX3paaGxHS2NwTmREWHd4YmtmOVJFa2FRaThEV1p2c3ZGV3N6SEl1Rml2cGRRc2tnUU9nNURNZkxfeTFReUZwVndHcS1feE5GU1FOT3lKaFVtdE5lbkhBRzVvNThWdlgzZkFhSzNGZ2dBX1U4VjhFS3BZMHU?oc=5"
-    },
-    {
-     "time_utc": "2026-11-02T23:02:57Z",
-     "time_kst": "2026-11-03 08:02",
-     "title": "[GAM]알파벳 '황금알 거위 'AI에 먹힌다 ① 검색과 광고 위험한 디커플링 - 뉴스핌",
-     "source": "뉴스핌",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE81NTVHOURTLUxrVlA4V1Azb3NIcElpRThRTWJkZ0t1STROZ2QzRzNoSGhJZldpNkxzOVRZaWdBNHNXQWxDSWZnNmJxbEJLMmpUbUxxYklNa3Z4dEhM?oc=5"
-    },
-    {
      "time_utc": "2026-11-02T23:01:00Z",
      "time_kst": "2026-11-03 08:01",
      "title": "[GAM]알파벳 '황금알 거위 'AI에 먹힌다 ② '멀티턴' 심폐 소생 효과 제한적 - 뉴스핌",
      "source": "뉴스핌",
      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5USVBfT2h2Vmt1LXpYSXhHZmJqTEVfTFVqV19qTTJpQWNtaVFEX3VJbnN2Tks0WVdDbGJBYUhjdnJkRS1QeWFZZmZualcxeGQ4MXFQQzYtVnFLYlh0?oc=5"
-    },
-    {
-     "time_utc": "2026-11-02T23:00:00Z",
-     "time_kst": "2026-11-03 08:00",
-     "title": "10월 5주차 현생 사느라 못 봤슴 🦔 #그린벨트 #전자담배 #알파벳 #에페 #소득계층 - 뉴닉",
-     "source": "뉴닉",
-     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBSOXQxOHNvZDBXYU1VbmhncHkta0pNbURRTnd4ZmtnU1plS2phaWZEbHBWNm5rOFU3T2Z6ZHNfbFV1cjZ0UlVyb3A5TncyNV9zV2F3?oc=5"
     },
     {
      "time_utc": "2026-11-02T23:00:00Z",
@@ -494,6 +480,20 @@
      "title": "Can Google Alphabet stock’s oversold RSI counter its bearish daily trend? - The Cryptonomist",
      "source": "The Cryptonomist",
      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1hX1NVRzR1X3hnTlVUODIzQW5XMlBpTW1iYnlPSG94S05HUl9DYm5nTWN4b3I1Z3VUSkRCQm9VcU9laGRQNVpBazgydDh6TmJTTExVNXhCY1NNM0R0Q2RGamdqRzVvX1NaWHU0dmdrZnlObUU3ZjhPWjhVVQ?oc=5"
+    },
+    {
+     "time_utc": "2026-11-02T20:33:32Z",
+     "time_kst": "2026-11-03 05:33",
+     "title": "Well That Was Fast: Scott Galloway Calls Alphabet “a Buying Opportunity” at 15x Earnings - TIKR.com",
+     "source": "TIKR.com",
+     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOWWxTMEVYNmhDMGk3ME5aT1FmS21iOHhJYzc4RFhrRXRodUVqMlNOZVJFeWdzcFRyRmgyc1R5TGlnUjdoY01zcWI0YndnRFhFT2ZPWGpPZDBKeVFQNzFraXNObklibHRoY1pYQXJkSnJUdnhKRWVMdWdndDNvM0lsblgtUlBOOHZubVVoa0NnUkhQU1dyT093X0pBNlRJUTVVQXE3ZmticmlncFJaM2lTZnBR?oc=5"
+    },
+    {
+     "time_utc": "2026-11-02T20:29:11Z",
+     "time_kst": "2026-11-03 05:29",
+     "title": "Alphabet: Wall Street Fixates On AI Spending, But Cloud Profits Tell Another Story (GOOGL) - Seeking Alpha",
+     "source": "Seeking Alpha",
+     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQSHlWT2dDTTBLZTJ3NjZNdHg1QWtDNTdvaGVuWDlqa3hWZnBYZFFjWElSQ05Wa0RTN3RETHpQeEtvVWV5dG1ITUotWnVIa3RVbzRMbHp5RUpnVWNOOVBYSVB5UkNIdENQUEp6c19nQWRGOEJMMkJfemV6cTZuOXdBSEFNanBVaHc1THBuN1hnTi1BSzhZcHpqX3FSc1JvZkFmRmg5eGRVb2dqbDl5ZTVYSVZ6WnJnNUN6VlRXR1BB?oc=5"
     }
    ],
    "errors": []

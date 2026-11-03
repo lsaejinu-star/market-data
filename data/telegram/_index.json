@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-03T02:26:37Z",
+ "fetched_at_utc": "2026-11-03T02:54:27Z",
  "hours": 26,
  "channels": {
   "insidertracking": {
@@ -12,7 +12,7 @@
   },
   "harveyspecterMike": {
    "status": "ok",
-   "posts": 1
+   "posts": 2
   },
   "bornlupin": {
    "status": "ok",
@@ -20,7 +20,7 @@
   },
   "grmtstudy": {
    "status": "ok",
-   "posts": 7
+   "posts": 4
   },
   "MacroAllocation": {
    "status": "ok",
