@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-04T00:41:16Z",
+ "fetched_at_utc": "2026-11-04T01:19:33Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -297,6 +297,13 @@
    "feed": "https://www.boj.or.jp/en/rss/whatsnew.xml",
    "items": [
     {
+     "time_utc": "2026-11-04T01:00:00Z",
+     "time_kst": "2026-11-04 10:00",
+     "title": "Bank of Japan Accounts (October 31)",
+     "source": null,
+     "url": "http://www.boj.or.jp/en/statistics/boj/other/acmai/release/2026/ac261031.htm"
+    },
+    {
      "time_utc": "2026-11-03T23:50:00Z",
      "time_kst": "2026-11-04 08:50",
      "title": "Monetary Base (Oct.)",
@@ -470,6 +477,13 @@
      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRzBNTGJHUDU4aWxETVdKWldaS01ibnBLaXFveE1XVGlLemxyU2FDU1ZfcFBiVkd6Tnp6LWNnS0UwNHg0NjhsWlgwbFI4ZTE5Unc3ZldIVU1Va0dMcm9lSUkxZXdha1kycnBWZEI0eVF2V2M4V2JzSDdVeVNLVjh4MlBFbi1MWDRjVzRxTzlScHZGS1NyMEthal9KSWYweGczVkc1cjZEd19DQQ?oc=5"
     },
     {
+     "time_utc": "2026-11-03T21:52:10Z",
+     "time_kst": "2026-11-04 06:52",
+     "title": "Dinosaurs Of The Wild West | Official Kickstarter Trailer (4K) Greg Locke (oBFNCG8vwR) - Unisba Media",
+     "source": "Unisba Media",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5UaHBkVkw3WjE3X3JtTFJ1QTlPZWNzNDBaVFJYS3B4U2dVU29XOGtCWkpoeWlvODB4alBJYXU1RlBGX1ZGcUNEYWhkWmZzSENBQU5KNGZTRkpTeHdxMjJNallWT1NSc3VUb2xZ?oc=5"
+    },
+    {
      "time_utc": "2026-11-03T21:52:04Z",
      "time_kst": "2026-11-04 06:52",
      "title": "Nokia vs. Verizon: A Contrast in Revenue Scale and Seasonality - The Globe and Mail",
@@ -482,6 +496,13 @@
      "title": "Nokia vs. Verizon: A Contrast in Revenue Scale and Seasonality - The Motley Fool",
      "source": "The Motley Fool",
      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOQ1BKdS1iMzJtcTg4WU44dDhfTVVCcUN5VW9sZnZoTGsxQ2ZmN1dPT2toa1VPT09PM1RjdFItc2ZPVF9JNHVpdW5idkRGbkdJWE1FVFhFYlNaTjRENWF4MHpieG53TDcyYkY0UVZfZFNVVjlmMDk2VU15ZkFfSVFJSGw3cW1XREdjNXM4N19sMktNVFY5anppcExhTE1rUDFfel9uekhWNy1DekVRaUE?oc=5"
+    },
+    {
+     "time_utc": "2026-11-03T20:14:38Z",
+     "time_kst": "2026-11-04 05:14",
+     "title": "Ono Pharmaceutical (TSE:4528) Stock Could Still Offer A Discount To Fair Value - Yahoo Finance Singapore",
+     "source": "Yahoo Finance Singapore",
+     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNYTVITnI0N3FKcTRvY1dnaHdhSWRibG4zdHYzZHRsNVlWcEpSSEtkX3ZTYW1WdE5mX0luM3laT2toX1FMYTFwWWZNVkNkVTVXZ1JYdTRGTU45cnJuRHAxSW5fRE9jOXdQY2VhVkNuWGFpbEE0aGJ0U0NyaXZwVXJuaWV1V2swb3p6U3c?oc=5"
     },
     {
      "time_utc": "2026-11-03T19:56:03Z",
@@ -498,11 +519,46 @@
      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA2SFY0c052OXdQYlJIQWN4RHF0NWRRMGtWSFpCNVJ1bS05b29paTk1QXJfVWs3dXNoU1MtbTczYmIyS1dQUjlfVVl5THIyQ1ByRk52UGowX19uVy1jWWVNMnhaV25uMnFRYUo5VnhRVUJkcmRoa0E?oc=5"
     },
     {
+     "time_utc": "2026-11-03T17:57:39Z",
+     "time_kst": "2026-11-04 02:57",
+     "title": "What's Going On With AST SpaceMobile Stock On Tuesday? - TradingView",
+     "source": "TradingView",
+     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSU14WWtsOGx1Qkw4WTNEZEJUcGtpelZoWFRRNHpKdEhMN3dNZ2lpek1MSnYyMzhpLVBIbHNYeEZqU2NtOUtSUlYzb3hIRS00SERfbXRvVndLZnZIZnFTazk3WmN0OENiNG12QWt0WGI5ZDlnQTljTjBOR0ZsYldZZ25TdTlkX0NsbVgtSGc5bF9UOUh6MWxaT0ptM09EM1lTMlZ5VHpuM1hnLWEyRTl6WG9R?oc=5"
+    },
+    {
+     "time_utc": "2026-11-03T17:24:30Z",
+     "time_kst": "2026-11-04 02:24",
+     "title": "Arista Networks Stocks Rise 3.53% Before $3.3 Billion Revenue Test - Yahoo Finance Singapore",
+     "source": "Yahoo Finance Singapore",
+     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPOGNiak5fTGx0dFhEY1EyY0JqZVpFQlRYLWdfOG1PaUdJZFNlZ1hkbW8xWDJOVS11MUtVYUZvUkxaZ00xTHc2ZzZNNG83Vm5HZGkwSjBWY3diTHYwc2ZPYldHSEhOYzBLcVlmWGdvWW1ncjNxQldGMVdoMmhEaDhVREw5d28?oc=5"
+    },
+    {
+     "time_utc": "2026-11-03T17:14:45Z",
+     "time_kst": "2026-11-04 02:14",
+     "title": "Nucor (NUE) Stock May Be 34% Undervalued Despite Strong Q3 Earnings - Yahoo Finance Singapore",
+     "source": "Yahoo Finance Singapore",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9IQWgxeWt5b0NZMDEtWDdkQkRSeUNNTmRMdFF0d0I0a1hmVmphMlEtbDZ2bDRQUUxhUWJBUlFhX0N0UWxnR1pKZEZHekpCdVA5VjBtRDl6azZrT0puaHUtU3NYLUk1am5JUlc2amR1SGxYaDBxN3JTdXlVTQ?oc=5"
+    },
+    {
+     "time_utc": "2026-11-03T16:44:56Z",
+     "time_kst": "2026-11-04 01:44",
+     "title": "Nokia Oyj (NOK) stock price, news, quote and history - Yahoo Finance Australia",
+     "source": "Yahoo Finance Australia",
+     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBqRU9vN1NaMVVTZEJXdHUyanFZb3JqYXltYTQ3c2JOSXpQNV9VZENHQnhvTFBSdGJ0ellXZ2ZIa0RMaEtzSklLU1AwZ1ZRM2lB?oc=5"
+    },
+    {
      "time_utc": "2026-11-03T16:37:58Z",
      "time_kst": "2026-11-04 01:37",
      "title": "Nokia stock moves more than 1% below Monday report quote - ad-hoc-news.de",
      "source": "ad-hoc-news.de",
      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOWjk2NVdEM0lnTDhhV1RKaXBYNjlDMUxGOFpkNDBCOGV1RGQ1U2RubWxGY2RlY3dpazlpWHRLZHdXaUlkaTFGOTJDc196ZC1HdExjMTZ4RVR1N192V0ctbGRfR2RBSHVtb3JQbzBjVVl5S1l5b0NycFRVZWlPVVZSa0YtZWtocU00RE9tekJHMXVMbF9mbnhLQlExdzBvdjZpSGNXSXdkUE5aSmtRUHJEc2NHTmxlSUg1YWc?oc=5"
+    },
+    {
+     "time_utc": "2026-11-03T16:10:57Z",
+     "time_kst": "2026-11-04 01:10",
+     "title": "General Dynamics stands out as a balanced industrial stock pick - Yahoo Finance Singapore",
+     "source": "Yahoo Finance Singapore",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOT1NOenFMUmlPbVpxTFhVWVR1NEtDaTl0RzRTaHlKa3FKSXhRaDRQcXZSYkhhQmdJZ0ZGRkZ3RmdrLW5YQ251Xzk2U0VGM0hhRU56NERJMXYtbFlSRFlEWFE4V1Nza3NsLVhJamdqTHhNS2lmbHVoS1NpdF9TTzFZbFVoQ2lIV3JRTUlwTzViUnBSN1Rnc0Fv?oc=5"
     },
     {
      "time_utc": "2026-11-03T15:40:16Z",
@@ -517,55 +573,6 @@
      "title": "Moody's Upgrades Nokia's Senior Unsecured Ratings on Expected Profitability Gains - marketscreener.com",
      "source": "marketscreener.com",
      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNY2ZPY1BEZ3BIUV84eDIxUUdjLVlhVEMwMnIydXZHUzdiVnU2bFhpOTFyUmYzbEpGZDd0RFVFTlBGOGxlTlYtU3dNMnpycmY0Sno0a3ZQUFFHb1Zzd1JfSkxzRGE4QkRlbF9mODUtNEh2WVZySExJd1RXYldOTm1QTzdheFNzT0dZN1lXMU82UzlFMUhqMmpqWFlacUh2bi1zVVpwUmdlNWdMclBBOVNZNzBudjRGTktlcER3NHUzS0kybzAxMFNhX3oxWWZ1Z00?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T14:47:04Z",
-     "time_kst": "2026-11-03 23:47",
-     "title": "Nokia deploys Deepfield Cloud Intelligence for Zain KSA across 100+ cities - scanx.trade",
-     "source": "scanx.trade",
-     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZWpzUWFDdElyMmFsVkNacGRDekI4ZTBfUkViYXFFelVxQXZyQ1BoN0x4NExPdnFhSjNmZlNNdnJoMTJPdHNkZFJBZ0hqQ2Z5NU9ENjEtWWJLdkhVeXBJU2pkTm5KQ3JuUnBCNG9qcnpLc0o3UXVkVFpuNEphQmV5UkIySEtIWjZpZXBmSWdrc1Z0d043TGluVGJraElhYk9EZTZ5Y2NsZnJCaUNaSkNuNG5YdkRUR0RrNllHYTVn?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T14:00:00Z",
-     "time_kst": "2026-11-03 23:00",
-     "title": "Micron or Nvidia: If I Could Only Buy and Hold One of These Artificial Intelligence (AI) Chip Stocks for the Next 5 Years, It Would Be This One - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNVmpHVmtYeUJuM1VvUl93WWVCa09adkFfekU4MWNGUXBmVWtMMGpHQlFZdE1TSkRsSmJzYk9wNlh4eUVvMFh3VWp1eTFjM19CWjZ5MjZvS00zd3RJc3RqNEpaVU5jcWJIR1FHUG9weGJEaWJVWWQwYWUwbUQ2MU12N2h2anVhUU1xVUlSaFY2Nm5vVWxVMXM0?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T12:19:38Z",
-     "time_kst": "2026-11-03 21:19",
-     "title": "Nokia Oyj (NOKIA.HE) Stock Price, News, Quote & History - Yahoo! Finance Canada",
-     "source": "Yahoo! Finance Canada",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE8tLXdSTFZZN2Nra0t3VjgwMFg2ZkkybFNpVzRQd3NGdEQ0VC1fM0hLLU5WWmNDVERKLXhhNE1XZTRMb243eDBqd2lURUVLZjRqRDVKMU52SQ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T10:35:57Z",
-     "time_kst": "2026-11-03 19:35",
-     "title": "Nokia Corporation (NOKIA.HE) stock price, news, quote and history - Yahoo Finance UK",
-     "source": "Yahoo Finance UK",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9ZT2hybEJ1SEoxZ1hRV2VBOGFNeWRRdlZha1I1UWMzZDRwaEt3QlZlajVxZ3d4aUFzZXotLVN3Q2JPd2V5YW9LNEpsZDcwZEphak9nQUhMVQ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T05:43:46Z",
-     "time_kst": "2026-11-03 14:43",
-     "title": "Nokia Corporation (NOKIA.HE) interactive stock chart - Yahoo Finance UK",
-     "source": "Yahoo Finance UK",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE04ekZtSjJIaFVEU09BR2ZBNnB3R2g4YWNyNm43eHF4bHJPVHZFS2ZOVUVxaGxoYXZVcFczc3JVc2o2X2N4aWdpaXAwLTJLQmNjR1NMempqaTQ1YnM1bm93?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T03:30:00Z",
-     "time_kst": "2026-11-03 12:30",
-     "title": "ASTS Stock Climbs From 16-Month Low: Boost Mobile Founder Urges AST To ‘Pivot FAST’ As SpaceX Eyes Bigger Wireless Push - TradingView",
-     "source": "TradingView",
-     "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQamFJVldpSjQ3cGQxcW9sV1F1bUZrVlRvak1PTWhFemd6LU4yUXZIWkpJX1ZLOVlXOE83Z3FmOHVaNzNzNzBIRmxfZm5JUERyV19VeGNXWVVjaWozdXNvTUhRV1V5R2h0WjgtdnNlazFneFdLbmt0S212T1lHMWZlWURGV01mUzJzNkJWVDk3WjlLbkFmSjR0OUY0T2ZUWVRtdkNFZ3NVTDlIeGNTSzlRRGRxT3IxRk5sOVZqSHBMMEhUamhIaVgtcE9mcVVIcUZsOURTbkN2WFVjOEwtMGlqNndSMW44WGNTUFh4dHN2eF8zbVJRTWs3a19QX2ExVFhjdHFCSjJZLXA?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T03:16:06Z",
-     "time_kst": "2026-11-03 12:16",
-     "title": "Inseego Corp. (INSG) Stock Price, News, Quote & History - Yahoo! Finance Canada",
-     "source": "Yahoo! Finance Canada",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAtWnRKOWFzYXJDU2VqVzFVZlNVTC0wSWNIR0FUVzdQQkstSklPeGJKS0haR0wyd2hadkNFRENoRk9VbFBVamVDZmR4MENKNDlDY1E?oc=5"
     }
    ],
    "errors": [
