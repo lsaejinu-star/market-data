@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "deny": [
+      "mcp__Microsoft_365__outlook_send_mail",
+      "mcp__Microsoft_365__outlook_send_draft",
+      "mcp__Microsoft_365__outlook_forward_mail",
+      "mcp__Gmail__send_message",
+      "mcp__Gmail__reply",
+      "mcp__Gmail__forward"
+    ]
+  }
+}
