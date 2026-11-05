@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-05T00:56:45Z",
+ "fetched_at_utc": "2026-11-05T01:27:47Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -371,6 +371,13 @@
   "GOOGL": {
    "items": [
     {
+     "time_utc": "2026-11-05T01:13:49Z",
+     "time_kst": "2026-11-05 10:13",
+     "title": "AI 비용 눈덩이처럼 불어나자…구글, 해외 5개국서 희망퇴직 확대 - 디지털투데이",
+     "source": "디지털투데이",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE52bWNCamhhdDVBMVJLbnNSR0tqcDRCdGpRUUw1N0tJUTd0ek1FenZuSEZGaV9vckZqMnNGbWowRl9qbE1wSlMxREFiSXQyTW1kZkhtZzVwaEZoMHdYa0FsdWl1aW9qczhlM2FYaDFfQ0ItbU0?oc=5"
+    },
+    {
      "time_utc": "2026-11-05T00:53:58Z",
      "time_kst": "2026-11-05 09:53",
      "title": "알파벳, 수요일 주가 3% 이상 오른 이유는? - Benzinga",
@@ -378,11 +385,11 @@
      "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxNcDhwUkVnekViTnlINHA0dmhSeDdMMHNIWDNjeFRvVkpnbmZKLTNMMkg3NmQ4YktCS2JVLVdEcWpYVUtCb1o1eXBTV2phUlFjNGtZVmptamdnZU9ZQWJKZk9mOGFvNC1XR1IzUHI0ZmZzcEJHQ3g0ckREM0RkM3BQeVBmaklmSUkzdEM1c2p6U01XTDZYSXlZQ01sSVpSX3E1cTZzeElVTjlHSHRFNDY2N3ZZeDJJRTFEaFRqNC1sdi1Kazgtbi1XYmlwX0RCbXdDRFpsbTNjaEx5VFBiOVkyeUwxa1ZWdEZyeUtBMXNvZlhhTFhsWHBMdWhsSzFsVFNDUTU0QVpyTXNHUkdhRGtmLUNR?oc=5"
     },
     {
-     "time_utc": "2026-11-05T00:14:40Z",
-     "time_kst": "2026-11-05 09:14",
+     "time_utc": "2026-11-05T00:22:57Z",
+     "time_kst": "2026-11-05 09:22",
      "title": "Why Alphabet Stock Popped on Wednesday - The Globe and Mail",
      "source": "The Globe and Mail",
-     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbVpnbHpLb21ZOWNPZmlVVDEtcWg0eEhSRXlGeEdiR1puc1dDcFdURU00RXRkWWdQUkNGcEpreVRCdEMtcnpReTZnaUhLNTZQVW1PY3E5aFVwei00OHNQUS1ORUp2am1RZjZJMkstVFp5MjBlV3UwOVdrSm1Wdk5IS2phVk01WDN2LU9RNzJpMnJkalZCcjhhU1dBQTRaYVNtRjZFU3MxYWR1QTA2QkxjNDFuSGZSOXRVTmFrbEhYQVM?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQLVFkdnhUcllUNVBXYy1SMTIyWjctbWJqdzFFQnVDTmdzbEpVam9uMUpPME5Temk5VWtDQVZDMXNDOV9GUFlQWXU5VTVtN242VEFQQ2JjSFY5cGo3OVVKZHgtUEhWUjFLR0FuanBLVmNLRXlQMU1XRzNaVXNwNklwZ0RDZlh5T2J2eTBab19ISE1OOERjSlFDQmNhZFYwT1FzNVB2MFN5VHMxUjA4clBDbTF1QmtQblJGYWk5VWtwUklONzg?oc=5"
     },
     {
      "time_utc": "2026-11-05T00:13:00Z",
@@ -467,13 +474,6 @@
      "title": "Top VC: The Best AI Models Take “80% Plus” of Spend. And Alphabet’s Gemini Just Ranked No. 1 - TIKR.com",
      "source": "TIKR.com",
      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPdzJOMWVrVWhsTDBTYWVOLUxoWE1vVDBPZG1OQkJ5QVJDWUFKa056Z0ZzNGNIaktyNVJWUUZnZ09mM09EQ0ZFU2wyTGI5aGJTY254Ym1tNkxQam00VC1NeUw5NmdhU0toSzNtd0NTVi11NW9Dc2t3bDBfRy1WMHJLZ0Z0Nk5jZExzOWpIaVJGMWhwR0t4UE54b19NeWkwZ3d1QXFlYVdaSk5qQ0VQM0NSLWNQQXNVWmZScTBhN3J1ZUJiVl9nWFhoWXNnT0JQRmh3b01DSlhMOHhCU3RULTR1NWx6MEZ4bUhyZWo3UUhnRF92ZjNR?oc=5"
-    },
-    {
-     "time_utc": "2026-11-04T20:15:16Z",
-     "time_kst": "2026-11-05 05:15",
-     "title": "마이크로소프트, 6만 명 희망퇴직 제안 일주일 만에 구글도 글로벌 구조조정 - Cryptopolitan",
-     "source": "Cryptopolitan",
-     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1SWmZZMlM0amxkVzRLOTk2aHlpdm80UTMyV2lnR0I3Zzg3blRZZzNTZE5jMm9lLXNMNm5TcERLaGxLQzRDMkU5TDYyYmhqbDk1RkJ4Sm43Y1JyMGRSdlVGdVR3amhXRmVLRXZ6MDN1LVhwQVBmLVduWFlEYw?oc=5"
     }
    ],
    "errors": []

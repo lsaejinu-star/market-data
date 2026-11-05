@@ -1,8 +1,14 @@
 {
  "channel": "FastStockNewsUSA",
- "fetched_at_utc": "2026-11-05T00:56:33Z",
+ "fetched_at_utc": "2026-11-05T01:27:40Z",
  "hours": 26,
  "posts": [
+  {
+   "time_utc": "2026-11-05T01:06:09Z",
+   "time_kst": "2026-11-05 10:06",
+   "text": "미국 민주당, 데이터센터 넘어 첨단 AI 개발 규제까지 요구\n: 미국 민주당 하원의원 야사민 안사리(Yassamin Ansari)는 11월 5일 X를 통해 첨단 AI 개발 중단과 인공초지능(ASI) 개발 금지를 촉구\n: 안사리는 “민주당의 최우선 의제는 첨단 AI 개발의 일시 중단, 통제 불능 상태인 AI 산업에 대한 규제, 인공초지능 개발 금지가 되어야 한다”고 발언\n: 최근 미국 주지사 선거에서 데이터센터 건설 중단 및 규제 강화를 지지하는 후보들이 대거 당선된 가운데, 규제 논의가 데이터센터 인프라를 넘어 AI 모델 개발 자체로 확대\n: 다만 개별 의원의 주장으로, 민주당의 공식 정책이나 구체적인 입법 추진으로 확정된 것은 아님\nhttps://x.com/repyassansari/status/2118054336077127797",
+   "url": "https://t.me/FastStockNewsUSA/24175"
+  },
   {
    "time_utc": "2026-11-04T17:02:52Z",
    "time_kst": "2026-11-05 02:02",
@@ -236,12 +242,6 @@
    "time_kst": "2026-11-04 14:48",
    "text": "✅\n美 중간선거에 블룸에너지 SOFC 오프그리드 전력 월가 주목...전력 비용 전가 막아라\nhttps://www.market-ink.co.kr/news/articleView.html?idxno=14731",
    "url": "https://t.me/FastStockNewsUSA/24136"
-  },
-  {
-   "time_utc": "2026-11-04T05:14:41Z",
-   "time_kst": "2026-11-04 14:14",
-   "text": "트럼프, 이란 전쟁을 공화당 패배의 원인 중 하나로 인정했다고 월스트리트저널 보도.\n...",
-   "url": "https://t.me/FastStockNewsUSA/24135"
   }
  ]
 }
