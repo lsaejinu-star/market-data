@@ -20,3 +20,29 @@
 - 수동 실행: Actions 탭 → market-data → Run workflow
 
 이 저장소에는 API 키나 개인정보를 넣지 마세요.
+
+## 텔레그램 데일리 투자 브리프 (`telegram-report` 워크플로, `tgbrief/`)
+
+매일 한국시간 06:47에 본인 텔레그램 계정으로 **구독 채널 글**과 **리포트 갤러리 이미지**를 수집하고,
+Claude(구독)가 ① 리포트 중 미국 증시 관련만 골라 상세 분석, ② 채널 글을 투자 아이디어 브리프로 재구성해
+슬라이드형 HTML로 만들어 메일로 보냅니다. Actions 탭 → telegram-report → *Run workflow*로 수동 실행도 됩니다.
+
+> 공개 저장소이므로 수집 원문·이미지·결과물은 커밋하지 않으며, 로그에는 건수와 사용량만 남깁니다.
+
+### 처음 한 번 설정 (GitHub → Settings → Secrets and variables → Actions)
+
+| Secret | 값 | 얻는 법 |
+|---|---|---|
+| `TG_API_ID`, `TG_API_HASH` | 텔레그램 API 키 | https://my.telegram.org → API development tools |
+| `TG_SESSION` | 로그인 세션 문자열 | 본인 PC에서 `pip install telethon` 후 `python telegram_login.py` |
+| `CLAUDE_CODE_OAUTH_TOKEN` | Claude 구독 토큰(1년 유효, Pro/Max 등 구독 필요) | 본인 PC에 Claude Code 설치 후 `claude setup-token` → 브라우저 승인 → 출력된 토큰 |
+| `GMAIL_USER` | 보내는 Gmail 주소 | 예: 본인 Gmail |
+| `GMAIL_APP_PASSWORD` | Gmail 앱 비밀번호 16자리 | Google 계정 → 보안 → 2단계 인증 켠 뒤 → 앱 비밀번호 |
+| `MAIL_TO` | 받는 주소(쉼표로 여러 개) | 예: 회사 메일 |
+
+선택(Variables 탭): `TG_CHANNELS`(쉼표 구분 채널 아이디, 기본 13개), `TG_REPORT_CHANNEL`(기본 `report_figure_by_offset`), `TG_MAX_REPORTS`(하루 분석 리포트 상한, 기본 25).
+
+### 주의
+- `TG_SESSION`은 계정 전체 접근 권한입니다. Secrets 외의 곳에 남기지 마세요. 유출이 의심되면 텔레그램 → 설정 → 기기에서 세션을 종료하세요.
+- 분석은 Claude Code CLI를 **구독 토큰**으로 실행하므로 API 요금은 따로 들지 않지만, **구독 사용량 한도를 함께 씁니다**. 미장 여부 선별은 `claude-haiku-5-5`, 분석은 `claude-opus-5-5`(`TG_SCREEN_MODEL`, `TG_ANALYSIS_MODEL`로 변경 가능)이며, 하루 분석 리포트 수는 `TG_MAX_REPORTS`로 제한합니다. 실행 로그 끝에 토큰 사용량이 찍힙니다.
+- `CLAUDE_CODE_OAUTH_TOKEN`도 계정 권한이 있는 비밀값입니다. 1년 후 만료되면 `claude setup-token`으로 다시 발급해 교체하세요.
