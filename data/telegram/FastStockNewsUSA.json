@@ -1,8 +1,20 @@
 {
  "channel": "FastStockNewsUSA",
- "fetched_at_utc": "2026-11-05T01:27:40Z",
+ "fetched_at_utc": "2026-11-05T05:51:51Z",
  "hours": 26,
  "posts": [
+  {
+   "time_utc": "2026-11-05T05:05:48Z",
+   "time_kst": "2026-11-05 14:05",
+   "text": "한국 재무부, 미국 관세 정책 및 중동 분쟁 주시 예정\n...",
+   "url": "https://t.me/FastStockNewsUSA/24177"
+  },
+  {
+   "time_utc": "2026-11-05T03:20:10Z",
+   "time_kst": "2026-11-05 12:20",
+   "text": ">>(요약) 유가에 설상가상! 휴전 기대에 이어 글로벌 원유 공급 과잉 압력도 부각\n•JPMorgan은 글로벌 석유시장이 다시 공급 과잉 상태로 돌아왔다고 전망. 10월 공급 과잉 규모는 하루 140만 배럴로 확대돼 지난해 연간 평균에 근접. 중동의 공급 회복 지속, 라틴아메리카의 꾸준한 증산, 글로벌 수요의 큰 폭 감소 등 세 가지 요인이 이러한 변화를 이끌었음.\n•또한 미·이란 휴전 기대가 높아지면서 브렌트유 가격은 며칠 만에 배럴당 118달러에서 103달러로 하락. JPMorgan은 적정가치를 배럴당 94달러로 추산하고 있어 현재 가격에는 약 9달러의 프리미엄이 추가로 해소될 여지가 있다고 분석\n>油价雪上加霜！停战预期之外，全球原油过剩压力也来了\nhttps://wallstreetcn.com/articles/3785233#from=ios",
+   "url": "https://t.me/FastStockNewsUSA/24176"
+  },
   {
    "time_utc": "2026-11-05T01:06:09Z",
    "time_kst": "2026-11-05 10:06",
@@ -230,18 +242,6 @@
    "time_kst": "2026-11-04 14:48",
    "text": "발전시설을 데센 운영사들이 직접 해결하라고 할 가능성이 매우 높습니다.",
    "url": "https://t.me/FastStockNewsUSA/24138"
-  },
-  {
-   "time_utc": "2026-11-04T05:48:13Z",
-   "time_kst": "2026-11-04 14:48",
-   "text": "블룸에너지 매수 콜 할만하겠네요",
-   "url": "https://t.me/FastStockNewsUSA/24137"
-  },
-  {
-   "time_utc": "2026-11-04T05:48:06Z",
-   "time_kst": "2026-11-04 14:48",
-   "text": "✅\n美 중간선거에 블룸에너지 SOFC 오프그리드 전력 월가 주목...전력 비용 전가 막아라\nhttps://www.market-ink.co.kr/news/articleView.html?idxno=14731",
-   "url": "https://t.me/FastStockNewsUSA/24136"
   }
  ]
 }

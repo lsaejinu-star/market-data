@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-05T01:27:47Z",
+ "fetched_at_utc": "2026-11-05T05:51:59Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -90,30 +90,6 @@
     "indirect_pct": null,
     "direct_pct": null,
     "offering_amount": "44000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "17-Week",
-    "reopening": "No",
-    "high_yield": null,
-    "high_discount_rate": null,
-    "bid_to_cover": "3.08",
-    "indirect_pct": null,
-    "direct_pct": null,
-    "offering_amount": "75000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Note",
-    "term": "2-Year",
-    "reopening": "No",
-    "high_yield": null,
-    "high_discount_rate": null,
-    "bid_to_cover": "3.05",
-    "indirect_pct": null,
-    "direct_pct": null,
-    "offering_amount": "30000000000"
    }
   ],
   "upcoming": [
@@ -320,20 +296,6 @@
      "title": "Monetary Base (Oct.)",
      "source": null,
      "url": "http://www.boj.or.jp/en/statistics/boj/other/mb/mb.htm"
-    },
-    {
-     "time_utc": "2026-11-02T05:00:00Z",
-     "time_kst": "2026-11-02 14:00",
-     "title": "Outlook for Economic Activity and Prices (October 2026, full text)",
-     "source": null,
-     "url": "http://www.boj.or.jp/en/mopo/outlook/gor2610b.pdf"
-    },
-    {
-     "time_utc": "2026-11-02T04:00:00Z",
-     "time_kst": "2026-11-02 13:00",
-     "title": "Sources of Changes in Current Account Balances and Market Operations (Oct.)",
-     "source": null,
-     "url": "http://www.boj.or.jp/en/statistics/boj/fm/juqf/juqf10.xlsx"
     }
    ],
    "latest_any": []
@@ -371,6 +333,62 @@
   "GOOGL": {
    "items": [
     {
+     "time_utc": "2026-11-05T05:30:03Z",
+     "time_kst": "2026-11-05 14:30",
+     "title": "Alphabet stock jumps 5%: Why Google Parent shares rallied - The Economic Times",
+     "source": "The Economic Times",
+     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOTkFfTW85dU05WF84WmtsRVUzVWZ5a2hQcjNXMGJoelBWYnlqZnNKanVtMGlmSUNuQ0tJQmZwZ3BxbjZscDgyUXdfNFhmdTlMMV9LQnBmOXpOWG1HY0ZIajhiQ1c5aVJnTGE5dlJ4N2hyUXAzNHJQekkxWXhyaUNSLXFxZGUtdHotNTB6WnJLQ2xPVUJjd3AzZHVnYW1NMmJzZnJlUTd6ZHlRbWZYRmp2NldUdEgteWIwYV9MblA3RXZ1d3FHTk5QQXdn?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T04:47:48Z",
+     "time_kst": "2026-11-05 13:47",
+     "title": "GOOGL Q3 Earnings Call Highlights AI Growth and Spending Pressures - The Globe and Mail",
+     "source": "The Globe and Mail",
+     "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNV1hNMGZhZFJ4bEc3VTJTZHhxNUs0VW1NMWt4Rzk4aXp5V1VaVGFZVDdPYWFOWHFkUFFnV0RVRnhvNE1nc3QzalVHQU1BdmZhSWx3UThaeXpaaWVSc0R1dWFEZFhjS0F4REVPMWw3dmN3VlRjVktmZHZfT1UyNWhKZjlna2xRSkZXNU5FMlBjLTNITmxMcDlHZy03VThXOEk1U1FfaXE0OFVSeXV2RVJDendyNHpJcS1DWEt0ZGRsRjBUejBFdERWMUlmckpDM2hadzlGeFRUdEgyZlkzMmpjdmozMTNDQk1Md2c?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T04:38:01Z",
+     "time_kst": "2026-11-05 13:38",
+     "title": "Google expands employee buyouts in 5 countries amid heavy AI spending and cost control efforts - Pluang",
+     "source": "Pluang",
+     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZEFZWC1hTzlNVHltNzVYS21BeThoQ3dZVjBCOTBhcXVuQVB2RGF2X3F5MFRYS0g5NC04ellROFRpbmJWbnh6Zk1CVEFHcllqcnRMaUF4MjVnRGtCNjlGWlNQUUZqTUtkRDlPUzRTWjM3TE5SNUdFdmdUMW1zbWhIbmRpVWl5UXZjZTRoZ2U5a1A3ZFQxVFlVUjNUZW92ZDJsNVhn?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T04:20:52Z",
+     "time_kst": "2026-11-05 13:20",
+     "title": "구글, 캐나다·프랑스·독일·일본·스위스로 자발적 퇴직 보상 확대 - 뉴스 및 통계 - IndexBox",
+     "source": "IndexBox",
+     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbnlWZDhyakRqRTJoSUFJV1EzUi15SWJWTU81R1RrVE9yb3dlSjlGZXFHd3o2aUNEVjBmMFk4OU5STUh4aDNJUlF6b1hnd2FLZnNQLUtRcTlLZ0d2OWtQS1dia0hrX05pOFpZWFlHd3owQWRWaktQX0lBeHdIcG04bWFxbks0eXpaaE1oeEFSZkZVTnM4SDh5QzM0QQ?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T03:54:00Z",
+     "time_kst": "2026-11-05 12:54",
+     "title": "Google expands voluntary buyouts to 5 countries as AI spending fuels cost cuts - Fox Business",
+     "source": "Fox Business",
+     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZUZ2eHdfTG9QNGo4UjNQMGZETXZGZkcyZ0VWQnQ0V1dXYUtJZ0F0YmNEcWFZMlJSN2RjdVVQRGh6bVk2RzBjSGh0WGxRWlFEbmFJRW5wVnFrTWpxUjljeUMyd3NHbTYxSkt4Q2E4WnRSd3cwRFg2QnNtUmlacDRhb2VId0hIdUp2X0ZyanZPSmlNUEVmTDZVbGcwSUdtNmZ5bzRkaWtSWjhBeHhOUkpvQtIBtgFBVV95cUxPTnpmRjloazNSRXc3Z3BPM0pBd2dTZ00ybFp3dmNVUkg1TXJiVDlWb2lGRDNYYmE5b1k4cUNkMlQ2X3dDVTJIUnlCbWtMdDNnclZvUVZDNnJUZnNnMzNJQ21LcVhQZE0xc002bWJwVmJTU1N0ZUJodmhzcEtWbWcxSEpEVE1WempGQ1o0bjN5ZVZtdGF0M09CTzh1cmFHbmRaekxVNTdqRmhhYzNIa2ZSZmFDME85QQ?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T02:48:03Z",
+     "time_kst": "2026-11-05 11:48",
+     "title": "Voters’ Gift to Big Tech: 4 Stocks, 41 Measures [2026] - shattered.io",
+     "source": "shattered.io",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNR3FBLUpyYW5FMTU1a2V4bjBTbW13bXgyLWpoVHhFNlRzTTJLbXVma1JTRWdEQzJfQUhwR215WTlPSXltbGR5TzUzM2JJSWNQZThkTFdmYTl4dnhxZmc3aXNyWFFTa0N6ckpyZlBDWkdKZ2RXaDY0QV8yRWZfb1k4X0dKUzAxclNfTHk0?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T02:44:36Z",
+     "time_kst": "2026-11-05 11:44",
+     "title": "Alphabet Stock Sinks, Dragging Nasdaq Lower - WSJ",
+     "source": "WSJ",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNdEt3QnZYMW5WSVBNMUNqQ3pOUEV6RVVoM2xLa2RfV0VEQ1YyTzE2MFIwTnNGdTRFelljM3gtM3lORnhLYW5nT1VaSk5IVV85NlBIeGFlWlhaOHFIcHZhTm1ER1FsZzdZRElZUHl0Mm4ya04tMjZ2WV9ZbzVJLUhocktXVVFYVy1lbEJOWVF4eFVHdVNsbEQ4Tg?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T02:13:00Z",
+     "time_kst": "2026-11-05 11:13",
+     "title": "Has Alphabet (GOOGL) Fallen Far Enough To Back Its Cash Flow Value? - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQckEtTjZnazV2YS1qTjQxNkxzaXZOU2pjYmZ5S29qRzB5QlJ6Y04wcE9MYzE0c250WjQydHNkeUVDS1Q4RGRTaUFrUkphdFVGYWlqcHNibXNkVFo3QUpKVWZKX29LZTF4NE1INVU1ZkVONnQ3MzVzWXhrQzJ2VVBrZUVkTmVRT0VETVdhUnhWZW9uWFhVaThnbkRJeXEyZw?oc=5"
+    },
+    {
      "time_utc": "2026-11-05T01:13:49Z",
      "time_kst": "2026-11-05 10:13",
      "title": "AI 비용 눈덩이처럼 불어나자…구글, 해외 5개국서 희망퇴직 확대 - 디지털투데이",
@@ -385,11 +403,11 @@
      "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxNcDhwUkVnekViTnlINHA0dmhSeDdMMHNIWDNjeFRvVkpnbmZKLTNMMkg3NmQ4YktCS2JVLVdEcWpYVUtCb1o1eXBTV2phUlFjNGtZVmptamdnZU9ZQWJKZk9mOGFvNC1XR1IzUHI0ZmZzcEJHQ3g0ckREM0RkM3BQeVBmaklmSUkzdEM1c2p6U01XTDZYSXlZQ01sSVpSX3E1cTZzeElVTjlHSHRFNDY2N3ZZeDJJRTFEaFRqNC1sdi1Kazgtbi1XYmlwX0RCbXdDRFpsbTNjaEx5VFBiOVkyeUwxa1ZWdEZyeUtBMXNvZlhhTFhsWHBMdWhsSzFsVFNDUTU0QVpyTXNHUkdhRGtmLUNR?oc=5"
     },
     {
-     "time_utc": "2026-11-05T00:22:57Z",
-     "time_kst": "2026-11-05 09:22",
+     "time_utc": "2026-11-05T00:14:40Z",
+     "time_kst": "2026-11-05 09:14",
      "title": "Why Alphabet Stock Popped on Wednesday - The Globe and Mail",
      "source": "The Globe and Mail",
-     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQLVFkdnhUcllUNVBXYy1SMTIyWjctbWJqdzFFQnVDTmdzbEpVam9uMUpPME5Temk5VWtDQVZDMXNDOV9GUFlQWXU5VTVtN242VEFQQ2JjSFY5cGo3OVVKZHgtUEhWUjFLR0FuanBLVmNLRXlQMU1XRzNaVXNwNklwZ0RDZlh5T2J2eTBab19ISE1OOERjSlFDQmNhZFYwT1FzNVB2MFN5VHMxUjA4clBDbTF1QmtQblJGYWk5VWtwUklONzg?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbVpnbHpLb21ZOWNPZmlVVDEtcWg0eEhSRXlGeEdiR1puc1dDcFdURU00RXRkWWdQUkNGcEpreVRCdEMtcnpReTZnaUhLNTZQVW1PY3E5aFVwei00OHNQUS1ORUp2am1RZjZJMkstVFp5MjBlV3UwOVdrSm1Wdk5IS2phVk01WDN2LU9RNzJpMnJkalZCcjhhU1dBQTRaYVNtRjZFU3MxYWR1QTA2QkxjNDFuSGZSOXRVTmFrbEhYQVM?oc=5"
     },
     {
      "time_utc": "2026-11-05T00:13:00Z",
@@ -406,74 +424,18 @@
      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOYlJpNTBiZjlSRFh0LTc3cThFWW5GWXlQUFdTVDJQQkZWYWRwVnYxQXh4T1ZnY1FnM0JxY2Joc2ltWGJlVDJWVmRpWEVySHU5WFpLeFhiRENVVHhOUUI4SjA1SXl2dTBZRGFKVENzZldSLXc3WUR3c05aRXFWeE9URnpsTkp5d1Yy?oc=5"
     },
     {
+     "time_utc": "2026-11-04T23:40:00Z",
+     "time_kst": "2026-11-05 08:40",
+     "title": "[美 중간선거] 민주당 압승에 빅테크 급등…AI 투자 규제 되레 호재 - 초이스스탁US",
+     "source": "초이스스탁US",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5oaXZzalpyOHRiLVZVTzNMMkxrOXNqeWRKMldpbnRlVWZiVm5Bc2FnbEVZeDBaNGhIeHJiSVpsSHVPR2twM2U0ZzZNTHVyakNwZ1gxblJfR3lkcVk0Um9JYWtJWUZaR28?oc=5"
+    },
+    {
      "time_utc": "2026-11-04T22:17:34Z",
      "time_kst": "2026-11-05 07:17",
      "title": "Alphabet Gains 3%, Amazon Up 6% as Big Tech Leads Post-Midterm Rebound - TIKR.com",
      "source": "TIKR.com",
      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQM1ZrWkEzdlVvcDdrTGxrVnJRT0VzRDdXQXNJZnZkUXlQSWEwZ1MyVktMT3FPZ255RG1sWHQwZVBSa0dNclBDckxSbEs2MjlhUTdvc1VkMG5xRkhEMk8tLVZRSk9NdnZaRHFMQTNnSEZaTFhUWURYZmdCRzQ5Wm9tTVZzbVJ2SEFLbmVxbDRRdERwcWJ5MjRLZlNBTUJXcVpoVWVHbGU0eVdFNk5PX2JYbXlSWEFzWTFqeFdRLWh4ZVRKeW5VUTJOMU82TGM4Qm8?oc=5"
-    },
-    {
-     "time_utc": "2026-11-04T21:50:15Z",
-     "time_kst": "2026-11-05 06:50",
-     "title": "GOOGL 261106 290.00C (GOOGL261106C290000) Stock Options Chain | Quotes & News - Moomoo",
-     "source": "Moomoo",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE45N0RkWmlfV0l0cFNqTDNBM1lhZmYyWnB5cVprQkFDZGJOUWdpMm5IQTF1ZUkzVEZfLVBmUE1KbkVwXzg1TkhHM1lhSUMzajhjSEtmOWFjU21fbnplbVZz?oc=5"
-    },
-    {
-     "time_utc": "2026-11-04T21:22:04Z",
-     "time_kst": "2026-11-05 06:22",
-     "title": "Alphabet (GOOG) offers €6B in euro notes, including fixed rates from 3.7% to 5.25%. - Stock Titan",
-     "source": "Stock Titan",
-     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUXpWM2tkRnRFWXR1SUVMV2Z6MWRLVEhvNW5QNXd6cmpXaDBaNjIyX3ItY0ZFbmo3MlJYUlVXWlczN3BVcWY1NUN3VnBiRk03S3BUSEpVMjB2dktOOGlLN3pucDlRTmNSeDdyYktOVHlGcEsxb25iNjd0SVB4Qk1vM0tJMFFsdGw5NzdTZWJZRWdCRlVIaWo3bGYybVNOdHNMV0NIcQ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-04T20:48:45Z",
-     "time_kst": "2026-11-05 05:48",
-     "title": "Ironically, the Blue Wave Could Make Hyperscalers “Good Businesses Again” by Forcing Capex Discipline - TIKR.com",
-     "source": "TIKR.com",
-     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQQm9fbWRFeEpaUGJpT1h1b0ZhYUJxcnppbG5kd21YNkg5Ujc2eDRobkxXcXl4YUIxWDdGX1M4UG43YXRUcnZwU05WMHhjS091RkFnc0Z0bmxORTE0UVk3VU5VX3h0U09yWXdFNTRCSjVQOFhhMGgxVGV3UDFJcXZrQ19LSW03aFRFMmpfaC11OVd3OHV1Mk9MYWhJMFliM1g5TXJmUkJoM3BReUdCTnNjeHI2dUw2OW1HVGlYSGhxVk00T28?oc=5"
-    },
-    {
-     "time_utc": "2026-11-04T20:47:18Z",
-     "time_kst": "2026-11-05 05:47",
-     "title": "OpenAI Says ChatGPT’s Search Volume Is Now a Fifth of Google’s - Yahoo Finance",
-     "source": "Yahoo Finance",
-     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOcWZ2UUs0Uy1TVm1DOTdDWi00Z1FaOThrazNSRm1TZFA3Ykp0Z0ZVYkM4SFNUeVdfSE9kZ2FyRFpPbHNnSjdTYjB0bjJ3RXFjTXl1SjF6NXc3dWpIVWJweVA5YlBRdXVVajFEQmljQkUtd0plb2p0RWs2dzVZMXdidzJxMlN6dTUxdE5adlhBNEMzeFRYbFNFeWk5ODhYQQ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-04T20:47:00Z",
-     "time_kst": "2026-11-05 05:47",
-     "title": "OpenAI Says ChatGPT’s Search Volume Is Now a Fifth of Google’s - 24/7 Wall St.",
-     "source": "24/7 Wall St.",
-     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOR09Na1BOZlM1ak5hVWNrOXFJNXg1WE8tSzhLNUg2SlFjay1qRmF1a1dOOG8zVkZzdGdEMnVkYnQ2NWNBal9TR0tOQzlVeDBwNFptRTdtWV9zZXAtR0l2M3FlTEFFSjNOVExyb1hrR1FXVEszcDFkM1VlM2x6U1Fma0tOOGowMFhjWmx5MEtsM1NvWEN2UER1eThkUnRkZzEyY0JTVkJsUQ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-04T20:45:00Z",
-     "time_kst": "2026-11-05 05:45",
-     "title": "The Nasdaq-100 Is Outperforming Nvidia, Microsoft, Amazon, Meta Platforms, Alphabet, and Tesla This Year. Here's My Favorite Low-Cost ETF to Buy the Dip. - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPRHVTVGF6UWh0bW5RTmZVRlozWU9KU3J1QURKQXJQMzlRTjA3c0lFQ09HZldGYkNiYkFDYnB5cFVfcWNwempXRl9NUDd5cXpFQy15eEE0OXFGTENYRFVaaVM4dEVzSkhwQ0h0eFRrMDkySHRFUE9hUWxPbjlXVnpsY2VfaGMtVlA4MmhXbmNYQl91cWdxRW9aSg?oc=5"
-    },
-    {
-     "time_utc": "2026-11-04T20:35:31Z",
-     "time_kst": "2026-11-05 05:35",
-     "title": "Form 4 Alphabet Inc Class A For: 4 November By Investing.com - Investing.com India",
-     "source": "Investing.com India",
-     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPUmp0UVVzaGpsdkVIc2hzS3pfUGVhU2ROM2trQjRfbWdLS1JYZ2VPb053djhlTlpBUnR3Yzdpbno1cEpDWVkxQTQxWG5MRjBlM1ozZFpRVjk4RTEtU3p0SGQ2TW1LcTZPMTNRTlktSThBY3RwYllxc3dMeGJnel91cm5SeEtObG5UVGVvUkNodkN3RFpRSC1lcFNMbkhpcTVfT01KSGZ3?oc=5"
-    },
-    {
-     "time_utc": "2026-11-04T20:25:00Z",
-     "time_kst": "2026-11-05 05:25",
-     "title": "Alphabet, Amazon, and Microsoft All Surged Today. You Can Thank the Big Blue Wave. - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQS3FPNjF0Qnk2dkx5Z1hfblotbmJudmtpaWF5Zk1vR2xmMHBQLUVMbUVNTC1nQUJfRDVacldTUDllT3lpOHRVSnJCSTB0eEZlV1AycktIdFFNMmF4UVJxa0Z6VExPcFBXUFhKZzNBeUZCMHd4UGhQcjZscVl5blJodFZqSDE4WU82Q3FXTmo2YTdWM0tta01ZREFSbmxBUzdDVVpqaXNLXzM1YmlUaWlLV2RNQXRaVW1GVkJtWjlB?oc=5"
-    },
-    {
-     "time_utc": "2026-11-04T20:24:42Z",
-     "time_kst": "2026-11-05 05:24",
-     "title": "Top VC: The Best AI Models Take “80% Plus” of Spend. And Alphabet’s Gemini Just Ranked No. 1 - TIKR.com",
-     "source": "TIKR.com",
-     "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPdzJOMWVrVWhsTDBTYWVOLUxoWE1vVDBPZG1OQkJ5QVJDWUFKa056Z0ZzNGNIaktyNVJWUUZnZ09mM09EQ0ZFU2wyTGI5aGJTY254Ym1tNkxQam00VC1NeUw5NmdhU0toSzNtd0NTVi11NW9Dc2t3bDBfRy1WMHJLZ0Z0Nk5jZExzOWpIaVJGMWhwR0t4UE54b19NeWkwZ3d1QXFlYVdaSk5qQ0VQM0NSLWNQQXNVWmZScTBhN3J1ZUJiVl9nWFhoWXNnT0JQRmh3b01DSlhMOHhCU3RULTR1NWx6MEZ4bUhyZWo3UUhnRF92ZjNR?oc=5"
     }
    ],
    "errors": []
