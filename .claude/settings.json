@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Microsoft_365__outlook_email_search",
+      "mcp__Microsoft_365__read_resource",
+      "mcp__Microsoft_365__sharepoint_search",
+      "mcp__Microsoft_365__sharepoint_upload_file",
+      "mcp__Microsoft_365__outlook_send_mail",
+      "mcp__Google_Calendar__list_events"
+    ]
+  }
+}
