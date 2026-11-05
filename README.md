@@ -20,3 +20,39 @@
 - 수동 실행: Actions 탭 → market-data → Run workflow
 
 이 저장소에는 API 키나 개인정보를 넣지 마세요.
+
+## 텔레그램 구독 채널 데일리 레포트 (`telegram-report` 워크플로)
+
+내 텔레그램 계정이 **구독 중인 채널 전체**(비공개 채널 포함)의 최근 24시간 글을 모아
+종류별(매크로·실적·종목·시장·크립토 등)로 요약하고, 내 텔레그램 **'저장한 메시지'** 로 보냅니다.
+매일 UTC 21:47(한국 06:47)에 실행되며, Actions 탭에서 수동 실행도 됩니다.
+
+> 이 저장소는 공개이므로 수집한 글과 레포트는 **커밋하지 않고**, 로그에는 건수만 남깁니다.
+
+### 처음 한 번 설정
+
+1. https://my.telegram.org → *API development tools* 에서 `api_id`, `api_hash` 발급
+2. **본인 PC**에서 세션 문자열 만들기
+   ```bash
+   pip install telethon
+   python telegram_login.py
+   ```
+   휴대폰 번호 → 텔레그램으로 온 인증코드(→ 2단계 비밀번호) 입력 후 출력되는 긴 문자열을 복사
+3. GitHub → Settings → Secrets and variables → Actions → *New repository secret*
+
+| Secret | 값 | 필수 |
+|---|---|---|
+| `TG_API_ID` | 1번의 api_id | ✅ |
+| `TG_API_HASH` | 1번의 api_hash | ✅ |
+| `TG_SESSION` | 2번에서 출력된 세션 문자열 | ✅ |
+| `ANTHROPIC_API_KEY` | Claude API 키. 있으면 AI가 종류별로 요약, 없으면 키워드 분류(각 글 첫 줄 모음) | 선택 |
+| `TG_EXCLUDE` | 레포트에서 뺄 채널(@아이디 또는 채널 이름, 쉼표 구분) | 선택 |
+
+그룹 대화방까지 넣으려면 *Variables* 탭에 `TG_INCLUDE_GROUPS` = `1` 추가.
+
+4. Actions → telegram-report → *Run workflow* 로 한 번 실행해 '저장한 메시지'에 레포트가 오는지 확인
+
+### 주의
+- `TG_SESSION` 은 계정 전체에 접근할 수 있는 열쇠입니다. Secrets 외의 곳에 남기지 마세요.
+  유출이 의심되면 텔레그램 → 설정 → 기기 에서 해당 세션을 종료하고 2번을 다시 하면 됩니다.
+- 처음 실행 시 텔레그램이 "새 기기 로그인" 알림을 보낼 수 있습니다(GitHub 서버에서 접속하기 때문).

@@ -1,0 +1,45 @@
+name: telegram-report
+
+# 내 구독 채널 24시간 요약 → 내 텔레그램 '저장한 메시지'로 전송.
+# 공개 저장소이므로 아무것도 커밋하지 않고, 로그에는 건수만 남긴다.
+
+on:
+  schedule:
+    # 매일 21:47 UTC = 한국 06:47 (미국장 마감 데이터 수집 직후)
+    - cron: "47 21 * * *"
+  workflow_dispatch: # Actions 탭에서 수동 실행 가능
+
+permissions:
+  contents: read
+
+concurrency:
+  group: telegram-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # 포크에서는 실행하지 않음 (Secrets 보호)
+    if: github.repository == 'lsaejinu-star/market-data'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-telegram.txt
+
+      - name: Install
+        run: pip install -r requirements-telegram.txt
+
+      - name: Build & send report
+        env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TG_EXCLUDE: ${{ secrets.TG_EXCLUDE }}
+          TG_INCLUDE_GROUPS: ${{ vars.TG_INCLUDE_GROUPS }}
+        run: python telegram_daily_report.py
