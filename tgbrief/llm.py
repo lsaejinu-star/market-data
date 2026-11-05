@@ -1,53 +1,80 @@
-"""Claude API 호출 래퍼 (구조화 출력 + 스트리밍 + 사용량 집계)."""
+"""Claude 호출 래퍼 — Claude Code CLI(`claude -p`)를 구독 토큰으로 실행한다.
 
-import base64
+- 인증: 환경변수 CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token`으로 발급, 1년 유효).
+  ANTHROPIC_API_KEY가 있으면 그쪽이 우선되므로 하위 프로세스에서는 제거한다.
+- 이미지는 임시 폴더에 파일로 저장하고 Claude가 Read 도구로 직접 열어 본다.
+- 결과는 --json-schema 로 받은 structured_output(dict)을 돌려준다.
+- 구독 사용량 한도를 함께 쓰므로 호출 수·분량을 최소화하도록 상위 모듈에서 상한을 둔다.
+"""
+
 import json
 import os
+import subprocess
+import tempfile
 
-import anthropic
+ANALYSIS_MODEL = os.environ.get("TG_ANALYSIS_MODEL") or "claude-opus-5-5"
+SCREEN_MODEL = os.environ.get("TG_SCREEN_MODEL") or "claude-haiku-5-5"
+CALL_TIMEOUT = int(os.environ.get("TG_CALL_TIMEOUT", "1800"))
 
-ANALYSIS_MODEL = os.environ.get("TG_ANALYSIS_MODEL", "claude-opus-5-5")
-SCREEN_MODEL = os.environ.get("TG_SCREEN_MODEL", "claude-haiku-5-5")
-
-_client = None
-USAGE = {"input": 0, "output": 0, "calls": 0}
-
-
-def client():
-    global _client
-    if _client is None:
-        _client = anthropic.Anthropic(max_retries=4)
-    return _client
+USAGE = {"input": 0, "output": 0, "calls": 0, "cost_usd": 0.0}
 
 
 def image_block(jpeg: bytes):
-    return {"type": "image", "source": {"type": "base64", "media_type": "image/jpeg",
-                                        "data": base64.standard_b64encode(jpeg).decode()}}
+    """content 리스트에 넣을 이미지 블록(실행 시 파일로 저장된다)."""
+    return {"type": "image", "jpeg": jpeg}
 
 
-def ask_json(model, system, content, schema, effort="high", max_tokens=32000):
-    """content(블록 리스트)를 보내고 schema에 맞는 JSON(dict)을 돌려준다."""
-    kwargs = dict(
-        model=model, max_tokens=max_tokens, system=system,
-        messages=[{"role": "user", "content": content}],
-        output_config={"effort": effort,
-                       "format": {"type": "json_schema", "schema": schema}},
-    )
-    if model in ("claude-opus-5-5", "claude-fable-5-1", "claude-opus-5"):
-        # 안전 분류기 오탐으로 거절되면 서버 측에서 다른 모델로 재시도
-        kwargs["betas"] = ["server-side-fallback-2026-07-01"]
-        kwargs["fallbacks"] = "default"
-        stream_ctx = client().beta.messages.stream(**kwargs)
-    else:
-        stream_ctx = client().messages.stream(**kwargs)
-    with stream_ctx as stream:
-        msg = stream.get_final_message()
+def _build_prompt(content, workdir):
+    parts, n_img = [], 0
+    for blk in content:
+        if blk["type"] == "text":
+            parts.append(blk["text"])
+        else:
+            path = os.path.join(workdir, f"img_{n_img:03d}.jpg")
+            with open(path, "wb") as fp:
+                fp.write(blk["jpeg"])
+            parts.append(f"[이미지 파일: {path}]")
+            n_img += 1
+    if n_img:
+        parts.insert(0, f"이 요청에는 이미지 파일 {n_img}개가 있다. 본문에 표시된 '[이미지 파일: 경로]'를 "
+                        "Read 도구로 하나도 빠짐없이 열어 보고 답하라.\n")
+    return "\n".join(parts), n_img
+
+
+def ask_json(model, system, content, schema, effort="high", max_tokens=None):
+    """content(텍스트·이미지 블록 리스트)를 보내고 schema에 맞는 dict를 돌려준다."""
+    env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN")}
+    if not env.get("CLAUDE_CODE_OAUTH_TOKEN"):
+        raise RuntimeError("CLAUDE_CODE_OAUTH_TOKEN 이 설정되지 않음")
+    with tempfile.TemporaryDirectory(prefix="tgbrief_") as workdir:
+        prompt, n_img = _build_prompt(content, workdir)
+        cmd = [
+            "claude", "-p",
+            "--model", model,
+            "--output-format", "json",
+            "--json-schema", json.dumps(schema, ensure_ascii=False),
+            # 기본 시스템 프롬프트·도구·스킬·MCP를 빼서 호출당 토큰(=구독 사용량)을 최소화
+            "--system-prompt", system,
+            "--tools", "Read",
+            "--allowedTools", "Read",
+            "--disable-slash-commands",
+            "--strict-mcp-config",
+            "--setting-sources", "",
+            "--permission-mode", "dontAsk",
+            "--max-turns", str(n_img + 8),
+        ]
+        # 저장소 밖 빈 임시 폴더에서 실행 → 저장소의 설정·훅이 로드되지 않음. 프롬프트는 stdin으로 전달.
+        proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True,
+                              cwd=workdir, env=env, timeout=CALL_TIMEOUT)
     USAGE["calls"] += 1
-    USAGE["input"] += msg.usage.input_tokens
-    USAGE["output"] += msg.usage.output_tokens
-    if msg.stop_reason == "refusal":
-        raise RuntimeError("model refused")
-    if msg.stop_reason == "max_tokens":
-        raise RuntimeError("output truncated (max_tokens)")
-    text = next(b.text for b in msg.content if b.type == "text")
-    return json.loads(text)
+    try:
+        out = json.loads(proc.stdout)
+    except json.JSONDecodeError:
+        raise RuntimeError(f"claude CLI 응답 파싱 실패 (exit {proc.returncode}): {proc.stderr[-300:]}")
+    usage = out.get("usage") or {}
+    USAGE["input"] += int(usage.get("input_tokens", 0)) + int(usage.get("cache_read_input_tokens", 0))
+    USAGE["output"] += int(usage.get("output_tokens", 0))
+    USAGE["cost_usd"] += float(out.get("total_cost_usd") or 0)
+    if out.get("is_error") or "structured_output" not in out:
+        raise RuntimeError(f"구조화 결과 없음 (subtype={out.get('subtype')})")
+    return out["structured_output"]

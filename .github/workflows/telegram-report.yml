@@ -1,6 +1,6 @@
 name: telegram-report
 
-# 매일: 구독 채널 + 리포트 갤러리 수집 → Claude 분석 → 슬라이드형 HTML 메일 발송
+# 매일: 구독 채널 + 리포트 갤러리 수집 → Claude(구독, Claude Code CLI) 분석 → 슬라이드형 HTML 메일 발송
 # 공개 저장소이므로 아무것도 커밋/업로드하지 않고, 로그에는 건수·사용량만 남긴다.
 
 on:
@@ -29,18 +29,26 @@ jobs:
           cache: pip
           cache-dependency-path: requirements-telegram.txt
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Install
-        run: pip install -r requirements-telegram.txt
+        run: |
+          pip install -r requirements-telegram.txt
+          npm install -g @anthropic-ai/claude-code
+          claude --version
 
       - name: Build & send brief
         env:
           TG_API_ID: ${{ secrets.TG_API_ID }}
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
           TG_SESSION: ${{ secrets.TG_SESSION }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
           TG_CHANNELS: ${{ vars.TG_CHANNELS }}
           TG_REPORT_CHANNEL: ${{ vars.TG_REPORT_CHANNEL }}
+          TG_MAX_REPORTS: ${{ vars.TG_MAX_REPORTS }}
         run: python -m tgbrief.main

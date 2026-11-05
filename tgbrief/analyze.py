@@ -55,7 +55,7 @@ SCREEN_SCHEMA = _obj({"items": {"type": "array", "items": _obj({
     "id": S, "us_related": {"type": "boolean"}, "broker": S, "title": S, "tickers": SL, "topic": S})}})
 
 
-def screen_reports(groups, batch=8):
+def screen_reports(groups, batch=10):
     """각 리포트 묶음의 첫 이미지(표지/요약)로 미국 증시 관련 여부를 가린다."""
     keep = []
     for k in range(0, len(groups), batch):
@@ -63,7 +63,7 @@ def screen_reports(groups, batch=8):
         content = []
         for i, g in enumerate(chunk):
             content.append({"type": "text", "text": f"[R{i}] 캡션: {g['text'][:300] or '(없음)'}"})
-            content += [image_block(img) for img in g["images"][:2]]
+            content += [image_block(img) for img in g["images"][:1]]  # 표지 1장만(구독 사용량 절약)
         content.append({"type": "text", "text": "각 R번호에 대해 판정하라. us_related=true 조건: 미국 상장 종목·미국 산업·미국 매크로(연준, 미국 경기, 미국 정책)가 리포트의 주된 대상. 한국 종목 리포트라도 미국 빅테크·미국 수요가 핵심 논지면 true. id는 'R0' 형식."})
         out = ask_json(SCREEN_MODEL, "증권사 리서치 리포트 그림을 분류하는 보조자.", content, SCREEN_SCHEMA,
                        effort="low", max_tokens=4000)
@@ -83,7 +83,7 @@ REPORT_SCHEMA = _obj({"reports": {"type": "array", "items": _obj({
     "thesis": S, "evidence": SL, "chart_reading": S, "risks": S, "so_what": S})}})
 
 
-def analyze_reports(groups, batch=6):
+def analyze_reports(groups, batch=4):
     """선별된 리포트의 모든 그림을 읽고 리포트별 상세 분석을 만든다."""
     results = []
     for k in range(0, len(groups), batch):
@@ -91,7 +91,7 @@ def analyze_reports(groups, batch=6):
         content = []
         for i, g in enumerate(chunk):
             content.append({"type": "text", "text": f"=== 리포트 R{i} ({g['time']}) 캡션: {g['text'][:500] or '(없음)'}"})
-            content += [image_block(img) for img in g["images"][:10]]
+            content += [image_block(img) for img in g["images"][:6]]
         content.append({"type": "text", "text": (
             "각 리포트 그림을 꼼꼼히 읽고 분석하라. rid='R0' 형식. stance=투자의견·목표가(없으면 '명시 없음'). "
             "thesis=핵심 주장 5~8문장(왜 그런 결론인지 논리 전개 포함). evidence=그림·표에서 읽은 구체 수치 근거 4~8개. "
@@ -128,7 +128,7 @@ def synthesize_reports(analyses):
 
 # ───────────────────────── 구독 채널 브리프 ─────────────────────────
 
-def channel_brief(posts, max_images=40):
+def channel_brief(posts, max_images=20):
     corpus, imgs = [], []
     for p in posts:
         corpus.append(f"## #{p['no']} [{p['title']}] {p['time']}\n{p['text'] or '(텍스트 없음 — 이미지 글)'}")

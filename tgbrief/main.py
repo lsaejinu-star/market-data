@@ -36,7 +36,11 @@ def main():
             n_groups = len(groups)
             us = analyze.screen_reports(groups)
             n_us = len(us)
-            log(f"리포트 {n_groups}건 중 미장 관련 {n_us}건")
+            cap = int(os.environ.get("TG_MAX_REPORTS") or 25)  # 구독 사용량 보호용 일일 상한
+            if n_us > cap:
+                notes.append(f"미장 관련 리포트 {n_us}건 중 최신 {cap}건만 분석했습니다(일일 상한).")
+                us = us[-cap:]
+            log(f"리포트 {n_groups}건 중 미장 관련 {n_us}건, 분석 {len(us)}건")
             if us:
                 analyses = analyze.analyze_reports(us)
                 deck = analyze.synthesize_reports(analyses)
@@ -74,7 +78,8 @@ def main():
     out = os.path.join(os.environ.get("RUNNER_TEMP", "/tmp"), fname)
     with open(out, "w", encoding="utf-8") as fp:
         fp.write(html_doc)
-    log(f"Claude 사용량: 호출 {llm.USAGE['calls']}회, 입력 {llm.USAGE['input']:,} / 출력 {llm.USAGE['output']:,} 토큰")
+    log(f"Claude 사용량(구독): 호출 {llm.USAGE['calls']}회, 입력 {llm.USAGE['input']:,} / 출력 {llm.USAGE['output']:,} 토큰"
+        f" · API 환산 참고치 ${llm.USAGE['cost_usd']:.2f} (구독 방식이라 별도 청구 없음)")
     mailer.send(f"[텔레그램 브리프] {title}", html_doc, fname)
     log("메일 발송 완료")
 
