@@ -1,13 +1,12 @@
 name: telegram-report
 
-# 내 구독 채널 24시간 요약 → 내 텔레그램 '저장한 메시지'로 전송.
-# 공개 저장소이므로 아무것도 커밋하지 않고, 로그에는 건수만 남긴다.
+# 매일: 구독 채널 + 리포트 갤러리 수집 → Claude 분석 → 슬라이드형 HTML 메일 발송
+# 공개 저장소이므로 아무것도 커밋/업로드하지 않고, 로그에는 건수·사용량만 남긴다.
 
 on:
   schedule:
-    # 매일 21:47 UTC = 한국 06:47 (미국장 마감 데이터 수집 직후)
-    - cron: "47 21 * * *"
-  workflow_dispatch: # Actions 탭에서 수동 실행 가능
+    - cron: "47 21 * * *"   # 매일 21:47 UTC = 한국 06:47
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -19,8 +18,7 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    # 포크에서는 실행하지 않음 (Secrets 보호)
+    timeout-minutes: 60
     if: github.repository == 'lsaejinu-star/market-data'
     steps:
       - uses: actions/checkout@v4
@@ -34,12 +32,15 @@ jobs:
       - name: Install
         run: pip install -r requirements-telegram.txt
 
-      - name: Build & send report
+      - name: Build & send brief
         env:
           TG_API_ID: ${{ secrets.TG_API_ID }}
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
           TG_SESSION: ${{ secrets.TG_SESSION }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          TG_EXCLUDE: ${{ secrets.TG_EXCLUDE }}
-          TG_INCLUDE_GROUPS: ${{ vars.TG_INCLUDE_GROUPS }}
-        run: python telegram_daily_report.py
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          TG_CHANNELS: ${{ vars.TG_CHANNELS }}
+          TG_REPORT_CHANNEL: ${{ vars.TG_REPORT_CHANNEL }}
+        run: python -m tgbrief.main

@@ -21,38 +21,27 @@
 
 이 저장소에는 API 키나 개인정보를 넣지 마세요.
 
-## 텔레그램 구독 채널 데일리 레포트 (`telegram-report` 워크플로)
+## 텔레그램 데일리 투자 브리프 (`telegram-report` 워크플로, `tgbrief/`)
 
-내 텔레그램 계정이 **구독 중인 채널 전체**(비공개 채널 포함)의 최근 24시간 글을 모아
-종류별(매크로·실적·종목·시장·크립토 등)로 요약하고, 내 텔레그램 **'저장한 메시지'** 로 보냅니다.
-매일 UTC 21:47(한국 06:47)에 실행되며, Actions 탭에서 수동 실행도 됩니다.
+매일 한국시간 06:47에 본인 텔레그램 계정으로 **구독 채널 글**과 **리포트 갤러리 이미지**를 수집하고,
+Claude가 ① 리포트 중 미국 증시 관련만 골라 상세 분석, ② 채널 글을 투자 아이디어 브리프로 재구성해
+슬라이드형 HTML로 만들어 메일로 보냅니다. Actions 탭 → telegram-report → *Run workflow*로 수동 실행도 됩니다.
 
-> 이 저장소는 공개이므로 수집한 글과 레포트는 **커밋하지 않고**, 로그에는 건수만 남깁니다.
+> 공개 저장소이므로 수집 원문·이미지·결과물은 커밋하지 않으며, 로그에는 건수와 사용량만 남깁니다.
 
-### 처음 한 번 설정
+### 처음 한 번 설정 (GitHub → Settings → Secrets and variables → Actions)
 
-1. https://my.telegram.org → *API development tools* 에서 `api_id`, `api_hash` 발급
-2. **본인 PC**에서 세션 문자열 만들기
-   ```bash
-   pip install telethon
-   python telegram_login.py
-   ```
-   휴대폰 번호 → 텔레그램으로 온 인증코드(→ 2단계 비밀번호) 입력 후 출력되는 긴 문자열을 복사
-3. GitHub → Settings → Secrets and variables → Actions → *New repository secret*
-
-| Secret | 값 | 필수 |
+| Secret | 값 | 얻는 법 |
 |---|---|---|
-| `TG_API_ID` | 1번의 api_id | ✅ |
-| `TG_API_HASH` | 1번의 api_hash | ✅ |
-| `TG_SESSION` | 2번에서 출력된 세션 문자열 | ✅ |
-| `ANTHROPIC_API_KEY` | Claude API 키. 있으면 AI가 종류별로 요약, 없으면 키워드 분류(각 글 첫 줄 모음) | 선택 |
-| `TG_EXCLUDE` | 레포트에서 뺄 채널(@아이디 또는 채널 이름, 쉼표 구분) | 선택 |
+| `TG_API_ID`, `TG_API_HASH` | 텔레그램 API 키 | https://my.telegram.org → API development tools |
+| `TG_SESSION` | 로그인 세션 문자열 | 본인 PC에서 `pip install telethon` 후 `python telegram_login.py` |
+| `ANTHROPIC_API_KEY` | Claude API 키 | https://platform.claude.com → API Keys (결제수단 등록 필요) |
+| `GMAIL_USER` | 보내는 Gmail 주소 | 예: 본인 Gmail |
+| `GMAIL_APP_PASSWORD` | Gmail 앱 비밀번호 16자리 | Google 계정 → 보안 → 2단계 인증 켠 뒤 → 앱 비밀번호 |
+| `MAIL_TO` | 받는 주소(쉼표로 여러 개) | 예: 회사 메일 |
 
-그룹 대화방까지 넣으려면 *Variables* 탭에 `TG_INCLUDE_GROUPS` = `1` 추가.
-
-4. Actions → telegram-report → *Run workflow* 로 한 번 실행해 '저장한 메시지'에 레포트가 오는지 확인
+선택(Variables 탭): `TG_CHANNELS`(쉼표 구분 채널 아이디, 기본 13개), `TG_REPORT_CHANNEL`(기본 `report_figure_by_offset`).
 
 ### 주의
-- `TG_SESSION` 은 계정 전체에 접근할 수 있는 열쇠입니다. Secrets 외의 곳에 남기지 마세요.
-  유출이 의심되면 텔레그램 → 설정 → 기기 에서 해당 세션을 종료하고 2번을 다시 하면 됩니다.
-- 처음 실행 시 텔레그램이 "새 기기 로그인" 알림을 보낼 수 있습니다(GitHub 서버에서 접속하기 때문).
+- `TG_SESSION`은 계정 전체 접근 권한입니다. Secrets 외의 곳에 남기지 마세요. 유출이 의심되면 텔레그램 → 설정 → 기기에서 세션을 종료하세요.
+- 리포트 이미지 분석에는 Claude API 비용이 듭니다. 미장 여부 선별은 `claude-haiku-5-5`, 분석은 `claude-opus-5-5`를 씁니다(`TG_SCREEN_MODEL`, `TG_ANALYSIS_MODEL` 환경변수로 변경 가능). 실행 로그 끝에 토큰 사용량이 찍힙니다.
