@@ -50,6 +50,7 @@ jobs:
           MAIL_TO: ${{ secrets.MAIL_TO }}
           TG_CHANNELS: ${{ vars.TG_CHANNELS }}
           TG_REPORT_CHANNEL: ${{ vars.TG_REPORT_CHANNEL }}
+          TG_EXCLUDE: ${{ vars.TG_EXCLUDE }}
           TG_MAX_REPORTS: ${{ vars.TG_MAX_REPORTS }}
           TG_SEND_AT: "07:00"
           TG_WINDOW_START: "07:00"
