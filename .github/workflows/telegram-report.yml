@@ -1,11 +1,11 @@
 name: telegram-report
 
-# 매일: 구독 채널 + 리포트 갤러리 수집 → Claude(구독, Claude Code CLI) 분석 → 슬라이드형 HTML 메일 발송
+# 매일: 전날 07:00~당일 06:00 KST 구독 채널 + 리포트 갤러리 수집 → Claude(구독, Claude Code CLI) 분석 → 슬라이드형 HTML 메일 발송
 # 공개 저장소이므로 아무것도 커밋/업로드하지 않고, 로그에는 건수·사용량만 남긴다.
 
 on:
   schedule:
-    - cron: "47 21 * * *"   # 매일 21:47 UTC = 한국 06:47
+    - cron: "5 21 * * *"   # 매일 21:05 UTC = 한국 06:05 시작 → 분석 후 07:00에 발송
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 170
     if: github.repository == 'lsaejinu-star/market-data'
     steps:
       - uses: actions/checkout@v4
@@ -51,4 +51,7 @@ jobs:
           TG_CHANNELS: ${{ vars.TG_CHANNELS }}
           TG_REPORT_CHANNEL: ${{ vars.TG_REPORT_CHANNEL }}
           TG_MAX_REPORTS: ${{ vars.TG_MAX_REPORTS }}
+          TG_SEND_AT: "07:00"
+          TG_WINDOW_START: "07:00"
+          TG_WINDOW_END: "06:00"
         run: python -m tgbrief.main

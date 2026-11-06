@@ -23,9 +23,15 @@
 
 ## 텔레그램 데일리 투자 브리프 (`telegram-report` 워크플로, `tgbrief/`)
 
-매일 한국시간 06:47에 본인 텔레그램 계정으로 **구독 채널 글**과 **리포트 갤러리 이미지**를 수집하고,
-Claude(구독)가 ① 리포트 중 미국 증시 관련만 골라 상세 분석, ② 채널 글을 투자 아이디어 브리프로 재구성해
-슬라이드형 HTML로 만들어 메일로 보냅니다. Actions 탭 → telegram-report → *Run workflow*로 수동 실행도 됩니다.
+매일 한국시간 **06:05에 시작해 07:00에 메일을 보냅니다**. 수집 구간은 **전날 07:00 ~ 당일 06:00(KST)** 입니다.
+
+1. 본인 텔레그램 계정으로 구독 채널 글·이미지와 리포트 갤러리 이미지를 수집
+2. **전수 요약**: 모든 글(본문이 이미지인 글은 이미지까지)을 한 줄씩 요약·분류해 누락을 막음
+3. 투자 아이디어 브리프 작성(상세 해설·계산·So what, 등락/구성비 **차트** 포함). 본문에 쓰이지 않은 글은 '그 밖에 알아둘 소식' 슬라이드에 모두 정리
+4. 리포트 갤러리 중 미국 증시 관련 리포트만 골라 상세 분석
+5. 슬라이드형 HTML 메일 발송(본문 + .html 첨부) 후, **수집 구간까지의 글을 텔레그램에서 읽음 처리**
+
+Actions 탭 → telegram-report → *Run workflow*로 수동 실행도 됩니다.
 
 > 공개 저장소이므로 수집 원문·이미지·결과물은 커밋하지 않으며, 로그에는 건수와 사용량만 남깁니다.
 
@@ -38,9 +44,9 @@ Claude(구독)가 ① 리포트 중 미국 증시 관련만 골라 상세 분석
 | `CLAUDE_CODE_OAUTH_TOKEN` | Claude 구독 토큰(1년 유효, Pro/Max 등 구독 필요) | 본인 PC에 Claude Code 설치 후 `claude setup-token` → 브라우저 승인 → 출력된 토큰 |
 | `GMAIL_USER` | 보내는 Gmail 주소 | 예: 본인 Gmail |
 | `GMAIL_APP_PASSWORD` | Gmail 앱 비밀번호 16자리 | Google 계정 → 보안 → 2단계 인증 켠 뒤 → 앱 비밀번호 |
-| `MAIL_TO` | 받는 주소(쉼표로 여러 개) | 예: 회사 메일 |
+| `MAIL_TO` | 받는 주소(쉼표로 여러 개) | 예: `lsaejinu@naver.com` |
 
-선택(Variables 탭): `TG_CHANNELS`(쉼표 구분 채널 아이디, 기본 13개), `TG_REPORT_CHANNEL`(기본 `report_figure_by_offset`), `TG_MAX_REPORTS`(하루 분석 리포트 상한, 기본 25).
+선택(Variables 탭): `TG_CHANNELS`(쉼표 구분 채널 아이디, 기본 13개), `TG_REPORT_CHANNEL`(기본 `report_figure_by_offset`), `TG_MAX_REPORTS`(하루 분석 리포트 상한, 기본 25). 발송·수집 시각과 읽음 처리는 워크플로의 `TG_SEND_AT`, `TG_WINDOW_START`, `TG_WINDOW_END`, `TG_MARK_READ`(1=읽음 처리)로 바꿀 수 있습니다.
 
 ### 주의
 - `TG_SESSION`은 계정 전체 접근 권한입니다. Secrets 외의 곳에 남기지 마세요. 유출이 의심되면 텔레그램 → 설정 → 기기에서 세션을 종료하세요.
