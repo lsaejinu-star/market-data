@@ -69,13 +69,14 @@ async def main():
     me = await client.get_me()
     session = client.session.save()
     await client.disconnect()
+    with open("tg_session.txt", "w") as fp:
+        fp.write(session)
     print()
-    print(f"로그인 성공: {me.first_name} (id {me.id})")
-    print("아래 한 줄 전체를 GitHub Secrets 의 TG_SESSION 값으로 등록하세요:")
-    print()
-    print(session)
-    print()
-
+    print(f"로그인 성공: {me.first_name}")
+    print(f"세션 문자열(길이 {len(session)}자)을 tg_session.txt 파일에 저장했습니다.")
+    print("왼쪽 탐색기에서 tg_session.txt 열기 → Ctrl+A → Ctrl+C 로 전체 복사 →")
+    print("GitHub Secrets 의 TG_SESSION 에 붙여넣으세요. (숫자 10자리 id가 아니라 300자 이상의 긴 문자열입니다)")
+    print("등록이 끝나면 파일을 지우세요:  rm tg_session.txt")
 
 if __name__ == "__main__":
     asyncio.run(main())
