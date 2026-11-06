@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-06T07:34:27Z",
+ "fetched_at_utc": "2026-11-06T08:32:54Z",
  "notes": {
   "last_date": "그 종목이 마지막으로 거래된 날짜(거래소 현지 기준). 기준일과 다르면 그날 값이 아직 없거나 휴장이다.",
   "fx": "환율은 글로벌 외환시장 시세로, 서울외환시장 공식 종가가 아니다.",
@@ -60,12 +60,12 @@
    "VIX": {
     "symbol": "^VIX",
     "source": "yahoo",
-    "last_date": "2026-11-05",
-    "close": 28.18,
-    "prev_date": "2026-11-04",
-    "prev_close": 16.61,
-    "change": 11.57,
-    "change_pct": 69.6568
+    "last_date": "2026-11-06",
+    "close": 27.54,
+    "prev_date": "2026-11-05",
+    "prev_close": 28.18,
+    "change": -0.64,
+    "change_pct": -2.2711
    }
   },
   "fx": {
@@ -73,51 +73,51 @@
     "symbol": "KRW=X",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 1355.58,
+    "close": 1355.09,
     "prev_date": "2026-11-05",
     "prev_close": 1340.0699,
-    "change": 15.51,
-    "change_pct": 1.1574
+    "change": 15.02,
+    "change_pct": 1.1208
    },
    "엔/달러": {
     "symbol": "JPY=X",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 157.833,
+    "close": 157.797,
     "prev_date": "2026-11-05",
     "prev_close": 158.357,
-    "change": -0.524,
-    "change_pct": -0.3309
+    "change": -0.56,
+    "change_pct": -0.3536
    },
    "유로/달러": {
     "symbol": "EURUSD=X",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 1.1171,
+    "close": 1.1189,
     "prev_date": "2026-11-05",
     "prev_close": 1.1235,
-    "change": -0.0064,
-    "change_pct": -0.5719
+    "change": -0.0046,
+    "change_pct": -0.4051
    },
    "위안/달러": {
     "symbol": "CNY=X",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 6.6694,
+    "close": 6.6691,
     "prev_date": "2026-11-05",
     "prev_close": 6.6731,
-    "change": -0.0037,
-    "change_pct": -0.0554
+    "change": -0.004,
+    "change_pct": -0.0599
    },
    "달러인덱스(DXY)": {
     "symbol": "DX-Y.NYB",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 101.883,
+    "close": 101.872,
     "prev_date": "2026-11-05",
     "prev_close": 101.55,
-    "change": 0.333,
-    "change_pct": 0.3279
+    "change": 0.322,
+    "change_pct": 0.3171
    }
   },
   "commodities": {
@@ -125,61 +125,61 @@
     "symbol": "CL=F",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 91.22,
+    "close": 90.02,
     "prev_date": "2026-11-05",
     "prev_close": 90.52,
-    "change": 0.7,
-    "change_pct": 0.7733
+    "change": -0.5,
+    "change_pct": -0.5524
    },
    "브렌트": {
     "symbol": "BZ=F",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 99.32,
+    "close": 97.86,
     "prev_date": "2026-11-05",
     "prev_close": 98.29,
-    "change": 1.03,
-    "change_pct": 1.0479
+    "change": -0.43,
+    "change_pct": -0.4375
    },
    "금": {
     "symbol": "GC=F",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 4060.3999,
+    "close": 4075.8999,
     "prev_date": "2026-11-05",
     "prev_close": 4113.5,
-    "change": -53.1001,
-    "change_pct": -1.2909
+    "change": -37.6001,
+    "change_pct": -0.9141
    },
    "은": {
     "symbol": "SI=F",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 51.48,
+    "close": 52.09,
     "prev_date": "2026-11-05",
     "prev_close": 52.233,
-    "change": -0.753,
-    "change_pct": -1.4416
+    "change": -0.143,
+    "change_pct": -0.2738
    },
    "구리": {
     "symbol": "HG=F",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 6.202,
+    "close": 6.252,
     "prev_date": "2026-11-05",
     "prev_close": 6.249,
-    "change": -0.047,
-    "change_pct": -0.7521
+    "change": 0.003,
+    "change_pct": 0.048
    },
    "천연가스": {
     "symbol": "NG=F",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 3.014,
+    "close": 3.027,
     "prev_date": "2026-11-05",
     "prev_close": 2.947,
-    "change": 0.067,
-    "change_pct": 2.2735
+    "change": 0.08,
+    "change_pct": 2.7146
    }
   },
   "world_indices": {
@@ -217,11 +217,11 @@
     "symbol": "^HSI",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 24496.5195,
+    "close": 24481.8594,
     "prev_date": "2026-11-05",
     "prev_close": 24796.9805,
-    "change": -300.4609,
-    "change_pct": -1.2117
+    "change": -315.1211,
+    "change_pct": -1.2708
    },
    "상해종합": {
     "symbol": "000001.SS",
@@ -236,32 +236,32 @@
    "DAX": {
     "symbol": "^GDAXI",
     "source": "yahoo",
-    "last_date": "2026-11-05",
-    "close": 26325.0098,
-    "prev_date": "2026-11-04",
-    "prev_close": 26437.6699,
-    "change": -112.6602,
-    "change_pct": -0.4261
+    "last_date": "2026-11-06",
+    "close": 25929.0293,
+    "prev_date": "2026-11-05",
+    "prev_close": 26325.0098,
+    "change": -395.9805,
+    "change_pct": -1.5042
    },
    "FTSE100": {
     "symbol": "^FTSE",
     "source": "yahoo",
-    "last_date": "2026-11-05",
-    "close": 10782.7002,
-    "prev_date": "2026-11-04",
-    "prev_close": 10829.2002,
-    "change": -46.5,
-    "change_pct": -0.4294
+    "last_date": "2026-11-06",
+    "close": 10617.2002,
+    "prev_date": "2026-11-05",
+    "prev_close": 10782.7002,
+    "change": -165.5,
+    "change_pct": -1.5349
    },
    "STOXX600": {
     "symbol": "^STOXX",
     "source": "yahoo",
-    "last_date": "2026-11-05",
-    "close": 654.87,
-    "prev_date": "2026-11-04",
-    "prev_close": 657.4,
-    "change": -2.53,
-    "change_pct": -0.3849
+    "last_date": "2026-11-06",
+    "close": 645.75,
+    "prev_date": "2026-11-05",
+    "prev_close": 654.87,
+    "change": -9.12,
+    "change_pct": -1.3926
    }
   },
   "sector_etfs": {
@@ -617,21 +617,21 @@
     "symbol": "BTC-USD",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 75258.2109,
+    "close": 75526.6875,
     "prev_date": "2026-11-05",
     "prev_close": 75942.125,
-    "change": -683.9141,
-    "change_pct": -0.9006
+    "change": -415.4375,
+    "change_pct": -0.547
    },
    "이더리움": {
     "symbol": "ETH-USD",
     "source": "yahoo",
     "last_date": "2026-11-06",
-    "close": 2214.9199,
+    "close": 2224.6299,
     "prev_date": "2026-11-05",
     "prev_close": 2234.4763,
-    "change": -19.5564,
-    "change_pct": -0.8752
+    "change": -9.8464,
+    "change_pct": -0.4407
    }
   }
  },

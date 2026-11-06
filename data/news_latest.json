@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-06T07:34:58Z",
+ "fetched_at_utc": "2026-11-06T08:33:27Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -372,9 +372,9 @@
     {
      "time_utc": "2026-11-06T01:20:00Z",
      "time_kst": "2026-11-06 10:20",
-     "title": "Cathie Wood Sells $12.8 Million Of Alphabet, Days After The Stock Suffered Its Worst Day Since Its 2004 IPO, Losing Nearly Half A Trillion Dollars In Market Value - Yahoo Finance",
-     "source": "Yahoo Finance",
-     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPX0kwZFpaaFJEZzh1aS12bE1lOHFZcHhiY1VvTXFyUEI4UmlSNU95d1BrX25RWlN4SFJ4a0JVZEd2a3d4RG83NFZPZ0JUclZZcFZtTHNkaG1wRmxqemRNa0l2dGVjVC1XbExEbWV6Y05HeWxGT2paeFl3SzhfWWN0RlRrWERoSE4yeWQxdDl0dU8?oc=5"
+     "title": "Cathie Wood Sells $12.8 Million Of Alphabet, Days After The Stock Suffered Its Worst Day Since Its 2004 IPO, Losing Nearly Half A Trillion Dollars In Market Value - 24/7 Wall St.",
+     "source": "24/7 Wall St.",
+     "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxOckRkUkZkYkkxc1VEc3ZSUThsV1I1cjdvN09ma0d0UWNsVWtQSl9JSXRjTEJlZkhfd0E0bV8zeVFfeXJ2WkE2UGhKVXI5Tk9PZWh3aW1JbFRkLUZPd0lRWHRkMWNyLVpQa2k3dTRtQTFjQW11eENxbHpobWtoSVdxdnZHUlUwMngzUmNtUjBQcFBKS2xOeW5Id0V5U0JVNTBkN2NBUlhTWE42cUV6NWdiSHNXZmtRaGNzVHA5YkVsb0kyZzNjczNkc2xNTE4zZDdDbUFzNENhb1drNk9JVmtiVm9DTHVONXlaREJFR3VDNVJFTmg0M2FuMzA0OWtyTEVGYUZMcFoxbi0zRWRKanEyQ0dXb0k5SThqYVdjNGdlRUlwN3JtbzZMYmUySQ?oc=5"
     },
     {
      "time_utc": "2026-11-06T01:05:35Z",
@@ -459,13 +459,6 @@
      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5iNWNHSC1FczE0bVEwZjk3bGM4MjV2a0tJUTBEbjhfbzd2ZXV0dEd3SWtMTXQydnNRQTVIcEdRSUVqRlh1bk15Vm9sX29rcDFtWkxNc3UtRkQ1blNhanFPVA?oc=5"
     },
     {
-     "time_utc": "2026-11-05T22:34:37Z",
-     "time_kst": "2026-11-06 07:34",
-     "title": "Nokia stock falls 2.4% as tech sector sell-off pressures growth names - scanx.trade",
-     "source": "scanx.trade",
-     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNSlZlU3Z3dlVvQ01hekktYkF4OXpSTjJWbl9Bd2pKWlZpVm5Wdld3eHFobjIzZkFmVWMxaEQ2cWtGX251b19pS2JzZUE4c3RLUnVEa1pMRkpEbndMSjJ6YlBWanN4Nm1aQTN1VEVNaUZHTlZva1daMDI1R3JQLUNhQ0xsQWRjaWVSdlh3d2U5T0tkdTE2aGo2d0N1Y1hUMzZjQi0zOWtIM0xRWC05UjhSdVluS3NKZkFjX0xNR05iVkM5ak5scWc?oc=5"
-    },
-    {
      "time_utc": "2026-11-05T22:32:00Z",
      "time_kst": "2026-11-06 07:32",
      "title": "Is Nokia (NYSE:NOK) Positioned For Another Strong Growth Phase Ahead? - Kalkine Media",
@@ -536,11 +529,18 @@
      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPX3ZRWFVjMnpxRGxhajh3WVRtd3lybFY5LWFGTGpWdVF2QVJGcndQcmlpNExiby1JbkZ2Z1FQNXl4VFVWaGtMNTV2a05FWVAzYnFkVWtETHo2NF8tNGhBSXhRaVdsWVh0ZXgwcVFIYkRzdHVyRXdWTXZXMWtEOW1hYWRqd1NSUmJ6WjI1cEhFTy1JTDRaTHpHdHVsUHZsZ1VBLXBWWFJOTXdQU1RKQk5LY2E2R1JyYXBoUVRHNGtvczByZDNsS1VBbHp2bDdLRnBKS09HV0t3ZmFTM1J1X0hZ?oc=5"
     },
     {
-     "time_utc": "2026-11-05T11:34:14Z",
-     "time_kst": "2026-11-05 20:34",
-     "title": "$Nokia Oyj (NOK.US)$ Executed some day trades today for a small profit... Will continue tomorrow. - Moomoo",
-     "source": "Moomoo",
-     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQLTlaUG4xeHlRQVAwSXBRcmVLQW5KQTB0NXVZSFVmVXNUTFZ3akF0Z2hYQ2M4TFZBUHUzNmhnWnFLYzI1TVhmTlFQMDBHeGM0MTlLeHRUNXZiQzJsSVh1SXp6SEkyU0lkWUV5OFlUNXpTNGkydDBkcEJ1czFqNVY3ZGFXWnhEamNydkhjN2QzRnB2WkE5Q1gtTzFSdUVQeHB0?oc=5"
+     "time_utc": "2026-11-05T12:58:38Z",
+     "time_kst": "2026-11-05 21:58",
+     "title": "Pixel 10 Gets Major GrapheneOS Upgrade as Pixel 11 Support Nears - Nokiamob",
+     "source": "Nokiamob",
+     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPV21HbjJNcUlxSDA4VkREVHctZk02aVZtVVVIRDcxXzZ0RUU1Rm9CUUJBUUdqbHh6ZFNJcXlRY1BhTzgzMU4tTGQ3Z0k4a0IzeEhUSmY5SW9zUV81VEdOTlc2V0p1cHpIcndpa0p4Rk9rM0loam9yLWhQWXRQbkUyODZqR0ZlRENoaDhodWJCVzlpOFZwVllQMVJMT3JBcGFjVmc?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T12:38:00Z",
+     "time_kst": "2026-11-05 21:38",
+     "title": "Nokia Oyj (NOKA.BA) Seasonal Returns Chart - Yahoo Finance - Yahoo! Finance Canada",
+     "source": "Yahoo! Finance Canada",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1teG5mcF95LW1oa19MdnNhRDBpcWxIR1YzdUZiUTJDZUVlcU5mZEZkMjJUeGhhc2toTzFmYUs0LVl3V1U3U0VsYW05a24tN3BQbVBMa0RPRlBhXzZtX0QwT0VIaWg4Zw?oc=5"
     }
    ],
    "errors": [
