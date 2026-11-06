@@ -1,8 +1,11 @@
-"""리포트 갤러리 미장 리포트 선별·분석 + 구독 채널 투자 브리프 생성."""
+"""채널 글 전수 요약(누락 방지) → 투자 브리프 덱, 리포트 갤러리 미장 리포트 선별·분석."""
 
+import os
 from collections import OrderedDict
 
 from .llm import ANALYSIS_MODEL, SCREEN_MODEL, ask_json, image_block
+
+DIGEST_MODEL = os.environ.get("TG_DIGEST_MODEL") or SCREEN_MODEL
 
 
 def _obj(props, req=None):
@@ -12,11 +15,17 @@ def _obj(props, req=None):
 
 S = {"type": "string"}
 SL = {"type": "array", "items": S}
+IL = {"type": "array", "items": {"type": "integer"}}
 
-# ── 슬라이드(덱) 공통 스키마: 렌더러가 HTML로 바꾼다 ──
+CHART = _obj({
+    "kind": {"type": "string", "enum": ["bars", "stack"]},
+    "title": S, "unit": S,
+    "items": {"type": "array", "items": _obj({"label": S, "value": {"type": "number"}})},
+})
 SLIDE = _obj({
     "tag": S, "title": S, "key": S,
     "kpis": {"type": "array", "items": _obj({"v": S, "l": S, "tone": {"type": "string", "enum": ["up", "down", "neutral"]}})},
+    "charts": {"type": "array", "items": CHART},
     "boxes": {"type": "array", "items": _obj({"title": S, "bullets": SL})},
     "table_headers": SL,
     "table_rows": {"type": "array", "items": SL},
@@ -24,23 +33,101 @@ SLIDE = _obj({
     "calc": SL,
     "so_what": S,
     "sources": S,
+    "refs": IL,
 })
 DECK = _obj({"headline": S, "summary": SL, "slides": {"type": "array", "items": SLIDE}})
 
 STYLE_RULES = """작성 규칙:
 - 한국어. 독자는 미국·한국 주식에 투자하는 개인투자자. '뉴스 제목 나열'이 아니라 투자 아이디어 중심으로 깊이 있게.
 - 각 슬라이드: tag(영문 대문자 섹션명), title(주장형 제목), key(핵심 한 문장), kpis(핵심 수치 2~5개, 상승=up 하락=down),
+  charts(비교할 수치가 3개 이상이면 적극 사용. kind='bars': 등락률·변화폭처럼 +/−가 있는 값 비교(항목 4~12개, 큰 순 정렬),
+  kind='stack': 합이 100인 구성비(2~5개). unit에 '%','bp','달러' 등 단위. 값은 원문 숫자만),
   boxes(2~4개, 짧은 글머리표 3~6개), 필요하면 table_headers/table_rows(없으면 빈 배열),
   deep(상세 해설 문단 3~5개: lead=굵은 소제목, text=인과관계와 의미를 4~7문장으로 풀어쓴 해설),
-  calc(원문 수치로 직접 계산해 해석한 항목, 없으면 빈 배열), so_what(투자자가 판단할 것 1~2문장), sources(근거 채널/증권사).
-- 강조는 **굵게** 표기만 사용. 수치는 원문 그대로, 계산은 calc에 근거를 보여줄 것. 원문에 없는 사실을 지어내지 말 것.
-- 투자 권유 표현 금지(매수하라 X). 상반된 시각이 있으면 반드시 함께 제시."""
+  calc(원문 수치로 직접 계산해 해석한 항목, 없으면 빈 배열), so_what(투자자가 판단할 것 1~2문장),
+  sources(근거 채널/증권사 이름만), refs(이 슬라이드가 근거로 쓴 글 번호 목록 — 본문에는 번호를 쓰지 말 것).
+- 본문 어디에도 (#12) 같은 글 번호를 쓰지 말 것. 근거 번호는 refs에만.
+- 강조는 **굵게** 표기만 사용. 수치는 원문 그대로, 계산 근거는 calc에. 원문에 없는 사실을 지어내지 말 것.
+- 투자 권유 표현 금지(매수하라 X). 상반된 시각이 있으면 함께 제시."""
+
+CATEGORIES = ["매크로·금리", "정치·정책", "지정학·전쟁", "시장·수급", "실적·가이던스", "AI·반도체", "에너지·원자재",
+              "기업 뉴스", "크립토", "한국 시장", "부동산", "투자 의견·전략", "기타"]
+
+DIGEST_SCHEMA = _obj({"items": {"type": "array", "items": _obj({
+    "no": {"type": "integer"},
+    "category": {"type": "string", "enum": CATEGORIES},
+    "importance": {"type": "integer", "enum": [1, 2, 3]},
+    "line": S})}})
 
 
-# ───────────────────────── 리포트 갤러리 ─────────────────────────
+# ───────────────────────── 1) 전수 요약 (누락 방지) ─────────────────────────
+
+def digest_posts(posts, chunk=40):
+    """모든 글(과 본문이 이미지인 글의 이미지)을 빠짐없이 읽고 글마다 한 줄 요약·분류·중요도를 만든다."""
+    out = {}
+    for k in range(0, len(posts), chunk):
+        part = posts[k:k + chunk]
+        content = []
+        for p in part:
+            content.append({"type": "text", "text": f"## #{p['no']} [{p['title']}] {p['time']}\n{p['text'] or '(텍스트 없음 — 이미지 글)'}"})
+            if p["photo"]:
+                content += [{"type": "text", "text": f"[#{p['no']} 첨부 이미지]"}, image_block(p["photo"])]
+        content.append({"type": "text", "text": (
+            "위 글 각각에 대해 빠짐없이 하나씩 답하라(no=글 번호). line=투자자 관점의 한 줄 요약(이미지 글이면 이미지 속 핵심 수치·내용 포함, 60~120자). "
+            "importance: 3=시장·종목에 의미 있는 사실/분석, 2=알아둘 만한 소식, 1=잡담·공지·링크만·중복 재게시.")})
+        res = ask_json(DIGEST_MODEL, "투자 텔레그램 글을 한 줄로 요약·분류하는 보조자.", content, DIGEST_SCHEMA, max_tokens=16000)
+        for it in res["items"]:
+            out[it["no"]] = it
+    for p in posts:  # 혹시 응답에서 빠진 글은 원문 앞부분으로 채운다
+        out.setdefault(p["no"], {"no": p["no"], "category": "기타", "importance": 2,
+                                 "line": (p["text"] or "(이미지 글)")[:120].replace("\n", " ")})
+    return out
+
+
+# ───────────────────────── 2) 채널 브리프 ─────────────────────────
+
+def channel_brief(posts, digests):
+    corpus = []
+    for p in posts:
+        d = digests[p["no"]]
+        body = p["text"] or "(텍스트 없음)"
+        if p["photo"]:
+            body += f"\n[이미지 내용 요약] {d['line']}"
+        corpus.append(f"## #{p['no']} [{p['title']}] {p['time']} (중요도 {d['importance']})\n{body}")
+    prompt = ("\n".join(corpus) + "\n\n"
+              "위는 투자 텔레그램 채널들의 수집 구간 글 전부(#번호)다. 이를 '투자 아이디어 브리프' 덱으로 만들어라. "
+              "채널별 나열 금지, 중복 내용은 하나의 아이디어로 합칠 것. 중요도 3인 글은 가능한 한 모두 반영.\n"
+              "구성: ① Executive Summary(아이디어 목록 표: 아이디어|한 줄 결론|방향) ② 시장 스냅샷(지수·업종·종목 등락은 bars 차트로) "
+              "③ 핵심 이벤트 해부 ④ 투자 아이디어 6~10개(각각 별도 슬라이드, deep 해설 필수) ⑤ 실적 상세 표 "
+              "⑥ 한국 투자자 관점 ⑦ 채널 운영자 시각 비교 ⑧ 캘린더·점검 체크리스트.\n\n" + STYLE_RULES)
+    return ask_json(ANALYSIS_MODEL, "텔레그램 투자 채널을 읽고 투자 아이디어 브리프를 만드는 시니어 애널리스트.",
+                    [{"type": "text", "text": prompt}], DECK, max_tokens=64000)
+
+
+def coverage_slide(posts, digests, decks):
+    """브리프가 근거로 쓰지 않은 글 중 중요도 2 이상을 '그 밖에 알아둘 소식'으로 모아 누락을 없앤다."""
+    used = set()
+    for d in decks:
+        for s in d["slides"]:
+            used.update(s.get("refs", []))
+    rest = [digests[p["no"]] for p in posts if p["no"] not in used and digests[p["no"]]["importance"] >= 2]
+    low = sum(1 for p in posts if p["no"] not in used and digests[p["no"]]["importance"] == 1)
+    if not rest:
+        return None, low
+    rest.sort(key=lambda d: (CATEGORIES.index(d["category"]), -d["importance"]))
+    return {
+        "tag": "MORE NEWS", "title": "그 밖에 알아둘 소식",
+        "key": f"브리프 본문에 들어가지 않은 글 {len(rest)}건을 분야별로 한 줄씩 정리했습니다. 빠짐없이 훑어보는 용도입니다.",
+        "kpis": [], "charts": [], "boxes": [], "table_headers": ["분야", "내용"],
+        "table_rows": [[("★ " if d["importance"] == 3 else "") + d["category"], d["line"]] for d in rest],
+        "deep": [], "calc": [], "so_what": "", "refs": [],
+        "sources": f"구독 채널 전체 (잡담·공지·링크·중복 {low}건 제외)",
+    }, low
+
+
+# ───────────────────────── 3) 리포트 갤러리 ─────────────────────────
 
 def _group_reports(posts):
-    """앨범(grouped_id) 단위로 이미지를 묶는다."""
     groups = OrderedDict()
     for p in posts:
         g = groups.setdefault(p["group"], {"time": p["time"], "url": p["url"], "text": "", "images": []})
@@ -56,7 +143,6 @@ SCREEN_SCHEMA = _obj({"items": {"type": "array", "items": _obj({
 
 
 def screen_reports(groups, batch=10):
-    """각 리포트 묶음의 첫 이미지(표지/요약)로 미국 증시 관련 여부를 가린다."""
     keep = []
     for k in range(0, len(groups), batch):
         chunk = groups[k:k + batch]
@@ -65,8 +151,7 @@ def screen_reports(groups, batch=10):
             content.append({"type": "text", "text": f"[R{i}] 캡션: {g['text'][:300] or '(없음)'}"})
             content += [image_block(img) for img in g["images"][:1]]  # 표지 1장만(구독 사용량 절약)
         content.append({"type": "text", "text": "각 R번호에 대해 판정하라. us_related=true 조건: 미국 상장 종목·미국 산업·미국 매크로(연준, 미국 경기, 미국 정책)가 리포트의 주된 대상. 한국 종목 리포트라도 미국 빅테크·미국 수요가 핵심 논지면 true. id는 'R0' 형식."})
-        out = ask_json(SCREEN_MODEL, "증권사 리서치 리포트 그림을 분류하는 보조자.", content, SCREEN_SCHEMA,
-                       effort="low", max_tokens=4000)
+        out = ask_json(SCREEN_MODEL, "증권사 리서치 리포트 그림을 분류하는 보조자.", content, SCREEN_SCHEMA, max_tokens=4000)
         for it in out["items"]:
             try:
                 g = chunk[int(it["id"].lstrip("R"))]
@@ -84,7 +169,6 @@ REPORT_SCHEMA = _obj({"reports": {"type": "array", "items": _obj({
 
 
 def analyze_reports(groups, batch=4):
-    """선별된 리포트의 모든 그림을 읽고 리포트별 상세 분석을 만든다."""
     results = []
     for k in range(0, len(groups), batch):
         chunk = groups[k:k + batch]
@@ -99,7 +183,7 @@ def analyze_reports(groups, batch=4):
             "so_what=미국 주식 투자자에게 주는 시사점 2~3문장. theme=테마 분류(예: AI 반도체, 빅테크, 금리·매크로, 에너지 등). "
             "그림에 없는 내용은 지어내지 말 것.")})
         out = ask_json(ANALYSIS_MODEL, "미국 주식 전문 리서치 애널리스트. 증권사 리포트 그림을 읽고 투자자 관점으로 해설한다.",
-                       content, REPORT_SCHEMA, effort="high", max_tokens=32000)
+                       content, REPORT_SCHEMA, max_tokens=32000)
         for r in out["reports"]:
             try:
                 g = chunk[int(r["rid"].lstrip("R"))]
@@ -111,38 +195,15 @@ def analyze_reports(groups, batch=4):
 
 
 def synthesize_reports(analyses):
-    """리포트별 분석을 테마로 묶어 덱(슬라이드)을 만든다."""
     lines = []
     for i, r in enumerate(analyses, 1):
         lines.append(f"#{i} [{r['broker']}] {r['title']} | 종목 {', '.join(r['tickers'])} | 테마 {r['theme']} | 의견 {r['stance']}\n"
                      f"주장: {r['thesis']}\n근거: {' / '.join(r['evidence'])}\n차트: {r['chart_reading']}\n"
                      f"리스크: {r['risks']}\n시사점: {r['so_what']}")
-    prompt = ("아래는 오늘 리포트 갤러리에 올라온 '미국 증시 관련' 증권사 리포트 분석이다. 이를 투자자용 슬라이드 덱으로 재구성하라.\n"
-              "- 첫 슬라이드: 오늘 리포트 전체를 관통하는 결론(공통점·엇갈리는 지점)과 테마별 리포트 수 표.\n"
-              "- 이후: 테마(또는 핵심 종목)별 슬라이드. 같은 종목·테마는 여러 증권사 시각을 비교해 하나로 합칠 것.\n"
-              "- 마지막: 리포트 목록 표(증권사|제목|종목|의견) 슬라이드.\n"
-              "- 각 bullet/문단 끝에 근거 리포트 번호를 (#3)처럼 표기.\n\n" + STYLE_RULES + "\n\n" + "\n\n".join(lines))
+    prompt = ("아래는 리포트 갤러리에 올라온 '미국 증시 관련' 증권사 리포트 분석이다(#=리포트 번호). 투자자용 슬라이드 덱으로 재구성하라.\n"
+              "- 첫 슬라이드: 리포트 전체를 관통하는 결론(공통점·엇갈리는 지점)과 테마별 리포트 수(stack 또는 bars 차트).\n"
+              "- 이후: 테마(또는 핵심 종목)별 슬라이드. 같은 종목·테마는 여러 증권사 시각을 비교해 하나로 합칠 것. 목표가·전망치 비교는 bars 차트 활용.\n"
+              "- 마지막: 리포트 목록 표(증권사|제목|종목|의견) 슬라이드. 모든 리포트가 최소 한 슬라이드의 refs에 들어가야 한다.\n\n"
+              + STYLE_RULES + "\n\n" + "\n\n".join(lines))
     return ask_json(ANALYSIS_MODEL, "미국 주식 리서치 헤드. 여러 증권사 리포트를 종합해 투자 아이디어 덱을 만든다.",
-                    [{"type": "text", "text": prompt}], DECK, effort="high", max_tokens=64000)
-
-
-# ───────────────────────── 구독 채널 브리프 ─────────────────────────
-
-def channel_brief(posts, max_images=20):
-    corpus, imgs = [], []
-    for p in posts:
-        corpus.append(f"## #{p['no']} [{p['title']}] {p['time']}\n{p['text'] or '(텍스트 없음 — 이미지 글)'}")
-    content = [{"type": "text", "text": "\n".join(corpus)}]
-    for p in posts:
-        if p["photo"] and len(imgs) < max_images:
-            imgs.append(p)
-            content += [{"type": "text", "text": f"[#{p['no']} 첨부 이미지]"}, image_block(p["photo"])]
-    content.append({"type": "text", "text": (
-        "위는 투자 텔레그램 채널들의 최근 24시간 글 전부(#번호)와 텍스트가 짧은 글의 첨부 이미지다.\n"
-        "이를 '투자 아이디어 브리프' 덱으로 만들어라. 채널별 나열 금지, 중복 내용은 하나의 아이디어로 합칠 것.\n"
-        "구성: ① Executive Summary(아이디어 목록 표: 아이디어|한 줄 결론|방향) ② 시장 스냅샷(지수·업종·종목 표) "
-        "③ 핵심 이벤트 해부 ④ 투자 아이디어 6~10개(각각 별도 슬라이드, deep 해설 필수) ⑤ 실적 상세 표 "
-        "⑥ 한국 투자자 관점 ⑦ 채널 운영자 시각 비교 ⑧ 캘린더·점검 체크리스트.\n"
-        "sources에는 근거 채널명을 적고, 본문 끝에 근거 글 번호를 (#12)처럼 표기.\n\n" + STYLE_RULES)})
-    return ask_json(ANALYSIS_MODEL, "텔레그램 투자 채널을 읽고 투자 아이디어 브리프를 만드는 시니어 애널리스트.",
-                    content, DECK, effort="high", max_tokens=64000)
+                    [{"type": "text", "text": prompt}], DECK, max_tokens=64000)

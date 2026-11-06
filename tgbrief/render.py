@@ -9,13 +9,54 @@ FONT = '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@4
 TONE = {"up": "r", "down": "b", "neutral": ""}
 
 
-def _fmt(text, links):
-    t = html.escape(text or "")
-    t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
-    if links:
-        t = re.sub(r"#(\d+)", lambda m: f'<a href="{links[int(m.group(1))]}" style="color:#2563eb;text-decoration:none">#{m.group(1)}</a>'
-                   if int(m.group(1)) in links else m.group(0), t)
-    return t
+_TOK = r"(?:이미지\s*)?#\d+"
+REF = re.compile(r"\s*[\(\[]\s*(?:(?:근거|원문|이미지)\s*)?" + _TOK + r"(?:\s*[,·/]\s*(?:이미지\s*)?#?\d+)*\s*[\)\]]")
+UP, DOWN, AXIS, TRACK = "#EA002C", "#1D4ED8", "#C7CBD1", "#F0EFEC"
+CAT = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]  # dataviz 기본 범주색(검증된 순서)
+
+
+def _fmt(text, links=None):
+    """본문 텍스트: 이스케이프, **굵게**, 근거 글 번호 제거."""
+    t = REF.sub("", text or "")
+    t = html.escape(t)
+    return re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
+
+
+def _num(v, unit):
+    s = f"{v:+,.2f}".rstrip("0").rstrip(".") if abs(v) < 100 else f"{v:+,.0f}"
+    return s + (unit if unit in ("%", "%p", "bp") else (" " + unit if unit else ""))
+
+
+def chart(c):
+    items = [i for i in c["items"] if isinstance(i.get("value"), (int, float))]
+    if not items:
+        return ""
+    unit = c.get("unit", "")
+    o = [f'<div class="chart"><div class="ch-t">{_fmt(c["title"])}</div>']
+    if c["kind"] == "stack":
+        tot = sum(max(i["value"], 0) for i in items) or 1
+        o.append('<div class="stk">' + "".join(
+            f'<span title="{html.escape(i["label"])} {i["value"]:g}{html.escape(unit)}" style="width:{max(i["value"],0)/tot*100:.2f}%;background:{CAT[k % len(CAT)]}"></span>'
+            for k, i in enumerate(items)) + "</div><div class=\"lg\">" + "".join(
+            f'<span><i style="background:{CAT[k % len(CAT)]}"></i>{_fmt(i["label"])} <b>{i["value"]:g}{html.escape(unit)}</b></span>'
+            for k, i in enumerate(items)) + "</div></div>")
+        return "".join(o)
+    mx = max(abs(i["value"]) for i in items) or 1
+    neg = any(i["value"] < 0 for i in items)
+    pos = any(i["value"] > 0 for i in items)
+    o.append('<table class="bars">')
+    for i in items:
+        v = i["value"]; w = abs(v) / mx * 100
+        bar = f'<div class="b" title="{html.escape(i["label"])} {_num(v, unit)}" style="width:{max(w,1.5):.1f}%;background:{UP if v >= 0 else DOWN}{";margin-left:auto" if v < 0 else ""}"></div>'
+        left = bar if v < 0 else ""
+        right = bar if v >= 0 else ""
+        cells = (f'<td class="lb">{_fmt(i["label"])}</td>'
+                 + (f'<td class="half neg">{left}</td>' if neg else "")
+                 + (f'<td class="half pos{" ax" if neg else ""}">{right}</td>' if pos or not neg else "")
+                 + f'<td class="vl {"up" if v > 0 else "dn" if v < 0 else ""}">{_num(v, unit)}</td>')
+        o.append(f"<tr>{cells}</tr>")
+    o.append("</table></div>")
+    return "".join(o)
 
 
 def slide(s, page, links, sid=""):
@@ -27,6 +68,8 @@ def slide(s, page, links, sid=""):
         o.append('<div class="kpis">' + "".join(
             f'<div class="kpi {TONE.get(k["tone"], "")}"><div class="v">{f(k["v"])}</div><div class="l">{f(k["l"])}</div></div>'
             for k in s["kpis"]) + "</div>")
+    if s.get("charts"):
+        o.append('<div class="charts">' + "".join(chart(c) for c in s["charts"]) + "</div>")
     if s["boxes"]:
         o.append('<div class="g2">')
         for i, b in enumerate(s["boxes"], 1):
