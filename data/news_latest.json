@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-04T01:19:33Z",
+ "fetched_at_utc": "2026-11-06T01:32:40Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -7,6 +7,42 @@
  },
  "treasury_auctions": {
   "recent": [
+   {
+    "auction_date": "",
+    "type": "Bill",
+    "term": "4-Week",
+    "reopening": "Yes",
+    "high_yield": null,
+    "high_discount_rate": null,
+    "bid_to_cover": "2.46",
+    "indirect_pct": null,
+    "direct_pct": null,
+    "offering_amount": "115000000000"
+   },
+   {
+    "auction_date": "",
+    "type": "Bill",
+    "term": "8-Week",
+    "reopening": "Yes",
+    "high_yield": null,
+    "high_discount_rate": null,
+    "bid_to_cover": "2.68",
+    "indirect_pct": null,
+    "direct_pct": null,
+    "offering_amount": "110000000000"
+   },
+   {
+    "auction_date": "",
+    "type": "Bill",
+    "term": "17-Week",
+    "reopening": "No",
+    "high_yield": null,
+    "high_discount_rate": null,
+    "bid_to_cover": "3.26",
+    "indirect_pct": null,
+    "direct_pct": null,
+    "offering_amount": "75000000000"
+   },
    {
     "auction_date": "",
     "type": "Bill",
@@ -78,131 +114,50 @@
     "indirect_pct": null,
     "direct_pct": null,
     "offering_amount": "44000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "17-Week",
-    "reopening": "No",
-    "high_yield": null,
-    "high_discount_rate": null,
-    "bid_to_cover": "3.08",
-    "indirect_pct": null,
-    "direct_pct": null,
-    "offering_amount": "75000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Note",
-    "term": "2-Year",
-    "reopening": "No",
-    "high_yield": null,
-    "high_discount_rate": null,
-    "bid_to_cover": "3.05",
-    "indirect_pct": null,
-    "direct_pct": null,
-    "offering_amount": "30000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Note",
-    "term": "5-Year",
-    "reopening": "No",
-    "high_yield": "4.845",
-    "high_discount_rate": null,
-    "bid_to_cover": "2.33",
-    "indirect_pct": null,
-    "direct_pct": null,
-    "offering_amount": "70000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "6-Week",
-    "reopening": "Yes",
-    "high_yield": null,
-    "high_discount_rate": null,
-    "bid_to_cover": "2.83",
-    "indirect_pct": null,
-    "direct_pct": null,
-    "offering_amount": "95000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "52-Week",
-    "reopening": "No",
-    "high_yield": null,
-    "high_discount_rate": null,
-    "bid_to_cover": "3.15",
-    "indirect_pct": null,
-    "direct_pct": null,
-    "offering_amount": "54000000000"
    }
   ],
   "upcoming": [
    {
     "auction_date": "",
-    "type": "Bill",
-    "term": "17-Week",
-    "reopening": "No",
-    "offering_amount": "75000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "4-Week",
-    "reopening": "Yes",
-    "offering_amount": "115000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "8-Week",
-    "reopening": "Yes",
-    "offering_amount": "110000000000"
-   },
-   {
-    "auction_date": "",
     "type": "Note",
     "term": "3-Year",
     "reopening": "No",
-    "offering_amount": ""
+    "offering_amount": "58000000000"
    },
    {
     "auction_date": "",
     "type": "Note",
     "term": "10-Year",
     "reopening": "No",
-    "offering_amount": ""
+    "offering_amount": "42000000000"
    },
    {
     "auction_date": "",
     "type": "Bond",
     "term": "30-Year",
     "reopening": "No",
-    "offering_amount": ""
+    "offering_amount": "25000000000"
    },
    {
     "auction_date": "",
     "type": "Bill",
     "term": "13-Week",
     "reopening": "Yes",
-    "offering_amount": ""
+    "offering_amount": "95000000000"
    },
    {
     "auction_date": "",
     "type": "Bill",
     "term": "26-Week",
     "reopening": "Yes",
-    "offering_amount": ""
+    "offering_amount": "82000000000"
    },
    {
     "auction_date": "",
     "type": "Bill",
     "term": "6-Week",
     "reopening": "Yes",
-    "offering_amount": ""
+    "offering_amount": "100000000000"
    }
   ],
   "errors": []
@@ -211,30 +166,16 @@
   "Fed 보도자료": {
    "status": "ok",
    "feed": "https://www.federalreserve.gov/feeds/press_all.xml",
-   "items": [],
-   "latest_any": [
+   "items": [
     {
-     "time_utc": "2026-10-29T20:30:00Z",
-     "time_kst": "2026-10-30 05:30",
-     "title": "Federal Reserve Board announces approval of application by The Bank of Nova Scotia",
+     "time_utc": "2026-11-05T16:00:00Z",
+     "time_kst": "2026-11-06 01:00",
+     "title": "Federal Reserve Board announces termination of enforcement action with Allegiant United Holdings, LLC, Nano Financial Holdings, Inc., and Nano Banc",
      "source": null,
-     "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261029a.htm"
-    },
-    {
-     "time_utc": "2026-10-28T18:00:00Z",
-     "time_kst": "2026-10-29 03:00",
-     "title": "Federal Reserve issues FOMC statement",
-     "source": null,
-     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
-    },
-    {
-     "time_utc": "2026-10-16T15:00:00Z",
-     "time_kst": "2026-10-17 00:00",
-     "title": "Federal Reserve Board announces termination of enforcement actions with Gardner Bancshares, Inc. and Small Business Bank",
-     "source": null,
-     "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261016a.htm"
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261105a.htm"
     }
-   ]
+   ],
+   "latest_any": []
   },
   "Fed 연설": {
    "status": "ok",
@@ -269,11 +210,25 @@
    "feed": "https://www.ecb.europa.eu/rss/press.html",
    "items": [
     {
-     "time_utc": "2026-11-02T09:30:00Z",
-     "time_kst": "2026-11-02 18:30",
-     "title": "Boris Vujčić: Integrated, open and resilient: Europe’s strengths in a fragmenting world",
+     "time_utc": "2026-11-05T08:00:00Z",
+     "time_kst": "2026-11-05 17:00",
+     "title": "Isabel Schnabel: Navigating stormy waters: reflections on monetary policy",
      "source": null,
-     "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp.261102~70003226e9.en.html"
+     "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261105_1~5e97d9d5a0.en.html"
+    },
+    {
+     "time_utc": "2026-11-05T07:30:00Z",
+     "time_kst": "2026-11-05 16:30",
+     "title": "Piero Cipollone: Shaping the future of money",
+     "source": null,
+     "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261105~6495a0df6f.en.html"
+    },
+    {
+     "time_utc": "2026-11-04T00:00:00Z",
+     "time_kst": "2026-11-04 09:00",
+     "title": "ECB wage tracker suggests slightly higher wage growth in first three quarters of 2027 compared with the full year of 2026",
+     "source": null,
+     "url": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr261104~caf181d7ac.en.html"
     }
    ],
    "latest_any": []
@@ -282,6 +237,20 @@
    "status": "ok",
    "feed": "https://www.bankofengland.co.uk/rss/news",
    "items": [
+    {
+     "time_utc": "2026-11-05T12:00:00Z",
+     "time_kst": "2026-11-05 21:00",
+     "title": "Bank rate increased to 4% - November 2026 Monetary Policy Summary and Minutes",
+     "source": null,
+     "url": "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/november-2026"
+    },
+    {
+     "time_utc": "2026-11-04T14:51:45Z",
+     "time_kst": "2026-11-04 23:51",
+     "title": "Summary of the RTGS CHAPS Industry Forum - 13 October 2026",
+     "source": null,
+     "url": "https://www.bankofengland.co.uk/minutes/2026/october/rtgs-chaps-industry-forum-13-october-2026"
+    },
     {
      "time_utc": "2026-11-03T10:00:00Z",
      "time_kst": "2026-11-03 19:00",
@@ -297,6 +266,41 @@
    "feed": "https://www.boj.or.jp/en/rss/whatsnew.xml",
    "items": [
     {
+     "time_utc": "2026-11-05T07:00:00Z",
+     "time_kst": "2026-11-05 16:00",
+     "title": "Holding the Twenty-fifth Round of the \"Bond Market Group\" Meetings",
+     "source": null,
+     "url": "http://www.boj.or.jp/en/paym/bond/mbond_list/mbond261105.pdf"
+    },
+    {
+     "time_utc": "2026-11-04T23:50:00Z",
+     "time_kst": "2026-11-05 08:50",
+     "title": "Sources of Changes in Current Account Balances (Projections for Nov.)",
+     "source": null,
+     "url": "http://www.boj.or.jp/en/statistics/boj/fm/juqp/juqp2611.xlsx"
+    },
+    {
+     "time_utc": "2026-11-04T23:50:00Z",
+     "time_kst": "2026-11-05 08:50",
+     "title": "Minutes of the Monetary Policy Meeting on September 17 and 18, 2026",
+     "source": null,
+     "url": "http://www.boj.or.jp/en/mopo/mpmsche_minu/minu_2026/g260918.pdf"
+    },
+    {
+     "time_utc": "2026-11-04T08:00:00Z",
+     "time_kst": "2026-11-04 17:00",
+     "title": "Japanese Government Bonds Held by the Bank of Japan",
+     "source": null,
+     "url": "http://www.boj.or.jp/en/statistics/boj/other/mei/release/2026/mei261030.xlsx"
+    },
+    {
+     "time_utc": "2026-11-04T08:00:00Z",
+     "time_kst": "2026-11-04 17:00",
+     "title": "Collateral Accepted by the Bank of Japan (End of Oct.)",
+     "source": null,
+     "url": "http://www.boj.or.jp/en/statistics/boj/other/col/col2610.xlsx"
+    },
+    {
      "time_utc": "2026-11-04T01:00:00Z",
      "time_kst": "2026-11-04 10:00",
      "title": "Bank of Japan Accounts (October 31)",
@@ -309,20 +313,6 @@
      "title": "Monetary Base (Oct.)",
      "source": null,
      "url": "http://www.boj.or.jp/en/statistics/boj/other/mb/mb.htm"
-    },
-    {
-     "time_utc": "2026-11-02T05:00:00Z",
-     "time_kst": "2026-11-02 14:00",
-     "title": "Outlook for Economic Activity and Prices (October 2026, full text)",
-     "source": null,
-     "url": "http://www.boj.or.jp/en/mopo/outlook/gor2610b.pdf"
-    },
-    {
-     "time_utc": "2026-11-02T04:00:00Z",
-     "time_kst": "2026-11-02 13:00",
-     "title": "Sources of Changes in Current Account Balances and Market Operations (Oct.)",
-     "source": null,
-     "url": "http://www.boj.or.jp/en/statistics/boj/fm/juqf/juqf10.xlsx"
     }
    ],
    "latest_any": []
@@ -360,109 +350,109 @@
   "GOOGL": {
    "items": [
     {
-     "time_utc": "2026-11-03T21:30:30Z",
-     "time_kst": "2026-11-04 06:30",
-     "title": "What If The Crash Of The U.S. Hyperscalers Actually Makes Sense? Here Is My Take (SP500) - Seeking Alpha",
-     "source": "Seeking Alpha",
-     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQc2JNbEJaM0hob1JiZDZPOGlveG9xbm9oaGVDcG0zeGFWWlAtZDliSm1VWFA3V3o5TlAxSXVfTkhqbXpCTUdjdDN4emFxckxtNU8xSmUyZlpUOUVvTTU4TmNyOVBOQTFLejJVVFY3Y2FCZTgybm40NXFIZVdrR0VINGNRUUpKckNpczJJSjU0eDhfNkJMX3JrbGFUOFMzdl9nX2kwTThsd0N4dGJCTFdj?oc=5"
+     "time_utc": "2026-11-06T01:20:00Z",
+     "time_kst": "2026-11-06 10:20",
+     "title": "Cathie Wood Sells $12.8 Million Of Alphabet, Days After The Stock Suffered Its Worst Day Since Its 2004 IPO, Losing Nearly Half A Trillion Dollars In Market Value - 24/7 Wall St.",
+     "source": "24/7 Wall St.",
+     "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxOckRkUkZkYkkxc1VEc3ZSUThsV1I1cjdvN09ma0d0UWNsVWtQSl9JSXRjTEJlZkhfd0E0bV8zeVFfeXJ2WkE2UGhKVXI5Tk9PZWh3aW1JbFRkLUZPd0lRWHRkMWNyLVpQa2k3dTRtQTFjQW11eENxbHpobWtoSVdxdnZHUlUwMngzUmNtUjBQcFBKS2xOeW5Id0V5U0JVNTBkN2NBUlhTWE42cUV6NWdiSHNXZmtRaGNzVHA5YkVsb0kyZzNjczNkc2xNTE4zZDdDbUFzNENhb1drNk9JVmtiVm9DTHVONXlaREJFR3VDNVJFTmg0M2FuMzA0OWtyTEVGYUZMcFoxbi0zRWRKanEyQ0dXb0k5SThqYVdjNGdlRUlwN3JtbzZMYmUySQ?oc=5"
     },
     {
-     "time_utc": "2026-11-03T21:09:00Z",
-     "time_kst": "2026-11-04 06:09",
-     "title": "Alphabet's Free Cash Flow Just Turned Negative. Should Investors Sell the Stock Now? - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOblQtLVJTcUsya2hmb0pVNDlpQldMMDhOQXYyRm9GSkI4VkREbTU4QlhWVjNtcmIwWWxyeTA0NjlHZFhrTzFxemxZQmtRSXZ2NkFGSnM3YTBjMWN4cG9Jb1hwS2JwT1Y2aGxISHlFcjR1OHhCRy1MaWhqcGpGazk0aVpoZ04zQzRxTHExOXBQbUxQZw?oc=5"
+     "time_utc": "2026-11-06T00:34:47Z",
+     "time_kst": "2026-11-06 09:34",
+     "title": "Top 3 Value Stocks To Watch In November 2026 - Simply Wall St",
+     "source": "Simply Wall St",
+     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQ3dMeURDenoxLW1uYlFxU1hnNUpuZDZwelFWX1FQc00xQnNiMGEtc0ZjT3FCSTJRRWNqN3lzME5Tc2VFRllIOGZTZGNaS2tlQnNiWDFsMXBDTWxOWHRYREx0ZGxUVTRtVlh2S2J4R016eEpqRnpoWkNNZTBsdVF3cXR6SjZJMWpfbzdDcEhuXzgxQzhTV2ROcDZ4WlFhYlpCZkVBQm4wS21UMjM3OXg4M2hn0gG3AUFVX3lxTE5heVZ4cjV1MmxTV2VXbFdJTHJ4MG1RVVVLcDhaRzlPNFc2ZnFQTWJ5NEhQUVJGaEJWa3JrZ2dTMWxOaVROYlBMNkdLdnBJNG54UEFIQUxtNzFCN1RzeFFfUXRnTnhQSlBXRUQzdG1yQ1NBRHNHLVZmM3FWTjVUOW9ucjhrWGZfaEZfWU5kUGx0ZnZndXpZcjlUY2F3Q2Z2SHJHc0g3bEl6UGluMHBEaExIdUFjX0E3SQ?oc=5"
     },
     {
-     "time_utc": "2026-11-03T19:20:02Z",
-     "time_kst": "2026-11-04 04:20",
-     "title": "Alphabet Stock Tanks After Earnings: Should Investors Buy the Dip? - Yahoo Finance",
-     "source": "Yahoo Finance",
-     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNSmdwZ0NDdGd4V2I4TXZIekU4UlFGS1diUFFBQjVOUjFkV0tHSDVUOXdYSGE1NWhCbkFPSkE2NGtuNzVMQ0NJTnE2endidWZRWk9zZE5nQnRreWlaSjFhd3JZa3NPNTRzcmU1bGFQWTRxRms3SUNIRDdPT0oxNVBES1ZlMFZjdkROYzFzektfcTA2VzRtRUltLUxJZm1DYUM2ZE9XOXozSQ?oc=5"
+     "time_utc": "2026-11-06T00:01:11Z",
+     "time_kst": "2026-11-06 09:01",
+     "title": "데이터센터 반대했는데 빅테크는 웃었다?…美 선거 결과의 아이러니 - 디지털투데이",
+     "source": "디지털투데이",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE02WGxtQi1EVC1NUU84UzM3V3FYT1dpTEFtVWR2bnI0Y3Bub0V1Q2pMSWNvdFdhd2QwQW1CS2RRbjhjUXFSbGpDTFMtMkNXbVBYLXVCeFZuQWVpakhxa0hWZ29uUFpKeWN4UUxpTWF6bWtueEk?oc=5"
     },
     {
-     "time_utc": "2026-11-03T19:20:02Z",
-     "time_kst": "2026-11-04 04:20",
-     "title": "Alphabet Stock Tanks After Earnings: Should Investors Buy the Dip? - AOL.com",
-     "source": "AOL.com",
-     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOa3RCMkdfTVo4LVJzY0toNkxWbGNENHBlTHY0SWtnVmd3aUlWS2xBdzc2Q18xb3otZTlfWWt2TnQwaDZISUh0alJ3RHoyNUtCVWdURTkyQ25DMnk4NUU3YmYwZ3lxcmlGSFowMHpzeU9GdXZiX0JGTWJ6X3o1dUo1NnJxOGg0WTFlYTdJ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T19:00:00Z",
-     "time_kst": "2026-11-04 04:00",
-     "title": "Alphabet Stock Tanks After Earnings: Should Investors Buy the Dip? - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQaTR6M0tXNkxQZHdtdzVIMjJVWlAydTQ2azh3ZEdGR0U2NW1SSnRfbzViQUsydHI5cHB2UzlYVDZxUEl2NG8yUEMzZnhaRTc2OUFQemtUX2pFdGpEZi0xa3dxVDVET0VmaUdOUjN0VWhqT2xfakRZSzVoYlVMMmEzeG92bWJnX0NkTk94bmtxVXAtdnJESHEyNlUzbUJQQzBkaUlqMnh1cXpMeTg?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T18:15:56Z",
-     "time_kst": "2026-11-04 03:15",
-     "title": "Alphabet’s TPUs Now Rank “Second Only to Nvidia” in Compute Built. Google Cloud Shows It - TIKR.com",
-     "source": "TIKR.com",
-     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNSGd1SEJwbGxzUGM0UmYzbUZXTm5CMHUzNi02YW5Hc1dqcUFMempRM0RSOHVNMnhSdmZrelB6OTZUd1FYWlBHa0ZBNktKYk5fOG5ncVdURmtIeU4xVndRR2pYSXItRFE2MTZrU2hGUHhCYVk2bWpxb1JYRkM3WHk2TEdoTUxZT0w1RXA2c2lza19xazFGdEhrbWZOUl94aXJlZmVOZ1RwTUZLSFNvcW5sZw?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T18:11:27Z",
-     "time_kst": "2026-11-04 03:11",
-     "title": "Alphabet Stocks Move Lower With $121.3 Billion Anthropic Commitment in Focus - TradingView",
-     "source": "TradingView",
-     "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOMEQyQnVSak1GaWthUGNnZElmZ0tiOUFaN3ZWVS1xWWxqaDJ1V00zaW8xNkJ4Z2ljTEhUWFlFUUhSUkVNbC1iWG9Pbi05X1ItNFBZYTQyRTMtaVc3VXNReThVSlEtTTFaWTliTDMwQzcxMGVFZDREVEc4RlFSWVdGTGV1M2ZtTF84R1pTMUpfNUdpc3gxSFNPR20zZkdqLWhMNl9NVXhVdGpMbzV3eWJhUkJ0eF9pTzd5dGFwNExRV2xuQ1FhcEpBNlJlMUp1UGVQ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T18:11:15Z",
-     "time_kst": "2026-11-04 03:11",
-     "title": "Search Advertising “Will Top as an Industry in Q1,” Says Ex-Stability AI CEO. Alphabet Has the Most to Lose - TIKR.com",
-     "source": "TIKR.com",
-     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPaF85QXE3M2daV1loMURZbmNSbDZiazk1UmkzNFYzWkRiUWdGdlZXUHJsSkdRdTVaNEdITlptei1lQ0thZGQ0aFV6SFBJNkF0Y3NCM1MwX0ZhT2otZEZBMXBJQkxuR3VPYmxFNTBCYkpraXNhWUdSNFhoRnRZa1llZWIzRm1LaWpONnRyVFAySGdYZ2RlQThPd3pEeUdVOXdKQ0VYa192dHcweHVCRDdpM3NxcWlNVlNpNGlCTHUyTHhXZHFoVnM3dllB?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T17:52:21Z",
-     "time_kst": "2026-11-04 02:52",
-     "title": "구글, 양자 위협 내세운 코인 수탁 공개…정작 공개키 공격은 못 막는다 - 코인리더스",
-     "source": "코인리더스",
-     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5zYkhNR0wyVFJKOWhfZXJCdGdFMzBuUU50dmE3R0hkQmpHNlNoVnBsb0xqQ2JhWWtUTTdUYmtIeUtLcGFUUUJwOHFn?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T17:39:18Z",
-     "time_kst": "2026-11-04 02:39",
-     "title": "Form 4 Alphabet Inc Class A For: 3 November By Investing.com - Investing.com Canada",
-     "source": "Investing.com Canada",
-     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZ2VCSUd3dDlVLWVNODJDYkRKSXhmSkxXOEJhNVJMREtYWU1oRnBuZ2NvVThXd0tJTG9WOGlGaEd0NHBiWjAyVG5fVXFwQ0ZnZlZyVUxZUFNXd0ZSMnkzZG80amF4LU9ISEFYamtKVXp1T3NlSU45UE1iUWZsR1NSbWxKOVRyWHZhQ3dpMC1UZ3liaVRwZm0wU3RkSWJuNjRlUnR1enFR?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T17:35:10Z",
-     "time_kst": "2026-11-04 02:35",
-     "title": "3 Communication Services Stocks With Whale Alerts In Today’s Session - Benzinga",
-     "source": "Benzinga",
-     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQQUlZNDFEbUd1a2c5M0ZOTGtaRW4ySEtlbnMyUkp5RlcyaFkyemU1VjNraDVXek9OXzl0S3l1RnBHbnNoOVQ3ZVFlbWpXR203b1otTG9jTk5ibHJZWHVpSDg0Z0JTUG9uVHQwclpFVGZ4cnBZYUhyMGdabXdsQXZMcU5COHJrR0UzWEZDS2o5eXA4aWZJOEwtczl6NTZ2RmJaaC1LZjQ2VVVfLTM3elFyUnYwMmNfZkk?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T17:24:33Z",
-     "time_kst": "2026-11-04 02:24",
-     "title": "Why Investors Should Load Up on Google Stock Now - Barchart.com",
+     "time_utc": "2026-11-05T23:03:02Z",
+     "time_kst": "2026-11-06 08:03",
+     "title": "This Could be a Major Problem for Alphabet Investors - Barchart.com",
      "source": "Barchart.com",
-     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQLTNoNEU2R0cydldLR0FILW9YNWc5cFRTUXA1bDR0MUNiUGZ5V3FqX2IxWFBNbVowVFN1Q3NwbzhTd0poSUpNSE9WTi1aX0lfb21tcHpEZnR3NDVxTGFsWW5KSlVMSlAxS3FrNnhJT3lkMHBZNHlzczdEOW13LUVJbHdWT2p6TWh1WUlOU3pIeGNDbkV4c0dZ?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQOVhJMGtUbkVHN2w1dGFVUFE2VlBMYUFBaWtHNlNqU1FucHBvcmdBX0N1aThYeEtlQVg3VlFfOW9rVUhYVzF6TkMwajZuX2pzc1BHVEdMQ1pvUHpGV1RTLTFMNG9CM1JkRjBNbUtNazh0azlXWkd2WkRHT08xWHJILWliX3ZZekVnYU9lR05lMllUX0F3UjJ3TjBTTmM?oc=5"
     },
     {
-     "time_utc": "2026-11-03T17:14:57Z",
-     "time_kst": "2026-11-04 02:14",
-     "title": "Alphabet's Golden Dome Talks Could Open a New Market, But How Much Is at Stake? - MarketBeat",
+     "time_utc": "2026-11-05T23:00:00Z",
+     "time_kst": "2026-11-06 08:00",
+     "title": "Apple, Alphabet, and Meta: 3 Big Takeaways from Recent Earnings - TradingView",
+     "source": "TradingView",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNR19pVUIzLVExSHBadjdFNzloenBLSmExOXZrWVc4Q09KSUVBX1N6cVc0TlhkRk5hMWZFbEtNQ2NYRTVpZTI5bk4zOEtFQk5ROW85WUtmR0d1Qm40RUtyeW1kYmw5UGlRcFg3Z2t6MmY1ejV2RXBTZTB0QXZhSmZuTzhEZTM2Vnd1NUdIdkVKcVJOMTk3RFhJUWhseGhhcVB6UnJpTWpnSllsQzYtWFRPZU4wWnZjcWs?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T22:31:23Z",
+     "time_kst": "2026-11-06 07:31",
+     "title": "Marc Chaikin Sees Alphabet (GOOGL) as a Conglomerate Hiding Three World-Class Businesses - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZGUwTUFsMVZQeEZPSnFCZ3dnMDZNTVNFeGVXelVQN1ZtcFo3SnY2dzdmSHhIM2J2OGgwRXZScGYxajZuSDNQd3ZvTGdrMDU5QWNEdWhXM0hnb1lPMmNoQ3ZST0lTcnVDRllVRnpwWG9VdWxxQ1I5R0w5Q3BsZ0NaMkJ1b0FRc05nZnRWdFRhdFBBYVg3aEkwSWd4NlktZw?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T19:30:24Z",
+     "time_kst": "2026-11-06 04:30",
+     "title": "Google's Credit Backstop May Be TeraWulf's Biggest Advantage - MarketBeat",
      "source": "MarketBeat",
-     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNaGdyVUlsWGgxOERVR25VMVdCNjhhNTNNaUU1OENTUzZJWFJOM0lfNkloZVZkRndYaEt5OTAxOEZuNUVhYlpiRTJaRWh3RUNRNWVucnpRbS1laXNsc3RVanQ0VFB4ZnhjNDdVblVfQW1UU2hDa1FQbUpZS3FuN2xsUHRuV0lkZXNwbkVNTXNLSW5va2tLLUxNVDlXaXRNU3lHMDhNdnBLR3BNUjAtWU9aYURuMA?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQZ2VaazN2a193Z1ByeVVTVkRFUEZzdjdmb3BEeENYVExiTVRteTh1UXVabjV0Q2x0X0NzT3M4QXhZTlRrZDQwTHdZcU1NYWNiY0RhcXNDbEJkQ3BYR1ZPaE5ONjk2RGdnc1o1NW1lN21FdEo0NEVrcXUxT1VGb0pXbHJMN3k4emRVakprZ1pWVDhtLTVURTBYanZiQQ?oc=5"
     },
     {
-     "time_utc": "2026-11-03T15:45:00Z",
-     "time_kst": "2026-11-04 00:45",
-     "title": "2 Monster Stocks to Buy and Hold for the Next 20 Years - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQS0hlekg0bjlET3ByZzRSblhBSTR5WldrdG9CQzVWc251T19IZXgyVDZNSzNsTmdWYVJfMHNIV2NSMzRha3dOZUxBZFl1TWFFWTRCNXZJUy04aEFEaGRaYjg1aDJDZXJRUHlNanpJaUdsd05ncFZKd3NDcmphcS1Tc3FFTk8zd3RydUE?oc=5"
+     "time_utc": "2026-11-05T19:29:53Z",
+     "time_kst": "2026-11-06 04:29",
+     "title": "데이터센터 규제 역풍에도…구글, 와이오밍에 170억弗 투자 강행 - KB Think",
+     "source": "KB Think",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFB6VmZPTUZTSW53VU4tOFBpQTN0TG9mNng4YTUyOU9zTXJkUzBreGQ0Vm9BNGU3QnNyMmQxUzZqOERLZjgzdkFvcDgyMnpkZURtMmlSSDAwVnU4ZGlkUjAwaHNYRHlKLUN6RWNBU0wtUklndw?oc=5"
     },
     {
-     "time_utc": "2026-11-03T15:38:35Z",
-     "time_kst": "2026-11-04 00:38",
-     "title": "Alphabet: One Quarter Was Noise, Two Is A Trend (Rating Downgrade) (NASDAQ:GOOG) - Seeking Alpha",
+     "time_utc": "2026-11-05T19:27:00Z",
+     "time_kst": "2026-11-06 04:27",
+     "title": "구글, 미국 와이오밍주 첫 데이터센터에 170억달러 투자 계획 - 이코노미블록",
+     "source": "이코노미블록",
+     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9MOWxUdVgxSjV2dFVROEFRZG1iYldlZFd5Ri1rRk1WRWhiQjg3RjNyOHlHOExRZnVkVnFyR3BjNHk4ZzFqU29HMnBvMzk?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T19:10:00Z",
+     "time_kst": "2026-11-06 04:10",
+     "title": "What Should Alphabet Inc. Investors Know After 7.13% Stock Drop? The Law Offices of Frank R. Cruz Outlines Securities Fraud Class Action Lead Plaintiff Deadline - PR Newswire",
+     "source": "PR Newswire",
+     "url": "https://news.google.com/rss/articles/CBMitwJBVV95cUxOd0RYaUl3R1JGaVJ5MTVuTVBBRVZRdVpyOTdOOW5ONWZsVjFoU041V0ZqYjFDcVRQWlFxTFNwMHNubGhjT1lfNVB0dW1hOUNiLWJBV0NtYmRXRWNKYjEzRWQ4TGxGYzJTUmhxZzIzd0hOUUdFUG1TdzZ3SzFMeDNWSG9DSWVUSG5sLV83dUZxZVI0S05Hblg5OHp2TDlnR0paTFNYbkVyeVFFcU5uR3d4eVpsaXo2WHpjQV9ZNHdaMVZXMXE4eTRrUThLMVFlVE1PbWFwaV9QWXFQdXRpSWdyLXQ2Z2p4TWRrOV8wV0d4QXRvTkNZSUFKcVFMTWxvU1hYZlF1eXRBUmwxTHdJcWxGSHhzLUtOc19oS3hVUXhnQ2J3TlR0QlIySVRja3d5SlZwa2xKQmxHcw?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T19:01:28Z",
+     "time_kst": "2026-11-06 04:01",
+     "title": "Alphabet: The AI Reckoning Starts Here (NASDAQ:GOOG) - Seeking Alpha",
      "source": "Seeking Alpha",
-     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPRFFSMXZvdzZiRmtKRnNPM1lGeGF1SHpKVTFkUEtrSXFiNnNBbUJyWnQ0c21ZVGNuT3A3bUZBYUstb25jMzBXd2JPbV80U3FvbFVHd3N5TEtZckt6eUhiVFF0U1V4NDdoYkppek1sVmJZUzR3M0pUczBjazdBRFk5TmRibllUVUxYNEFoUUNKQ2lCUlhkVHowbS04TGNrMHZiaGkzRXJR?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPR2NRSjltdlRpOWhqWTUwZ1dwV3FRbUZBZWZqbVhhTWt4NnR6XzVNa2dBS3NSZzVENDFpWlRKT1dRWjVOX05ISVRDU1FpbjBhdVhKanlXSFpXbF9uMkxjUlMtanpCb0hXSWRGZ1FkbmFGQnRLMHVoaHB6TlRzbjVxNGJtOTg?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T18:59:35Z",
+     "time_kst": "2026-11-06 03:59",
+     "title": "Alphabet Stocks Decline 2% as AI Spending Outruns Cash Generation - Yahoo Finance Singapore",
+     "source": "Yahoo Finance Singapore",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQTndJbWowcTN2ZWQ5R2pUOFhubjlwbWh4SHctZTE1Q2JXNXZGYm9BMDNpR3FMRWpxZGJremdxVmJWa1poTmZwQzRyVUxmcmo0dzhxTXJuREtWeThRcks4QXR5aU1ZbTl2SDVsQnNrVThxakhvQUtORFFMRjQtbHpTeC0xUQ?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T18:40:00Z",
+     "time_kst": "2026-11-06 03:40",
+     "title": "Alphabet (GOOGL) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+     "source": "Investor's Business Daily",
+     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZ3RHcWtkOUszb3lIUjQ3ZndGU05XWDlWeU5IQVJJMEJsUjh6NnFUaFdwVGR0QjVadkFOcm9IbkVsejNxUlJieEdzekQ4TXRsQmQ0ejVZMkpHRkw4TnQwWnB5MnJDLTBrSXBzTTVzdlpOc1ZnNEZpcDdBVWhDNG5wcF9NTVZHYVcxR3hCMVpvVU9OeVJhMko0Ym1qMDNiM1R2Wk9qREoyeUVOdGcwNjh2Qg?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T18:30:00Z",
+     "time_kst": "2026-11-06 03:30",
+     "title": "What's Going on With Alphabet? - The Motley Fool",
+     "source": "The Motley Fool",
+     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1fd2llR0szMVczNHRNdTNQUl9EMkRPQWo5Sy00YzJ6WEQ5Q0ktYVBueXFWWWMyTC1RanoxWU5tX0gxallQQVdjRVkyT3E5UXlYZF80aWZpdmRfS2lnUnF3RXExc1pXMnluaFVTX3dfSVpwN1EyTTBQZDE1ekE?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T18:07:19Z",
+     "time_kst": "2026-11-06 03:07",
+     "title": "Alphabet stock drops 16% in a month, seen as a buy with strong AI growth and solid financials. - Pluang",
+     "source": "Pluang",
+     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPMnpGQm1QNEM0X09aamxpdDhKMExYcUc4bXg4LTJ6Q2xYalZrZVdObFlTWXpsTEkyX19aYU0tZTJCdUlfeHcxX0o3N1JUSmMtZzBmRU1DbmJiLUJmOUstbmMyRnkzRzVCWjlLVHE5RnFVVy1DeTRma3pwR25JZ0hYbzlVRzBJODBtVGwtT1NwbjI2WUUyRlE?oc=5"
     }
    ],
    "errors": []
@@ -470,109 +460,109 @@
   "NOK": {
    "items": [
     {
-     "time_utc": "2026-11-03T22:49:00Z",
-     "time_kst": "2026-11-04 07:49",
-     "title": "Why Is Nokia (NYSE:NOK) Gaining Attention Amid Rising Network Demand? - Kalkine Media",
+     "time_utc": "2026-11-05T22:32:00Z",
+     "time_kst": "2026-11-06 07:32",
+     "title": "Is Nokia (NYSE:NOK) Positioned For Another Strong Growth Phase Ahead? - Kalkine Media",
      "source": "Kalkine Media",
-     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRzBNTGJHUDU4aWxETVdKWldaS01ibnBLaXFveE1XVGlLemxyU2FDU1ZfcFBiVkd6Tnp6LWNnS0UwNHg0NjhsWlgwbFI4ZTE5Unc3ZldIVU1Va0dMcm9lSUkxZXdha1kycnBWZEI0eVF2V2M4V2JzSDdVeVNLVjh4MlBFbi1MWDRjVzRxTzlScHZGS1NyMEthal9KSWYweGczVkc1cjZEd19DQQ?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMTNJQzQ5Y1V2SEdhQkdGdVZla01DNDJlM29uc3hRZzk0cEhrdXp0eGNLdXRBUjZjaFdqYUVYb0M3Q3VINXdBS2JvTVlueGYySDNrd3J4Mm9XS0szSmZJRG9JZnBha3NEa01Pb3B1d1dPNXpQYkRnOWRRbE44eUVPaUFVWml2eGU3S0VENUkxRzZybkY1VC1ZRXY1MDliYUdrcTV2dXNxWmlkUQ?oc=5"
     },
     {
-     "time_utc": "2026-11-03T21:52:10Z",
-     "time_kst": "2026-11-04 06:52",
-     "title": "Dinosaurs Of The Wild West | Official Kickstarter Trailer (4K) Greg Locke (oBFNCG8vwR) - Unisba Media",
-     "source": "Unisba Media",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5UaHBkVkw3WjE3X3JtTFJ1QTlPZWNzNDBaVFJYS3B4U2dVU29XOGtCWkpoeWlvODB4alBJYXU1RlBGX1ZGcUNEYWhkWmZzSENBQU5KNGZTRkpTeHdxMjJNallWT1NSc3VUb2xZ?oc=5"
+     "time_utc": "2026-11-05T22:17:02Z",
+     "time_kst": "2026-11-06 07:17",
+     "title": "Nokia (HLSE:NOKIA) Stock Looks Fully Valued After Its 129% Run - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcENjUWdXbVNqUmVGUlotU0x5d3BmQi1KcnRUMVpieUxQUl9FSFdLMnNoS2NicWNaVmFtT251bTJTeEktUC0yWWttZklmUXZ2Tk1MVHN4M1Jxa0NpMFBmRUZIUXBDMWhSYURCV0E1cDhsV3BQaU9QX1E3bjZzUDBPTV9tbjB3aXFMWFhnTlpxVWU1MEVPZTJDeg?oc=5"
     },
     {
-     "time_utc": "2026-11-03T21:52:04Z",
-     "time_kst": "2026-11-04 06:52",
-     "title": "Nokia vs. Verizon: A Contrast in Revenue Scale and Seasonality - The Globe and Mail",
-     "source": "The Globe and Mail",
-     "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPaUFyZDZQVmx5S0phX0hfWFpwRHp2YzV2YnNUamQwNzhiRUVrb1l1eGRLbTNPY2V6UHhodkJfa1puM1g0YTBTLVZOSW8zY3ZTeko1MGExaHpFWFpwQ2phVTVYUjROMVVjODlZWjA5ZUZOekU0aG9fRi0zOXIzOXpQWElMbnpkaHVHeUtlMFU3eUNXaFJUSjZhNW9ncHV6ekduTjEyLTVmdXByMmFvRVFSd1RINjNPaXduSlJiaXBQdm5EN2E0N2F3NXpibFFhQnVYVEd1b0k1SU9md2UxZHc?oc=5"
+     "time_utc": "2026-11-05T19:03:00Z",
+     "time_kst": "2026-11-06 04:03",
+     "title": "NOK Stock Slides As European ADR Weakness Deepens - Timothy Sykes",
+     "source": "Timothy Sykes",
+     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPMEg4OFdSd2RBUGh3ZFlGS21iSXYtQmRKT290S0NjNTdmMjlQWGlhMEVTQTQ2ZV9JUU8xN2VaanRaaTJDRU1MRThEaHhBaGtHX0VwSXJ6dnk3d0RIMEdmY201VV8xbTRaTGdzR1BJNE8zMlZkalNTTUhlUTd1ckVyaWZRNDhqQkE?oc=5"
     },
     {
-     "time_utc": "2026-11-03T21:31:00Z",
-     "time_kst": "2026-11-04 06:31",
-     "title": "Nokia vs. Verizon: A Contrast in Revenue Scale and Seasonality - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOQ1BKdS1iMzJtcTg4WU44dDhfTVVCcUN5VW9sZnZoTGsxQ2ZmN1dPT2toa1VPT09PM1RjdFItc2ZPVF9JNHVpdW5idkRGbkdJWE1FVFhFYlNaTjRENWF4MHpieG53TDcyYkY0UVZfZFNVVjlmMDk2VU15ZkFfSVFJSGw3cW1XREdjNXM4N19sMktNVFY5anppcExhTE1rUDFfel9uekhWNy1DekVRaUE?oc=5"
+     "time_utc": "2026-11-05T18:23:23Z",
+     "time_kst": "2026-11-06 03:23",
+     "title": "About 216 million Nokia (NOK) shares are reported by FMR in an amended ownership report. - Stock Titan",
+     "source": "Stock Titan",
+     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNM283SVRmdk9RMEppVUx4MzJ5ay12dmt6NTA1ZlQ0ejIwdzZTMGpueGJ4dDJQby16clVvSjhybm1PeTB6ZURiQ1FYb2IyeUFlRnRobjFRYk9ETWF6OEkzRnFQVUpTOG82RHFzTlRfNzRJTmVoZmtxMVcyUmdyZ0xMN2JMSjhNVU1MbENLZkFTU2k1MGZDVXRqcVV4T0NaTTh1cXlwalRKY0lWYkhPN05JWm4ya3A0bmc2SjRueWZ2bVRSZw?oc=5"
     },
     {
-     "time_utc": "2026-11-03T20:14:38Z",
-     "time_kst": "2026-11-04 05:14",
-     "title": "Ono Pharmaceutical (TSE:4528) Stock Could Still Offer A Discount To Fair Value - Yahoo Finance Singapore",
-     "source": "Yahoo Finance Singapore",
-     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNYTVITnI0N3FKcTRvY1dnaHdhSWRibG4zdHYzZHRsNVlWcEpSSEtkX3ZTYW1WdE5mX0luM3laT2toX1FMYTFwWWZNVkNkVTVXZ1JYdTRGTU45cnJuRHAxSW5fRE9jOXdQY2VhVkNuWGFpbEE0aGJ0U0NyaXZwVXJuaWV1V2swb3p6U3c?oc=5"
+     "time_utc": "2026-11-05T16:33:00Z",
+     "time_kst": "2026-11-06 01:33",
+     "title": "Nokia Stock Slides As Persistent ADR Weakness Rattles Traders - Timothy Sykes",
+     "source": "Timothy Sykes",
+     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOa01fX3lXakhWRlBxWjQ4VTN6MXlSVk9LZmY2dVI0NF9XQ1owWGVMZmhOT1NUTmgyTFVkb3NwdW5GTjdWRzJyYmdpZWtVcmFCdjFUbkEtclJRd1ZESDQzSUUzM3QxRlB3dzV0VzRCaU5fNlRSMzdaMmEtRlRDajI0VTBmVzY?oc=5"
     },
     {
-     "time_utc": "2026-11-03T19:56:03Z",
-     "time_kst": "2026-11-04 04:56",
-     "title": "Super Micro Computer Gains 4.6%, Eyes the $32 Level - 24/7 Wall St.",
-     "source": "24/7 Wall St.",
-     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQYThOWGw1MmpmSHJ1VEhtUXFQV19uaGZZemxENVpSV3paYTVYREtHeUVQOWFLb20tbTlzWTVta1BhZkxfSXNJRmxMclYtZS1uVklvWHJ5MFJ2T2lmVVFOcUVZWDVKRl8xZU1WVllSSmREZnJ2dE1JaTZCMnZxMVA5Vmx2MFQ5Y2NWamlZNnpBbm5oRXNXeG93?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T18:25:00Z",
-     "time_kst": "2026-11-04 03:25",
-     "title": "AST SpaceMobile Shares Rebound After 11% Tumble as SpaceX-Boost Mobile Threat Weighs on Satellite Rival - BigGo Finance",
-     "source": "BigGo Finance",
-     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA2SFY0c052OXdQYlJIQWN4RHF0NWRRMGtWSFpCNVJ1bS05b29paTk1QXJfVWs3dXNoU1MtbTczYmIyS1dQUjlfVVl5THIyQ1ByRk52UGowX19uVy1jWWVNMnhaV25uMnFRYUo5VnhRVUJkcmRoa0E?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T17:57:39Z",
-     "time_kst": "2026-11-04 02:57",
-     "title": "What's Going On With AST SpaceMobile Stock On Tuesday? - TradingView",
-     "source": "TradingView",
-     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSU14WWtsOGx1Qkw4WTNEZEJUcGtpelZoWFRRNHpKdEhMN3dNZ2lpek1MSnYyMzhpLVBIbHNYeEZqU2NtOUtSUlYzb3hIRS00SERfbXRvVndLZnZIZnFTazk3WmN0OENiNG12QWt0WGI5ZDlnQTljTjBOR0ZsYldZZ25TdTlkX0NsbVgtSGc5bF9UOUh6MWxaT0ptM09EM1lTMlZ5VHpuM1hnLWEyRTl6WG9R?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T17:24:30Z",
-     "time_kst": "2026-11-04 02:24",
-     "title": "Arista Networks Stocks Rise 3.53% Before $3.3 Billion Revenue Test - Yahoo Finance Singapore",
-     "source": "Yahoo Finance Singapore",
-     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPOGNiak5fTGx0dFhEY1EyY0JqZVpFQlRYLWdfOG1PaUdJZFNlZ1hkbW8xWDJOVS11MUtVYUZvUkxaZ00xTHc2ZzZNNG83Vm5HZGkwSjBWY3diTHYwc2ZPYldHSEhOYzBLcVlmWGdvWW1ncjNxQldGMVdoMmhEaDhVREw5d28?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T17:14:45Z",
-     "time_kst": "2026-11-04 02:14",
-     "title": "Nucor (NUE) Stock May Be 34% Undervalued Despite Strong Q3 Earnings - Yahoo Finance Singapore",
-     "source": "Yahoo Finance Singapore",
-     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9IQWgxeWt5b0NZMDEtWDdkQkRSeUNNTmRMdFF0d0I0a1hmVmphMlEtbDZ2bDRQUUxhUWJBUlFhX0N0UWxnR1pKZEZHekpCdVA5VjBtRDl6azZrT0puaHUtU3NYLUk1am5JUlc2amR1SGxYaDBxN3JTdXlVTQ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T16:44:56Z",
-     "time_kst": "2026-11-04 01:44",
-     "title": "Nokia Oyj (NOK) stock price, news, quote and history - Yahoo Finance Australia",
-     "source": "Yahoo Finance Australia",
-     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBqRU9vN1NaMVVTZEJXdHUyanFZb3JqYXltYTQ3c2JOSXpQNV9VZENHQnhvTFBSdGJ0ellXZ2ZIa0RMaEtzSklLU1AwZ1ZRM2lB?oc=5"
-    },
-    {
-     "time_utc": "2026-11-03T16:37:58Z",
-     "time_kst": "2026-11-04 01:37",
-     "title": "Nokia stock moves more than 1% below Monday report quote - ad-hoc-news.de",
+     "time_utc": "2026-11-05T16:27:13Z",
+     "time_kst": "2026-11-06 01:27",
+     "title": "Nokia stock gets Hotwire network project with early 2027 go-live - ad-hoc-news.de",
      "source": "ad-hoc-news.de",
-     "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOWjk2NVdEM0lnTDhhV1RKaXBYNjlDMUxGOFpkNDBCOGV1RGQ1U2RubWxGY2RlY3dpazlpWHRLZHdXaUlkaTFGOTJDc196ZC1HdExjMTZ4RVR1N192V0ctbGRfR2RBSHVtb3JQbzBjVVl5S1l5b0NycFRVZWlPVVZSa0YtZWtocU00RE9tekJHMXVMbF9mbnhLQlExdzBvdjZpSGNXSXdkUE5aSmtRUHJEc2NHTmxlSUg1YWc?oc=5"
+     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQeEY3WnlrX1hQNUNobEZndU1IMElmQkV4eUwtdlVwZ0ZLZWttblFQNDF3OG5CaFlTbnBSWEY0RDhiNm5YSWtYQTJUdElxYVZTeDZSUl85aDVoYWdZSy1jTGx2ZnhzY0VfWV9RX254ZEZFWEkxWmFGR1pRTnc4bUhzSEY5Sks0MEVvaEpFX3c4LUhKUHZkVDV2QjZocHozejRkU0VVUHZJZTZ1dUdjLXV6VEFJQjk1VmZmM0gxUGdsTDJoR0Zhd2c?oc=5"
     },
     {
-     "time_utc": "2026-11-03T16:10:57Z",
-     "time_kst": "2026-11-04 01:10",
-     "title": "General Dynamics stands out as a balanced industrial stock pick - Yahoo Finance Singapore",
-     "source": "Yahoo Finance Singapore",
-     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOT1NOenFMUmlPbVpxTFhVWVR1NEtDaTl0RzRTaHlKa3FKSXhRaDRQcXZSYkhhQmdJZ0ZGRkZ3RmdrLW5YQ251Xzk2U0VGM0hhRU56NERJMXYtbFlSRFlEWFE4V1Nza3NsLVhJamdqTHhNS2lmbHVoS1NpdF9TTzFZbFVoQ2lIV3JRTUlwTzViUnBSN1Rnc0Fv?oc=5"
+     "time_utc": "2026-11-05T14:45:36Z",
+     "time_kst": "2026-11-05 23:45",
+     "title": "AT&T stock gains satellite handoff milestone as beta nears - ad-hoc-news.de",
+     "source": "ad-hoc-news.de",
+     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPcEpFOTZmc2lwREkwb2dvVUlSUmNrR0NKaFUzSTBVbXhjNWIteWJ1Q3NqOEVWRXdZUnFzaU0zak5BQnVIaFB0TWd6Qk5NUTgxWFZnX1B5UDBiaVBOckdoMWxBVWhnT0hwLTR3MDZLQ0FOQjlnc0xOLWtjOHdELWJmejFOZWZlZUVaN3o0NmpjTFJtazdSTmlLYmxTek1uV1M4OXcwSHREdVd5dDQtb1BwaU9sOFZBekxwTVhBY09n?oc=5"
     },
     {
-     "time_utc": "2026-11-03T15:40:16Z",
-     "time_kst": "2026-11-04 00:40",
-     "title": "Moody’s lifts Nokia to Baa3 investment grade on AI and cloud momentum By Investing.com - Investing.com",
-     "source": "Investing.com",
-     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPRGtYNUF5Y1dMUUVQendoblg3OFlXQkNfZ0VUQm9vNjFWU0JMMXpsRl95TWlRbHU4elhpZjZGdFNLZmt6Z2hXREpnME5yRm1ZTVgwbnZ6RFdvVjRjcE9nZWRwajJOOHFQVVVpUTFvcUZsSGt5VVcxVXRheUpxSGc4Z05QM3BXSHFpWWkxT0owVDZXa0phWVJNb0RiY1BWbFVydUNwMWJGRmF1b3R1cWNsOHREN2hTdHhVaWZGSmZmLXlXUFU?oc=5"
+     "time_utc": "2026-11-05T13:11:04Z",
+     "time_kst": "2026-11-05 22:11",
+     "title": "Nokia Lifts the Lid on AI-Era Upload Demand as Moody's Upgrades the Credit - ad-hoc-news.de",
+     "source": "ad-hoc-news.de",
+     "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPX3ZRWFVjMnpxRGxhajh3WVRtd3lybFY5LWFGTGpWdVF2QVJGcndQcmlpNExiby1JbkZ2Z1FQNXl4VFVWaGtMNTV2a05FWVAzYnFkVWtETHo2NF8tNGhBSXhRaVdsWVh0ZXgwcVFIYkRzdHVyRXdWTXZXMWtEOW1hYWRqd1NSUmJ6WjI1cEhFTy1JTDRaTHpHdHVsUHZsZ1VBLXBWWFJOTXdQU1RKQk5LY2E2R1JyYXBoUVRHNGtvczByZDNsS1VBbHp2bDdLRnBKS09HV0t3ZmFTM1J1X0hZ?oc=5"
     },
     {
-     "time_utc": "2026-11-03T15:39:18Z",
-     "time_kst": "2026-11-04 00:39",
-     "title": "Moody's Upgrades Nokia's Senior Unsecured Ratings on Expected Profitability Gains - marketscreener.com",
-     "source": "marketscreener.com",
-     "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNY2ZPY1BEZ3BIUV84eDIxUUdjLVlhVEMwMnIydXZHUzdiVnU2bFhpOTFyUmYzbEpGZDd0RFVFTlBGOGxlTlYtU3dNMnpycmY0Sno0a3ZQUFFHb1Zzd1JfSkxzRGE4QkRlbF9mODUtNEh2WVZySExJd1RXYldOTm1QTzdheFNzT0dZN1lXMU82UzlFMUhqMmpqWFlacUh2bi1zVVpwUmdlNWdMclBBOVNZNzBudjRGTktlcER3NHUzS0kybzAxMFNhX3oxWWZ1Z00?oc=5"
+     "time_utc": "2026-11-05T11:34:14Z",
+     "time_kst": "2026-11-05 20:34",
+     "title": "$Nokia Oyj (NOK.US)$ Executed some day trades today for a small profit... Will continue tomorrow. - Moomoo",
+     "source": "Moomoo",
+     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQLTlaUG4xeHlRQVAwSXBRcmVLQW5KQTB0NXVZSFVmVXNUTFZ3akF0Z2hYQ2M4TFZBUHUzNmhnWnFLYzI1TVhmTlFQMDBHeGM0MTlLeHRUNXZiQzJsSVh1SXp6SEkyU0lkWUV5OFlUNXpTNGkydDBkcEJ1czFqNVY3ZGFXWnhEamNydkhjN2QzRnB2WkE5Q1gtTzFSdUVQeHB0?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T11:04:35Z",
+     "time_kst": "2026-11-05 20:04",
+     "title": "Quarterly sales fall at Inseego (INSG), followed by a $29.5M payment from Nokia. - Stock Titan",
+     "source": "Stock Titan",
+     "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOVHBDR3V6S1NVLU9XWkJjWUZYNUdsaTBWSHMtdFJOczlDZHdlUlF4Zjdzd0taNk5fbWgxbFBpRE8yejdIUVpXMFM4V0Z6Y2NOUzVwUk4xQTg3T2xLaTFvcWZ0OXlyQUFiZ05TVUNqa2dZWlJ4ZXJyWmpKaGhHTk9mcXFCS0REdmZtdE9rUC1JaUlRQUp6MkNHTFhpYlJMVHpySEQzT1B2clI?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T10:57:11Z",
+     "time_kst": "2026-11-05 19:57",
+     "title": "Nokia stock wins Hotwire AI-ready network project in North Carolina - ad-hoc-news.de",
+     "source": "ad-hoc-news.de",
+     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNd1JPQ3BLc2tFN2J5SVgyNTV2R0hrSWx6cVRXR2lOTW9NY05uMU9rNF8zZlZuVUppX1BjNHR0RTJmTDMwMGhhYWRvdVF5YXdaR3pBWENnQTk4WkNmZVJybHl6dE9mTW53RUlYVFAwdUpWeldQVENSNEcxbjRRNkhtazVCUktXZVd6VUVFS09nblhUTE1XVjRkYlFDOFViczZyT3ZGNnZmMi0tN3Y0eFJZazQ3XzFPUXpqOHAzSVJOMjJtb1ROZ0RjZHRR?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T09:19:10Z",
+     "time_kst": "2026-11-05 18:19",
+     "title": "Finnair Oyj (HLSE:FIA1S) Could Be 31% Overvalued After Earnings And Guidance Reaffirmation - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNMnBMOEhsWF9lRWVFM2ItM2UzaVBBbnRDOEZxOUVXaVF1UVhNdV8yNnNDbjJYMW14cVZjN0hkN2kwbnZPU3RTRzQ1NmdzOHVpckRDRkRObElZVDZJVmx2N1k1djc0QkxSTDhmTm9pOVBaOENHMWRQQVNRSTNFc0lxT1pyZjZnNjVsUDVKYmloQ2x5ZzBqcDctMw?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T05:57:32Z",
+     "time_kst": "2026-11-05 14:57",
+     "title": "Nokia deploys Deepfield Cloud Intelligence for Zain KSA across 100+ cities - scanx.trade",
+     "source": "scanx.trade",
+     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZWpzUWFDdElyMmFsVkNacGRDekI4ZTBfUkViYXFFelVxQXZyQ1BoN0x4NExPdnFhSjNmZlNNdnJoMTJPdHNkZFJBZ0hqQ2Z5NU9ENjEtWWJLdkhVeXBJU2pkTm5KQ3JuUnBCNG9qcnpLc0o3UXVkVFpuNEphQmV5UkIySEtIWjZpZXBmSWdrc1Z0d043TGluVGJraElhYk9EZTZ5Y2NsZnJCaUNaSkNuNG5YdkRUR0RrNllHYTVn?oc=5"
+    },
+    {
+     "time_utc": "2026-11-04T21:05:00Z",
+     "time_kst": "2026-11-05 06:05",
+     "title": "Inseego Reports Third Quarter 2026 Financial Results - GlobeNewswire",
+     "source": "GlobeNewswire",
+     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPb201c0t2LV9ib3JRblZ5YkRzc2F3cFU0bjlLdTN6WEx1WDJUOFp1THZzenppSHFleHZfX3hlbVcwMHFnLWFpWElFemVscXRwbTF0NWNSUW5hRUlkZWZUcHlVbWwwMmhZY0JKamJtUEhEa1U4aUVYWVFBb1pRTGNLMTRkTHl4R3JaXzk1SmZ0VUVvN2trQkk1Tk5qTnhRWjRnUUtjdGYwWGxLMC1iN3VUQ2I4VGR1VE9nYmxKcE5FZXp5eEpGMTdn?oc=5"
+    },
+    {
+     "time_utc": "2026-11-04T19:08:57Z",
+     "time_kst": "2026-11-05 04:08",
+     "title": "Finland shares higher at close of trade; OMX Helsinki 25 up 1.62% By Investing.com - Investing.com India",
+     "source": "Investing.com India",
+     "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOVXZKN0VMMy1temlhb0VQcmdaa2tQazdQMlByVXhia3lMQWNybHFRdUgwNlNMeTZkWDVGbHpqQkQ0NW1YTllJY0dMc0Z4X3F4TEZQN1FVSUZRYmo5Wm9MYTJOOWNieGN0dThyQjhzdzVjSDkyczZsWDJDRlVFNVVtcXNJLUI1NlZvOHZkeHVEbHFmYlhPRVF5VjhTNmlxb2hSOFBnSjZrYTN5X1o5Ulp6Yi11bXA0aklGcEE?oc=5"
     }
    ],
    "errors": [
