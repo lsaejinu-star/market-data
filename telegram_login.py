@@ -19,7 +19,7 @@ import getpass
 import sys
 
 from telethon import TelegramClient
-from telethon.errors import SessionPasswordNeededError
+from telethon.errors import AuthTokenExpiredError, SessionPasswordNeededError
 from telethon.sessions import StringSession
 
 
@@ -37,17 +37,24 @@ def show_qr(url):
 
 
 async def qr_login(client):
-    while True:
+    for attempt in range(1, 11):
+        if await client.is_user_authorized():
+            return
         qr = await client.qr_login()
+        print(f"\n===== QR #{attempt} (약 30초 안에 스캔하세요) =====")
         show_qr(qr.url)
         try:
-            await qr.wait(timeout=60)
+            await qr.wait(timeout=30)
             return
         except asyncio.TimeoutError:
-            print("1분이 지나 QR을 새로 만듭니다...\n")
+            print("시간이 지나 QR을 새로 만듭니다... (아래 새 QR을 스캔)")
+        except AuthTokenExpiredError:
+            # 계정이 다른 데이터센터에 있거나 스캔이 늦은 경우. 접속 위치가 맞춰졌으니 새 QR로 다시 시도
+            print("QR이 만료됐습니다. 새 QR을 바로 다시 스캔하세요.")
         except SessionPasswordNeededError:
             await client.sign_in(password=getpass.getpass("2단계 인증 비밀번호(입력해도 화면에 안 보임): "))
             return
+    raise SystemExit("QR 로그인 실패. 다시 실행하거나 python telegram_login.py --code 를 써보세요.")
 
 
 async def main():
