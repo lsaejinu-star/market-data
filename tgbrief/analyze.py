@@ -18,7 +18,7 @@ SL = {"type": "array", "items": S}
 IL = {"type": "array", "items": {"type": "integer"}}
 
 CHART = _obj({
-    "kind": {"type": "string", "enum": ["bars", "stack"]},
+    "kind": {"type": "string", "enum": ["change", "level", "stack"]},
     "title": S, "unit": S,
     "items": {"type": "array", "items": _obj({"label": S, "value": {"type": "number"}})},
 })
@@ -40,8 +40,9 @@ DECK = _obj({"headline": S, "summary": SL, "slides": {"type": "array", "items": 
 STYLE_RULES = """작성 규칙:
 - 한국어. 독자는 미국·한국 주식에 투자하는 개인투자자. '뉴스 제목 나열'이 아니라 투자 아이디어 중심으로 깊이 있게.
 - 각 슬라이드: tag(영문 대문자 섹션명), title(주장형 제목), key(핵심 한 문장), kpis(핵심 수치 2~5개, 상승=up 하락=down),
-  charts(비교할 수치가 3개 이상이면 적극 사용. kind='bars': 등락률·변화폭처럼 +/−가 있는 값 비교(항목 4~12개, 큰 순 정렬),
-  kind='stack': 합이 100인 구성비(2~5개). unit에 '%','bp','달러' 등 단위. 값은 원문 숫자만),
+  charts(비교할 수치가 3개 이상이면 적극 사용. kind='change': 등락률·변화폭처럼 상승/하락 의미가 있는 값(항목 4~12개, 큰 순 정렬),
+  kind='level': 응답률·점유율·확률·금액처럼 크기만 비교하는 값(상승/하락 의미 없음), kind='stack': 합이 100인 구성비(2~5개).
+  unit에 '%','bp','달러' 등 단위. 값은 원문 숫자만),
   boxes(2~4개, 짧은 글머리표 3~6개), 필요하면 table_headers/table_rows(없으면 빈 배열),
   deep(상세 해설 문단 3~5개: lead=굵은 소제목, text=인과관계와 의미를 4~7문장으로 풀어쓴 해설),
   calc(원문 수치로 직접 계산해 해석한 항목, 없으면 빈 배열), so_what(투자자가 판단할 것 1~2문장),
@@ -97,7 +98,7 @@ def channel_brief(posts, digests):
     prompt = ("\n".join(corpus) + "\n\n"
               "위는 투자 텔레그램 채널들의 수집 구간 글 전부(#번호)다. 이를 '투자 아이디어 브리프' 덱으로 만들어라. "
               "채널별 나열 금지, 중복 내용은 하나의 아이디어로 합칠 것. 중요도 3인 글은 가능한 한 모두 반영.\n"
-              "구성: ① Executive Summary(아이디어 목록 표: 아이디어|한 줄 결론|방향) ② 시장 스냅샷(지수·업종·종목 등락은 bars 차트로) "
+              "구성: ① Executive Summary(아이디어 목록 표: 아이디어|한 줄 결론|방향) ② 시장 스냅샷(지수·업종·종목 등락은 change 차트로) "
               "③ 핵심 이벤트 해부 ④ 투자 아이디어 6~10개(각각 별도 슬라이드, deep 해설 필수) ⑤ 실적 상세 표 "
               "⑥ 한국 투자자 관점 ⑦ 채널 운영자 시각 비교 ⑧ 캘린더·점검 체크리스트.\n\n" + STYLE_RULES)
     return ask_json(ANALYSIS_MODEL, "텔레그램 투자 채널을 읽고 투자 아이디어 브리프를 만드는 시니어 애널리스트.",
@@ -201,8 +202,8 @@ def synthesize_reports(analyses):
                      f"주장: {r['thesis']}\n근거: {' / '.join(r['evidence'])}\n차트: {r['chart_reading']}\n"
                      f"리스크: {r['risks']}\n시사점: {r['so_what']}")
     prompt = ("아래는 리포트 갤러리에 올라온 '미국 증시 관련' 증권사 리포트 분석이다(#=리포트 번호). 투자자용 슬라이드 덱으로 재구성하라.\n"
-              "- 첫 슬라이드: 리포트 전체를 관통하는 결론(공통점·엇갈리는 지점)과 테마별 리포트 수(stack 또는 bars 차트).\n"
-              "- 이후: 테마(또는 핵심 종목)별 슬라이드. 같은 종목·테마는 여러 증권사 시각을 비교해 하나로 합칠 것. 목표가·전망치 비교는 bars 차트 활용.\n"
+              "- 첫 슬라이드: 리포트 전체를 관통하는 결론(공통점·엇갈리는 지점)과 테마별 리포트 수(stack 또는 level 차트).\n"
+              "- 이후: 테마(또는 핵심 종목)별 슬라이드. 같은 종목·테마는 여러 증권사 시각을 비교해 하나로 합칠 것. 목표가·전망치 비교는 level 차트 활용.\n"
               "- 마지막: 리포트 목록 표(증권사|제목|종목|의견) 슬라이드. 모든 리포트가 최소 한 슬라이드의 refs에 들어가야 한다.\n\n"
               + STYLE_RULES + "\n\n" + "\n\n".join(lines))
     return ask_json(ANALYSIS_MODEL, "미국 주식 리서치 헤드. 여러 증권사 리포트를 종합해 투자 아이디어 덱을 만든다.",

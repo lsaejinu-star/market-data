@@ -11,7 +11,7 @@ TONE = {"up": "r", "down": "b", "neutral": ""}
 
 _TOK = r"(?:이미지\s*)?#\d+"
 REF = re.compile(r"\s*[\(\[]\s*(?:(?:근거|원문|이미지)\s*)?" + _TOK + r"(?:\s*[,·/]\s*(?:이미지\s*)?#?\d+)*\s*[\)\]]")
-UP, DOWN, AXIS, TRACK = "#EA002C", "#1D4ED8", "#C7CBD1", "#F0EFEC"
+UP, DOWN, LEVEL = "#EA002C", "#1D4ED8", "#2a78d6"
 CAT = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]  # dataviz 기본 범주색(검증된 순서)
 
 
@@ -24,6 +24,11 @@ def _fmt(text, links=None):
 
 def _num(v, unit):
     s = f"{v:+,.2f}".rstrip("0").rstrip(".") if abs(v) < 100 else f"{v:+,.0f}"
+    return s + (unit if unit in ("%", "%p", "bp") else (" " + unit if unit else ""))
+
+
+def _lvl(v, unit):
+    s = f"{v:,.2f}".rstrip("0").rstrip(".") if abs(v) < 100 else f"{v:,.0f}"
     return s + (unit if unit in ("%", "%p", "bp") else (" " + unit if unit else ""))
 
 
@@ -41,19 +46,22 @@ def chart(c):
             f'<span><i style="background:{CAT[k % len(CAT)]}"></i>{_fmt(i["label"])} <b>{i["value"]:g}{html.escape(unit)}</b></span>'
             for k, i in enumerate(items)) + "</div></div>")
         return "".join(o)
+    level = c["kind"] == "level"
     mx = max(abs(i["value"]) for i in items) or 1
     neg = any(i["value"] < 0 for i in items)
     pos = any(i["value"] > 0 for i in items)
     o.append('<table class="bars">')
     for i in items:
         v = i["value"]; w = abs(v) / mx * 100
-        bar = f'<div class="b" title="{html.escape(i["label"])} {_num(v, unit)}" style="width:{max(w,1.5):.1f}%;background:{UP if v >= 0 else DOWN}{";margin-left:auto" if v < 0 else ""}"></div>'
+        txt = _lvl(v, unit) if level else _num(v, unit)
+        color = LEVEL if level else (UP if v >= 0 else DOWN)
+        bar = f'<div class="b" title="{html.escape(i["label"])} {txt}" style="width:{max(w,1.5):.1f}%;background:{color}{";margin-left:auto" if v < 0 else ""}"></div>'
         left = bar if v < 0 else ""
         right = bar if v >= 0 else ""
         cells = (f'<td class="lb">{_fmt(i["label"])}</td>'
                  + (f'<td class="half neg">{left}</td>' if neg else "")
                  + (f'<td class="half pos{" ax" if neg else ""}">{right}</td>' if pos or not neg else "")
-                 + f'<td class="vl {"up" if v > 0 else "dn" if v < 0 else ""}">{_num(v, unit)}</td>')
+                 + f'<td class="vl {"" if level else "up" if v > 0 else "dn" if v < 0 else ""}">{txt}</td>')
         o.append(f"<tr>{cells}</tr>")
     o.append("</table></div>")
     return "".join(o)
