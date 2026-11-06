@@ -4,8 +4,13 @@ name: telegram-report
 # 공개 저장소이므로 아무것도 커밋/업로드하지 않고, 로그에는 건수·사용량만 남긴다.
 
 on:
+  # GitHub 예약 실행은 이 저장소에서 4~6시간씩 늦게 시작되는 경우가 많다.
+  # 그래서 새벽에 여러 번 걸어두고, 06:00 전에 시작된 실행은 06:00까지 기다렸다가 수집한다.
+  # 그날 이미 발송된 뒤에 도착한 실행은 아무것도 하지 않는다(중복 발송 방지).
   schedule:
-    - cron: "5 21 * * *"   # 매일 21:05 UTC = 한국 06:05 시작 → 분석 후 07:00에 발송
+    - cron: "0 17 * * *"    # 한국 02:00
+    - cron: "30 18 * * *"   # 한국 03:30
+    - cron: "5 21 * * *"    # 한국 06:05
   workflow_dispatch:
 
 permissions:
@@ -19,21 +24,29 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 170
+    timeout-minutes: 350
     if: github.repository == 'lsaejinu-star/market-data'
     steps:
-      # GitHub 예약 실행은 몇 시간씩 늦게 시작될 수 있어 외부(Claude 예약 작업)에서 06:0x에 수동 실행도 건다.
-      # 예약 실행이 늦게 도착했을 때 오늘 브리프가 이미 발송됐으면 중복 발송하지 않고 건너뛴다.
-      - name: Skip if today's brief was already sent
+      - name: Wait for 06:00 KST & skip if today's brief was already sent
         id: dup
         if: github.event_name == 'schedule'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          now=$(date +%s)
+          target=$(date -d "$(TZ=Asia/Seoul date +%Y-%m-%d) 06:00 +0900" +%s)
+          wait=$((target - now))
+          if [ "$wait" -gt 18000 ]; then
+            echo "06:00 KST까지 5시간 넘게 남음 → 이번 실행은 건너뜀(다음 예약 실행이 처리)"
+            echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$wait" -gt 0 ]; then
+            echo "06:00 KST까지 $((wait / 60))분 대기"; sleep "$wait"
+          fi
           since=$(date -u -d "$(TZ=Asia/Seoul date +%Y-%m-%d) 06:00 +0900" +%Y-%m-%dT%H:%M:%SZ)
-          n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-report.yml --status success \
-                --created ">=$since" --json databaseId --jq length)
-          echo "오늘 06:00 KST 이후 성공한 실행: $n"
+          n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-report.yml --status success -L 20 \
+                --json updatedAt --jq "[.[] | select(.updatedAt >= \"$since\")] | length")
+          echo "오늘 06:00 KST 이후 완료된 성공 실행: $n"
           if [ "$n" -gt 0 ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; fi
 
       - uses: actions/checkout@v4
