@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: telegram-report
@@ -21,25 +22,44 @@ jobs:
     timeout-minutes: 170
     if: github.repository == 'lsaejinu-star/market-data'
     steps:
+      # GitHub 예약 실행은 몇 시간씩 늦게 시작될 수 있어 외부(Claude 예약 작업)에서 06:0x에 수동 실행도 건다.
+      # 예약 실행이 늦게 도착했을 때 오늘 브리프가 이미 발송됐으면 중복 발송하지 않고 건너뛴다.
+      - name: Skip if today's brief was already sent
+        id: dup
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          since=$(date -u -d "$(TZ=Asia/Seoul date +%Y-%m-%d) 06:00 +0900" +%Y-%m-%dT%H:%M:%SZ)
+          n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-report.yml --status success \
+                --created ">=$since" --json databaseId --jq length)
+          echo "오늘 06:00 KST 이후 성공한 실행: $n"
+          if [ "$n" -gt 0 ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; fi
+
       - uses: actions/checkout@v4
+        if: steps.dup.outputs.skip != 'true'
 
       - uses: actions/setup-python@v5
+        if: steps.dup.outputs.skip != 'true'
         with:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: requirements-telegram.txt
 
       - uses: actions/setup-node@v4
+        if: steps.dup.outputs.skip != 'true'
         with:
           node-version: "22"
 
       - name: Install
+        if: steps.dup.outputs.skip != 'true'
         run: |
           pip install -r requirements-telegram.txt
           npm install -g @anthropic-ai/claude-code
           claude --version
 
       - name: Build & send brief
+        if: steps.dup.outputs.skip != 'true'
         env:
           TG_API_ID: ${{ secrets.TG_API_ID }}
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
