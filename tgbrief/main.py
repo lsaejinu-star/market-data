@@ -10,7 +10,9 @@ from datetime import datetime, timedelta
 from . import analyze, llm, mailer, render
 from .collect import KST, collect, mark_read
 
-DEFAULT_CHANNELS = ("bornlupin,hana_us_stock,d_ticker,FastStockNewsUSA,insidertracking,grmtstudy,"
+# auto = 텔레그램 대화 목록에 있는 모든 구독 채널(비공개 채널 포함, 사기 표시·리포트 채널 제외)
+# 뒤의 사용자명들은 그룹형 채널일 수도 있어 함께 명시(중복은 자동 제거)
+DEFAULT_CHANNELS = ("auto,bornlupin,hana_us_stock,d_ticker,FastStockNewsUSA,insidertracking,grmtstudy,"
                     "ai_masters_community,FastLandNews,Onionfarmer,bzcftel,MacroAllocation,harveyspecterMike,"
                     "Macrojunglemicrolens")
 
@@ -51,9 +53,9 @@ def main():
     since, until = window(datetime.now(KST))
     log(f"수집 구간: {since:%m-%d %H:%M} ~ {until:%m-%d %H:%M} KST")
 
-    brief_posts, report_posts, errors, read_marks, media_only = asyncio.run(collect(channels, report_ch, since, until))
+    brief_posts, report_posts, errors, read_marks, media_only, n_channels = asyncio.run(collect(channels, report_ch, since, until))
     n_img = sum(1 for p in brief_posts if p["photo"])
-    log(f"수집: 채널글 {len(brief_posts)}건(이미지 {n_img}장, 영상·투표 등 {media_only}건), 리포트 이미지글 {len(report_posts)}건, 오류 {len(errors)}건")
+    log(f"수집: 구독 채널 {n_channels}개, 채널글 {len(brief_posts)}건(이미지 {n_img}장, 영상·투표 등 {media_only}건), 리포트 이미지글 {len(report_posts)}건, 오류 {len(errors)}건")
 
     sections, notes, decks = [], [], []
     n_us = n_groups = 0
@@ -94,7 +96,7 @@ def main():
             notes.append("채널 브리프 생성 중 오류가 발생해 이번 메일에서 제외됐습니다.")
 
     date_label = f"{since:%Y.%m.%d %H:%M} ~ {until:%m.%d %H:%M} KST"
-    notes += [f"수집 대상: 구독 채널 {len(channels)}개 + 리포트 갤러리",
+    notes += [f"수집 대상: 구독 채널 {n_channels}개 + 리포트 갤러리",
               f"채널 글 {len(brief_posts)}건을 모두 읽고(이미지 {n_img}장 포함) 본문 또는 '그 밖에 알아둘 소식'에 반영했습니다.",
               f"영상·투표 등 내용을 읽을 수 없는 글 {media_only}건은 제외됐습니다.",
               f"리포트 {n_groups}건 중 미국 증시 관련 {n_us}건 분석",
@@ -118,8 +120,10 @@ def main():
     log("메일 발송 완료")
 
     if sections and (os.environ.get("TG_MARK_READ") or "1") == "1":
-        n = asyncio.run(mark_read(read_marks))
+        n, failed = asyncio.run(mark_read(read_marks))
         log(f"읽음 처리: {n}/{len(read_marks)}개 채널 (수집 구간 마감 시각까지의 글)")
+        for f in failed:
+            log(f"  읽음 처리 실패: {f}")
 
 
 if __name__ == "__main__":

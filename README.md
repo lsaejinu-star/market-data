@@ -46,7 +46,7 @@ Actions 탭 → telegram-report → *Run workflow*로 수동 실행도 됩니다
 | `GMAIL_APP_PASSWORD` | Gmail 앱 비밀번호 16자리 | Google 계정 → 보안 → 2단계 인증 켠 뒤 → 앱 비밀번호 |
 | `MAIL_TO` | 받는 주소(쉼표로 여러 개) | 예: `lsaejinu@naver.com` |
 
-선택(Variables 탭): `TG_CHANNELS`(쉼표 구분 채널 아이디, 기본 13개), `TG_REPORT_CHANNEL`(기본 `report_figure_by_offset`), `TG_MAX_REPORTS`(하루 분석 리포트 상한, 기본 25). 발송·수집 시각과 읽음 처리는 워크플로의 `TG_SEND_AT`, `TG_WINDOW_START`, `TG_WINDOW_END`, `TG_MARK_READ`(1=읽음 처리)로 바꿀 수 있습니다.
+선택(Variables 탭): `TG_CHANNELS`(기본 `auto` = 텔레그램 대화 목록의 모든 구독 채널, 비공개 채널 포함, 사기 표시 채널 제외), `TG_EXCLUDE`(빼고 싶은 채널 아이디·이름, 쉼표 구분), `TG_REPORT_CHANNEL`(기본 `report_figure_by_offset`), `TG_MAX_REPORTS`(하루 분석 리포트 상한, 기본 25). 발송·수집 시각과 읽음 처리는 워크플로의 `TG_SEND_AT`, `TG_WINDOW_START`, `TG_WINDOW_END`, `TG_MARK_READ`(1=읽음 처리)로 바꿀 수 있습니다.
 
 ### 주의
 - `TG_SESSION`은 계정 전체 접근 권한입니다. Secrets 외의 곳에 남기지 마세요. 유출이 의심되면 텔레그램 → 설정 → 기기에서 세션을 종료하세요.

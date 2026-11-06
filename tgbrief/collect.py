@@ -54,9 +54,11 @@ def _link(ent, msg_id):
     return f"https://t.me/c/{ent.id}/{msg_id}"
 
 
-async def _fetch(client, username, since, until, photo_text_max=None):
-    """[since, until) 구간 글. photo_text_max가 있으면 본문이 그보다 짧은 글의 이미지만 받는다."""
-    ent = await client.get_entity(username)
+async def _fetch(client, target, since, until, photo_text_max=None):
+    """[since, until) 구간 글. target은 채널 사용자명 또는 엔티티.
+    photo_text_max가 있으면 본문이 그보다 짧은 글의 이미지만 받는다."""
+    ent = await client.get_entity(target) if isinstance(target, str) else target
+    username = getattr(ent, "username", None) or str(ent.id)
     title = getattr(ent, "title", username)
     posts, max_id, n_media_only = [], 0, 0
     async for m in client.iter_messages(ent, offset_date=until):  # until 이전 글부터 최신순
@@ -78,38 +80,86 @@ async def _fetch(client, username, since, until, photo_text_max=None):
     return posts, max_id, n_media_only
 
 
+def _norm(name):
+    return (name or "").lstrip("@").lower()
+
+
+async def _resolve_channels(client, channels, report_channel):
+    """구독 채널 목록. channels에 'auto'가 있으면 텔레그램 대화 목록의 모든 구독 채널(비공개 포함)을 쓴다.
+    사기(SCAM)·가짜(FAKE) 표시 채널, 리포트 채널, TG_EXCLUDE에 적은 채널은 제외."""
+    exclude = {_norm(x) for x in (os.environ.get("TG_EXCLUDE") or "").split(",") if x.strip()}
+    exclude.add(_norm(report_channel))
+    names = [c for c in channels if c.lower() != "auto"]
+    targets, seen = [], set()
+    if len(names) != len(channels):
+        async for d in client.iter_dialogs():
+            ent = d.entity
+            if not getattr(ent, "broadcast", False):  # 방송형 채널만(그룹 대화방·개인 대화 제외)
+                continue
+            if getattr(ent, "scam", False) or getattr(ent, "fake", False):
+                continue
+            if _norm(getattr(ent, "username", "")) in exclude or _norm(getattr(ent, "title", "")) in exclude:
+                continue
+            targets.append(ent)
+            seen.add(ent.id)
+    for n in names:  # 명시한 채널(그룹 포함)은 그대로 추가
+        if _norm(n) in exclude:
+            continue
+        try:
+            ent = await client.get_entity(n)
+        except Exception:
+            targets.append(n)  # 실패는 _fetch에서 오류로 집계
+            continue
+        if ent.id not in seen:
+            targets.append(ent)
+            seen.add(ent.id)
+    return targets
+
+
 async def collect(channels, report_channel, since, until):
+    """반환: brief, reports, errors, read_marks{채널 id: 마지막 글 id}, media_only, 수집 채널 수"""
     brief, reports, errors, read_marks, media_only = [], [], [], {}, 0
     async with _client() as client:
-        for ch in channels:
+        targets = await _resolve_channels(client, channels, report_channel)
+        for t in targets:
+            label = t if isinstance(t, str) else (getattr(t, "username", None) or getattr(t, "title", t.id))
             try:
-                ps, mid, mo = await _fetch(client, ch, since, until, photo_text_max=120)
+                ent = await client.get_entity(t) if isinstance(t, str) else t
+                ps, mid, mo = await _fetch(client, ent, since, until, photo_text_max=120)
                 brief += ps
                 media_only += mo
                 if mid:
-                    read_marks[ch] = mid
+                    read_marks[ent.id] = mid
             except Exception as e:  # 채널 하나 실패해도 계속
-                errors.append(f"{ch}: {e.__class__.__name__}")
+                errors.append(f"{label}: {e.__class__.__name__}")
         if report_channel:
             try:
-                reports, mid, _ = await _fetch(client, report_channel, since, until)
+                ent = await client.get_entity(report_channel)
+                reports, mid, _ = await _fetch(client, ent, since, until)
                 if mid:
-                    read_marks[report_channel] = mid
+                    read_marks[ent.id] = mid
             except Exception as e:
                 errors.append(f"{report_channel}: {e.__class__.__name__}")
     for i, p in enumerate(brief, 1):
         p["no"] = i
-    return brief, reports, errors, read_marks, media_only
+    return brief, reports, errors, read_marks, media_only, len(targets)
 
 
 async def mark_read(read_marks):
-    """분석·발송이 끝난 글까지만 읽음 처리(수집 구간 이후에 올라온 글은 안 읽은 상태로 남는다)."""
-    done = 0
+    """분석·발송이 끝난 글까지만 읽음 처리(수집 구간 이후에 올라온 글은 안 읽은 상태로 남는다).
+    비공개 채널도 처리하도록 대화 목록으로 엔티티를 다시 찾는다. 반환: (성공 수, 실패 목록)"""
+    done, failed = 0, []
     async with _client() as client:
-        for ch, max_id in read_marks.items():
+        ents = {}
+        async for d in client.iter_dialogs():
+            ents[d.entity.id] = d.entity
+        for cid, max_id in read_marks.items():
+            ent = ents.get(cid)
             try:
-                await client.send_read_acknowledge(await client.get_entity(ch), max_id=max_id)
+                if ent is None:
+                    raise LookupError("대화 목록에 없음")
+                await client.send_read_acknowledge(ent, max_id=max_id)
                 done += 1
-            except Exception:
-                pass
-    return done
+            except Exception as e:
+                failed.append(f"{getattr(ent, 'title', cid)}: {e.__class__.__name__}")
+    return done, failed
