@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-06T00:59:33Z",
+ "fetched_at_utc": "2026-11-06T01:32:40Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -350,6 +350,13 @@
   "GOOGL": {
    "items": [
     {
+     "time_utc": "2026-11-06T01:20:00Z",
+     "time_kst": "2026-11-06 10:20",
+     "title": "Cathie Wood Sells $12.8 Million Of Alphabet, Days After The Stock Suffered Its Worst Day Since Its 2004 IPO, Losing Nearly Half A Trillion Dollars In Market Value - 24/7 Wall St.",
+     "source": "24/7 Wall St.",
+     "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxOckRkUkZkYkkxc1VEc3ZSUThsV1I1cjdvN09ma0d0UWNsVWtQSl9JSXRjTEJlZkhfd0E0bV8zeVFfeXJ2WkE2UGhKVXI5Tk9PZWh3aW1JbFRkLUZPd0lRWHRkMWNyLVpQa2k3dTRtQTFjQW11eENxbHpobWtoSVdxdnZHUlUwMngzUmNtUjBQcFBKS2xOeW5Id0V5U0JVNTBkN2NBUlhTWE42cUV6NWdiSHNXZmtRaGNzVHA5YkVsb0kyZzNjczNkc2xNTE4zZDdDbUFzNENhb1drNk9JVmtiVm9DTHVONXlaREJFR3VDNVJFTmg0M2FuMzA0OWtyTEVGYUZMcFoxbi0zRWRKanEyQ0dXb0k5SThqYVdjNGdlRUlwN3JtbzZMYmUySQ?oc=5"
+    },
+    {
      "time_utc": "2026-11-06T00:34:47Z",
      "time_kst": "2026-11-06 09:34",
      "title": "Top 3 Value Stocks To Watch In November 2026 - Simply Wall St",
@@ -364,18 +371,18 @@
      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE02WGxtQi1EVC1NUU84UzM3V3FYT1dpTEFtVWR2bnI0Y3Bub0V1Q2pMSWNvdFdhd2QwQW1CS2RRbjhjUXFSbGpDTFMtMkNXbVBYLXVCeFZuQWVpakhxa0hWZ29uUFpKeWN4UUxpTWF6bWtueEk?oc=5"
     },
     {
-     "time_utc": "2026-11-05T23:30:54Z",
-     "time_kst": "2026-11-06 08:30",
-     "title": "Apple, Alphabet, and Meta: 3 Big Takeaways from Recent Earnings - Zacks Investment Research",
-     "source": "Zacks Investment Research",
-     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNQ3BtZ2ZKNFBwWHBZNmxVQ3lDUjhtbzdsR0NxZnRZZlIwc05vUVdKTDNFTEpfdktHNV91UGxmZ3lrSlVrZGV5eWM4RjBzcHBpcnc5WDdiYk5mcjNKRlVxeWlNaVIxT241NldRejBpalpWdUZVMzVjanpITkg2Zk9xNzhUWEtBSXBiVFVpQ1VUOU1PU2dObUxyNHVWNXl5Vmt3ZWZF?oc=5"
-    },
-    {
      "time_utc": "2026-11-05T23:03:02Z",
      "time_kst": "2026-11-06 08:03",
      "title": "This Could be a Major Problem for Alphabet Investors - Barchart.com",
      "source": "Barchart.com",
      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQOVhJMGtUbkVHN2w1dGFVUFE2VlBMYUFBaWtHNlNqU1FucHBvcmdBX0N1aThYeEtlQVg3VlFfOW9rVUhYVzF6TkMwajZuX2pzc1BHVEdMQ1pvUHpGV1RTLTFMNG9CM1JkRjBNbUtNazh0azlXWkd2WkRHT08xWHJILWliX3ZZekVnYU9lR05lMllUX0F3UjJ3TjBTTmM?oc=5"
+    },
+    {
+     "time_utc": "2026-11-05T23:00:00Z",
+     "time_kst": "2026-11-06 08:00",
+     "title": "Apple, Alphabet, and Meta: 3 Big Takeaways from Recent Earnings - TradingView",
+     "source": "TradingView",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNR19pVUIzLVExSHBadjdFNzloenBLSmExOXZrWVc4Q09KSUVBX1N6cVc0TlhkRk5hMWZFbEtNQ2NYRTVpZTI5bk4zOEtFQk5ROW85WUtmR0d1Qm40RUtyeW1kYmw5UGlRcFg3Z2t6MmY1ejV2RXBTZTB0QXZhSmZuTzhEZTM2Vnd1NUdIdkVKcVJOMTk3RFhJUWhseGhhcVB6UnJpTWpnSllsQzYtWFRPZU4wWnZjcWs?oc=5"
     },
     {
      "time_utc": "2026-11-05T22:31:23Z",
@@ -446,13 +453,6 @@
      "title": "Alphabet stock drops 16% in a month, seen as a buy with strong AI growth and solid financials. - Pluang",
      "source": "Pluang",
      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPMnpGQm1QNEM0X09aamxpdDhKMExYcUc4bXg4LTJ6Q2xYalZrZVdObFlTWXpsTEkyX19aYU0tZTJCdUlfeHcxX0o3N1JUSmMtZzBmRU1DbmJiLUJmOUstbmMyRnkzRzVCWjlLVHE5RnFVVy1DeTRma3pwR25JZ0hYbzlVRzBJODBtVGwtT1NwbjI2WUUyRlE?oc=5"
-    },
-    {
-     "time_utc": "2026-11-05T18:03:24Z",
-     "time_kst": "2026-11-06 03:03",
-     "title": "Alphabet's Google Advances $17 Billion Wyoming Data Center as Regulatory Tightening May Strengthen Cloud Giants' Compute Advantage - TradingKey",
-     "source": "TradingKey",
-     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOcHozS2VyWjNxS1UybDdqZTBHdTd3VS1meTlRYlAyR3MwaURQeGU0VTRKUl9zX1RqSFQ4OFNsZnNrVjBEN0dLQ0FZa0NqZ05rVmxpR0dzTGs3ZXE2LUVJNmVBNG1QRENnUVdNNU5ablQ4Wk1MMVU0TFBVcThudjJKZml2eFVOblA0dC1GS285ZG41OUU5UXBDZDlhclJ3RE9pLXJWc3NoWVpBQXNpeWNTcTJsNEhXX0xLTF9yWXpfYUVrZFE?oc=5"
     }
    ],
    "errors": []
@@ -516,11 +516,11 @@
      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPX3ZRWFVjMnpxRGxhajh3WVRtd3lybFY5LWFGTGpWdVF2QVJGcndQcmlpNExiby1JbkZ2Z1FQNXl4VFVWaGtMNTV2a05FWVAzYnFkVWtETHo2NF8tNGhBSXhRaVdsWVh0ZXgwcVFIYkRzdHVyRXdWTXZXMWtEOW1hYWRqd1NSUmJ6WjI1cEhFTy1JTDRaTHpHdHVsUHZsZ1VBLXBWWFJOTXdQU1RKQk5LY2E2R1JyYXBoUVRHNGtvczByZDNsS1VBbHp2bDdLRnBKS09HV0t3ZmFTM1J1X0hZ?oc=5"
     },
     {
-     "time_utc": "2026-11-05T12:58:38Z",
-     "time_kst": "2026-11-05 21:58",
-     "title": "Pixel 10 Gets Major GrapheneOS Upgrade as Pixel 11 Support Nears - Nokiamob",
-     "source": "Nokiamob",
-     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPV21HbjJNcUlxSDA4VkREVHctZk02aVZtVVVIRDcxXzZ0RUU1Rm9CUUJBUUdqbHh6ZFNJcXlRY1BhTzgzMU4tTGQ3Z0k4a0IzeEhUSmY5SW9zUV81VEdOTlc2V0p1cHpIcndpa0p4Rk9rM0loam9yLWhQWXRQbkUyODZqR0ZlRENoaDhodWJCVzlpOFZwVllQMVJMT3JBcGFjVmc?oc=5"
+     "time_utc": "2026-11-05T11:34:14Z",
+     "time_kst": "2026-11-05 20:34",
+     "title": "$Nokia Oyj (NOK.US)$ Executed some day trades today for a small profit... Will continue tomorrow. - Moomoo",
+     "source": "Moomoo",
+     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQLTlaUG4xeHlRQVAwSXBRcmVLQW5KQTB0NXVZSFVmVXNUTFZ3akF0Z2hYQ2M4TFZBUHUzNmhnWnFLYzI1TVhmTlFQMDBHeGM0MTlLeHRUNXZiQzJsSVh1SXp6SEkyU0lkWUV5OFlUNXpTNGkydDBkcEJ1czFqNVY3ZGFXWnhEamNydkhjN2QzRnB2WkE5Q1gtTzFSdUVQeHB0?oc=5"
     },
     {
      "time_utc": "2026-11-05T11:04:35Z",
