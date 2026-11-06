@@ -40,7 +40,7 @@ Actions 탭 → telegram-report → *Run workflow*로 수동 실행도 됩니다
 | Secret | 값 | 얻는 법 |
 |---|---|---|
 | `TG_API_ID`, `TG_API_HASH` | 텔레그램 API 키 | https://my.telegram.org → API development tools |
-| `TG_SESSION` | 로그인 세션 문자열 | 본인 PC에서 `pip install telethon` 후 `python telegram_login.py` |
+| `TG_SESSION` | 로그인 세션 문자열 | PC 또는 Codespace 터미널에서 `pip install telethon qrcode` 후 `python telegram_login.py` → 휴대폰 텔레그램(설정 → 기기 → 데스크톱 기기 연결)으로 QR 스캔 |
 | `CLAUDE_CODE_OAUTH_TOKEN` | Claude 구독 토큰(1년 유효, Pro/Max 등 구독 필요) | 본인 PC에 Claude Code 설치 후 `claude setup-token` → 브라우저 승인 → 출력된 토큰 |
 | `GMAIL_USER` | 보내는 Gmail 주소 | 예: 본인 Gmail |
 | `GMAIL_APP_PASSWORD` | Gmail 앱 비밀번호 16자리 | Google 계정 → 보안 → 2단계 인증 켠 뒤 → 앱 비밀번호 |
