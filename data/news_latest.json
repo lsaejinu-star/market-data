@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-06T08:33:27Z",
+ "fetched_at_utc": "2026-11-06T08:36:32Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -480,6 +480,13 @@
      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcENjUWdXbVNqUmVGUlotU0x5d3BmQi1KcnRUMVpieUxQUl9FSFdLMnNoS2NicWNaVmFtT251bTJTeEktUC0yWWttZklmUXZ2Tk1MVHN4M1Jxa0NpMFBmRUZIUXBDMWhSYURCV0E1cDhsV3BQaU9QX1E3bjZzUDBPTV9tbjB3aXFMWFhnTlpxVWU1MEVPZTJDeg?oc=5"
     },
     {
+     "time_utc": "2026-11-05T21:33:03Z",
+     "time_kst": "2026-11-06 06:33",
+     "title": "Nokia shares rise 5% as Microsoft AI partnership deepens - scanx.trade",
+     "source": "scanx.trade",
+     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNNElTU2ZvaFg0LXF3ckwtX25lMkFHOUppSlMzVk5xdDJRLXRCdVVKWHNzNWc3c1ptRmdCckRFbkZFTW9wV2QwZG1QTmprWWRuNDJJbnJwMjBOWkEtM3ZraWtDMk1KbXZfaTRVb25fNWZ2emwyOWZSWDdpRmpESXJzajJOWGlJOVVLa1FPZ2FTTDd5dFVHdjFpMGtDeDJmenQwT1RxR0FDcndocU9fQmdtZ1FaeW1rcEF4Vm90c1Zn?oc=5"
+    },
+    {
      "time_utc": "2026-11-05T20:38:56Z",
      "time_kst": "2026-11-06 05:38",
      "title": "BT TO PIONEER LIVE AI-RAN DEPLOYMENT IN THE UK WITH NVIDIA AND NOKIA - BT Group",
@@ -529,18 +536,11 @@
      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPX3ZRWFVjMnpxRGxhajh3WVRtd3lybFY5LWFGTGpWdVF2QVJGcndQcmlpNExiby1JbkZ2Z1FQNXl4VFVWaGtMNTV2a05FWVAzYnFkVWtETHo2NF8tNGhBSXhRaVdsWVh0ZXgwcVFIYkRzdHVyRXdWTXZXMWtEOW1hYWRqd1NSUmJ6WjI1cEhFTy1JTDRaTHpHdHVsUHZsZ1VBLXBWWFJOTXdQU1RKQk5LY2E2R1JyYXBoUVRHNGtvczByZDNsS1VBbHp2bDdLRnBKS09HV0t3ZmFTM1J1X0hZ?oc=5"
     },
     {
-     "time_utc": "2026-11-05T12:58:38Z",
-     "time_kst": "2026-11-05 21:58",
-     "title": "Pixel 10 Gets Major GrapheneOS Upgrade as Pixel 11 Support Nears - Nokiamob",
-     "source": "Nokiamob",
-     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPV21HbjJNcUlxSDA4VkREVHctZk02aVZtVVVIRDcxXzZ0RUU1Rm9CUUJBUUdqbHh6ZFNJcXlRY1BhTzgzMU4tTGQ3Z0k4a0IzeEhUSmY5SW9zUV81VEdOTlc2V0p1cHpIcndpa0p4Rk9rM0loam9yLWhQWXRQbkUyODZqR0ZlRENoaDhodWJCVzlpOFZwVllQMVJMT3JBcGFjVmc?oc=5"
-    },
-    {
-     "time_utc": "2026-11-05T12:38:00Z",
-     "time_kst": "2026-11-05 21:38",
-     "title": "Nokia Oyj (NOKA.BA) Seasonal Returns Chart - Yahoo Finance - Yahoo! Finance Canada",
-     "source": "Yahoo! Finance Canada",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1teG5mcF95LW1oa19MdnNhRDBpcWxIR1YzdUZiUTJDZUVlcU5mZEZkMjJUeGhhc2toTzFmYUs0LVl3V1U3U0VsYW05a24tN3BQbVBMa0RPRlBhXzZtX0QwT0VIaWg4Zw?oc=5"
+     "time_utc": "2026-11-05T12:26:07Z",
+     "time_kst": "2026-11-05 21:26",
+     "title": "NOK: Nokia Corp Latest Stock Price, Analysis, News and Trading Ideas - Stocktwits",
+     "source": "Stocktwits",
+     "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5qYXk4bFU0SllRVGhKNU5ELU1rRkhTYXFDOXczc2FlYVJmTDdScmd3Vmh0WllYelZ1TFZNQlA0enJ0Z2dfOWVCMA?oc=5"
     }
    ],
    "errors": [
