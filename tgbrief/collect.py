@@ -13,9 +13,31 @@ KST = timezone(timedelta(hours=9))
 MAX_IMG_EDGE = 1568  # Claude 이미지 권장 최대 변 길이
 
 
+class _Client:
+    """로그인된 세션만 허용(미로그인이면 전화번호를 묻지 않고 바로 명확한 오류)."""
+
+    def __init__(self):
+        sess = (os.environ.get("TG_SESSION") or "").strip()
+        if len(sess) < 100:
+            raise RuntimeError(f"TG_SESSION 값이 비었거나 너무 짧음(길이 {len(sess)}). "
+                               "telegram_login.py 마지막에 출력된 긴 문자열 한 줄 전체를 등록하세요.")
+        self.c = TelegramClient(StringSession(sess), int(os.environ["TG_API_ID"].strip()),
+                                os.environ["TG_API_HASH"].strip())
+
+    async def __aenter__(self):
+        await self.c.connect()
+        if not await self.c.is_user_authorized():
+            await self.c.disconnect()
+            raise RuntimeError("TG_SESSION 이 로그인되지 않은 세션임(로그인 미완료·기기에서 로그아웃됨·api_id 불일치). "
+                               "telegram_login.py 를 다시 실행해 '로그인 성공'이 뜬 뒤 출력된 문자열로 교체하세요.")
+        return self.c
+
+    async def __aexit__(self, *exc):
+        await self.c.disconnect()
+
+
 def _client():
-    return TelegramClient(StringSession(os.environ["TG_SESSION"]),
-                          int(os.environ["TG_API_ID"]), os.environ["TG_API_HASH"])
+    return _Client()
 
 
 def _shrink(data: bytes) -> bytes:
