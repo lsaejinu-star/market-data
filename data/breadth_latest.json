@@ -1,161 +1,161 @@
 {
- "fetched_at_utc": "2026-11-06T08:36:25Z",
+ "fetched_at_utc": "2026-11-07T00:09:32Z",
  "constituents_source": "wikipedia",
  "notes": "S&P500 기준 시장폭. 신고가/신저가는 최근 252거래일 종가 기준. 거래소 전체 집계와 다름.",
- "last_date": "2026-11-05",
+ "last_date": "2026-11-06",
  "universe": "S&P500 구성종목",
  "count": 503,
- "advancers": 73,
- "decliners": 430,
- "unchanged": 0,
- "advance_pct": 14.5,
- "new_52w_highs": 14,
- "new_52w_lows": 8,
- "pct_above_50dma": 62.6,
- "pct_above_200dma": 61.0,
- "equal_weight_avg_change_pct": -3.116,
+ "advancers": 184,
+ "decliners": 318,
+ "unchanged": 1,
+ "advance_pct": 36.6,
+ "new_52w_highs": 8,
+ "new_52w_lows": 4,
+ "pct_above_50dma": 62.4,
+ "pct_above_200dma": 58.4,
+ "equal_weight_avg_change_pct": -0.245,
  "top_gainers": [
   {
-   "symbol": "APP",
-   "name": "AppLovin",
-   "sector": "Communication Services",
-   "close": 356.1,
-   "change_pct": 31.04
+   "symbol": "COHR",
+   "name": "Coherent Corp.",
+   "sector": "Information Technology",
+   "close": 192.81,
+   "change_pct": 13.58
   },
   {
-   "symbol": "TPR",
-   "name": "Tapestry, Inc.",
+   "symbol": "ABNB",
+   "name": "Airbnb",
    "sector": "Consumer Discretionary",
-   "close": 134.17,
-   "change_pct": 7.07
-  },
-  {
-   "symbol": "VRSK",
-   "name": "Verisk Analytics",
-   "sector": "Industrials",
-   "close": 211.47,
-   "change_pct": 6.88
-  },
-  {
-   "symbol": "CPAY",
-   "name": "Corpay",
-   "sector": "Financials",
-   "close": 447.0,
-   "change_pct": 6.78
-  },
-  {
-   "symbol": "CF",
-   "name": "CF Industries",
-   "sector": "Materials",
-   "close": 118.57,
-   "change_pct": 6.17
-  },
-  {
-   "symbol": "CHTR",
-   "name": "Charter Communications",
-   "sector": "Communication Services",
-   "close": 125.86,
-   "change_pct": 4.67
-  },
-  {
-   "symbol": "MSI",
-   "name": "Motorola Solutions",
-   "sector": "Information Technology",
-   "close": 517.01,
-   "change_pct": 4.03
-  },
-  {
-   "symbol": "ALB",
-   "name": "Albemarle Corporation",
-   "sector": "Materials",
-   "close": 98.37,
-   "change_pct": 3.58
-  },
-  {
-   "symbol": "MOS",
-   "name": "Mosaic Company (The)",
-   "sector": "Materials",
-   "close": 22.33,
-   "change_pct": 3.28
-  },
-  {
-   "symbol": "STE",
-   "name": "Steris",
-   "sector": "Health Care",
-   "close": 254.12,
-   "change_pct": 2.5
-  }
- ],
- "top_losers": [
-  {
-   "symbol": "SNDK",
-   "name": "Sandisk",
-   "sector": "Information Technology",
-   "close": 806.43,
-   "change_pct": -22.26
-  },
-  {
-   "symbol": "LITE",
-   "name": "Lumentum",
-   "sector": "Information Technology",
-   "close": 509.7,
-   "change_pct": -18.68
-  },
-  {
-   "symbol": "MU",
-   "name": "Micron Technology",
-   "sector": "Information Technology",
-   "close": 656.39,
-   "change_pct": -17.46
-  },
-  {
-   "symbol": "WDC",
-   "name": "Western Digital",
-   "sector": "Information Technology",
-   "close": 267.63,
-   "change_pct": -17.35
+   "close": 189.99,
+   "change_pct": 11.67
   },
   {
    "symbol": "AMD",
    "name": "Advanced Micro Devices",
    "sector": "Information Technology",
-   "close": 404.4,
-   "change_pct": -17.26
+   "close": 449.04,
+   "change_pct": 11.04
   },
   {
-   "symbol": "MRVL",
-   "name": "Marvell Technology",
-   "sector": "Information Technology",
-   "close": 133.55,
-   "change_pct": -16.43
+   "symbol": "VST",
+   "name": "Vistra Corp.",
+   "sector": "Utilities",
+   "close": 124.8,
+   "change_pct": 10.55
   },
   {
-   "symbol": "BE",
-   "name": "Bloom Energy",
-   "sector": "Industrials",
-   "close": 167.52,
-   "change_pct": -16.41
+   "symbol": "APP",
+   "name": "AppLovin",
+   "sector": "Communication Services",
+   "close": 391.22,
+   "change_pct": 9.86
   },
   {
-   "symbol": "P",
-   "name": "Everpure",
-   "sector": "Information Technology",
-   "close": 93.44,
-   "change_pct": -16.4
+   "symbol": "NRG",
+   "name": "NRG Energy",
+   "sector": "Utilities",
+   "close": 88.29,
+   "change_pct": 9.61
   },
   {
    "symbol": "LRCX",
    "name": "Lam Research",
    "sector": "Information Technology",
-   "close": 185.2,
-   "change_pct": -16.36
+   "close": 200.44,
+   "change_pct": 8.23
   },
   {
-   "symbol": "STX",
-   "name": "Seagate Technology",
+   "symbol": "CRL",
+   "name": "Charles River Laboratories",
+   "sector": "Health Care",
+   "close": 337.52,
+   "change_pct": 7.83
+  },
+  {
+   "symbol": "INTC",
+   "name": "Intel",
    "sector": "Information Technology",
-   "close": 466.53,
-   "change_pct": -16.25
+   "close": 56.28,
+   "change_pct": 7.71
+  },
+  {
+   "symbol": "ANET",
+   "name": "Arista Networks",
+   "sector": "Information Technology",
+   "close": 170.8,
+   "change_pct": 7.31
+  }
+ ],
+ "top_losers": [
+  {
+   "symbol": "AXON",
+   "name": "Axon Enterprise",
+   "sector": "Industrials",
+   "close": 313.0,
+   "change_pct": -18.18
+  },
+  {
+   "symbol": "MCHP",
+   "name": "Microchip Technology",
+   "sector": "Information Technology",
+   "close": 58.35,
+   "change_pct": -10.02
+  },
+  {
+   "symbol": "CHTR",
+   "name": "Charter Communications",
+   "sector": "Communication Services",
+   "close": 118.07,
+   "change_pct": -6.19
+  },
+  {
+   "symbol": "PODD",
+   "name": "Insulet Corporation",
+   "sector": "Health Care",
+   "close": 146.51,
+   "change_pct": -6.16
+  },
+  {
+   "symbol": "DXCM",
+   "name": "Dexcom",
+   "sector": "Health Care",
+   "close": 79.41,
+   "change_pct": -5.98
+  },
+  {
+   "symbol": "CNC",
+   "name": "Centene Corporation",
+   "sector": "Health Care",
+   "close": 69.74,
+   "change_pct": -5.97
+  },
+  {
+   "symbol": "DLTR",
+   "name": "Dollar Tree",
+   "sector": "Consumer Staples",
+   "close": 131.14,
+   "change_pct": -4.93
+  },
+  {
+   "symbol": "EXPE",
+   "name": "Expedia Group",
+   "sector": "Consumer Discretionary",
+   "close": 259.24,
+   "change_pct": -4.86
+  },
+  {
+   "symbol": "GDDY",
+   "name": "GoDaddy",
+   "sector": "Information Technology",
+   "close": 114.38,
+   "change_pct": -4.78
+  },
+  {
+   "symbol": "BKNG",
+   "name": "Booking Holdings",
+   "sector": "Consumer Discretionary",
+   "close": 160.66,
+   "change_pct": -4.77
   }
  ]
 }
