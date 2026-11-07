@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-07T00:09:42Z",
+ "fetched_at_utc": "2026-11-07T00:55:56Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -283,63 +283,63 @@
      "time_kst": "2026-11-07 01:00",
      "title": "Speech by Governor UEDA at the 2026 Michel Camdessus Central Banking Lecture, International Monetary Fund",
      "source": null,
-     "url": "https://www.boj.or.jp/en/about/press/koen_2026/ko261107a.htm"
+     "url": "http://www.boj.or.jp/en/about/press/koen_2026/ko261107a.htm"
     },
     {
      "time_utc": "2026-11-06T07:00:00Z",
      "time_kst": "2026-11-06 16:00",
      "title": "(IMES Newsletter) 2026 BoC - Philadelphia Fed - BOJ Joint Workshop",
      "source": null,
-     "url": "https://www.boj.or.jp/en/about/release_2026/rel261106b.htm"
+     "url": "http://www.boj.or.jp/en/about/release_2026/rel261106b.htm"
     },
     {
      "time_utc": "2026-11-06T02:00:00Z",
      "time_kst": "2026-11-06 11:00",
      "title": "IMES Discussion Paper Series (2026)",
      "source": null,
-     "url": "https://www.boj.or.jp/en/research/imes/dps/dps26.htm"
+     "url": "http://www.boj.or.jp/en/research/imes/dps/dps26.htm"
     },
     {
      "time_utc": "2026-11-05T07:00:00Z",
      "time_kst": "2026-11-05 16:00",
      "title": "Holding the Twenty-fifth Round of the \"Bond Market Group\" Meetings",
      "source": null,
-     "url": "https://www.boj.or.jp/en/paym/bond/mbond_list/mbond261105.pdf"
+     "url": "http://www.boj.or.jp/en/paym/bond/mbond_list/mbond261105.pdf"
     },
     {
      "time_utc": "2026-11-04T23:50:00Z",
      "time_kst": "2026-11-05 08:50",
      "title": "Sources of Changes in Current Account Balances (Projections for Nov.)",
      "source": null,
-     "url": "https://www.boj.or.jp/en/statistics/boj/fm/juqp/juqp2611.xlsx"
+     "url": "http://www.boj.or.jp/en/statistics/boj/fm/juqp/juqp2611.xlsx"
     },
     {
      "time_utc": "2026-11-04T23:50:00Z",
      "time_kst": "2026-11-05 08:50",
      "title": "Minutes of the Monetary Policy Meeting on September 17 and 18, 2026",
      "source": null,
-     "url": "https://www.boj.or.jp/en/mopo/mpmsche_minu/minu_2026/g260918.pdf"
+     "url": "http://www.boj.or.jp/en/mopo/mpmsche_minu/minu_2026/g260918.pdf"
     },
     {
      "time_utc": "2026-11-04T08:00:00Z",
      "time_kst": "2026-11-04 17:00",
      "title": "Japanese Government Bonds Held by the Bank of Japan",
      "source": null,
-     "url": "https://www.boj.or.jp/en/statistics/boj/other/mei/release/2026/mei261030.xlsx"
+     "url": "http://www.boj.or.jp/en/statistics/boj/other/mei/release/2026/mei261030.xlsx"
     },
     {
      "time_utc": "2026-11-04T08:00:00Z",
      "time_kst": "2026-11-04 17:00",
      "title": "Collateral Accepted by the Bank of Japan (End of Oct.)",
      "source": null,
-     "url": "https://www.boj.or.jp/en/statistics/boj/other/col/col2610.xlsx"
+     "url": "http://www.boj.or.jp/en/statistics/boj/other/col/col2610.xlsx"
     },
     {
      "time_utc": "2026-11-04T01:00:00Z",
      "time_kst": "2026-11-04 10:00",
      "title": "Bank of Japan Accounts (October 31)",
      "source": null,
-     "url": "https://www.boj.or.jp/en/statistics/boj/other/acmai/release/2026/ac261031.htm"
+     "url": "http://www.boj.or.jp/en/statistics/boj/other/acmai/release/2026/ac261031.htm"
     }
    ],
    "latest_any": []
@@ -508,6 +508,13 @@
      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQQU4tZDdBeW5QMGg1T2NWWDY0NTNQRmpPZTlNekQ2SW1nTktZR1d3R2lMbldvdTgweTlGeWRDbzZoLTBJcGpqUlVVeWdLTUFVSGxPMUpjMTlvM1N0UjFFUHhuN0R3VmtLQjVSdzU5Q2w0NHRIa3dEUllrWlJkbFNNMHVzbF9pVEVBdkFPdw?oc=5"
     },
     {
+     "time_utc": "2026-11-06T12:07:29Z",
+     "time_kst": "2026-11-06 21:07",
+     "title": "SpaceX’s 80,000 Cell Site Push A Win For AST SpaceMobile, Ericsson, Nokia, NextNav, Among Others, Says Roth Capital - Stocktwits",
+     "source": "Stocktwits",
+     "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxQRjFxSU9WMnV3eFBGVG5vSk80NlZyVFJ4ZDFIQWRHSjZGRVA0dnVQTHhCTlZBandHOEpNZVV5LVM3ZGE5bVNVWGRqamdTRDlPTjBmYzZmb3ViUVNUSEZtZGFpX2haWHg2MG1QcDRzT1lYU3B3ajQyQW1PbU5Id2lGTFFTVTV3d2NiZE02NHRlU3pIcGtKTmtENDhzS2lQeXJ5dDUySjUwLUhMUElITnVRR3MwWTlkVUFGMVotMF9rWG84RnVJSnJwSnNNZDgwRGs5dDJPX0M4MjRremxJQThHOTdxTkI0TnRzRnZQc1hGLWZQRmJFa2xlUw?oc=5"
+    },
+    {
      "time_utc": "2026-11-06T11:55:58Z",
      "time_kst": "2026-11-06 20:55",
      "title": "Trending Industry Today: Nokia Oyj Leads Gains Pre-Market In NVIDIA Portfolio Stocks - Moomoo",
@@ -583,13 +590,6 @@
      "title": "Nokia Corp. ADR falls Thursday, underperforms market - MarketWatch",
      "source": "MarketWatch",
      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPMEFTVWx3SzFHeUhmRUZaVExURDhqS2t5ZTlHMURSRDJtVGxKY2xfa1g2MzBVeGJwYXZqYW5LSENPcFQtX1ZQSlA0OWJXckQwTElUb2lGRS1XTHU1YWR2UVRZaEFJY01PTWcySU1LUHZtejlObkg5WWZCczNDUTBNc0Y5NmNFbmdpOF84cTI3QzNzT2dSYkZqYmt1aEYwaGc5T05Rb2M0cmxWdUNMdk9CcWotS01NcjVuQnFubmt1aU1pSFQ0bDZv?oc=5"
-    },
-    {
-     "time_utc": "2026-11-05T22:17:02Z",
-     "time_kst": "2026-11-06 07:17",
-     "title": "Nokia (HLSE:NOKIA) Stock Looks Fully Valued After Its 129% Run - Yahoo Finance",
-     "source": "Yahoo Finance",
-     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcENjUWdXbVNqUmVGUlotU0x5d3BmQi1KcnRUMVpieUxQUl9FSFdLMnNoS2NicWNaVmFtT251bTJTeEktUC0yWWttZklmUXZ2Tk1MVHN4M1Jxa0NpMFBmRUZIUXBDMWhSYURCV0E1cDhsV3BQaU9QX1E3bjZzUDBPTV9tbjB3aXFMWFhnTlpxVWU1MEVPZTJDeg?oc=5"
     }
    ],
    "errors": []

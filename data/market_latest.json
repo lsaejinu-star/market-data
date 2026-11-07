@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-07T00:08:57Z",
+ "fetched_at_utc": "2026-11-07T00:55:14Z",
  "notes": {
   "last_date": "그 종목이 마지막으로 거래된 날짜(거래소 현지 기준). 기준일과 다르면 그날 값이 아직 없거나 휴장이다.",
   "fx": "환율은 글로벌 외환시장 시세로, 서울외환시장 공식 종가가 아니다.",
@@ -617,21 +617,21 @@
     "symbol": "BTC-USD",
     "source": "yahoo",
     "last_date": "2026-11-07",
-    "close": 75811.5625,
+    "close": 75817.2734,
     "prev_date": "2026-11-05",
     "prev_close": 75942.125,
-    "change": -130.5625,
-    "change_pct": -0.1719
+    "change": -124.8516,
+    "change_pct": -0.1644
    },
    "이더리움": {
     "symbol": "ETH-USD",
     "source": "yahoo",
     "last_date": "2026-11-07",
-    "close": 2237.3899,
+    "close": 2237.76,
     "prev_date": "2026-11-05",
     "prev_close": 2234.4763,
-    "change": 2.9136,
-    "change_pct": 0.1304
+    "change": 3.2837,
+    "change_pct": 0.147
    }
   }
  },
