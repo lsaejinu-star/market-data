@@ -239,7 +239,7 @@ def main():
     if tg_deck:
         sections.append(("오늘의 투자 아이디어 · 텔레그램 채널", tg_deck, None, "brief"))
     if nar:
-        sections.append(("보유주식 · 서학개미 동향", {"headline": "", "summary": [], "slides": [nar["holdings"], nar["flows"]]}, None, "hold"))
+        sections.append(("보유주식(구글·노키아) · 서학개미 동향", {"headline": "", "summary": [], "slides": macro.holding_slides(nar, data) + [nar["flows"]]}, None, "hold"))
     if rep_deck:
         sections.append(("리포트 갤러리 · 미국 증시 리포트 분석", rep_deck, None, "rep"))
     if data:
