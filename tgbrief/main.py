@@ -245,6 +245,10 @@ def main():
             nar = macro.narrative(data, tg_lines) if not light else None
             from collections import Counter
             cnt = Counter(r["status"] for r in nar["coverage"])
+            if nar.get("failed"):
+                notes.append("매크로 해설 일부(" + ", ".join(nar["failed"]) + ") 생성 중 오류가 발생해 빠졌습니다.")
+            if not nar.get("hero"):
+                notes.append("오늘의 핵심·종합 판단 생성 중 오류가 발생해 빠졌습니다.")
             log(f"매크로 해설: 이슈 {len(nar['issues'])}장, 커버리지 {len(nar['coverage'])}항목 — " + " / ".join(f"{k} {v}" for k, v in cnt.most_common()))
             for r in nar["coverage"]:
                 if r["status"] in ("부분 확인", "확인 실패"):
@@ -272,7 +276,7 @@ def main():
     # 5) 하나의 흐름으로 조립: 핵심 → 시장 수치·해설 → 투자 아이디어 → 보유주식·서학개미 → 리포트 → 일정·종합판단
     sections = []
     bd = macro.base_date(data) if data else ""
-    if nar:
+    if nar and nar.get("hero"):
         h = nar["hero"]
         sections.append(("오늘의 핵심", {"headline": h["headline"], "slides": [],
                                        "summary": h["points"] + [f"**시장 판정** — {h['verdict']}"] + [f"**주시** — {w}" for w in h["watch"]]}, None, "top"))
@@ -281,13 +285,14 @@ def main():
         sections.append(("시장 수치와 해설", {"headline": "", "summary": [], "slides": nums + (nar["issues"] if nar else [])}, None, "mkt"))
     if tg_deck:
         sections.append(("오늘의 투자 아이디어 · 텔레그램 채널", tg_deck, None, "brief"))
-    if nar:
-        sections.append(("보유주식(구글·노키아) · 서학개미 동향", {"headline": "", "summary": [], "slides": macro.holding_slides(nar, data) + [nar["flows"]]}, None, "hold"))
+    hold = (macro.holding_slides(nar, data) + ([nar["flows"]] if nar.get("flows") else [])) if nar else []
+    if hold:
+        sections.append(("보유주식(구글·노키아) · 서학개미 동향", {"headline": "", "summary": [], "slides": hold}, None, "hold"))
     if rep_deck:
         sections.append(("리포트 갤러리 · 미국 증시 리포트 분석", rep_deck, None, "rep"))
     if data:
         cal = macro.merge([("calendar", macro.calendar_slide(data))], nar["notes"] if nar else None)
-        tail = cal + ([nar["verdict"], macro.coverage_slide(nar["coverage"], data)] if nar else [])
+        tail = cal + (([nar["verdict"]] if nar.get("verdict") else []) + [macro.coverage_slide(nar["coverage"], data)] if nar else [])
         sections.append(("일정 · 종합 판단", {"headline": "", "summary": [], "slides": tail}, None, "end"))
 
     if light:
