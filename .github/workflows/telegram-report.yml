@@ -14,6 +14,11 @@ on:
     - cron: "30 18 * * *"   # 한국 03:30
     - cron: "5 21 * * *"    # 한국 06:05
   workflow_dispatch:
+    inputs:
+      test:
+        description: "시험 모드(메일 제목에 [TEST], 발송 시각 대기·텔레그램 읽음 처리 안 함)"
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -51,10 +56,10 @@ jobs:
           echo "오늘 06:00 KST 이후 완료된 성공 실행: $n"
           if [ "$n" -gt 0 ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; fi
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         if: steps.dup.outputs.skip != 'true'
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         if: steps.dup.outputs.skip != 'true'
         with:
           python-version: "3.12"
@@ -63,7 +68,7 @@ jobs:
             requirements-telegram.txt
             requirements.txt
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         if: steps.dup.outputs.skip != 'true'
         with:
           node-version: "22"
@@ -97,6 +102,8 @@ jobs:
         if: steps.dup.outputs.skip != 'true'
         env:
           TG_PHASE: final
+          TG_TEST: ${{ (github.event_name == 'workflow_dispatch' && inputs.test) && '1' || '0' }}
+          TG_CLAUDE_DEADLINE: "07:15"
           TG_STATE: ${{ runner.temp }}/prep_state.json
           TG_PREP_AT: "03:00"
           TG_API_ID: ${{ secrets.TG_API_ID }}
@@ -114,4 +121,14 @@ jobs:
           TG_SEND_AT: "07:30"
           TG_WINDOW_START: "07:00"
           TG_WINDOW_END: "06:00"
-        run: python -m tgbrief.main
+        run: |
+          set -o pipefail
+          python -m tgbrief.main 2>&1 | tee "$RUNNER_TEMP/brief.log"
+
+      - name: Notify on failure
+        if: failure() && steps.dup.outputs.skip != 'true'
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python -m tgbrief.notify "오늘 투자 브리프" "$RUNNER_TEMP/brief.log"
