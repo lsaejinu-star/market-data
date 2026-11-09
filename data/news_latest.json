@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-09T08:39:52Z",
+ "fetched_at_utc": "2026-11-09T08:44:59Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -417,6 +417,13 @@
      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPMEF6LTRfcG1aeGd1R01LOEtfZUxkTnhiRHNucVJscVJvSWRrSDVpTnZleFhvRnlwNzhIcjBHRnRSUTNTOUNveHlGdjhKNFo1U2ppYTlUQndZXy0xOTA3R3FwZkNLX1Q5T01iSnRYWDJFemprVjJDRHVKZ1hiUWEtejJvN1laNVMzX0k4RFh1WWs0a0JHekhud3l2TjZZQjN3eW1mQlhFUmhSQzlFdTE1cEg3NmNEY1FjNGV0b0gzbEZPWVUwSF9iSjlUZi1SaTNwcDhLdU9DS1Q5TGVwTjZ1TUFLYVU0Zw?oc=5"
     },
     {
+     "time_utc": "2026-11-09T03:26:00Z",
+     "time_kst": "2026-11-09 12:26",
+     "title": "Can Coherent (NYSE:COHR) Build On Its Latest Update? - Kalkine Media",
+     "source": "Kalkine Media",
+     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPemxRZU1ZREQ3LTctdk13dl9haGQ4N0NEOG5tWEotanZydFJoT09ya3VyS19UekVzVW1TU0hmek9IYm9xeVVuTUs4WVRrcmZMN0hTaC1mLTVqUEI3NE9HazBXczJybTNSaFg3RnRraG1ueklTaTBEdnNvY1JTRmktcEtkUFdrNlZvMlpEY3RiWVhKUk1JRnh5RER3REdKd3B2b3NWc25idTN0TGM?oc=5"
+    },
+    {
      "time_utc": "2026-11-08T18:02:13Z",
      "time_kst": "2026-11-09 03:02",
      "title": "Moody's Restores Nokia to Investment Grade, Citing Cloud and AI Demand - ad-hoc-news.de",
@@ -452,6 +459,20 @@
      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQZDYzcWl4YW14NGdFTHBZX1lOc2hqYzNMRnhKZ0cxdWdpTWdRbDhNckFvNS1KaFVRZElfZHpRaU5rZXNUelU2OXdUc3NmQU81ZnE4NFZ1RE5QQzl4REN2MVBJWTJEOEt1elUzT2xEbzBkRWtEbTBQMDUyR3g1VWtNb0Job3BBdkw1a2xiMzdISkdhUUpMY1JMZzlBZDlLYVl5LVJ3b3g3dy1GcjIzN0dBUmhqc1gwTjAxVkJxblFpaEhncjBZVUNjVERuaXJjWkNJanY0QjdHMjdjVjBETEFBdlJVY095bVMyWFNfNmlRUEM4WUUyQlVQZ3pjREg?oc=5"
     },
     {
+     "time_utc": "2026-11-08T13:25:37Z",
+     "time_kst": "2026-11-08 22:25",
+     "title": "ASTS Stock Rises Overnight: CEO Says BlueBirds 8, 9 And 10 Are Fully Deployed — With 3 More Satellites Already At Cape - Stocktwits",
+     "source": "Stocktwits",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQUWtkM3JReTFydlBTMkZXZlI3SmtjQkxNR1hyd0NiVnR0M1V1allRZ2dpZVF1UjlzQWlrYnhvNGRzNmp2a2Zuai1CUmVSN2Y0Q2tFb2NHNkdPa1R0SXNrenR2X1Z0UmVLV21DMjEzTFlRUnBDUlVZODBnY0U1UDE3OWZVd0NFZkJKenBTeloxOFgycWJJNEVid1Z3VHRkRFRaaC1KWjQwNUhuejRDd253dnpIQ01OUQ?oc=5"
+    },
+    {
+     "time_utc": "2026-11-08T13:19:29Z",
+     "time_kst": "2026-11-08 22:19",
+     "title": "Ericsson vs Nokia vs Huawei vs Samsung vs ZTE: 5G Equipment Market Share, Contracts and Customer Wins in 2026 - TelecomLead",
+     "source": "TelecomLead",
+     "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQX2FmcGx6Ym5PNFYxTWJvYVpNUk5aVUtXZ3d3WVBHMFAyWk80NVZSOFFGSDh0dmRYRzdnY3dLaDFvUGd3OHQ2bzJEWWdpVHVfaEJOa3hKaThSX0x5WnBjN3JOb2pCVnJNdWRTYXV2bVQ1TEk4NXR1TEl0cG9lMEVRRGZGcEFBSzBxLTNUZmNNdU44XzBIZndIQkFYaV9UTWVRb0xkNmlNR3RtRFlyRnRwUXlwd0FQZGJ3MEh5XzZXMkhaSW5zT0FGWnNhNkRKOTNfWXYxNGpiWHktdm9mWnBRQ21NamxVdkZZTGNyaNIB9AFBVV95cUxQX3JtWjZZcHdEMDBNUWtlM3RWR3Z6dTN1RDRSTkd6MVFnakZUNFQtZk9BYk1yeHdUS1hncEo1TVpYN1Y0TWJoOUR2UWwzU1UyakdkRXpGYXRSRGJmbjhOLU9KTlpsWmtCb2QzdkhIN29KT2dJVC1oblRRVFF1WE9FVTZLeVlScXF3TTVnNHVDQmx2WGVlT2NXZFh6a2h4OEVBNV9BYWxid1pGTjhpdks2cWNBZTJ0WmVDb3Z1VDR1NEV2YmpXR3VaVTRMRHZYV05rbnB0cnBXcnpuSlExYTE5RE9Tc3BGaG1ObzdTZjJveFJlbXNH?oc=5"
+    },
+    {
      "time_utc": "2026-11-08T13:16:23Z",
      "time_kst": "2026-11-08 22:16",
      "title": "RKLB Stock Slips Overnight: Rocket Lab Protests Blue Origin’s $700M NASA Mars Deal, Calls Review ‘Punitive’ - Stocktwits",
@@ -459,39 +480,18 @@
      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQbjMtSG1aVEJCTUR6dTdVUUVsY0lpNVhLNTNaTngyUFJhdVZobmQ5YkFfbDR4dEx1U1d2akhKaFFnNUx0cTFtN3JhMGFkNFlNUmptNXNHcnpHZnVpRDdvUGg1c0xRTTd1S3MzeUtYeWFUWGJ3Y2pvcjkwMlNFckhTUTNYSEEtRVlzU3NaN2Y5WjRqVk1TbHNBekt6Q1dvUDFmX3d2RTg3T0dFNXljWDlWVTdmZ1ZacEQ4djNabGpBWWZvUVBlQmdGN1g1V3lUVERfT3VR?oc=5"
     },
     {
-     "time_utc": "2026-11-08T08:32:26Z",
-     "time_kst": "2026-11-08 17:32",
-     "title": "Artisan International Value Fund's Nokia Oyj(NOK) Holding History - GuruFocus",
-     "source": "GuruFocus",
-     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNMTBiSHZ0SWF2S0NqN3FadWRyNmdneVpNWjFoNExPMUhEZ2pTMUcyVkZORF8tbUtBemFyRERpUmpJU0J0TVFCeWZtWXVXRlVqQmZFUTNvMFg4TTNRdEJwS1F0ZkZZVUtkcjBCZzhYOF9kWWh4Y2trQmJieW4wZTRKYmxXOGt2ZzQwTkxn?oc=5"
+     "time_utc": "2026-11-08T13:13:48Z",
+     "time_kst": "2026-11-08 22:13",
+     "title": "Telecom Semiconductor Market 2026: Qualcomm, Broadcom, Marvell, NVIDIA and Intel Compete for 5G, AI-RAN and Broadband Chip Spending - TelecomLead",
+     "source": "TelecomLead",
+     "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQMnhpcDkweHV6U2tzQnVkeloxZ3hiUGZLclZLeFNWUE4ycm56RXd0SWRJY3Y0cnNRS0VXTDYtd0tIcFpKOFN3dFlDVENjMG51bTVLSm5aZ1VhMzNYZGNZb3lHY25mOVMxUWZ0U2syWU5HVUNDaDRGTmx4MkpBRjIwSG1XdEtocUxqWDUtSnNPLXFGdWxDQUIybklzY1J6R21DMUtLeHRUWV9NczFtaVlOTktzSDFTM1RNU28xZ0drYkNrQ19jb2kxQ0ZKMFh0OUpwSzJWSC1tZmZhX0o3WHF1YU5rdzdjN1VjZW1yZGdfU05MRGljaHJWdXlwTGNqZHJn?oc=5"
     },
     {
-     "time_utc": "2026-11-08T07:13:08Z",
-     "time_kst": "2026-11-08 16:13",
-     "title": "Nokia, Rajant integrate Kinetic Mesh with edge AI platform - scanx.trade",
-     "source": "scanx.trade",
-     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPOG9IZkVxbm9Kdmg0XzM0d1FwZ1h6WDhQR1Rya0RHYUg0RlA1LVZwZHdfSU5xNXl2cE9xOVVJZTFicmZuc2NEdXZTS0VqQjBxUGhvVjZTSmNSU0FGSFJ5RzhYSE1SLVQ2Zmg0TjFyTUlUZEVTRWNEd3d5NkNxcXRCbzd2dnF6dFNMZ2pzSjRJdGFqNnBOdy03eE4wRmQ0OVNobjZvQXlfZjJZeS01QTM0?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T05:59:35Z",
-     "time_kst": "2026-11-08 14:59",
-     "title": "Telefonaktiebolaget LM Ericsson (publ) (ERIC) stock price, news, quote and history - Yahoo Finance UK",
-     "source": "Yahoo Finance UK",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9NdEVNS2dwWWZlSVp0azFvQkc0bkFSNmkyUTVoTDVFd2hPUmFwSTlDU2Z4QzFKT080U28tUF9FcHhNNVNURlpkZW9zZlNMeDVCR3c?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T04:41:59Z",
-     "time_kst": "2026-11-08 13:41",
-     "title": "Nokia Charts AI's Network Future From Japan to North Carolina as Shares Rebound 3.5% - ad-hoc-news.de",
-     "source": "ad-hoc-news.de",
-     "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOSHA4LWxSV21ldGt5YUp2OWpBczA2dElMc1ptRFIzalBmUC1MdWVWdkZRWnBraTZqTUd1UlE4eHJ0MGlwenA0UU14X1hUY2RNVThGaFRrMDlQcGpYWGJJZGVmbnk4bGUxcUpBbEpYR0VIbElhTzNFaV9MQzl1anJENGxnTXNfLTZKNVV5UVpWTTRzQUJhLS1WSVJydlRxblZKdEprSGhhXzgzZmxqdF9yVHZKZ3lpSnlXUTcyeXMxOHBlaUluclJKZzdJOUdBUEljV3Zld2tBWS1fSEVsekF4TG5KekpoWFJfdXBF?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T02:22:09Z",
-     "time_kst": "2026-11-08 11:22",
-     "title": "Nokia extends 5G partnership with Taiwan Mobile for AI networks - scanx.trade",
-     "source": "scanx.trade",
-     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPWDltZXY3MHZkRm9wcjR3NllWQUFsTXhxYVR6b1VoVjUtM2NNVUVCMWNhR0F5YjAzb1ZWc1ZrRGppOXp2SzBZSERrc0JPbDdXazZ0ZjBuSkpZdl9EWVlhNldfNWF0dXNvOVZicHRZY0UyYnRHT20xdkhFNTIwbjVHeG9ZOVVJcUxmUm9JNVhEYUF5bnN3NlRjSkZTZXdDWFdhVjlUVjV4ZGMtU0MtVDVhLWpaaXFsRnFpZWFyZA?oc=5"
+     "time_utc": "2026-11-08T13:10:37Z",
+     "time_kst": "2026-11-08 22:10",
+     "title": "Optical Networking Market 2026: Ciena, Nokia, Huawei and Cisco Compete for $18 Billion in AI and Data Center Infrastructure Spending - TelecomLead",
+     "source": "TelecomLead",
+     "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQM0Q4RzRkUEJ5NHpwX2dFNWhZSGQ4NVVBNXlmeVJCb3RiU0dYRmMzWkxKZ01fQkpaVzdvM3ViRWl6QXBnTGJnT0FjNTVadjdLQXA2SWlVYTdlbFptS2ctRTU2M0l6dzRRY3lhT2VxQ3BXdUlYSFRqWW1FYVY0b0I2d291OHZKc3ktNVZXUG9nZndjOG0yYVNOMHVycndlT000bE1ycTdRVE5TNllyWU9NNkU4ZXBHVndRUy02OXZxRDlONnprZEZIdG5tSUNDejF4NFUyMEZBRmhjTERyQUM3cDVKcFV6dTFNRV9aOHQ4WVBSd0JXQU1lQUVPRDlObk9vU1VPekVUcS3SAZACQVVfeXFMTTNPRHFIVk1fNkZCbTdVcEVyOUJTUVJVMWNPM3BnLWhPQlVBWV9JcFVDdkc5RUxVdUd2bHNEcEtFaG9KZlc0dTdNS2hFemhrbmlwRWo4UG5yMy02RFVMRUs2WFh2LWV0eFJQak1CbXFwVkNudEJRc0t2RUdxOWxnNnIzdTNOSUNTOXZlWTZNZFltaThOZUROVDRTc0Eya1RfZmswVEFaWk9nVGRmdG1FUk1zcFBZWTZDVjZaS1dHcmFEbHMyamhPa21QMmRKaWR5eXMwdDM5d0ktOHNqVDF1Z0ZOUEtrem5FMDhPQ2pJV2xpbzdubEJIZ1NoMDU4QUZOelhmb0NpRURxcmdtajdlX2o?oc=5"
     }
    ],
    "errors": [

@@ -1,8 +1,14 @@
 {
  "channel": "insidertracking",
- "fetched_at_utc": "2026-11-09T08:39:43Z",
+ "fetched_at_utc": "2026-11-09T08:44:50Z",
  "hours": 26,
  "posts": [
+  {
+   "time_utc": "2026-11-09T08:40:16Z",
+   "time_kst": "2026-11-09 17:40",
+   "text": "테슬라 사이버캡 한국 일정",
+   "url": "https://t.me/insidertracking/68771"
+  },
   {
    "time_utc": "2026-11-09T08:32:07Z",
    "time_kst": "2026-11-09 17:32",
@@ -230,12 +236,6 @@
    "time_kst": "2026-11-09 08:09",
    "text": "교황 레오가 아르헨티나에 도착했으며, 하비에르 밀레이 아르헨티나 대통령이 비행기에서 내린 교황을 직접 영접.\n이번 방문은 1987년 교황 요한 바오로 2세의 방문 이후 아르헨티나에서 이루어진 첫 교황 방문.",
    "url": "https://t.me/insidertracking/68731"
-  },
-  {
-   "time_utc": "2026-11-08T23:02:09Z",
-   "time_kst": "2026-11-09 08:02",
-   "text": "원자재",
-   "url": "https://t.me/insidertracking/68730"
   }
  ]
 }
