@@ -106,11 +106,11 @@ def section_cover(tag, deck, links, sid):
             + "".join(f"<li style='margin:6px 0'>{f(x)}</li>" for x in deck["summary"]) + "</ol></div></div></section>")
 
 
-def page(title, date_label, stats, sections, notes):
-    """sections: [(tag, deck, links, sid)]"""
+def page(title, date_label, stats, sections, notes, kicker="DAILY INVESTMENT BRIEF"):
+    """sections: [(tag, deck, links, sid)]. deck에 summary가 없으면 섹션 표지 없이 첫 슬라이드에 앵커를 단다."""
     o = [f'<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
          f"<title>{html.escape(title)}</title>{FONT}<style>{CSS}</style></head><body><div class=\"deck\">",
-         '<section class="slide"><div class="cover"><div class="tag" style="color:#FF8FA3">TELEGRAM INVESTMENT BRIEF</div>'
+         f'<section class="slide"><div class="cover"><div class="tag" style="color:#FF8FA3">{html.escape(kicker)}</div>'
          f'<h1>{html.escape(title)}</h1><div class="sub">{html.escape(date_label)}</div><div class="k2">'
          + "".join(f"<div><b>{html.escape(v)}</b><span>{html.escape(l)}</span></div>" for v, l in stats) + "</div></div>"
          '<div class="body"><div class="box s toc"><h4>목차</h4><ol style="margin:0;padding-left:18px">'
@@ -118,9 +118,14 @@ def page(title, date_label, stats, sections, notes):
          + '</ol></div></div><div class="src">등락 색: 상승=빨강, 하락=파랑 · 채널 글과 리포트를 재가공한 정보이며 투자 권유가 아닙니다.</div></section>']
     n = 1
     for tag, deck, links, sid in sections:
-        o.append(section_cover(tag, deck, links, sid))
+        first = None
+        if deck.get("summary"):
+            o.append(section_cover(tag, deck, links, sid))
+        else:
+            first = sid
         for s in deck["slides"]:
-            o.append(slide(s, n, links))
+            o.append(slide(s, n, links, first or ""))
+            first = None
             n += 1
     o.append('<section class="slide"><div class="sh"><div><div class="tag">APPENDIX</div><h2>수집·분석 범위</h2></div></div><div class="body"><ul class="b">'
              + "".join(f"<li>{html.escape(x)}</li>" for x in notes) + "</ul></div></section></div></body></html>")

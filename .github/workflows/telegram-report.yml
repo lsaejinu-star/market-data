@@ -1,6 +1,7 @@
 name: telegram-report
 
-# 매일: 전날 07:00~당일 06:00 KST 구독 채널 + 리포트 갤러리 수집 → Claude(구독, Claude Code CLI) 분석 → 슬라이드형 HTML 메일 발송
+# 매일: 전날 07:00~당일 06:00 KST 구독 채널 + 리포트 갤러리 수집, 미국장 시세·금리·지표·일정 수집
+# → Claude(구독, Claude Code CLI) 분석·매크로 해설(웹 검색) → 하나의 슬라이드형 HTML을 07:30에 메일 발송
 # 공개 저장소이므로 아무것도 커밋/업로드하지 않고, 로그에는 건수·사용량만 남긴다.
 
 on:
@@ -57,7 +58,9 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: requirements-telegram.txt
+          cache-dependency-path: |
+            requirements-telegram.txt
+            requirements.txt
 
       - uses: actions/setup-node@v4
         if: steps.dup.outputs.skip != 'true'
@@ -67,7 +70,7 @@ jobs:
       - name: Install
         if: steps.dup.outputs.skip != 'true'
         run: |
-          pip install -r requirements-telegram.txt
+          pip install -r requirements-telegram.txt -r requirements.txt
           npm install -g @anthropic-ai/claude-code
           claude --version
 
@@ -81,11 +84,12 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
+          ECOS_API_KEY: ${{ secrets.ECOS_API_KEY }}
           TG_CHANNELS: ${{ vars.TG_CHANNELS }}
           TG_REPORT_CHANNEL: ${{ vars.TG_REPORT_CHANNEL }}
           TG_EXCLUDE: ${{ vars.TG_EXCLUDE }}
           TG_MAX_REPORTS: ${{ vars.TG_MAX_REPORTS }}
-          TG_SEND_AT: "07:00"
+          TG_SEND_AT: "07:30"
           TG_WINDOW_START: "07:00"
           TG_WINDOW_END: "06:00"
         run: python -m tgbrief.main

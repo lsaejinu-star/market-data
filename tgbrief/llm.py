@@ -41,8 +41,9 @@ def _build_prompt(content, workdir):
     return "\n".join(parts), n_img
 
 
-def ask_json(model, system, content, schema, effort="high", max_tokens=None):
-    """content(텍스트·이미지 블록 리스트)를 보내고 schema에 맞는 dict를 돌려준다."""
+def ask_json(model, system, content, schema, effort="high", max_tokens=None, tools=("Read",), max_turns=None):
+    """content(텍스트·이미지 블록 리스트)를 보내고 schema에 맞는 dict를 돌려준다.
+    tools: 허용 도구(기본 Read만. 매크로 조사는 WebSearch·WebFetch 추가)."""
     env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN")}
     if not env.get("CLAUDE_CODE_OAUTH_TOKEN"):
         raise RuntimeError("CLAUDE_CODE_OAUTH_TOKEN 이 설정되지 않음")
@@ -55,13 +56,13 @@ def ask_json(model, system, content, schema, effort="high", max_tokens=None):
             "--json-schema", json.dumps(schema, ensure_ascii=False),
             # 기본 시스템 프롬프트·도구·스킬·MCP를 빼서 호출당 토큰(=구독 사용량)을 최소화
             "--system-prompt", system,
-            "--tools", "Read",
-            "--allowedTools", "Read",
+            "--tools", ",".join(tools),
+            "--allowedTools", ",".join(tools),
             "--disable-slash-commands",
             "--strict-mcp-config",
             "--setting-sources", "",
             "--permission-mode", "dontAsk",
-            "--max-turns", str(n_img + 8),
+            "--max-turns", str(max_turns or (n_img + 8)),
         ]
         # 저장소 밖 빈 임시 폴더에서 실행 → 저장소의 설정·훅이 로드되지 않음. 프롬프트는 stdin으로 전달.
         proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True,

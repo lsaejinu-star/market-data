@@ -87,7 +87,7 @@ def digest_posts(posts, chunk=40):
 
 # ───────────────────────── 2) 채널 브리프 ─────────────────────────
 
-def channel_brief(posts, digests):
+def channel_brief(posts, digests, with_macro=False):
     corpus = []
     for p in posts:
         d = digests[p["no"]]
@@ -98,9 +98,14 @@ def channel_brief(posts, digests):
     prompt = ("\n".join(corpus) + "\n\n"
               "위는 투자 텔레그램 채널들의 수집 구간 글 전부(#번호)다. 이를 '투자 아이디어 브리프' 덱으로 만들어라. "
               "채널별 나열 금지, 중복 내용은 하나의 아이디어로 합칠 것. 중요도 3인 글은 가능한 한 모두 반영.\n"
-              "구성: ① Executive Summary(아이디어 목록 표: 아이디어|한 줄 결론|방향) ② 시장 스냅샷(지수·업종·종목 등락은 change 차트로) "
-              "③ 핵심 이벤트 해부 ④ 투자 아이디어 6~10개(각각 별도 슬라이드, deep 해설 필수) ⑤ 실적 상세 표 "
-              "⑥ 한국 투자자 관점 ⑦ 채널 운영자 시각 비교 ⑧ 캘린더·점검 체크리스트.\n\n" + STYLE_RULES)
+              + (("구성: ① Executive Summary(아이디어 목록 표: 아이디어|한 줄 결론|방향) ② 핵심 이벤트 해부 "
+                  "③ 투자 아이디어 6~10개(각각 별도 슬라이드, deep 해설 필수) ④ 실적 상세 표 ⑤ 한국 투자자 관점 "
+                  "⑥ 채널 운영자 시각 비교 ⑦ 점검 체크리스트. (시장 지수·금리·환율 수치표와 경제 일정은 리포트의 매크로 섹션에 "
+                  "따로 있으니 슬라이드로 만들지 말 것)") if with_macro else
+                 ("구성: ① Executive Summary(아이디어 목록 표: 아이디어|한 줄 결론|방향) ② 시장 스냅샷(지수·업종·종목 등락은 change 차트로) "
+                  "③ 핵심 이벤트 해부 ④ 투자 아이디어 6~10개(각각 별도 슬라이드, deep 해설 필수) ⑤ 실적 상세 표 "
+                  "⑥ 한국 투자자 관점 ⑦ 채널 운영자 시각 비교 ⑧ 캘린더·점검 체크리스트."))
+              + "\n\n" + STYLE_RULES)
     return ask_json(ANALYSIS_MODEL, "텔레그램 투자 채널을 읽고 투자 아이디어 브리프를 만드는 시니어 애널리스트.",
                     [{"type": "text", "text": prompt}], DECK, max_tokens=64000)
 
