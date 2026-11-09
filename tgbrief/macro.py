@@ -416,18 +416,53 @@ def calendar_slide(d):
 # ───────────────────────── 해설 (Claude + 웹 검색) ─────────────────────────
 
 NOTE = _obj({"key": S, "so_what": S, "deep": {"type": "array", "items": _obj({"lead": S, "text": S})}})
-MACRO_SCHEMA = _obj({
-    "hero": _obj({"headline": S, "verdict": S, "points": SL, "watch": SL}),
-    "notes": _obj({k: NOTE for k in ("indices", "breadth_sectors", "rates", "fx_commodities", "global", "macro_data", "ytd", "calendar")}),
-    "issues": {"type": "array", "items": SLIDE},
-    "holdings": {"type": "array", "items": SLIDE},
-    "flows": SLIDE,
-    "verdict": SLIDE,
-    "coverage": {"type": "array", "items": _obj({
-        "item": S,
-        "status": {"type": "string", "enum": ["확인 완료", "부분 확인", "확인함-해당없음", "확인함(구조적 지연)", "확인 실패"]},
-        "source": S, "gap": S})},
-})
+COV = {"type": "array", "items": _obj({
+    "item": S,
+    "status": {"type": "string", "enum": ["확인 완료", "부분 확인", "확인함-해당없음", "확인함(구조적 지연)", "확인 실패"]},
+    "source": S, "gap": S})}
+NOTE_KEYS = ("indices", "breadth_sectors", "rates", "fx_commodities", "global", "macro_data", "ytd", "calendar")
+
+# 조사를 세 갈래로 나눠 병렬 실행(하나가 실패해도 나머지는 살아남고, 실패한 갈래만 재시도) → 마지막에 짧은 종합 호출
+PART_SCHEMAS = {
+    "market": _obj({"notes": _obj({k: NOTE for k in NOTE_KEYS}), "coverage": COV}),
+    "issues": _obj({"issues": {"type": "array", "items": SLIDE}, "coverage": COV}),
+    "holdings": _obj({"holdings": {"type": "array", "items": SLIDE}, "flows": SLIDE, "coverage": COV}),
+}
+SYNTH_SCHEMA = _obj({"hero": _obj({"headline": S, "verdict": S, "points": SL, "watch": SL}), "verdict": SLIDE})
+
+COV_RULE = """coverage status 판정 기준(엄격히): '확인 완료' = 수치 데이터가 있고 원인·의미를 기사 1건 이상으로 확인(수치만으로 충분한 항목 — 지수·섹터·시장폭·글로벌·원자재 수치,
+국채 입찰 결과, FOMC 확률, 일정 — 은 데이터가 있으면 '확인 완료'). '확인함-해당없음' = 찾아봤으나 실제로 새 소식·이벤트가 없음. '확인함(구조적 지연)' = 소스 공표 주기상
+최신치가 아님(HY 스프레드 1영업일, 서학개미 결제 3~5영업일). '부분 확인' = 일부 하위 내용만 확인 → gap에 빠진 것을 구체적으로. '확인 실패' = 못 찾음 → gap에 일반적인 사유.
+gap은 완료·해당없음이면 빈 문자열. 소스가 막히면 이유를 쓰지 말고 다른 기사로."""
+
+PART_TASKS = {
+    "market": """너의 담당: '시장 수치 해설'. 아래 수치 슬라이드 8개에 붙일 해설(notes)만 쓴다. 정책·관세·지정학·개별 기업 뉴스·보유주식·서학개미는 다른 담당이 쓰므로
+자세히 쓰지 말 것(필요하면 한 줄 언급만).
+조사(WebSearch·WebFetch 합계 12회 이내): ① 미국장 마감 랩업 1~2건 — 오늘의 지배 서사, 지수·섹터·테마(±2% 이상)·상승/하락 상위 종목의 원인
+② 연준 인사 발언(누가·톤), FOMC 확률(수치에 있는 선물 기반 추정치와 기사 속 CME FedWatch 비교), 국채 입찰 결과의 의미, ECB·BOJ·BOE·한국은행 동향
+③ 원/달러(서울 종가 기사 있으면 병기)·달러·유가·금·코인 변동 원인 ④ 아시아·유럽 증시와 오늘 코스피 개장에 줄 영향 ⑤ 물가·고용 지표의 24시간 내 새 발표 여부·예상치 대비
+출력: notes — key=핵심 한 문장, so_what=투자자 시사점, deep=원인·의미 2~4문단(lead=소제목, text=4~6문장, 기사 출처명 괄호)
+(indices=지수·M7, breadth_sectors=시장폭·섹터·테마, rates=금리·연준·입찰·FOMC 확률·해외 중앙은행, fx_commodities=환율·원자재·코인, global=아시아·유럽·코스피 영향,
+ macro_data=물가·고용, ytd=연초 대비 흐름, calendar=이번 주 일정·실적 발표 해설). 중요한 내용일수록 deep를 길게.
+coverage 항목: 지수, 시장폭, 섹터, 금리·연준, FedWatch, 국채입찰, 해외중앙은행, 환율, 원자재, 물가·고용, 글로벌, 크레딧·코인, 일정.""",
+    "issues": """너의 담당: '시장을 움직인 이슈'. 정책·관세·무역·규제(반도체·AI·에너지·금융), 지정학, 시장 전체에 영향을 준 대형 기업 뉴스(실적·M&A·소송·대형 계약).
+지수·금리·환율 수치 해설, 구글·노키아, 서학개미는 다른 담당이 쓰므로 다루지 말 것.
+조사(WebSearch·WebFetch 합계 12회 이내): 최근 24시간(주말이면 직전 거래일 마감 이후) 기사, 중요한 정책은 백악관·USTR·연방관보 등 1차 출처 확인.
+출력: issues — 슬라이드 2~4장(이슈당 1장, 같은 사건은 하나로). 진행 중 이슈는 며칠째인지·누적 경과와 오늘 새로 추가된 전개를 구분.
+중요한 이슈는 deep 4~6문단, 관련 업종·종목에 미칠 영향과 so_what 포함.
+coverage 항목: 무역·정책, 지정학, 기업 뉴스.""",
+    "holdings": """너의 담당: '보유주식(구글·노키아)'과 '서학개미 동향'. 다른 주제는 다루지 말 것.
+조사(WebSearch·WebFetch 합계 12회 이내, 종목당 4~5회 + 서학개미 2~3회):
+- 구글(GOOGL): 디지털광고·검색·클라우드·AI 모델 경쟁 섹터 뉴스와 종목 뉴스(실적·제품·규제), 주가 움직임 이유
+- 노키아(NOK): 섹터는 '광통신'으로 볼 것 — AI 데이터센터 광연결 수요, 광네트워크·코히어런트 광모듈·광트랜시버 업황, 동종업체(시에나·루멘텀·코히런트·코닝·패브리넷) 실적·주가. 종목 뉴스(수주·계약·실적)와 주가 이유
+- 헤드라인 중 주가에 영향을 줄 만한 것은 기사 원문을 열어 확인(제목만으로 단정 금지)
+- 서학개미: 예탁결제원 기반 순매수·순매도 상위, 레버리지·인버스 ETF(SOXL/SOXS 등), 세이브로는 3~5영업일 시차 표기, 텔레그램 요약의 서학개미 데이터 참고
+출력: holdings — 정확히 2장, 순서 [구글, 노키아], tag 'HOLDING · GOOGL' / 'HOLDING · NOK'. 종목마다 kpis(종가·등락률과 관련 수치 2~4개),
+boxes 3개(① 종목 뉴스 ② 섹터·경쟁사 뉴스 ③ 주가 움직임의 이유와 주시할 점), deep 3~5문단(뉴스별 무슨 일·왜 중요·주가와의 연결, 출처 괄호), so_what.
+새 소식이 적으면 짧게, '새로운 소식 없음' 명시. 펀더멘털 심층분석·밸류에이션은 하지 말 것.
+flows — 서학개미 동향 1장.
+coverage 항목: 보유주식, 서학개미.""",
+}
 
 
 def _compact(d):
@@ -466,51 +501,89 @@ def _compact(d):
     return "\n".join(L)
 
 
-def narrative(d, tg_lines):
-    now = datetime.now(KST)
-    prompt = f"""지금은 {now:%Y-%m-%d %H:%M} KST. 아래는 오늘 아침 자동 수집한 시장 수치(확정치)와, 구독 텔레그램 채널 글의 한 줄 요약이다.
-이 수치들은 이미 표·차트로 리포트에 들어간다. 너는 '왜 그렇게 움직였는지'와 '투자자에게 무슨 의미인지'를 조사해 쓰는 매크로 애널리스트다.
+def _part_prompt(part, d, tg_lines, now):
+    return f"""지금은 {now:%Y-%m-%d %H:%M} KST. 한국 개인투자자(미국주식 투자)용 데일리 브리핑의 일부를 맡았다.
+아래 수치는 오늘 아침 자동 수집한 확정치로, 이미 표·차트로 리포트에 들어간다(재조회 금지, 그대로 인용).
 
-=== 수치(재조회 금지, 이 값을 그대로 인용) ===
+=== 수치 ===
 {_compact(d)}
 
-=== 텔레그램 채널 요약(미검증 정보, 별도 '투자 아이디어' 섹션이 따로 있으므로 여기서는 매크로·서학개미 관련만 참고) ===
+=== 텔레그램 채널 요약(미검증, 별도 '투자 아이디어' 섹션이 따로 있음 — 참고만) ===
 {tg_lines}
 
-=== 조사 (WebSearch·WebFetch 사용, 합계 25회 이내) ===
-최근 24시간(주말이면 직전 거래일 마감 이후) 기사만, 발행일시를 확인하고 인용. 수치표에 있는 시세는 다시 찾지 말 것.
-1) 미국장 마감 랩업 1~2건으로 오늘의 지배 서사, 지수·섹터·상승/하락 상위 종목의 원인
-2) 연준: 인사 발언(누가·톤), CME FedWatch 다음 FOMC 확률, 국채 입찰 결과 의미, ECB·BOJ·BOE·한국은행 동향
-3) 환율(원/달러 서울 종가 기사 있으면 병기)·유가·금 변동 원인
-4) 무역·관세·정책·규제(반도체·AI·에너지), 지정학 — 며칠째 진행 중인지와 오늘 새로 추가된 전개 구분
-5) 보유주식: 구글(GOOGL, 광고·검색·클라우드·AI)과 노키아(NOK — 섹터는 '광통신'으로 볼 것: 광네트워크·코히어런트 광모듈·AI 데이터센터 광연결, 동종업체 시에나·루멘텀·코히런트·코닝·패브리넷) 각각 섹터·종목 뉴스와 주가 움직임의 이유. 위 헤드라인 중 주가에 영향을 줄 만한 것은 기사 원문을 열어 확인(제목만으로 단정 금지). 종목당 검색 3~5회 배정
-6) 서학개미 동향(예탁결제원 기반 순매수 상위·레버리지 ETF, 세이브로는 3~5영업일 시차 표기)
-7) 이번 주 주요 실적 발표 일정
-막히는 소스는 이유를 쓰지 말고 바로 다른 기사로. 못 찾으면 coverage에 '확인 실패(일반 사유)'.
+=== 담당과 조사 ===
+{PART_TASKS[part]}
+뉴스는 최근 24시간(주말이면 직전 거래일 마감 이후) 기사만, 발행일시를 확인하고 인용. 수치표의 시세는 다시 찾지 말 것.
+{COV_RULE}
+sources 필드에는 실제 참고한 매체명. 종목 추천 금지. 한국어.
+
+{STYLE_RULES}"""
+
+
+def _synth(d, parts, now):
+    brief = []
+    m = parts.get("market") or {}
+    for k, v in (m.get("notes") or {}).items():
+        brief.append(f"[{k}] {v['key']} / 시사점: {v['so_what']}")
+    for s in (parts.get("issues") or {}).get("issues", []):
+        brief.append(f"[이슈] {s['title']} — {s['key']} / {s['so_what']}")
+    h = parts.get("holdings") or {}
+    for s in h.get("holdings", []) + ([h["flows"]] if h.get("flows") else []):
+        brief.append(f"[{s['tag']}] {s['title']} — {s['key']} / {s['so_what']}")
+    prompt = f"""지금은 {now:%Y-%m-%d %H:%M} KST. 아래는 오늘 데일리 브리핑의 수치와, 각 담당이 쓴 해설의 핵심 문장이다(본문은 리포트에 이미 들어감).
+
+=== 수치 ===
+{_compact(d)}
+
+=== 각 담당의 핵심 ===
+""" + "\n".join(brief) + f"""
 
 === 출력 ===
 - hero: headline(오늘을 한 줄로), verdict(리스크온/오프 판정과 근거 지표 한 줄), points(오늘 꼭 알아야 할 3~5가지, 각 2~3문장, 수치 포함), watch(오늘·이번 주 주시할 이벤트 2~4개)
-- notes: 각 수치 슬라이드에 붙일 해설. key=핵심 한 문장, so_what=투자자 시사점, deep=원인·의미 해설 2~4문단(lead=소제목, text=4~6문장, 기사 출처명을 괄호로)
-  (indices=지수·M7, breadth_sectors=시장폭·섹터·테마(±2% 이상 테마는 원인), rates=금리·연준·입찰·FedWatch·해외 중앙은행, fx_commodities=환율·원자재·코인,
-   global=아시아·유럽과 코스피 개장 영향, macro_data=물가·고용(24시간 내 새 발표 여부·예상치 대비), ytd=연초 대비 흐름, calendar=이번 주 실적 일정 포함 일정 해설)
-- issues: '시장을 움직인 이슈' 슬라이드 2~5장(정책·관세·지정학·기업 뉴스). 진행 중 이슈는 경과와 오늘의 새 전개를 구분
-- holdings: 보유주식 슬라이드 정확히 2장, 순서는 [구글, 노키아]. tag는 'HOLDING · GOOGL' / 'HOLDING · NOK'. 종목마다: kpis(종가·등락률과 관련 수치 2~4개), boxes 3개(① 종목 뉴스: 실적·제품·계약·규제 등 최근 24시간 주요 내용 ② 섹터·경쟁사 뉴스(구글=광고·검색·클라우드·AI, 노키아=광통신: AI 데이터센터 광연결 수요, 광모듈·광트랜시버 업황, 동종업체 실적·주가) ③ 주가 움직임의 이유와 주시할 점), deep 3~5문단(주요 뉴스별로 무슨 일인지·왜 중요한지·주가와의 연결, 기사 출처명 괄호), so_what. 새 소식이 적은 날은 짧게 쓰고 '새로운 소식 없음'을 명시
-- flows: 서학개미 동향 1장
-- verdict: 종합 판단 1장 — deep 4~6문단: (a) 리스크온/오프(VIX·금리·달러·금·소형주·크레딧, 엇갈리면 그 의미) (b) 주도 섹터와 자금 이탈 (c) 향후 심리와 주시 변수 (d) 서학개미 시사점(환율·시간대·세금·환전)
-- coverage: 지수/시장폭/섹터/금리·연준/FedWatch/국채입찰/해외중앙은행/환율/원자재/물가·고용/무역·정책/지정학/보유주식/서학개미/글로벌/크레딧·코인/일정 각각.
-  status 판정 기준(엄격히): '확인 완료' = 위 수치 데이터가 있고 원인·의미를 기사 1건 이상으로 확인. 수치 데이터만으로 충분한 항목(지수·섹터·시장폭·글로벌·원자재 수치,
-  국채 입찰 결과, FOMC 확률, 일정)은 데이터가 있으면 '확인 완료'. '확인함-해당없음' = 찾아봤으나 실제로 새 소식·이벤트가 없음(예: 24시간 내 연준 발언 없음, 입찰 없음, 보유주식 새 뉴스 없음).
-  '확인함(구조적 지연)' = 소스 공표 주기상 최신치가 아님(HY 스프레드 1영업일, 서학개미 결제 3~5영업일). '부분 확인' = 항목의 일부 하위 내용만 확인됨 → gap에 빠진 것을 구체적으로.
-  '확인 실패' = 찾지 못함 → gap에 일반적인 사유. gap은 완료·해당없음이면 빈 문자열
-- 중복 금지: notes·issues·holdings·flows·verdict 사이에 같은 사건·수치 설명을 되풀이하지 말 것. 한 사건은 가장 관련 깊은 한 곳에서만
-  자세히 쓰고 다른 곳에서는 생략(필요하면 '앞 슬라이드 참고' 수준의 한 줄). 예: 유가 급등의 원인은 fx_commodities 또는 해당 issues 중 한 곳에만.
-  verdict는 앞 내용을 다시 나열하지 말고 종합 해석과 판단에 집중. issues는 2~4장으로, 슬라이드를 늘리기보다 중요한 이슈의 deep를 4~6문단으로 깊게.
-- sources 필드에는 실제 참고한 매체명. 펀더멘털 심층분석·종목 추천은 하지 말 것. 한국어.
+- verdict: 종합 판단 슬라이드 1장 — deep 4~6문단: (a) 리스크온/오프(VIX·금리·달러·금·소형주·크레딧 근거, 엇갈리면 그 엇갈림의 의미) (b) 주도 섹터와 자금 이탈
+  (c) 향후 심리와 주시 변수 (d) 서학개미 시사점(환율·시간대·세금·환전). 앞 해설을 다시 나열하지 말고 종합 해석에 집중.
+웹 검색 없이 위 내용만으로 쓴다. 새로운 사실을 지어내지 말 것.
 
 {STYLE_RULES}"""
-    return ask_json(ANALYSIS_MODEL, "미국 증시 매크로·뉴스를 조사해 한국 개인투자자용 데일리 브리핑을 쓰는 시니어 매크로 애널리스트.",
-                    [{"type": "text", "text": prompt}], MACRO_SCHEMA, max_tokens=64000,
-                    tools=("WebSearch", "WebFetch"), max_turns=60)
+    return ask_json(ANALYSIS_MODEL, "데일리 브리핑의 수석 애널리스트. 각 담당의 결론을 종합해 오늘의 판단을 내린다.",
+                    [{"type": "text", "text": prompt}], SYNTH_SCHEMA, max_tokens=24000)
+
+
+def narrative(d, tg_lines):
+    """세 갈래 병렬 조사 + 종합. 갈래가 실패해도 나머지로 리포트를 만든다(각 호출은 llm에서 2회 재시도)."""
+    from concurrent.futures import ThreadPoolExecutor
+    now = datetime.now(KST)
+    sysmsg = "미국 증시 매크로·뉴스를 조사해 한국 개인투자자용 데일리 브리핑을 쓰는 시니어 애널리스트."
+    parts, failed = {}, []
+    with ThreadPoolExecutor(max_workers=3) as ex:
+        futs = {k: ex.submit(ask_json, ANALYSIS_MODEL, sysmsg, [{"type": "text", "text": _part_prompt(k, d, tg_lines, now)}],
+                             PART_SCHEMAS[k], max_tokens=48000, tools=("WebSearch", "WebFetch"), max_turns=40)
+                for k in PART_SCHEMAS}
+        for k, f in futs.items():
+            try:
+                parts[k] = f.result()
+            except Exception as e:
+                failed.append(k)
+                log(f"해설 갈래 '{k}' 실패: {e.__class__.__name__}")
+    if not parts:
+        raise RuntimeError("매크로 해설 세 갈래 모두 실패")
+    try:
+        syn = _synth(d, parts, now)
+    except Exception as e:
+        log(f"종합 판단 실패: {e.__class__.__name__}")
+        syn = {}
+    cov = []
+    for k in ("market", "issues", "holdings"):
+        cov += (parts.get(k) or {}).get("coverage", [])
+    for k in failed:
+        cov.append({"item": {"market": "시장 수치 해설", "issues": "시장을 움직인 이슈", "holdings": "보유주식·서학개미"}[k],
+                    "status": "확인 실패", "source": "-", "gap": "해설 생성 오류(재시도 후에도 실패)"})
+    return {"hero": syn.get("hero"), "verdict": syn.get("verdict"),
+            "notes": (parts.get("market") or {}).get("notes") or {},
+            "issues": (parts.get("issues") or {}).get("issues") or [],
+            "holdings": (parts.get("holdings") or {}).get("holdings") or [],
+            "flows": (parts.get("holdings") or {}).get("flows"),
+            "coverage": cov, "failed": failed}
 
 
 def holding_slides(nar, d):
