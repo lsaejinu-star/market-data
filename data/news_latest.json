@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-09T02:28:26Z",
+ "fetched_at_utc": "2026-11-09T08:39:52Z",
  "notes": {
   "treasury_auctions": "TreasuryDirect 최근 7일 입찰 결과와 예정 입찰. indirect_pct/direct_pct는 경쟁입찰 낙찰액 대비 비중(%).",
   "central_banks": "공식 RSS의 최근 72시간 항목. 최근 항목이 없으면 latest_any에 가장 최근 3개.",
@@ -80,107 +80,16 @@
     "offering_amount": "82000000000"
    }
   ],
-  "upcoming": [
-   {
-    "auction_date": "",
-    "type": "Note",
-    "term": "3-Year",
-    "reopening": "No",
-    "offering_amount": "58000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Note",
-    "term": "10-Year",
-    "reopening": "No",
-    "offering_amount": "42000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bond",
-    "term": "30-Year",
-    "reopening": "No",
-    "offering_amount": "25000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "13-Week",
-    "reopening": "Yes",
-    "offering_amount": "95000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "26-Week",
-    "reopening": "Yes",
-    "offering_amount": "82000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "6-Week",
-    "reopening": "Yes",
-    "offering_amount": "100000000000"
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "17-Week",
-    "reopening": "No",
-    "offering_amount": ""
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "4-Week",
-    "reopening": "Yes",
-    "offering_amount": ""
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "8-Week",
-    "reopening": "Yes",
-    "offering_amount": ""
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "13-Week",
-    "reopening": "Yes",
-    "offering_amount": ""
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "26-Week",
-    "reopening": "No",
-    "offering_amount": ""
-   },
-   {
-    "auction_date": "",
-    "type": "Bill",
-    "term": "6-Week",
-    "reopening": "Yes",
-    "offering_amount": ""
-   },
-   {
-    "auction_date": "",
-    "type": "Bond",
-    "term": "20-Year",
-    "reopening": "No",
-    "offering_amount": ""
-   },
-   {
-    "auction_date": "",
-    "type": "Note",
-    "term": "9-Year 8-Month",
-    "reopening": "Yes",
-    "offering_amount": ""
-   }
+  "upcoming": [],
+  "errors": [
+   "treasurydirect keys: accruedInterest,accruedInterestPerAmount,adjustedAccruedInterest,adjustedCurrentlyOutstanding,adjustedPrice,allottedAtHighDiscountMarginPercentage,allottedAtHighPercentageDecimals,allottedAtHighRatePercentage,allottedAtHighYieldPercentage,announcedAsCorpusCusip,announcedAsCusip,announcedAsOriginalDatedDate,announcedAsOriginalIssueDate,announcedAsReopening,announcedAsSecurityDescription,announcedAsSecurityType,announcementDate,approximateAmountRemainingForCompetitiveBids,averageDiscountMargin,averageInvestmentRate,averagePrice,averageRate,averageYield,bidToCoverRatio,callable,calledDate,cashManagementBill,competitiveAuctionCloseDate,competitiveAuctionCloseDateYear,competitiveAuctionCloseTime,competitiveBidDecimals,competitiveBidExpression,competitiveDiscountMarginBidIncrements,competitiveRateBidIncrements,competitiveYieldBidIncrements,corpusCusip,cpiBaseReferencePeriod,currentlyOutstanding,cusip,datedDate",
+   "treasurydirect keys: accruedInterest,accruedInterestPerAmount,adjustedAccruedInterest,adjustedCurrentlyOutstanding,adjustedPrice,allottedAtHighDiscountMarginPercentage,allottedAtHighPercentageDecimals,allottedAtHighRatePercentage,allottedAtHighYieldPercentage,announcedAsCorpusCusip,announcedAsCusip,announcedAsOriginalDatedDate,announcedAsOriginalIssueDate,announcedAsReopening,announcedAsSecurityDescription,announcedAsSecurityType,announcementDate,approximateAmountRemainingForCompetitiveBids,averageDiscountMargin,averageInvestmentRate,averagePrice,averageRate,averageYield,bidToCoverRatio,callable,calledDate,cashManagementBill,competitiveAuctionCloseDate,competitiveAuctionCloseDateYear,competitiveAuctionCloseTime,competitiveBidDecimals,competitiveBidExpression,competitiveDiscountMarginBidIncrements,competitiveRateBidIncrements,competitiveYieldBidIncrements,corpusCusip,cpiBaseReferencePeriod,currentlyOutstanding,cusip,datedDate",
+   "treasurydirect keys: accruedInterest,accruedInterestPerAmount,adjustedAccruedInterest,adjustedCurrentlyOutstanding,adjustedPrice,allottedAtHighDiscountMarginPercentage,allottedAtHighPercentageDecimals,allottedAtHighRatePercentage,allottedAtHighYieldPercentage,announcedAsCorpusCusip,announcedAsCusip,announcedAsOriginalDatedDate,announcedAsOriginalIssueDate,announcedAsReopening,announcedAsSecurityDescription,announcedAsSecurityType,announcementDate,approximateAmountRemainingForCompetitiveBids,averageDiscountMargin,averageInvestmentRate,averagePrice,averageRate,averageYield,bidToCoverRatio,callable,calledDate,cashManagementBill,competitiveAuctionCloseDate,competitiveAuctionCloseDateYear,competitiveAuctionCloseTime,competitiveBidDecimals,competitiveBidExpression,competitiveDiscountMarginBidIncrements,competitiveRateBidIncrements,competitiveYieldBidIncrements,corpusCusip,cpiBaseReferencePeriod,currentlyOutstanding,cusip,datedDate",
+   "treasurydirect keys: accruedInterest,accruedInterestPerAmount,adjustedAccruedInterest,adjustedCurrentlyOutstanding,adjustedPrice,allottedAtHighDiscountMarginPercentage,allottedAtHighPercentageDecimals,allottedAtHighRatePercentage,allottedAtHighYieldPercentage,announcedAsCorpusCusip,announcedAsCusip,announcedAsOriginalDatedDate,announcedAsOriginalIssueDate,announcedAsReopening,announcedAsSecurityDescription,announcedAsSecurityType,announcementDate,approximateAmountRemainingForCompetitiveBids,averageDiscountMargin,averageInvestmentRate,averagePrice,averageRate,averageYield,bidToCoverRatio,callable,calledDate,cashManagementBill,competitiveAuctionCloseDate,competitiveAuctionCloseDateYear,competitiveAuctionCloseTime,competitiveBidDecimals,competitiveBidExpression,competitiveDiscountMarginBidIncrements,competitiveRateBidIncrements,competitiveYieldBidIncrements,corpusCusip,cpiBaseReferencePeriod,currentlyOutstanding,cusip,datedDate",
+   "treasurydirect keys: accruedInterest,accruedInterestPerAmount,adjustedAccruedInterest,adjustedCurrentlyOutstanding,adjustedPrice,allottedAtHighDiscountMarginPercentage,allottedAtHighPercentageDecimals,allottedAtHighRatePercentage,allottedAtHighYieldPercentage,announcedAsCorpusCusip,announcedAsCusip,announcedAsOriginalDatedDate,announcedAsOriginalIssueDate,announcedAsReopening,announcedAsSecurityDescription,announcedAsSecurityType,announcementDate,approximateAmountRemainingForCompetitiveBids,averageDiscountMargin,averageInvestmentRate,averagePrice,averageRate,averageYield,bidToCoverRatio,callable,calledDate,cashManagementBill,competitiveAuctionCloseDate,competitiveAuctionCloseDateYear,competitiveAuctionCloseTime,competitiveBidDecimals,competitiveBidExpression,competitiveDiscountMarginBidIncrements,competitiveRateBidIncrements,competitiveYieldBidIncrements,corpusCusip,cpiBaseReferencePeriod,currentlyOutstanding,cusip,datedDate",
+   "treasurydirect keys: accruedInterest,accruedInterestPerAmount,adjustedAccruedInterest,adjustedCurrentlyOutstanding,adjustedPrice,allottedAtHighDiscountMarginPercentage,allottedAtHighPercentageDecimals,allottedAtHighRatePercentage,allottedAtHighYieldPercentage,announcedAsCorpusCusip,announcedAsCusip,announcedAsOriginalDatedDate,announcedAsOriginalIssueDate,announcedAsReopening,announcedAsSecurityDescription,announcedAsSecurityType,announcementDate,approximateAmountRemainingForCompetitiveBids,averageDiscountMargin,averageInvestmentRate,averagePrice,averageRate,averageYield,bidToCoverRatio,callable,calledDate,cashManagementBill,competitiveAuctionCloseDate,competitiveAuctionCloseDateYear,competitiveAuctionCloseTime,competitiveBidDecimals,competitiveBidExpression,competitiveDiscountMarginBidIncrements,competitiveRateBidIncrements,competitiveYieldBidIncrements,corpusCusip,cpiBaseReferencePeriod,currentlyOutstanding,cusip,datedDate"
   ],
-  "errors": []
+  "source": "TreasuryDirect"
  },
  "central_banks": {
   "Fed 보도자료": {
@@ -293,6 +202,20 @@
    "feed": "https://www.boj.or.jp/en/rss/whatsnew.xml",
    "items": [
     {
+     "time_utc": "2026-11-09T06:00:00Z",
+     "time_kst": "2026-11-09 15:00",
+     "title": "Amounts Outstanding in the Call Money Market (Oct.)",
+     "source": null,
+     "url": "http://www.boj.or.jp/en/statistics/market/short/call/call.xlsx"
+    },
+    {
+     "time_utc": "2026-11-09T05:00:00Z",
+     "time_kst": "2026-11-09 14:00",
+     "title": "Consumption Activity Index",
+     "source": null,
+     "url": "http://www.boj.or.jp/en/research/research_data/cai/index.htm"
+    },
+    {
      "time_utc": "2026-11-08T23:50:00Z",
      "time_kst": "2026-11-09 08:50",
      "title": "Market Operations by the Bank of Japan (Oct.)",
@@ -319,13 +242,6 @@
      "title": "Speech by Governor UEDA at the 2026 Michel Camdessus Central Banking Lecture, International Monetary Fund",
      "source": null,
      "url": "http://www.boj.or.jp/en/about/press/koen_2026/ko261107a.htm"
-    },
-    {
-     "time_utc": "2026-11-06T07:00:00Z",
-     "time_kst": "2026-11-06 16:00",
-     "title": "(IMES Newsletter) 2026 BoC - Philadelphia Fed - BOJ Joint Workshop",
-     "source": null,
-     "url": "http://www.boj.or.jp/en/about/release_2026/rel261106b.htm"
     }
    ],
    "latest_any": []
@@ -363,11 +279,53 @@
   "GOOGL": {
    "items": [
     {
+     "time_utc": "2026-11-09T07:13:09Z",
+     "time_kst": "2026-11-09 16:13",
+     "title": "Alphabet mulls Asia bond sale as AI concerns fuel global volatility - Business Standard",
+     "source": "Business Standard",
+     "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPVHhOZGtTMDFQSmNqUWlzS1ZmdEUyTmRtSE9tSzZvTGFpcVZyX2FOTjUyY3E3aG9UdWxCcnNQbmFGRENkdk9QdVAyb09FSFd0MEFvc21lbEkyMGtBWkNSc1RsUkJoNjRkc1ZLVnBpaXQ1bW1OWkpCQ010QmFWTmVNODQ2YUdfaWhFak50SHF3bnBoQkppOW5wSy1SOU9wZF9MQjZVWlNRMm9KZ2JGS1pnN0hEbWlSNVdRQVJPS3NhWlNOamhMYlRrbXdvOVBUZ2JNWkHSAdIBQVVfeXFMT1R4TmRrUzAxUEpjalFpc0tWZnRFMk5kbUhPbUs2b0xhaXFWcl9hTk41MmNxN2hvVHVsQnJzUG5hRkRDZHZPUHVQMm9PRUhXdDBBb3NtZWxJMjBrQVpDUnNUbFJCaDY0ZHNWS1ZwaWl0NW1tTlpKQkNNdEJhVk5lTTg0NmFHX2loRWpOdEhxd25waEJKaTlucEstUjlPcGRfTEI2VVpTUTJvSmdiRktaZzdIRG1pUjVXUUFST0tzYVpTTmpoTGJUa213bzlQVGdiTVpB?oc=5"
+    },
+    {
+     "time_utc": "2026-11-09T07:00:19Z",
+     "time_kst": "2026-11-09 16:00",
+     "title": "레딧 주가 29% 급락…구글 AI, 추가 타깃? - BeInCrypto",
+     "source": "BeInCrypto",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1TVUowZi16SnlSU3djUFVGX1N3RkQybHRqNnhiR0IzWS0tTGY2X21EeGVlNTdsb3FVS2VKdTNoaEwyVlhycGc1ZUw1ZGZsQ0hXVU5fWXc0LXhiY3N0UmRjS1ZFV0M5QzZHOTFqS3ZhZTA?oc=5"
+    },
+    {
+     "time_utc": "2026-11-09T06:52:02Z",
+     "time_kst": "2026-11-09 15:52",
+     "title": "알파벳, 퀄컴 주식 298만 주 신고…모듈러 인수 대가로 받아 - AI 매터스",
+     "source": "AI 매터스",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE03OTJULVpjN2JqVXk1NW5tbzBtbUdKbjdsbjhkbFRoVE5VSEtzNU5HNFhYWS00RHVSeF9DOWpibjNLUVZLMlpobWZsUXpjR3Q5Y1M3bg?oc=5"
+    },
+    {
+     "time_utc": "2026-11-09T01:17:17Z",
+     "time_kst": "2026-11-09 10:17",
+     "title": "AI로 날개 달 줄 알았던 구글, AI에 발목 잡혔다 - www.itworld.co.kr",
+     "source": "www.itworld.co.kr",
+     "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxOdEgxYzJLLVFiNHZ3OHA3RG90b3hoWGd4Z0pDbTdTbVhLaTAzaUs4aWs2V1BOTVlyVzN0RGNZZ0hyanVHOTd3UlQwNF9EdkdWci1DbnVaRU94cDF0U3dLY0pkX2pzcUh2SkRLRmZuWm1meHNIelpiaEtrWkpCVHVobEtvNzZTRE0xQWlSYVg2WWxEUUNkMW5YbVp6eUM0RG5ETm4tUUl5eDlvS1l6Q2JhOHF0UnRkNlpqX1FabWd2bXExRUZ2TXFWYXAyeEUwTTlVRVVnMUVBbzNsWDNfRzFSbmxYclFOTFAwcHhiSHV1T0d0WDdFdnlvbTJjYUxRelVQbDFfT1hlMXNNRG0wRV9IR3VnNEZvUnJiU01RQVB5TTdvRk9lZ0RLelF0QQ?oc=5"
+    },
+    {
+     "time_utc": "2026-11-08T23:30:00Z",
+     "time_kst": "2026-11-09 08:30",
+     "title": "유튜브 TV 시청 15.8% 역대 최고…GOOGLx는 주주권 없어 - 토큰포스트",
+     "source": "토큰포스트",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBoNG5qNkNtVDdNMG8wYWtLbXpxMEx0ZnMwa29QSmRCZ0xUQUk4LWRGRi01Mzh5QTVSczBDTy1aNHlyTWkxZkJreGhGNXk3YktiUjk1NWR2S2hUb1XSAVtBVV95cUxQaDRuajZDbVQ3TTBvMGFrS216cTBMdGZzMGtvUEpkQmdMVEFJOC1kRkYtNTM4eUE1UnMwQ08tWjR5ck1pMWZCa3hoRjV5N2JLYlI5NTVkdktoVG9V?oc=5"
+    },
+    {
      "time_utc": "2026-11-08T23:13:35Z",
      "time_kst": "2026-11-09 08:13",
      "title": "유튜브, 미국 TV 장악…주식 매수법 - BeInCrypto",
      "source": "BeInCrypto",
      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9mZDlqVkd5UTFVZ05HY25ydlZQVVRRZHduZi05UTI3ZUtWbVhXYW1BTy1hWmxHMHhsbldsdTBsZ1ZmTVhBa0NPV2lzeEwwaHRTaHJ6ZldnZ0pvRVQyRHdDTm5lVG9VSXJI?oc=5"
+    },
+    {
+     "time_utc": "2026-11-08T23:03:50Z",
+     "time_kst": "2026-11-09 08:03",
+     "title": "How to Buy YouTube Stock as It Dominates US Television - Yahoo Finance",
+     "source": "Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQNnZrc2dpWlRPME1vZmp0SWRfTWs0UkMxZUluUVJMRzl1ek9IY2lxa29HM0RWT1Zvek5TRkoxTmJLdGp1cDhNTXhYZUd4MUd5c3BDdzNFMnFDelJRNHdmejVqTGVEZjZKYTd4Y3BCcUp5QmhaLThqRXZxaE40TUk2a0FvVEtST1h0ZThJem5PQlBnWnNSY3ZPTE0zRQ?oc=5"
     },
     {
      "time_utc": "2026-11-08T22:05:00Z",
@@ -412,66 +370,52 @@
      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNLTNFZUc0REREV204cnNCOExTam1MMm9zcjFtOVR0VG51WUpPdlgwX2FrN1NqRFJ1d3FWVXhjdzVkT0p0NlRodkZjUFhJalVNaUtGaWhhdHRPZjF0dFo3a3k0YkZsZmdYcmNPdC0yUGRMbGhDc3VrbjFKSzhPbjhpdHFNaVdTdENSNm9CTw?oc=5"
     },
     {
+     "time_utc": "2026-11-08T18:50:48Z",
+     "time_kst": "2026-11-09 03:50",
+     "title": "Alphabet (GOOGL) Stock Price Forecast 2026: Cloud Hit $20B But FCF Collapsed — Buy or Short? - TradingKey",
+     "source": "TradingKey",
+     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQeXNna0FPVFVzVTBlNUM5NVVCNU9TLVhBazdFMVhkaFpBelZTMHBGV2ZqWTBwdFhwUVp3ajJLWXVaNTZURlFrRlhVQ010NDZzVTFhblZESDlvME0wWkhhemJBaXlyREZDLXhpckVRM3QxUlA2dW1idHlFQkEtT3FlbEdIb05UT1QtOFcySkRlc0pwRzc2Z25JQXE2YU8zS2JvLUh1ZUxEd3c5a2lETlItcXo3UEN6ZnA0c185SjNlN1J1QzI2VkE?oc=5"
+    },
+    {
      "time_utc": "2026-11-08T18:42:00Z",
      "time_kst": "2026-11-09 03:42",
      "title": "Alphabet SpaceX Stake at $68.6B as Google Pays $920M a Month - FinanceFeeds",
      "source": "FinanceFeeds",
      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOaGF5QnU5bjA1SWxnUEdSdFB1NGhCbUFyZE5tOGF6Z2w0YXY3QTU2OGw0WVlLbWxxbTdsV0FMZXdVU2J5ZDVxWTltX3NZMkFjLVBUYWRkOHcwQmJhaFZlRFNVdG9ybXpXMlhjdEZaZXZPX1hOTjJ1OEVBdE5ubm40LV9MZ0o5aHdueU9GN3ctdEFJTDc1cUlSSWNFNzZFcFdrOVhxVGNLUk5nVGd2bGc?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T18:40:43Z",
-     "time_kst": "2026-11-09 03:40",
-     "title": "A Stock Market Crash Could Be Life-Changing for Investors Who Have These 3 Things - The Globe and Mail",
-     "source": "The Globe and Mail",
-     "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQQzhucU83aHBVb29YRWZrNThUdldMM2xZcmlId2ZtWlBydTZ6SDNLTmNQY25YS2RjQmstYlB1UWU3NGZwRXBlNmx5c2ZrSnlHZVZVUmVkM3B2akZ6TG1vRnNTWHZDSzVOOWs5UVZtNVJhbktfR0JhZ3VDaG54SVdId21XdU1oWjA4WGxZUU1tYUZUSy1CdEVBa2l4bFFLTEJrRXllSTVDVWpPUUhKR2E0bXY1ZC1JWWlWT1FadXE1dGV1dElOM19oSmNuQzhBX25HQk40SVlBWFlYSm1ydFd1aFJtV3hlNnZDOHhON1prZ3FzWWtMLTRkM3h3?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T16:20:00Z",
-     "time_kst": "2026-11-09 01:20",
-     "title": "Anthropic’s $895 Billion AI Gamble Could Become Wall Street’s Next Debt Nightmare - 24/7 Wall St.",
-     "source": "24/7 Wall St.",
-     "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNbG9kZlo4VzNzM2ZiX1BHci1HV0RKWS1wc3ZfdFh6WUtYUlUzZHEwZ1Y2d3dyZlk1cUY1ZGFiUXBueWdhUFhrMDBhUzFqS1phb3RYdHpTR3dXVjBUOHpJSEpCUkFMZXdKRFozaUF1SDZDVWVIVUlrTUIwRXZmR2ZzUVNQMnNfdFByMWRmLTV5eXhXUEhxNHJDVWZPeXc5R1BnUE0wdlR3Z3c3NG1ZZU96VWk0cFA4bUhhM2FWMDNDSQ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T15:33:45Z",
-     "time_kst": "2026-11-09 00:33",
-     "title": "Josh Brown Warns Alphabet Stock “Could Go Down 50%.” Here’s Where He’d Buy It - TIKR.com",
-     "source": "TIKR.com",
-     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOWUVUSkFtS21USUFuMlk1THhQTWVjclpwcjdiYndkS3ZJNkdvYzlTOTR1b1h6VU9TbXd3TXBzaVVyand3cVZPaDRIc2VDekRONi1sUjN4RHVhZHlJdkNuOTU3NU5OZG9UNmpWM3ZvOWRHNUtOUEFNc0FST2V3cDJxbmJSM0lremVacXI1YTk5Y2RHNlFVVi1VeTU1LTFXZw?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T15:04:58Z",
-     "time_kst": "2026-11-09 00:04",
-     "title": "GOOGL Stock: Should You Buy the Best-Performing Magnificent Seven Stock Right Now? - TradingKey",
-     "source": "TradingKey",
-     "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPTmVpTE0zd1RjSFd3Q0tQRzFTdEh1dG9vdWNsYVZfb0pJTlYtZzV5bFNDckNXRWFMSzFyZ1hUVTVvVERNYnFSZnZVSHdjNXFTTk9MTElKVWJ3M2dwWnZXTFVtYVhXNktFcmZPQlRacXpsMnVseHJTcnNTM2d5c2FQdWZGOHd3MjZQS0VEZlBwSmFmaHZ4RTVLdzRtejZrSGtHTDRMVG9lV190UldWb0tmbF9reXdySWVPNnFpOHg0WVJPSjltMEltNHhuUFh2MkRSTGY4UDJlWk96eWhpTThmX3EwQ2RRQQ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T14:52:08Z",
-     "time_kst": "2026-11-08 23:52",
-     "title": "구글, 암호화폐 수탁 서비스 MPC 공개…1조 원대 벌어도 클라우드의 0.8% - 코인리더스",
-     "source": "코인리더스",
-     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9xTW9SbV95UldRblEwYVk5NDRjLWpsTHkwOGMyRGZmWHoxdVAyNHcwRkE4aDBLMnpsTklYUVcyVVNqT1k3SGpFQ2pB?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T11:25:20Z",
-     "time_kst": "2026-11-08 20:25",
-     "title": "Google Stock Investors Biggest Risk - The Globe and Mail",
-     "source": "The Globe and Mail",
-     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQdlpoN2xQWFZsU1IyNlNtMUNlRHJtRGRlN1F5LWNIY19Qa0xnTWFkVy1ETS1sbjBrN3pQcnNSUmtNNkxQN1RLV050Y2hjaGRvVWVGeTRoX1ctT3paR0FrUFpVX1V3U0RXQ2ZQaGl4YnJjZmdfWnVIWUhIY0V1X2ZnYXhhOHZiZWFRMlBTSE1PZ3VEWUFSYVNHZWJXUGhDRkxwYkg4ZlJHQzB3OVM2WjVTbVo3SWFVdzdCUTVjTQ?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T10:40:00Z",
-     "time_kst": "2026-11-08 19:40",
-     "title": "Google Stock Investors Biggest Risk - The Motley Fool",
-     "source": "The Motley Fool",
-     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOYkFqanltQlJvenA3UkE0ejM2d0sxckRqV1EtbDZEUWVqblZUSlZ0TEZTT2JLWHJSci0ySmR5UGFLRUJPN3NhNDFneEtBcFNLSWJPZHhEU2hYUVRTMXRPS1JpZTVDdXNaOXY1STMzQWRVOS1RdE41OGVzbGRjT3JKQlc5SDk?oc=5"
     }
    ],
    "errors": []
   },
   "NOK": {
    "items": [
+    {
+     "time_utc": "2026-11-09T07:14:14Z",
+     "time_kst": "2026-11-09 16:14",
+     "title": "Nokia stock at EUR 6.91, down 1.14% premarket - ad-hoc-news.de",
+     "source": "ad-hoc-news.de",
+     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQU1B3aURLT0JzLTYzMUh1SWxsbkg5cENSRDhpanVUdFYtNW9CSnI5a1FEVkNiYUVfMGFIdkI0VHFlVndGZk9TWmN5VVVJRjlfenpmNkVNTldJMzBCbkhnMW1iLTF5UExDZEVldE1YVVJOR3A3MHFnN3NNRGtTbXU5TkNDRm1rOGVmT2EycDd2cEpQbTZEUk5CTjJYaE9NWG5GLVJv?oc=5"
+    },
+    {
+     "time_utc": "2026-11-09T05:49:48Z",
+     "time_kst": "2026-11-09 14:49",
+     "title": "From Paper Mill to Mobile Giant – Nokia's Remarkable History - Metro Mode",
+     "source": "Metro Mode",
+     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQeHVTdjNUZ0M1a2o5MENyQndyOHVEQmhwUzYtUzVrZ3p1SEptdmVPR3BHVUppQ3djeUthSUxyVnZlaWc4STNrRUFtMDlsckNwZUNxb1I0dHh2cjA1bERvWkRsSEE1OHJHYWxHTE5RLV9iVVdzOUw5T0NWd3lPQzZmSmt0dW9kV2VVQjNQZjgwd2VUbFZK?oc=5"
+    },
+    {
+     "time_utc": "2026-11-09T04:41:34Z",
+     "time_kst": "2026-11-09 13:41",
+     "title": "Nokia Sees AI Swallowing 44% of Global Network Traffic by 2035 as Shares Gain 3.5% - ad-hoc-news.de",
+     "source": "ad-hoc-news.de",
+     "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNUXhabnJJbHpCdENhR2tFeGtRRDVBMldRZTAwckdvUHFzMFBHci0zS01XT3ByTUZ2Wm00X05UVzBBNWtUOGtMek1RVnlMSkZzaVg4M1N5V194SW5oT1hrVDNLZGhWMVdkT183bzF3a2pNV0RSWGpmVHNtSHlaMUZQZ2xTNkpsZFhlLUhydWlrV19pS3Y0Y1pKclA4QjgxN1FTN2NDWjRWSGdSbncxd2dsZjJoNWR3T21odE94dVFvZnRyWV9MNlJHa0lpYlU2UnZrd0FJT0Uta25NYmVCQm9BOHpobFVjYWM?oc=5"
+    },
+    {
+     "time_utc": "2026-11-09T04:20:37Z",
+     "time_kst": "2026-11-09 13:20",
+     "title": "EMS Stock Targets ₹8,500 Cr in Revenue; Here Are 6 Key Growth Drivers That Could Help It Achieve the Target - Trade Brains",
+     "source": "Trade Brains",
+     "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPMEF6LTRfcG1aeGd1R01LOEtfZUxkTnhiRHNucVJscVJvSWRrSDVpTnZleFhvRnlwNzhIcjBHRnRSUTNTOUNveHlGdjhKNFo1U2ppYTlUQndZXy0xOTA3R3FwZkNLX1Q5T01iSnRYWDJFemprVjJDRHVKZ1hiUWEtejJvN1laNVMzX0k4RFh1WWs0a0JHekhud3l2TjZZQjN3eW1mQlhFUmhSQzlFdTE1cEg3NmNEY1FjNGV0b0gzbEZPWVUwSF9iSjlUZi1SaTNwcDhLdU9DS1Q5TGVwTjZ1TUFLYVU0Zw?oc=5"
+    },
     {
      "time_utc": "2026-11-08T18:02:13Z",
      "time_kst": "2026-11-09 03:02",
@@ -508,13 +452,6 @@
      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQZDYzcWl4YW14NGdFTHBZX1lOc2hqYzNMRnhKZ0cxdWdpTWdRbDhNckFvNS1KaFVRZElfZHpRaU5rZXNUelU2OXdUc3NmQU81ZnE4NFZ1RE5QQzl4REN2MVBJWTJEOEt1elUzT2xEbzBkRWtEbTBQMDUyR3g1VWtNb0Job3BBdkw1a2xiMzdISkdhUUpMY1JMZzlBZDlLYVl5LVJ3b3g3dy1GcjIzN0dBUmhqc1gwTjAxVkJxblFpaEhncjBZVUNjVERuaXJjWkNJanY0QjdHMjdjVjBETEFBdlJVY095bVMyWFNfNmlRUEM4WUUyQlVQZ3pjREg?oc=5"
     },
     {
-     "time_utc": "2026-11-08T13:25:37Z",
-     "time_kst": "2026-11-08 22:25",
-     "title": "ASTS Stock Rises Overnight: CEO Says BlueBirds 8, 9 And 10 Are Fully Deployed — With 3 More Satellites Already At Cape - Stocktwits",
-     "source": "Stocktwits",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQUWtkM3JReTFydlBTMkZXZlI3SmtjQkxNR1hyd0NiVnR0M1V1allRZ2dpZVF1UjlzQWlrYnhvNGRzNmp2a2Zuai1CUmVSN2Y0Q2tFb2NHNkdPa1R0SXNrenR2X1Z0UmVLV21DMjEzTFlRUnBDUlVZODBnY0U1UDE3OWZVd0NFZkJKenBTeloxOFgycWJJNEVid1Z3VHRkRFRaaC1KWjQwNUhuejRDd253dnpIQ01OUQ?oc=5"
-    },
-    {
      "time_utc": "2026-11-08T13:16:23Z",
      "time_kst": "2026-11-08 22:16",
      "title": "RKLB Stock Slips Overnight: Rocket Lab Protests Blue Origin’s $700M NASA Mars Deal, Calls Review ‘Punitive’ - Stocktwits",
@@ -529,6 +466,20 @@
      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNMTBiSHZ0SWF2S0NqN3FadWRyNmdneVpNWjFoNExPMUhEZ2pTMUcyVkZORF8tbUtBemFyRERpUmpJU0J0TVFCeWZtWXVXRlVqQmZFUTNvMFg4TTNRdEJwS1F0ZkZZVUtkcjBCZzhYOF9kWWh4Y2trQmJieW4wZTRKYmxXOGt2ZzQwTkxn?oc=5"
     },
     {
+     "time_utc": "2026-11-08T07:13:08Z",
+     "time_kst": "2026-11-08 16:13",
+     "title": "Nokia, Rajant integrate Kinetic Mesh with edge AI platform - scanx.trade",
+     "source": "scanx.trade",
+     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPOG9IZkVxbm9Kdmg0XzM0d1FwZ1h6WDhQR1Rya0RHYUg0RlA1LVZwZHdfSU5xNXl2cE9xOVVJZTFicmZuc2NEdXZTS0VqQjBxUGhvVjZTSmNSU0FGSFJ5RzhYSE1SLVQ2Zmg0TjFyTUlUZEVTRWNEd3d5NkNxcXRCbzd2dnF6dFNMZ2pzSjRJdGFqNnBOdy03eE4wRmQ0OVNobjZvQXlfZjJZeS01QTM0?oc=5"
+    },
+    {
+     "time_utc": "2026-11-08T05:59:35Z",
+     "time_kst": "2026-11-08 14:59",
+     "title": "Telefonaktiebolaget LM Ericsson (publ) (ERIC) stock price, news, quote and history - Yahoo Finance UK",
+     "source": "Yahoo Finance UK",
+     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9NdEVNS2dwWWZlSVp0azFvQkc0bkFSNmkyUTVoTDVFd2hPUmFwSTlDU2Z4QzFKT080U28tUF9FcHhNNVNURlpkZW9zZlNMeDVCR3c?oc=5"
+    },
+    {
      "time_utc": "2026-11-08T04:41:59Z",
      "time_kst": "2026-11-08 13:41",
      "title": "Nokia Charts AI's Network Future From Japan to North Carolina as Shares Rebound 3.5% - ad-hoc-news.de",
@@ -541,44 +492,11 @@
      "title": "Nokia extends 5G partnership with Taiwan Mobile for AI networks - scanx.trade",
      "source": "scanx.trade",
      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPWDltZXY3MHZkRm9wcjR3NllWQUFsTXhxYVR6b1VoVjUtM2NNVUVCMWNhR0F5YjAzb1ZWc1ZrRGppOXp2SzBZSERrc0JPbDdXazZ0ZjBuSkpZdl9EWVlhNldfNWF0dXNvOVZicHRZY0UyYnRHT20xdkhFNTIwbjVHeG9ZOVVJcUxmUm9JNVhEYUF5bnN3NlRjSkZTZXdDWFdhVjlUVjV4ZGMtU0MtVDVhLWpaaXFsRnFpZWFyZA?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T01:53:00Z",
-     "time_kst": "2026-11-08 10:53",
-     "title": "Telefonaktiebolaget LM Ericsson (publ) (ERIC) stock price, news, quote and history - Yahoo Finance UK",
-     "source": "Yahoo Finance UK",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9NdEVNS2dwWWZlSVp0azFvQkc0bkFSNmkyUTVoTDVFd2hPUmFwSTlDU2Z4QzFKT080U28tUF9FcHhNNVNURlpkZW9zZlNMeDVCR3c?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T01:33:06Z",
-     "time_kst": "2026-11-08 10:33",
-     "title": "Nokia Starts a Critical Week After a 7% Selloff — Can Strong AI Orders Reverse the Trend? - TradingKey",
-     "source": "TradingKey",
-     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdElsOVVGaVZjUTYxTHdKWGViSWxlVmNpV0dJckpsRVB3emxHNHl4OHJpbm9Fb1ZqWHdNcFVqUWNXR3JaTXc2cGM1Ml9pMU1rMGxOQ2czd3QydFhxUTk3T3RLRFAyV0h5R0M4ZGIwV09aM2pDRF9mSGpQcGVVTnJ3THNqTlhMaERROWdYcHpJbldGRGZ6eFlaZmktMHBUaGNMQ0w0Vk82V1VJa0dyWlpDZFNTWlg1VzVj?oc=5"
-    },
-    {
-     "time_utc": "2026-11-08T00:20:28Z",
-     "time_kst": "2026-11-08 09:20",
-     "title": "Nokia Clinches Hotwire Network Deal and NVIDIA Agent Platform as Rosenblatt Trims Target but Keeps B - ad-hoc-news.de",
-     "source": "ad-hoc-news.de",
-     "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNMmUzbEJHT3V6c0J2MXE0STFwaXFRVHNBWXNJX2lMTXJwb3pxNnBmS05fRDhHWUtqcUxZVXdqeGVLRW5ocmhLMFJPXy1HQjNqRUZMU2tQaTNUMGtpLXEweWdaVzdkWDVHQUViTl9jcHJMdUw4ZjVJMVFuRVYtSTFDQnBjLU5UelpudnVqYTFZV0ZwR1NtaW5QcENUWkpvOWpveWxRZ3VsTzAxYmxPc2hSMG9NcXdvY19paHFUc0gtM012VU9SUEJKT2luZ0pUQkpCbFk5TnBPb1FDOWI0U3NqVnBTaE5kYi14amFDMU5CcFRhYW80QV8zV0kyanpmWms?oc=5"
-    },
-    {
-     "time_utc": "2026-11-07T15:20:32Z",
-     "time_kst": "2026-11-08 00:20",
-     "title": "Why Did OKLO, XE, SMR, NNE, UEC Stocks Tumble On Thursday? - Stocktwits",
-     "source": "Stocktwits",
-     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPSzNnLTZJVVM1UTQ4c21lSUVoMU0yTngyUXE1NU9UQXVpWi1KQWxGX0t5RC0zWTc0cDRMenZ4YmY3emZmbUpfdGsxa0lDY0ZKOHYyZkliRFdMNHZsbVphT2FJT2RRVTJ3clpqdVo4Q3VobjdvLWE4OWpwakVpbUx4cFVQMTZWY3NTMkpPVXpqR0k0RUlOQ0h3VG1aMGlGTGxPdXdLS1R3MTlBUE9PUjY4N1I2OW8zYk9W?oc=5"
-    },
-    {
-     "time_utc": "2026-11-07T14:49:02Z",
-     "time_kst": "2026-11-07 23:49",
-     "title": "MU, SNDK, WDC Stocks Rise Sharply For Second Day: Retail Feels Memory Pullback Is Over - Stocktwits",
-     "source": "Stocktwits",
-     "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQNFpTcW1mMFE3N2FXbE85VllxY0prTjd4Qmdwc3ZpODR1R0QxeUs4ckJRWlNRUGtrcnNjZVJvQXRuQ0VLa2xxVDc5SnRwNUUwYldpT0kxcF9LTUhYVS10a0ctSHZQbzVGNzdkV2t5ejkwT2txRTZjWERXejQtU1gzQl9oY0ZYYXV2YndJUHZnVDFCQWJnV1VTUlNzM3d2ME92Umd4OEtVclNTTmxIdlRRc3RrOEloUDlHMDN4Qm9XYk5nRlBwTmtrUGxETnIyZmo4b2hCeWFJZ3hCOHQxbWZj?oc=5"
     }
    ],
-   "errors": []
+   "errors": [
+    "노키아 주가: ValueError"
+   ]
   }
  }
 }
