@@ -78,7 +78,11 @@ def digest_posts(posts, chunk=40):
         content.append({"type": "text", "text": (
             "위 글 각각에 대해 빠짐없이 하나씩 답하라(no=글 번호). line=투자자 관점의 한 줄 요약(이미지 글이면 이미지 속 핵심 수치·내용 포함, 60~120자). "
             "importance: 3=시장·종목에 의미 있는 사실/분석, 2=알아둘 만한 소식, 1=잡담·공지·링크만·중복 재게시.")})
-        res = ask_json(DIGEST_MODEL, "투자 텔레그램 글을 한 줄로 요약·분류하는 보조자.", content, DIGEST_SCHEMA, max_tokens=16000)
+        try:
+            res = ask_json(DIGEST_MODEL, "투자 텔레그램 글을 한 줄로 요약·분류하는 보조자.", content, DIGEST_SCHEMA, max_tokens=16000)
+        except Exception as e:  # 이 묶음만 원문 앞부분으로 대체하고 나머지는 계속
+            print(f"[digest] 묶음 {k // chunk + 1} 요약 실패({e.__class__.__name__}) → 원문 앞부분으로 대체", flush=True)
+            continue
         for it in res["items"]:
             out[it["no"]] = it
     for p in posts:  # 혹시 응답에서 빠진 글은 원문 앞부분으로 채운다
@@ -92,7 +96,7 @@ def digest_posts(posts, chunk=40):
 def channel_brief(posts, digests, with_macro=False, covered=""):
     corpus = []
     for p in posts:
-        d = digests[p["no"]]
+        d = digests.get(p["no"]) or {"importance": 2, "line": (p["text"] or "(이미지 글)")[:120], "category": "기타"}
         body = p["text"] or "(텍스트 없음)"
         if p["photo"]:
             body += f"\n[이미지 내용 요약] {d['line']}"
@@ -120,8 +124,10 @@ def coverage_slide(posts, digests, decks):
     for d in decks:
         for s in d["slides"]:
             used.update(s.get("refs", []))
-    rest = [digests[p["no"]] for p in posts if p["no"] not in used and digests[p["no"]]["importance"] >= 2]
-    low = sum(1 for p in posts if p["no"] not in used and digests[p["no"]]["importance"] == 1)
+    dg = {p["no"]: digests.get(p["no"]) or {"no": p["no"], "category": "기타", "importance": 2,
+                                            "line": (p["text"] or "(이미지 글)")[:120].replace("\n", " ")} for p in posts}
+    rest = [dg[p["no"]] for p in posts if p["no"] not in used and dg[p["no"]]["importance"] >= 2]
+    low = sum(1 for p in posts if p["no"] not in used and dg[p["no"]]["importance"] == 1)
     if not rest:
         return None, low
     rest.sort(key=lambda d: (CATEGORIES.index(d["category"]), -d["importance"]))

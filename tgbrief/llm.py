@@ -11,10 +11,12 @@ import json
 import os
 import subprocess
 import tempfile
+import time
 
 ANALYSIS_MODEL = os.environ.get("TG_ANALYSIS_MODEL") or "claude-opus-5-5"
 SCREEN_MODEL = os.environ.get("TG_SCREEN_MODEL") or "claude-haiku-5-5"
 CALL_TIMEOUT = int(os.environ.get("TG_CALL_TIMEOUT", "1800"))
+RETRIES = int(os.environ.get("TG_RETRIES", "2"))  # 실패 시 재시도 횟수(일시 과부하·네트워크·시간 초과 대비)
 
 USAGE = {"input": 0, "output": 0, "calls": 0, "cost_usd": 0.0}
 
@@ -42,6 +44,20 @@ def _build_prompt(content, workdir):
 
 
 def ask_json(model, system, content, schema, effort="high", max_tokens=None, tools=("Read",), max_turns=None):
+    """실패하면 RETRIES회까지 30초·90초 간격으로 다시 시도한다."""
+    last = None
+    for attempt in range(RETRIES + 1):
+        try:
+            return _ask_once(model, system, content, schema, tools, max_turns)
+        except Exception as e:  # noqa: BLE001
+            last = e
+            if attempt < RETRIES:
+                print(f"[llm] 호출 실패({e.__class__.__name__}) → {30 * (attempt * 2 + 1)}초 후 재시도 {attempt + 1}/{RETRIES}", flush=True)
+                time.sleep(30 * (attempt * 2 + 1))
+    raise last
+
+
+def _ask_once(model, system, content, schema, tools, max_turns):
     """content(텍스트·이미지 블록 리스트)를 보내고 schema에 맞는 dict를 돌려준다.
     tools: 허용 도구(기본 Read만. 매크로 조사는 WebSearch·WebFetch 추가)."""
     env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN")}
