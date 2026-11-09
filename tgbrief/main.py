@@ -1,8 +1,8 @@
 """매일 실행되는 투자 브리프.
 
-두 단계로 나눠 Claude 사용 시간을 04:00~09:00 KST 안에 몰아 둔다(구독 5시간 한도가 09:00에 초기화되도록).
-- prep  (04:00 KST): 전날 07:00 ~ 당일 04:00 텔레그램 글 전수 요약 + 리포트 갤러리 선별·분석 → 암호화된 상태 파일로 저장
-- final (06:00 KST): 04:00 ~ 06:00 새 글 요약 + 매크로 수집·해설 + 브리프 작성 → 07:30 메일 → 읽음 처리
+두 단계로 나눠 Claude 사용 시간을 03:00~08:00 KST 안에 몰아 둔다(구독 5시간 한도가 08:00에 초기화되도록).
+- prep  (03:00 KST): 전날 07:00 ~ 당일 03:00 텔레그램 글 전수 요약 + 리포트 갤러리 선별·분석 → 암호화된 상태 파일로 저장
+- final (06:00 KST): 03:00 ~ 06:00 새 글 요약 + 매크로 수집·해설 + 브리프 작성 → 07:30 메일 → 읽음 처리
   (prep 상태 파일이 없으면 final이 전 구간을 혼자 처리)
 공개 저장소이므로 로그에는 건수·사용량만 남긴다.
 """
@@ -48,10 +48,10 @@ def window(now):
 
 
 def prep_window(now):
-    """prep 단계: 오늘 보낼 브리프의 구간 시작 ~ 오늘 TG_PREP_AT(기본 04:00)."""
+    """prep 단계: 오늘 보낼 브리프의 구간 시작 ~ 오늘 TG_PREP_AT(기본 03:00)."""
     sh, sm = _hhmm(os.environ.get("TG_WINDOW_START"), "07:00")
     eh, em = _hhmm(os.environ.get("TG_WINDOW_END"), "06:00")
-    ph, pm = _hhmm(os.environ.get("TG_PREP_AT"), "04:00")
+    ph, pm = _hhmm(os.environ.get("TG_PREP_AT"), "03:00")
     today = now.astimezone(KST)
     until = today.replace(hour=eh, minute=em, second=0, microsecond=0)
     since = (until - timedelta(days=1)).replace(hour=sh, minute=sm)
@@ -89,7 +89,7 @@ def _strip(posts):
     return [{**p, "photo": bool(p["photo"])} for p in posts]
 
 
-# ───────────────────────── prep (04:00) ─────────────────────────
+# ───────────────────────── prep (03:00) ─────────────────────────
 
 def run_prep():
     chs, report_ch = _channels()
@@ -137,7 +137,7 @@ def main():
     _, cut = prep_window(until)
     st = _load_state(since, cut) if (os.environ.get("TG_PHASE") or "final") == "final" else None
     start = cut if st else since
-    log(f"수집 구간: {since:%m-%d %H:%M} ~ {until:%m-%d %H:%M} KST" + (f" (04:00 이전 글은 prep 단계 결과 사용, 이번에 {start:%H:%M}~ 수집)" if st else ""))
+    log(f"수집 구간: {since:%m-%d %H:%M} ~ {until:%m-%d %H:%M} KST" + (f" ({cut:%H:%M} 이전 글은 prep 단계 결과 사용, 이번에 {start:%H:%M}~ 수집)" if st else ""))
 
     new_posts, report_posts, errors, read_marks, media_only, n_channels = asyncio.run(collect(chs, report_ch, start, until))
     prev_posts = st["posts"] if st else []
@@ -250,7 +250,7 @@ def main():
     date_label = f"텔레그램 {since:%m.%d %H:%M} ~ {until:%m.%d %H:%M} KST" + (f" · 미국장 {bd} 종가 기준" if bd else "")
     notes += [f"수집 대상: 구독 채널 {n_channels}개 + 리포트 갤러리",
               f"채널 글 {len(brief_posts)}건을 모두 읽고(이미지 {n_img}장 포함) 본문 또는 '그 밖에 알아둘 소식'에 반영했습니다."
-              + (f" (04:00 이전 {len(prev_posts)}건은 04:00에 1차로, 이후 {len(new_posts)}건은 06:00에 읽음)" if st else ""),
+              + (f" ({cut:%H:%M} 이전 {len(prev_posts)}건은 {cut:%H:%M}에 1차로, 이후 {len(new_posts)}건은 06:00에 읽음)" if st else ""),
               f"영상·투표 등 내용을 읽을 수 없는 글 {media_only}건은 제외됐습니다.",
               f"리포트 {n_groups}건 중 미국 증시 관련 {n_us}건 분석"]
     if data:
