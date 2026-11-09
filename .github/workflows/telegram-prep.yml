@@ -11,6 +11,11 @@ on:
     - cron: "0 15 * * *"    # 한국 00:00
     - cron: "30 16 * * *"   # 한국 01:30
   workflow_dispatch:
+    inputs:
+      auto:
+        description: "자동 실행(타이머가 호출) — 예약 실행과 같은 규칙 적용"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -28,7 +33,7 @@ jobs:
     steps:
       - name: Wait for 03:00 KST & skip duplicates
         id: gate
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || inputs.auto
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

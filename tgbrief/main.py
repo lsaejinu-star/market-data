@@ -129,7 +129,7 @@ def _load_state(since, cut):
 def _light_mode():
     """예약 실행이 Claude 마감 시각(기본 07:15 KST) 이후에 시작되면 True.
     이후에 Claude를 쓰면 08:00 이후까지 이어져 업무 시간 5시간 한도를 새로 시작시키기 때문."""
-    if os.environ.get("GITHUB_EVENT_NAME") != "schedule":
+    if os.environ.get("GITHUB_EVENT_NAME") != "schedule" and os.environ.get("TG_AUTO") != "1":
         return False
     h, m = _hhmm(os.environ.get("TG_CLAUDE_DEADLINE"), "07:15")
     now = datetime.now(KST)
