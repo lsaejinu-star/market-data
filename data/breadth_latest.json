@@ -1,19 +1,19 @@
 {
- "fetched_at_utc": "2026-11-07T00:55:47Z",
+ "fetched_at_utc": "2026-11-09T02:28:19Z",
  "constituents_source": "wikipedia",
  "notes": "S&P500 기준 시장폭. 신고가/신저가는 최근 252거래일 종가 기준. 거래소 전체 집계와 다름.",
  "last_date": "2026-11-06",
  "universe": "S&P500 구성종목",
  "count": 503,
- "advancers": 184,
- "decliners": 318,
+ "advancers": 185,
+ "decliners": 317,
  "unchanged": 1,
- "advance_pct": 36.6,
+ "advance_pct": 36.8,
  "new_52w_highs": 8,
  "new_52w_lows": 4,
- "pct_above_50dma": 62.4,
+ "pct_above_50dma": 62.8,
  "pct_above_200dma": 58.4,
- "equal_weight_avg_change_pct": -0.245,
+ "equal_weight_avg_change_pct": -0.235,
  "top_gainers": [
   {
    "symbol": "COHR",
@@ -154,7 +154,7 @@
    "symbol": "BKNG",
    "name": "Booking Holdings",
    "sector": "Consumer Discretionary",
-   "close": 160.66,
+   "close": 160.67,
    "change_pct": -4.77
   }
  ]
