@@ -420,7 +420,7 @@ MACRO_SCHEMA = _obj({
     "hero": _obj({"headline": S, "verdict": S, "points": SL, "watch": SL}),
     "notes": _obj({k: NOTE for k in ("indices", "breadth_sectors", "rates", "fx_commodities", "global", "macro_data", "ytd", "calendar")}),
     "issues": {"type": "array", "items": SLIDE},
-    "holdings": SLIDE,
+    "holdings": {"type": "array", "items": SLIDE},
     "flows": SLIDE,
     "verdict": SLIDE,
     "coverage": {"type": "array", "items": _obj({
@@ -483,7 +483,7 @@ def narrative(d, tg_lines):
 2) 연준: 인사 발언(누가·톤), CME FedWatch 다음 FOMC 확률, 국채 입찰 결과 의미, ECB·BOJ·BOE·한국은행 동향
 3) 환율(원/달러 서울 종가 기사 있으면 병기)·유가·금 변동 원인
 4) 무역·관세·정책·규제(반도체·AI·에너지), 지정학 — 며칠째 진행 중인지와 오늘 새로 추가된 전개 구분
-5) 보유주식: 구글(GOOGL, 광고·검색·클라우드·AI)과 노키아(NOK, 통신장비·5G/6G) 섹터·종목 뉴스와 주가 이유. 없으면 '새로운 소식 없음'
+5) 보유주식: 구글(GOOGL, 광고·검색·클라우드·AI)과 노키아(NOK, 통신장비·5G/6G) 각각 섹터·종목 뉴스와 주가 움직임의 이유. 위 헤드라인 중 주가에 영향을 줄 만한 것은 기사 원문을 열어 확인(제목만으로 단정 금지). 종목당 검색 3~5회 배정
 6) 서학개미 동향(예탁결제원 기반 순매수 상위·레버리지 ETF, 세이브로는 3~5영업일 시차 표기)
 7) 이번 주 주요 실적 발표 일정
 막히는 소스는 이유를 쓰지 말고 바로 다른 기사로. 못 찾으면 coverage에 '확인 실패(일반 사유)'.
@@ -494,7 +494,7 @@ def narrative(d, tg_lines):
   (indices=지수·M7, breadth_sectors=시장폭·섹터·테마(±2% 이상 테마는 원인), rates=금리·연준·입찰·FedWatch·해외 중앙은행, fx_commodities=환율·원자재·코인,
    global=아시아·유럽과 코스피 개장 영향, macro_data=물가·고용(24시간 내 새 발표 여부·예상치 대비), ytd=연초 대비 흐름, calendar=이번 주 실적 일정 포함 일정 해설)
 - issues: '시장을 움직인 이슈' 슬라이드 2~5장(정책·관세·지정학·기업 뉴스). 진행 중 이슈는 경과와 오늘의 새 전개를 구분
-- holdings: 보유주식(구글·노키아) 1장 — kpis에 두 종목 등락률, boxes로 종목별 섹터 뉴스/종목 뉴스
+- holdings: 보유주식 슬라이드 정확히 2장, 순서는 [구글, 노키아]. tag는 'HOLDING · GOOGL' / 'HOLDING · NOK'. 종목마다: kpis(종가·등락률과 관련 수치 2~4개), boxes 3개(① 종목 뉴스: 실적·제품·계약·규제 등 최근 24시간 주요 내용 ② 섹터·경쟁사 뉴스 ③ 주가 움직임의 이유와 주시할 점), deep 3~5문단(주요 뉴스별로 무슨 일인지·왜 중요한지·주가와의 연결, 기사 출처명 괄호), so_what. 새 소식이 적은 날은 짧게 쓰고 '새로운 소식 없음'을 명시
 - flows: 서학개미 동향 1장
 - verdict: 종합 판단 1장 — deep 4~6문단: (a) 리스크온/오프(VIX·금리·달러·금·소형주·크레딧, 엇갈리면 그 의미) (b) 주도 섹터와 자금 이탈 (c) 향후 심리와 주시 변수 (d) 서학개미 시사점(환율·시간대·세금·환전)
 - coverage: 지수/시장폭/섹터/금리·연준/FedWatch/국채입찰/해외중앙은행/환율/원자재/물가·고용/무역·정책/지정학/보유주식/서학개미/글로벌/크레딧·코인/일정 각각.
@@ -513,13 +513,25 @@ def narrative(d, tg_lines):
                     tools=("WebSearch", "WebFetch"), max_turns=60)
 
 
+def holding_slides(nar, d):
+    """보유종목 슬라이드(구글·노키아 각 1장)에 수집한 헤드라인 표를 붙인다."""
+    news = (d.get("news_latest") or {}).get("holdings_news") or {}
+    out = []
+    for s, tk in zip(nar.get("holdings") or [], ("GOOGL", "NOK")):
+        items = (news.get(tk) or {}).get("items") or []
+        if items and not s["table_rows"]:
+            s["table_headers"] = ["시각(KST)", "매체", "수집된 헤드라인(최근 36시간)"]
+            s["table_rows"] = [[i["time_kst"][5:], i.get("source") or "", i["title"].rsplit(" - ", 1)[0]] for i in items[:8]]
+        out.append(s)
+    return out
+
+
 def covered_topics(nar):
     """텔레그램 브리프에 넘길 '이미 다룬 주제' 목록."""
     L = [f"- {x['title']}: {x['key']}" for x in nar.get("issues", [])]
     L += [f"- {k}: {v['key']}" for k, v in (nar.get("notes") or {}).items() if v.get("key")]
-    for s in ("holdings", "flows"):
-        if nar.get(s):
-            L.append(f"- {nar[s]['title']}: {nar[s]['key']}")
+    for s in (nar.get("holdings") or []) + ([nar["flows"]] if nar.get("flows") else []):
+        L.append(f"- {s['title']}: {s['key']}")
     return "\n".join(L)
 
 
