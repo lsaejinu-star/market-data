@@ -19,10 +19,14 @@ on:
         description: "시험 모드(메일 제목에 [TEST], 발송 시각 대기·텔레그램 읽음 처리 안 함)"
         type: boolean
         default: true
+      auto:
+        description: "자동 실행(타이머가 호출) — 예약 실행과 같은 규칙 적용"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
-  actions: read
+  actions: write
 
 concurrency:
   group: telegram-report
@@ -36,13 +40,17 @@ jobs:
     steps:
       - name: Wait for 06:00 KST & skip if today's brief was already sent
         id: dup
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || inputs.auto
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           now=$(date +%s)
           target=$(date -d "$(TZ=Asia/Seoul date +%Y-%m-%d) 06:00 +0900" +%s)
           wait=$((target - now))
+          if [ "$wait" -lt -10800 ]; then
+            echo "09:00 KST 이후에 시작됨 → 오늘 자동 발송은 건너뜀(업무 시간 Claude 한도 보호)"
+            echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
           if [ "$wait" -gt 18000 ]; then
             echo "06:00 KST까지 5시간 넘게 남음 → 이번 실행은 건너뜀(다음 예약 실행이 처리)"
             echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0
@@ -104,6 +112,7 @@ jobs:
           TG_PHASE: final
           TG_TEST: ${{ (github.event_name == 'workflow_dispatch' && inputs.test) && '1' || '0' }}
           TG_CLAUDE_DEADLINE: "07:15"
+          TG_AUTO: ${{ (github.event_name == 'schedule' || inputs.auto) && '1' || '0' }}
           TG_STATE: ${{ runner.temp }}/prep_state.json
           TG_PREP_AT: "03:00"
           TG_API_ID: ${{ secrets.TG_API_ID }}
@@ -124,6 +133,12 @@ jobs:
         run: |
           set -o pipefail
           python -m tgbrief.main 2>&1 | tee "$RUNNER_TEMP/brief.log"
+
+      - name: Re-arm next-day timer
+        if: always() && !(github.event_name == 'workflow_dispatch' && inputs.test)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run brief-timer.yml -R "$GITHUB_REPOSITORY" -f stage=prep || true
 
       - name: Notify on failure
         if: failure() && steps.dup.outputs.skip != 'true'
