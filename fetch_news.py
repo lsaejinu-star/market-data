@@ -30,7 +30,7 @@ CB_HOURS = 72  # 주말을 넘겨도 놓치지 않도록 3일치
 # 보유주식 뉴스 (구글 뉴스 RSS)
 HOLDINGS = {
     "GOOGL": ["Alphabet Google stock", "구글 알파벳 주가"],
-    "NOK": ["Nokia stock", "노키아 주가"],
+    "NOK": ["Nokia stock", "노키아 주가", "Nokia optical networking", "optical networking AI data center Ciena Lumentum Coherent"],
 }
 NEWS_HOURS = 36
 NEWS_MAX = 15
