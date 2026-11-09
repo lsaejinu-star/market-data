@@ -1,13 +1,19 @@
-"""매일 실행: 텔레그램 수집(전날 07:00~당일 06:00 KST) + 매크로 수집 → 전수 요약·분석·매크로 해설 → 하나의 리포트 → 07:30에 메일 → 읽음 처리.
-공개 저장소이므로 로그에는 건수·사용량만 남긴다."""
+"""매일 실행되는 투자 브리프.
+
+두 단계로 나눠 Claude 사용 시간을 04:00~09:00 KST 안에 몰아 둔다(구독 5시간 한도가 09:00에 초기화되도록).
+- prep  (04:00 KST): 전날 07:00 ~ 당일 04:00 텔레그램 글 전수 요약 + 리포트 갤러리 선별·분석 → 암호화된 상태 파일로 저장
+- final (06:00 KST): 04:00 ~ 06:00 새 글 요약 + 매크로 수집·해설 + 브리프 작성 → 07:30 메일 → 읽음 처리
+  (prep 상태 파일이 없으면 final이 전 구간을 혼자 처리)
+공개 저장소이므로 로그에는 건수·사용량만 남긴다.
+"""
 
 import asyncio
+import json
 import os
 import time
 import traceback
-from datetime import datetime, timedelta
-
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timedelta
 
 from . import analyze, llm, macro, mailer, render
 from .collect import KST, collect, mark_read
@@ -17,6 +23,7 @@ from .collect import KST, collect, mark_read
 DEFAULT_CHANNELS = ("auto,bornlupin,hana_us_stock,d_ticker,FastStockNewsUSA,insidertracking,grmtstudy,"
                     "ai_masters_community,FastLandNews,Onionfarmer,bzcftel,MacroAllocation,harveyspecterMike,"
                     "Macrojunglemicrolens")
+STATE = os.environ.get("TG_STATE") or os.path.join(os.environ.get("RUNNER_TEMP", "/tmp"), "prep_state.json")
 
 
 def log(msg):
@@ -40,6 +47,17 @@ def window(now):
     return since, until
 
 
+def prep_window(now):
+    """prep 단계: 오늘 보낼 브리프의 구간 시작 ~ 오늘 TG_PREP_AT(기본 04:00)."""
+    sh, sm = _hhmm(os.environ.get("TG_WINDOW_START"), "07:00")
+    eh, em = _hhmm(os.environ.get("TG_WINDOW_END"), "06:00")
+    ph, pm = _hhmm(os.environ.get("TG_PREP_AT"), "04:00")
+    today = now.astimezone(KST)
+    until = today.replace(hour=eh, minute=em, second=0, microsecond=0)
+    since = (until - timedelta(days=1)).replace(hour=sh, minute=sm)
+    return since, until.replace(hour=ph, minute=pm)
+
+
 def wait_until_send_time(now_fn=lambda: datetime.now(KST)):
     sh, sm = _hhmm(os.environ.get("TG_SEND_AT"), "07:30")
     target = now_fn().replace(hour=sh, minute=sm, second=0, microsecond=0)
@@ -49,67 +67,109 @@ def wait_until_send_time(now_fn=lambda: datetime.now(KST)):
         time.sleep(wait)
 
 
-def main():
-    channels = [c.strip() for c in (os.environ.get("TG_CHANNELS") or DEFAULT_CHANNELS).split(",") if c.strip()]
-    report_ch = (os.environ.get("TG_REPORT_CHANNEL") or "report_figure_by_offset").strip()
-    since, until = window(datetime.now(KST))
-    log(f"수집 구간: {since:%m-%d %H:%M} ~ {until:%m-%d %H:%M} KST")
+def _channels():
+    chs = [c.strip() for c in (os.environ.get("TG_CHANNELS") or DEFAULT_CHANNELS).split(",") if c.strip()]
+    return chs, (os.environ.get("TG_REPORT_CHANNEL") or "report_figure_by_offset").strip()
 
-    brief_posts, report_posts, errors, read_marks, media_only, n_channels = asyncio.run(collect(channels, report_ch, since, until))
+
+def _report_analyses(report_posts, cap):
+    """리포트 갤러리: 묶기 → 미장 선별 → 분석. 반환 (분석 목록, 전체 수, 미장 수)."""
+    if not report_posts:
+        return [], 0, 0
+    groups = analyze._group_reports(report_posts)
+    us = analyze.screen_reports(groups)
+    n_us = len(us)
+    if n_us > cap:
+        us = us[-cap:]
+    return (analyze.analyze_reports(us) if us else []), len(groups), n_us
+
+
+def _strip(posts):
+    """상태 파일용: 이미지 바이트는 버리고 '이미지 있음' 표시만 남긴다(요약에 이미 반영됨)."""
+    return [{**p, "photo": bool(p["photo"])} for p in posts]
+
+
+# ───────────────────────── prep (04:00) ─────────────────────────
+
+def run_prep():
+    chs, report_ch = _channels()
+    since, cut = prep_window(datetime.now(KST))
+    log(f"[prep] 1차 수집 구간: {since:%m-%d %H:%M} ~ {cut:%m-%d %H:%M} KST")
+    posts, reports, errors, marks, media_only, n_ch = asyncio.run(collect(chs, report_ch, since, cut))
+    log(f"[prep] 채널글 {len(posts)}건, 리포트 이미지글 {len(reports)}건, 오류 {len(errors)}건")
+    cap = int(os.environ.get("TG_MAX_REPORTS") or 25)
+    with ThreadPoolExecutor(max_workers=2) as ex:
+        f_rep = ex.submit(_report_analyses, reports, cap)
+        digests = analyze.digest_posts(posts) if posts else {}
+        analyses, n_groups, n_us = f_rep.result()
+    log(f"[prep] 전수 요약 {len(digests)}/{len(posts)}건, 리포트 {n_groups}건 중 미장 {n_us}건 분석 {len(analyses)}건")
+    state = {"since": since.isoformat(), "cut": cut.isoformat(), "posts": _strip(posts),
+             "digests": {str(k): v for k, v in digests.items()}, "analyses": analyses,
+             "n_groups": n_groups, "n_us": n_us, "read_marks": {str(k): v for k, v in marks.items()},
+             "media_only": media_only, "n_channels": n_ch, "errors": errors}
+    with open(STATE, "w", encoding="utf-8") as fp:
+        json.dump(state, fp, ensure_ascii=False)
+    log(f"[prep] 상태 저장 완료 · Claude 호출 {llm.USAGE['calls']}회, 입력 {llm.USAGE['input']:,} / 출력 {llm.USAGE['output']:,} 토큰")
+
+
+def _load_state(since, cut):
+    try:
+        with open(STATE, encoding="utf-8") as fp:
+            st = json.load(fp)
+    except (OSError, ValueError):
+        return None
+    if st.get("since") != since.isoformat() or st.get("cut") != cut.isoformat():
+        log("prep 상태 파일의 구간이 오늘과 달라 사용하지 않음")
+        return None
+    st["digests"] = {int(k): v for k, v in st["digests"].items()}
+    st["read_marks"] = {int(k): v for k, v in st["read_marks"].items()}
+    return st
+
+
+# ───────────────────────── final (06:00) ─────────────────────────
+
+def main():
+    if (os.environ.get("TG_PHASE") or "final") == "prep":
+        return run_prep()
+
+    chs, report_ch = _channels()
+    since, until = window(datetime.now(KST))
+    _, cut = prep_window(until)
+    st = _load_state(since, cut) if (os.environ.get("TG_PHASE") or "final") == "final" else None
+    start = cut if st else since
+    log(f"수집 구간: {since:%m-%d %H:%M} ~ {until:%m-%d %H:%M} KST" + (f" (04:00 이전 글은 prep 단계 결과 사용, 이번에 {start:%H:%M}~ 수집)" if st else ""))
+
+    new_posts, report_posts, errors, read_marks, media_only, n_channels = asyncio.run(collect(chs, report_ch, start, until))
+    prev_posts = st["posts"] if st else []
+    for i, p in enumerate(new_posts, len(prev_posts) + 1):  # 번호를 이어 붙인다
+        p["no"] = i
+    brief_posts = prev_posts + new_posts
+    if st:
+        for cid, mid in st["read_marks"].items():
+            read_marks[cid] = max(read_marks.get(cid, 0), mid)
+        media_only += st["media_only"]
+        errors = sorted(set(errors) | set(st["errors"]))
     n_img = sum(1 for p in brief_posts if p["photo"])
-    log(f"수집: 구독 채널 {n_channels}개, 채널글 {len(brief_posts)}건(이미지 {n_img}장, 영상·투표 등 {media_only}건), 리포트 이미지글 {len(report_posts)}건, 오류 {len(errors)}건")
+    log(f"수집: 구독 채널 {n_channels}개, 채널글 {len(brief_posts)}건(이번 {len(new_posts)}건, 이미지 {n_img}장, 영상·투표 등 {media_only}건), "
+        f"리포트 이미지글 이번 {len(report_posts)}건, 오류 {len(errors)}건")
 
     notes = []
-    n_us = n_groups = 0
+    cap = int(os.environ.get("TG_MAX_REPORTS") or 25)
     macro_on = (os.environ.get("TG_MACRO") or "1") == "1"
     ex = ThreadPoolExecutor(max_workers=4)
     # 매크로 데이터는 미국 종가가 반영되도록 수집 마감 10분 뒤부터 별도 스레드로 수집
     fut_data = ex.submit(macro.collect, until + timedelta(minutes=10)) if macro_on else None
+    fut_rep = ex.submit(_report_analyses, report_posts, cap)
 
-    # 1) 구독 채널 전수 요약 (매크로 해설에도 참고로 전달)
-    digests = {}
-    if brief_posts:
+    # 1) 구독 채널 전수 요약 (새 글만, prep 결과와 합침)
+    digests = dict(st["digests"]) if st else {}
+    if new_posts:
         try:
-            digests = analyze.digest_posts(brief_posts)
-            log(f"전수 요약: {len(digests)}/{len(brief_posts)}건")
+            digests.update(analyze.digest_posts(new_posts))
         except Exception:
             log("전수 요약 실패: " + traceback.format_exc().splitlines()[-1])
+    log(f"전수 요약: {len(digests)}/{len(brief_posts)}건")
     tg_lines = "\n".join(f"- [{d['category']}] {d['line']}" for d in digests.values() if d["importance"] >= 2)[:20000]
-
-    def reports_job():
-        nonlocal n_us, n_groups
-        groups = analyze._group_reports(report_posts)
-        n_groups = len(groups)
-        us = analyze.screen_reports(groups)
-        n_us = len(us)
-        cap = int(os.environ.get("TG_MAX_REPORTS") or 25)  # 구독 사용량 보호용 일일 상한
-        if n_us > cap:
-            notes.append(f"미장 관련 리포트 {n_us}건 중 최신 {cap}건만 분석했습니다(일일 상한).")
-            us = us[-cap:]
-        log(f"리포트 {n_groups}건 중 미장 관련 {n_us}건, 분석 {len(us)}건")
-        return analyze.synthesize_reports(analyze.analyze_reports(us)) if us else None
-
-    def brief_job():
-        deck = analyze.channel_brief(brief_posts, digests, with_macro=macro_on)
-        extra, low = analyze.coverage_slide(brief_posts, digests, [deck])
-        if extra:
-            deck["slides"].insert(-1, extra)  # 체크리스트 앞에 배치
-        log(f"브리프 슬라이드 {len(deck['slides'])}장, 본문 외 소식 {len(extra['table_rows']) if extra else 0}건, 잡담·중복 {low}건")
-        return deck
-
-    fut_rep = ex.submit(reports_job) if report_posts else None
-    fut_brief = ex.submit(brief_job) if brief_posts and digests else None
-
-    data = nar = None
-    if fut_data:
-        try:
-            data = fut_data.result()
-            log(f"매크로 데이터 수집 완료: 기준 거래일 {macro.base_date(data)}, 일정 {len(data.get('calendar', []))}건, 국채 {len(data.get('treasury', []))}일치")
-            nar = macro.narrative(data, tg_lines)
-            log(f"매크로 해설: 이슈 {len(nar['issues'])}장, 커버리지 {len(nar['coverage'])}항목")
-        except Exception:
-            log("매크로 파트 실패: " + traceback.format_exc().splitlines()[-1])
-            notes.append("매크로 해설 생성 중 오류가 발생해 수치 위주로만 실었습니다.")
 
     def result(fut, label):
         if not fut:
@@ -121,11 +181,45 @@ def main():
             notes.append(f"{label} 중 오류가 발생해 이번 메일에서 제외됐습니다.")
             return None
 
-    rep_deck = result(fut_rep, "리포트 갤러리 분석")
-    tg_deck = result(fut_brief, "채널 브리프 생성")
+    # 2) 리포트 갤러리: prep 분석 + 새 분석 → 종합 (매크로와 병렬)
+    new_rep = result(fut_rep, "리포트 갤러리 분석") or ([], 0, 0)
+    analyses = (st["analyses"] if st else []) + new_rep[0]
+    n_groups = (st["n_groups"] if st else 0) + new_rep[1]
+    n_us = (st["n_us"] if st else 0) + new_rep[2]
+    if n_us > len(analyses):
+        notes.append(f"미장 관련 리포트 {n_us}건 중 {len(analyses)}건만 분석했습니다(일일 상한).")
+    log(f"리포트 {n_groups}건 중 미장 관련 {n_us}건, 분석 {len(analyses)}건")
+    fut_syn = ex.submit(analyze.synthesize_reports, analyses) if analyses else None
+
+    # 3) 매크로: 수집 → 해설(웹 검색)
+    data = nar = None
+    if fut_data:
+        try:
+            data = fut_data.result()
+            log(f"매크로 데이터 수집 완료: 기준 거래일 {macro.base_date(data)}, 일정 {len(data.get('calendar', []))}건, 국채 {len(data.get('treasury', []))}일치")
+            nar = macro.narrative(data, tg_lines)
+            log(f"매크로 해설: 이슈 {len(nar['issues'])}장, 커버리지 {len(nar['coverage'])}항목")
+        except Exception:
+            log("매크로 파트 실패: " + traceback.format_exc().splitlines()[-1])
+            notes.append("매크로 해설 생성 중 오류가 발생해 수치 위주로만 실었습니다.")
+
+    # 4) 텔레그램 아이디어 브리프 — 매크로에서 이미 다룬 주제는 반복하지 않도록 목록을 넘긴다
+    covered = macro.covered_topics(nar) if nar else ""
+    tg_deck = None
+    if brief_posts and digests:
+        try:
+            tg_deck = analyze.channel_brief(brief_posts, digests, with_macro=macro_on, covered=covered)
+            extra, low = analyze.coverage_slide(brief_posts, digests, [tg_deck])
+            if extra:
+                tg_deck["slides"].append(extra)
+            log(f"브리프 슬라이드 {len(tg_deck['slides'])}장, 본문 외 소식 {len(extra['table_rows']) if extra else 0}건, 잡담·중복 {low}건")
+        except Exception:
+            log("채널 브리프 생성 실패: " + traceback.format_exc().splitlines()[-1])
+            notes.append("채널 브리프 생성 중 오류가 발생해 이번 메일에서 제외됐습니다.")
+    rep_deck = result(fut_syn, "리포트 갤러리 종합")
     ex.shutdown(wait=False)
 
-    # 2) 하나의 흐름으로 조립: 핵심 → 시장 수치·해설 → 투자 아이디어 → 보유주식·서학개미 → 리포트 → 일정·종합판단
+    # 5) 하나의 흐름으로 조립: 핵심 → 시장 수치·해설 → 투자 아이디어 → 보유주식·서학개미 → 리포트 → 일정·종합판단
     sections = []
     bd = macro.base_date(data) if data else ""
     if nar:
@@ -148,7 +242,8 @@ def main():
 
     date_label = f"텔레그램 {since:%m.%d %H:%M} ~ {until:%m.%d %H:%M} KST" + (f" · 미국장 {bd} 종가 기준" if bd else "")
     notes += [f"수집 대상: 구독 채널 {n_channels}개 + 리포트 갤러리",
-              f"채널 글 {len(brief_posts)}건을 모두 읽고(이미지 {n_img}장 포함) 본문 또는 '그 밖에 알아둘 소식'에 반영했습니다.",
+              f"채널 글 {len(brief_posts)}건을 모두 읽고(이미지 {n_img}장 포함) 본문 또는 '그 밖에 알아둘 소식'에 반영했습니다."
+              + (f" (04:00 이전 {len(prev_posts)}건은 04:00에 1차로, 이후 {len(new_posts)}건은 06:00에 읽음)" if st else ""),
               f"영상·투표 등 내용을 읽을 수 없는 글 {media_only}건은 제외됐습니다.",
               f"리포트 {n_groups}건 중 미국 증시 관련 {n_us}건 분석"]
     if data:
@@ -166,7 +261,7 @@ def main():
     fname = f"invest_brief_{until:%Y%m%d}.html"
     with open(os.path.join(os.environ.get("RUNNER_TEMP", "/tmp"), fname), "w", encoding="utf-8") as fp:
         fp.write(html_doc)
-    log(f"Claude 사용량(구독): 호출 {llm.USAGE['calls']}회, 입력 {llm.USAGE['input']:,} / 출력 {llm.USAGE['output']:,} 토큰"
+    log(f"Claude 사용량(구독, 이번 단계): 호출 {llm.USAGE['calls']}회, 입력 {llm.USAGE['input']:,} / 출력 {llm.USAGE['output']:,} 토큰"
         f" · API 환산 참고치 ${llm.USAGE['cost_usd']:.2f} (구독 방식이라 별도 청구 없음)")
 
     wait_until_send_time()
