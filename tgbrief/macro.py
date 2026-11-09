@@ -373,12 +373,25 @@ def narrative(d, tg_lines):
 - flows: 서학개미 동향 1장
 - verdict: 종합 판단 1장 — deep 4~6문단: (a) 리스크온/오프(VIX·금리·달러·금·소형주·크레딧, 엇갈리면 그 의미) (b) 주도 섹터와 자금 이탈 (c) 향후 심리와 주시 변수 (d) 서학개미 시사점(환율·시간대·세금·환전)
 - coverage: 지수/시장폭/섹터/금리·연준/FedWatch/국채입찰/해외중앙은행/환율/원자재/물가·고용/무역·정책/지정학/보유주식/서학개미/글로벌/크레딧·코인/일정 각각 status(확인 완료·부분 확인·확인함-해당없음·확인함(구조적 지연)·확인 실패(사유))와 source
+- 중복 금지: notes·issues·holdings·flows·verdict 사이에 같은 사건·수치 설명을 되풀이하지 말 것. 한 사건은 가장 관련 깊은 한 곳에서만
+  자세히 쓰고 다른 곳에서는 생략(필요하면 '앞 슬라이드 참고' 수준의 한 줄). 예: 유가 급등의 원인은 fx_commodities 또는 해당 issues 중 한 곳에만.
+  verdict는 앞 내용을 다시 나열하지 말고 종합 해석과 판단에 집중. issues는 2~4장으로, 슬라이드를 늘리기보다 중요한 이슈의 deep를 4~6문단으로 깊게.
 - sources 필드에는 실제 참고한 매체명. 펀더멘털 심층분석·종목 추천은 하지 말 것. 한국어.
 
 {STYLE_RULES}"""
     return ask_json(ANALYSIS_MODEL, "미국 증시 매크로·뉴스를 조사해 한국 개인투자자용 데일리 브리핑을 쓰는 시니어 매크로 애널리스트.",
                     [{"type": "text", "text": prompt}], MACRO_SCHEMA, max_tokens=64000,
                     tools=("WebSearch", "WebFetch"), max_turns=60)
+
+
+def covered_topics(nar):
+    """텔레그램 브리프에 넘길 '이미 다룬 주제' 목록."""
+    L = [f"- {x['title']}: {x['key']}" for x in nar.get("issues", [])]
+    L += [f"- {k}: {v['key']}" for k, v in (nar.get("notes") or {}).items() if v.get("key")]
+    for s in ("holdings", "flows"):
+        if nar.get(s):
+            L.append(f"- {nar[s]['title']}: {nar[s]['key']}")
+    return "\n".join(L)
 
 
 def merge(slides, notes):

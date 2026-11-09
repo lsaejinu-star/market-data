@@ -2,6 +2,7 @@ name: telegram-report
 
 # 매일: 전날 07:00~당일 06:00 KST 구독 채널 + 리포트 갤러리 수집, 미국장 시세·금리·지표·일정 수집
 # → Claude(구독, Claude Code CLI) 분석·매크로 해설(웹 검색) → 하나의 슬라이드형 HTML을 07:30에 메일 발송
+# 04:00 이전 글은 1단계(telegram-prep.yml)가 04:00에 미리 요약해 둔 결과를 이어받는다(Claude 5시간 한도가 09:00에 초기화되도록).
 # 공개 저장소이므로 아무것도 커밋/업로드하지 않고, 로그에는 건수·사용량만 남긴다.
 
 on:
@@ -74,9 +75,30 @@ jobs:
           npm install -g @anthropic-ai/claude-code
           claude --version
 
+      - name: Load 04:00 prep state
+        if: steps.dup.outputs.skip != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+        run: |
+          since=$(date -u -d "$(TZ=Asia/Seoul date +%Y-%m-%d) 00:00 +0900" +%Y-%m-%dT%H:%M:%SZ)
+          ids=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-prep.yml --status success -L 10 \
+                  --json databaseId,updatedAt --jq ".[] | select(.updatedAt >= \"$since\") | .databaseId")
+          for id in $ids; do
+            if gh run download "$id" -R "$GITHUB_REPOSITORY" -n prep-state -D "$RUNNER_TEMP/prep" 2>/dev/null; then
+              openssl enc -d -aes-256-cbc -pbkdf2 -in "$RUNNER_TEMP/prep/prep_state.enc" -out "$RUNNER_TEMP/prep_state.json" -pass env:TG_SESSION \
+                && echo "1단계 결과 사용 (run $id)" && break
+            fi
+          done
+          [ -f "$RUNNER_TEMP/prep_state.json" ] || echo "1단계 결과 없음 → 전 구간을 이번에 처리"
+
       - name: Build & send brief
         if: steps.dup.outputs.skip != 'true'
         env:
+          TG_PHASE: final
+          TG_STATE: ${{ runner.temp }}/prep_state.json
+          TG_PREP_AT: "04:00"
           TG_API_ID: ${{ secrets.TG_API_ID }}
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
           TG_SESSION: ${{ secrets.TG_SESSION }}

@@ -1,0 +1,101 @@
+name: telegram-prep
+
+# 투자 브리프 1단계(04:00 KST): 전날 07:00 ~ 당일 04:00 텔레그램 글 전수 요약 + 리포트 갤러리 분석.
+# Claude 구독 5시간 한도가 04:00에 시작해 09:00에 초기화되도록, Claude 사용을 04:00부터 시작한다.
+# 결과는 TG_SESSION으로 암호화해 1일 보관 아티팩트로 넘기고, 2단계(telegram-report, 06:00)가 이어받는다.
+
+on:
+  # GitHub 예약 실행은 3~6시간 늦게 시작되는 일이 잦아 미리 여러 번 걸어 두고 04:00까지 기다린다.
+  schedule:
+    - cron: "30 14 * * *"   # 한국 23:30
+    - cron: "0 16 * * *"    # 한국 01:00
+    - cron: "30 17 * * *"   # 한국 02:30
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: telegram-prep
+  cancel-in-progress: false
+
+jobs:
+  prep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    if: github.repository == 'lsaejinu-star/market-data'
+    steps:
+      - name: Wait for 04:00 KST & skip duplicates
+        id: gate
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          now=$(date +%s)
+          day=$(TZ=Asia/Seoul date +%Y-%m-%d)
+          target=$(date -d "$day 04:00 +0900" +%s)
+          # 한국 06:00이 지났으면 다음 날 04:00이 목표
+          if [ $((now - target)) -gt 7200 ]; then target=$((target + 86400)); fi
+          wait=$((target - now))
+          if [ "$wait" -gt 18000 ]; then echo "04:00까지 5시간 넘게 남음 → 건너뜀"; echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "$wait" -lt -6300 ]; then echo "05:45 이후 도착 → 건너뜀(06:00 단계가 전체 처리)"; echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          since=$(date -u -d "@$((target - 3600))" +%Y-%m-%dT%H:%M:%SZ)
+          n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-prep.yml --status success -L 20 \
+                --json updatedAt --jq "[.[] | select(.updatedAt >= \"$since\")] | length")
+          if [ "$n" -gt 0 ]; then echo "오늘 1단계가 이미 완료됨 → 건너뜀"; echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "$wait" -gt 0 ]; then echo "04:00 KST까지 $((wait / 60))분 대기"; sleep "$wait"; fi
+
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.skip != 'true'
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.skip != 'true'
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-telegram.txt
+
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.skip != 'true'
+        with:
+          node-version: "22"
+
+      - name: Install
+        if: steps.gate.outputs.skip != 'true'
+        run: |
+          pip install -r requirements-telegram.txt
+          npm install -g @anthropic-ai/claude-code
+
+      - name: Prep (digest until 04:00)
+        if: steps.gate.outputs.skip != 'true'
+        env:
+          TG_PHASE: prep
+          TG_STATE: ${{ runner.temp }}/prep_state.json
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          TG_CHANNELS: ${{ vars.TG_CHANNELS }}
+          TG_REPORT_CHANNEL: ${{ vars.TG_REPORT_CHANNEL }}
+          TG_EXCLUDE: ${{ vars.TG_EXCLUDE }}
+          TG_MAX_REPORTS: ${{ vars.TG_MAX_REPORTS }}
+          TG_PREP_AT: "04:00"
+          TG_WINDOW_START: "07:00"
+          TG_WINDOW_END: "06:00"
+        run: python -m tgbrief.main
+
+      - name: Encrypt state
+        if: steps.gate.outputs.skip != 'true'
+        env:
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+        run: |
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in "$RUNNER_TEMP/prep_state.json" -out "$RUNNER_TEMP/prep_state.enc" -pass env:TG_SESSION
+          rm -f "$RUNNER_TEMP/prep_state.json"
+
+      - uses: actions/upload-artifact@v4
+        if: steps.gate.outputs.skip != 'true'
+        with:
+          name: prep-state
+          path: ${{ runner.temp }}/prep_state.enc
+          retention-days: 1
