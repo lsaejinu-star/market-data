@@ -78,7 +78,7 @@ def collect(start_after=None):
     for sc in SCRIPTS:
         try:
             p = subprocess.run([sys.executable, sc], cwd=ROOT, env=env, capture_output=True, text=True, timeout=900)
-            log(f"{sc}: {'ok' if p.returncode == 0 else 'exit ' + str(p.returncode)}")
+            log(f"{sc}: {'ok' if p.returncode == 0 else 'exit ' + str(p.returncode) + ' ' + (p.stderr or '').strip().splitlines()[-1:][0][:200] if (p.stderr or '').strip() else 'exit ' + str(p.returncode)}")
         except Exception as e:
             log(f"{sc}: {e.__class__.__name__}")
     d = {}

@@ -67,7 +67,7 @@ def main():
     meta = {
         "fetched_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "failed": failed,
-        "latest": {k: v[0] for k, v in out.items()},
+        "latest": {k: v[0] for k, v in out.items() if v},
         "notes": "WTI·GOLD는 근월물 선물(CL=F, GC=F), KRW는 글로벌 시장 시세(KRW=X), UST10Y는 FRED DGS10(1영업일 지연), CPI_YOY는 FRED CPIAUCSL 전년비.",
     }
     with open("data/history_meta.json", "w", encoding="utf-8") as f:
