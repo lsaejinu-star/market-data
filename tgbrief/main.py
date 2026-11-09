@@ -196,9 +196,16 @@ def main():
     if fut_data:
         try:
             data = fut_data.result()
-            log(f"매크로 데이터 수집 완료: 기준 거래일 {macro.base_date(data)}, 일정 {len(data.get('calendar', []))}건, 국채 {len(data.get('treasury', []))}일치")
+            ta = (data.get("news_latest") or {}).get("treasury_auctions") or {}
+            log(f"매크로 데이터 수집 완료: 기준 거래일 {macro.base_date(data)}, 일정 {len(data.get('calendar', []))}건, 국채 {len(data.get('treasury', []))}일치, "
+                f"입찰 결과 {len(ta.get('recent') or [])}건({ta.get('source', '-')}), 실적 일정 {len(data.get('earnings') or [])}건, FOMC 확률 {len(data.get('fedwatch') or [])}회의")
             nar = macro.narrative(data, tg_lines)
-            log(f"매크로 해설: 이슈 {len(nar['issues'])}장, 커버리지 {len(nar['coverage'])}항목")
+            from collections import Counter
+            cnt = Counter(r["status"] for r in nar["coverage"])
+            log(f"매크로 해설: 이슈 {len(nar['issues'])}장, 커버리지 {len(nar['coverage'])}항목 — " + " / ".join(f"{k} {v}" for k, v in cnt.most_common()))
+            for r in nar["coverage"]:
+                if r["status"] in ("부분 확인", "확인 실패"):
+                    log(f"  {r['status']}: {r['item']}")  # 항목명만(내용은 공개 로그에 남기지 않음)
         except Exception:
             log("매크로 파트 실패: " + traceback.format_exc().splitlines()[-1])
             notes.append("매크로 해설 생성 중 오류가 발생해 수치 위주로만 실었습니다.")

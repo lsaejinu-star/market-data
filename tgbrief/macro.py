@@ -68,6 +68,96 @@ def _calendar():
     return ev
 
 
+def _earnings(days=8, min_cap=30e9):
+    """나스닥 실적 캘린더: 앞으로 days일, 시가총액 min_cap 이상."""
+    hdr = {**UA, "Accept": "application/json, text/plain, */*", "Origin": "https://www.nasdaq.com", "Referer": "https://www.nasdaq.com/"}
+    out = []
+    today = datetime.now(KST).date()
+    for k in range(days):
+        day = today + timedelta(days=k)
+        if day.weekday() >= 5:
+            continue
+        try:
+            rows = (requests.get(f"https://api.nasdaq.com/api/calendar/earnings?date={day}", headers=hdr, timeout=20)
+                    .json().get("data") or {}).get("rows") or []
+        except Exception:
+            continue
+        for r in rows:
+            try:
+                cap = float(str(r.get("marketCap", "")).replace("$", "").replace(",", "") or 0)
+            except ValueError:
+                cap = 0
+            if cap >= min_cap:
+                t = {"time-pre-market": "장전", "time-after-hours": "장후"}.get(r.get("time"), "미정")
+                out.append({"date": str(day), "symbol": r.get("symbol"), "name": r.get("name"), "when": t,
+                            "eps_forecast": r.get("epsForecast") or "", "cap_b": round(cap / 1e9)})
+    out.sort(key=lambda x: (x["date"], -x["cap_b"]))
+    return out
+
+
+# 연준 FOMC 결정일(2일 회의의 둘째 날). 연준 공식 일정 기준 — 매년 갱신 필요.
+FOMC = ["2026-01-28", "2026-03-18", "2026-04-29", "2026-06-17", "2026-07-29", "2026-09-16", "2026-10-28", "2026-12-09"]
+_MCODE = "FGHJKMNQUVXZ"
+
+
+def _fomc_dates():
+    """연준 홈페이지 FOMC 일정에서 결정일(회의 마지막 날)을 읽는다. 실패하면 내장 목록."""
+    import re
+    months = {m: i for i, m in enumerate(["January", "February", "March", "April", "May", "June", "July", "August",
+                                          "September", "October", "November", "December"], 1)}
+    try:
+        html = requests.get("https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm", headers=UA, timeout=20).text
+        out = []
+        parts = re.split(r"(\d{4}) FOMC Meetings", html)
+        for y, body in zip(parts[1::2], parts[2::2]):
+            for mo, dt in re.findall(r'fomc-meeting__month[^>]*>\s*(?:<strong>)?([A-Za-z/]+).*?fomc-meeting__date[^>]*>\s*([0-9\-]+)', body, re.S):
+                mon = months.get(mo.split("/")[-1])
+                if mon:
+                    out.append(f"{int(y)}-{mon:02d}-{int(dt.split('-')[-1]):02d}")
+        if out:
+            return sorted(set(out) | set(FOMC))
+    except Exception:
+        pass
+    return FOMC
+
+
+def _fedwatch(effr):
+    """연방기금 선물(ZQ)로 다음 FOMC 2회의 금리 변동 확률 추정(CME FedWatch와 같은 계산 원리, 수치는 다를 수 있음)."""
+    import calendar as _cal
+    import yfinance as yf
+    today = datetime.now(KST).date()
+    meets = [datetime.strptime(x, "%Y-%m-%d").date() for x in _fomc_dates()]
+    meets = [m for m in meets if m >= today][:2]
+    if not meets or effr is None:
+        return []
+
+    def implied(y, mth):
+        sym = f"ZQ{_MCODE[mth - 1]}{y % 100:02d}.CBT"
+        h = yf.Ticker(sym).history(period="5d")
+        return 100 - float(h["Close"].dropna().iloc[-1])
+
+    out, pre = [], effr
+    for m in meets:
+        n = _cal.monthrange(m.year, m.month)[1]
+        nxt = (m.year + (m.month == 12), m.month % 12 + 1)
+        if m.day > n - 7:  # 월말 회의는 다음 달 계약으로 회의 후 금리를 본다
+            post = implied(*nxt)
+        else:
+            avg = implied(m.year, m.month)
+            post = (avg - pre * m.day / n) / ((n - m.day) / n)
+        chg = post - pre
+        steps = chg / 0.25
+        lo = int(steps // 1)
+        frac = steps - lo
+        probs = {}
+        for st_, pr in ((lo, 1 - frac), (lo + 1, frac)):
+            if pr > 0.005:
+                probs[f"{st_ * 25:+d}bp" if st_ else "동결"] = round(pr * 100, 1)
+        out.append({"meeting": str(m), "pre": round(pre, 3), "post": round(post, 3), "change_bp": round(chg * 100, 1), "probs": probs})
+        pre = post
+    return out
+
+
 def collect(start_after=None):
     """데이터 수집. start_after(KST datetime)까지 기다렸다가 시작(미국 종가 반영 대기)."""
     if start_after:
@@ -93,6 +183,17 @@ def collect(start_after=None):
         log(f"treasury 실패: {e.__class__.__name__}")
         d["treasury"] = []
     d["calendar"] = _calendar()
+    try:
+        d["earnings"] = _earnings()
+    except Exception as e:
+        log(f"실적 캘린더 실패: {e.__class__.__name__}")
+        d["earnings"] = []
+    try:
+        effr = ((d.get("macro_latest") or {}).get("series", {}).get("DFF") or {}).get("value")
+        d["fedwatch"] = _fedwatch(effr)
+    except Exception as e:
+        log(f"금리 확률 계산 실패: {e.__class__.__name__}")
+        d["fedwatch"] = []
     return d
 
 
@@ -211,7 +312,19 @@ def number_slides(d):
                 s["kpis"].append({"v": f"{it['value']:.2f}%p", "l": "HY 스프레드(1영업일 지연)", "tone": _tone(it.get("change") or 0)})
     s["table_headers"] = ["항목", "수준", "전일 대비", "기준"]
     s["table_rows"] = rows
-    s["sources"] = "미 재무부 일일 국채 수익률 · FRED"
+    fw = d.get("fedwatch") or []
+    if fw:
+        s["boxes"].append({"title": "다음 FOMC 금리 확률(연방기금 선물 기반 추정)", "bullets": [
+            f"{x['meeting']} 회의: " + ", ".join(f"{k} {v}%" for k, v in x["probs"].items()) + f" (시장 기대 변화 {x['change_bp']:+.0f}bp)" for x in fw]})
+    rec = ((d.get("news_latest") or {}).get("treasury_auctions") or {}).get("recent") or []
+    if rec:
+        s["boxes"].append({"title": "최근 국채 입찰 결과", "bullets": [
+            f"{a['auction_date']} {a['type']} {a['term']}{'(재발행)' if a.get('reopening') == 'Yes' else ''}: "
+            + (f"낙찰금리 {a['high_yield']}%" if a.get("high_yield") else f"할인율 {a['high_discount_rate']}%" if a.get("high_discount_rate") else "낙찰금리 -")
+            + (f", 응찰률 {a['bid_to_cover']}배" if a.get("bid_to_cover") else "")
+            + (f", 해외(간접) {a['indirect_pct']}%" if a.get("indirect_pct") is not None else "")
+            for a in rec[:6]]})
+    s["sources"] = "미 재무부 일일 국채 수익률 · FRED · CME 연방기금 선물(Yahoo) · 재무부 입찰 결과"
     out.append(("rates", s))
 
     s = _blank("FX · COMMODITIES · CRYPTO", "환율·원자재·코인")
@@ -290,8 +403,13 @@ def calendar_slide(d):
     s["table_rows"] = rows
     auc = (d.get("news_latest") or {}).get("treasury_auctions", {}).get("upcoming", [])[:8]
     if auc:
-        s["boxes"] = [{"title": "예정 국채 입찰", "bullets": [f"{a['auction_date']} {a['type']} {a['term']}" + (" (재발행)" if a.get("reopening") == "Yes" else "") for a in auc]}]
-    s["sources"] = "ForexFactory 경제 캘린더 · TreasuryDirect"
+        s["boxes"].append({"title": "예정 국채 입찰", "bullets": [f"{a['auction_date']} {a['type']} {a['term']}" + (" (재발행)" if a.get("reopening") == "Yes" else "") for a in auc]})
+    er = d.get("earnings") or []
+    if er:
+        s["boxes"].append({"title": "주요 실적 발표(시총 300억달러 이상)", "bullets": [
+            f"{e['date'][5:]} {e['when']} {e['name']}({e['symbol']})" + (f" · EPS 예상 {e['eps_forecast']}" if e["eps_forecast"] else "")
+            for e in er[:20]]})
+    s["sources"] = "ForexFactory 경제 캘린더 · 재무부 입찰 일정 · 나스닥 실적 캘린더"
     return s
 
 
@@ -305,7 +423,10 @@ MACRO_SCHEMA = _obj({
     "holdings": SLIDE,
     "flows": SLIDE,
     "verdict": SLIDE,
-    "coverage": {"type": "array", "items": _obj({"item": S, "status": S, "source": S})},
+    "coverage": {"type": "array", "items": _obj({
+        "item": S,
+        "status": {"type": "string", "enum": ["확인 완료", "부분 확인", "확인함-해당없음", "확인함(구조적 지연)", "확인 실패"]},
+        "source": S, "gap": S})},
 })
 
 
@@ -336,6 +457,10 @@ def _compact(d):
         items = v.get("items") if isinstance(v, dict) else v
         if items:
             L.append(f"[{tk} 헤드라인 36시간] " + " | ".join(f"{i['time_kst']} {i['title']}" for i in items[:12]))
+    if d.get("fedwatch"):
+        L.append("[다음 FOMC 금리 확률(연방기금 선물로 직접 계산, CME FedWatch와 같은 원리)] " + json.dumps(d["fedwatch"], ensure_ascii=False))
+    if d.get("earnings"):
+        L.append("[실적 발표 일정(나스닥, 시총 300억달러 이상)] " + "; ".join(f"{e['date']} {e['when']} {e['symbol']}" for e in d["earnings"][:30]))
     L.append("[경제 일정] " + " | ".join(f"{e['kst']} KST {e['title']}({e['impact']}, 예상 {e['forecast']}, 직전 {e['previous']})"
                                         for e in d.get("calendar", [])[:40]))
     return "\n".join(L)
@@ -372,7 +497,11 @@ def narrative(d, tg_lines):
 - holdings: 보유주식(구글·노키아) 1장 — kpis에 두 종목 등락률, boxes로 종목별 섹터 뉴스/종목 뉴스
 - flows: 서학개미 동향 1장
 - verdict: 종합 판단 1장 — deep 4~6문단: (a) 리스크온/오프(VIX·금리·달러·금·소형주·크레딧, 엇갈리면 그 의미) (b) 주도 섹터와 자금 이탈 (c) 향후 심리와 주시 변수 (d) 서학개미 시사점(환율·시간대·세금·환전)
-- coverage: 지수/시장폭/섹터/금리·연준/FedWatch/국채입찰/해외중앙은행/환율/원자재/물가·고용/무역·정책/지정학/보유주식/서학개미/글로벌/크레딧·코인/일정 각각 status(확인 완료·부분 확인·확인함-해당없음·확인함(구조적 지연)·확인 실패(사유))와 source
+- coverage: 지수/시장폭/섹터/금리·연준/FedWatch/국채입찰/해외중앙은행/환율/원자재/물가·고용/무역·정책/지정학/보유주식/서학개미/글로벌/크레딧·코인/일정 각각.
+  status 판정 기준(엄격히): '확인 완료' = 위 수치 데이터가 있고 원인·의미를 기사 1건 이상으로 확인. 수치 데이터만으로 충분한 항목(지수·섹터·시장폭·글로벌·원자재 수치,
+  국채 입찰 결과, FOMC 확률, 일정)은 데이터가 있으면 '확인 완료'. '확인함-해당없음' = 찾아봤으나 실제로 새 소식·이벤트가 없음(예: 24시간 내 연준 발언 없음, 입찰 없음, 보유주식 새 뉴스 없음).
+  '확인함(구조적 지연)' = 소스 공표 주기상 최신치가 아님(HY 스프레드 1영업일, 서학개미 결제 3~5영업일). '부분 확인' = 항목의 일부 하위 내용만 확인됨 → gap에 빠진 것을 구체적으로.
+  '확인 실패' = 찾지 못함 → gap에 일반적인 사유. gap은 완료·해당없음이면 빈 문자열
 - 중복 금지: notes·issues·holdings·flows·verdict 사이에 같은 사건·수치 설명을 되풀이하지 말 것. 한 사건은 가장 관련 깊은 한 곳에서만
   자세히 쓰고 다른 곳에서는 생략(필요하면 '앞 슬라이드 참고' 수준의 한 줄). 예: 유가 급등의 원인은 fx_commodities 또는 해당 issues 중 한 곳에만.
   verdict는 앞 내용을 다시 나열하지 말고 종합 해석과 판단에 집중. issues는 2~4장으로, 슬라이드를 늘리기보다 중요한 이슈의 deep를 4~6문단으로 깊게.
@@ -407,8 +536,8 @@ def merge(slides, notes):
 def coverage_slide(rows, d):
     s = _blank("COVERAGE", "커버리지 체크")
     s["key"] = "각 항목을 어디서 확인했는지와 확인 상태"
-    s["table_headers"] = ["항목", "상태", "소스"]
-    s["table_rows"] = [[r["item"], r["status"], r["source"]] for r in rows]
+    s["table_headers"] = ["항목", "상태", "소스", "부족한 점"]
+    s["table_rows"] = [[r["item"], r["status"], r["source"], r.get("gap", "")] for r in rows]
     m = d.get("market_latest") or {}
     s["sources"] = f"시세 수집 {m.get('fetched_at_utc', '-')} UTC, 실패 {len(m.get('failed') or [])}건"
     return s

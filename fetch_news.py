@@ -119,43 +119,76 @@ def _num(x):
         return None
 
 
+FISCAL = "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/od"
+
+
+def _fiscal(path, params):
+    r = requests.get(f"{FISCAL}/{path}", params=params, headers=HEADERS, timeout=30)
+    r.raise_for_status()
+    return r.json().get("data") or []
+
+
+def _val(x):
+    return None if x in (None, "", "null") else x
+
+
 def treasury_auctions():
-    base = "https://www.treasurydirect.gov/TA_WS/securities"
-    out = {"recent": [], "upcoming": [], "errors": []}
+    """국채 입찰 결과·예정. 1순위 재무부 FiscalData API(필드명이 문서화돼 있음), 실패 시 TreasuryDirect."""
+    out = {"recent": [], "upcoming": [], "errors": [], "source": "FiscalData"}
+    since = (datetime.now(timezone.utc) - timedelta(days=8)).strftime("%Y-%m-%d")
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     try:
-        data = requests.get(f"{base}/auctioned?format=json&days=7", headers=HEADERS, timeout=30).json()
-        for a in data:
-            comp = _num(a.get("competitiveAccepted"))
-            ind = _num(a.get("indirectBidderAccepted"))
-            dirb = _num(a.get("directBidderAccepted"))
+        for a in _fiscal("auctions_query", {"filter": f"auction_date:gte:{since}", "sort": "-auction_date", "page[size]": 100}):
+            comp = _num(a.get("comp_accepted"))
+            ind = _num(a.get("indirect_bidder_accepted"))
+            dirb = _num(a.get("direct_bidder_accepted"))
+            if not _val(a.get("bid_to_cover_ratio")) and not _val(a.get("high_yield")) and not _val(a.get("high_discount_rate")):
+                continue  # 아직 결과가 없는(발표만 된) 입찰
             out["recent"].append({
-                "auction_date": (a.get("auctionDate") or "")[:10],
-                "type": a.get("securityType"),
-                "term": a.get("securityTerm"),
-                "reopening": a.get("reopening"),
-                "high_yield": a.get("highYield") or None,
-                "high_discount_rate": a.get("highDiscountRate") or None,
-                "bid_to_cover": a.get("bidToCoverRatio") or None,
+                "auction_date": (a.get("auction_date") or "")[:10],
+                "type": a.get("security_type"), "term": a.get("security_term"), "reopening": a.get("reopening"),
+                "high_yield": _val(a.get("high_yield")), "high_discount_rate": _val(a.get("high_discount_rate")),
+                "bid_to_cover": _val(a.get("bid_to_cover_ratio")),
                 "indirect_pct": round(ind / comp * 100, 1) if comp and ind is not None else None,
                 "direct_pct": round(dirb / comp * 100, 1) if comp and dirb is not None else None,
-                "offering_amount": a.get("offeringAmount"),
+                "offering_amount": a.get("offering_amt"),
             })
+        for a in _fiscal("upcoming_auctions", {"filter": f"auction_date:gte:{today}", "sort": "auction_date", "page[size]": 50}):
+            out["upcoming"].append({"auction_date": (a.get("auction_date") or "")[:10], "type": a.get("security_type"),
+                                    "term": a.get("security_term"), "reopening": a.get("reopening"),
+                                    "offering_amount": a.get("offering_amt")})
+    except Exception as e:
+        out["errors"].append(f"fiscaldata: {e.__class__.__name__}")
+    if out["recent"] or out["upcoming"]:
+        return out
+    # 대체: TreasuryDirect (키 이름이 바뀌어도 대소문자 무시로 찾는다)
+    out["source"] = "TreasuryDirect"
+    base = "https://www.treasurydirect.gov/TA_WS/securities"
+
+    def g(a, *keys):
+        low = {k.lower(): v for k, v in a.items()}
+        for k in keys:
+            v = _val(low.get(k.lower()))
+            if v is not None:
+                return v
+        return None
+    try:
+        for a in requests.get(f"{base}/auctioned?format=json&days=8", headers=HEADERS, timeout=30).json():
+            comp, ind, dirb = (_num(g(a, k)) for k in ("competitiveAccepted", "indirectBidderAccepted", "directBidderAccepted"))
+            out["recent"].append({
+                "auction_date": (g(a, "auctionDate", "auction_date") or "")[:10],
+                "type": g(a, "securityType"), "term": g(a, "securityTerm"), "reopening": g(a, "reopening"),
+                "high_yield": g(a, "highYield"), "high_discount_rate": g(a, "highDiscountRate"),
+                "bid_to_cover": g(a, "bidToCoverRatio"),
+                "indirect_pct": round(ind / comp * 100, 1) if comp and ind is not None else None,
+                "direct_pct": round(dirb / comp * 100, 1) if comp and dirb is not None else None,
+                "offering_amount": g(a, "offeringAmount"),
+            })
+            if not out["recent"][-1]["auction_date"]:
+                out["errors"].append("treasurydirect keys: " + ",".join(sorted(a)[:40]))
         out["recent"].sort(key=lambda r: r["auction_date"], reverse=True)
     except Exception as e:
         out["errors"].append(f"auctioned: {e.__class__.__name__}")
-    try:
-        data = requests.get(f"{base}/upcoming?format=json", headers=HEADERS, timeout=30).json()
-        for a in data:
-            out["upcoming"].append({
-                "auction_date": (a.get("auctionDate") or "")[:10],
-                "type": a.get("securityType"),
-                "term": a.get("securityTerm"),
-                "reopening": a.get("reopening"),
-                "offering_amount": a.get("offeringAmount"),
-            })
-        out["upcoming"].sort(key=lambda r: r["auction_date"])
-    except Exception as e:
-        out["errors"].append(f"upcoming: {e.__class__.__name__}")
     return out
 
 
