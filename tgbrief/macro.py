@@ -228,7 +228,7 @@ def base_date(d):
 
 def _blank(tag, title):
     return {"tag": tag, "title": title, "key": "", "kpis": [], "charts": [], "boxes": [], "table_headers": [],
-            "table_rows": [], "deep": [], "calc": [], "so_what": "", "sources": "", "refs": []}
+            "table_rows": [], "deep": [], "calc": [], "so_what": "", "sources": "", "refs": [], "fold_table": True}
 
 
 def _rows(group, nd=2, date=True):
@@ -397,6 +397,7 @@ def number_slides(d):
 
 def calendar_slide(d):
     s = _blank("CALENDAR", "이번 주·다음 주 주요 일정")
+    s["fold_table"] = False
     rows = [[e["kst"], e["et"], e["title"], "★" if e["impact"] == "High" else "", e["forecast"], e["previous"]]
             for e in d.get("calendar", []) if e["ts"] > time.time() - 3600 * 12][:30]
     s["table_headers"] = ["한국시간", "미 동부시간", "미국 지표·이벤트", "중요", "예상", "직전"]
@@ -415,7 +416,9 @@ def calendar_slide(d):
 
 # ───────────────────────── 해설 (Claude + 웹 검색) ─────────────────────────
 
-NOTE = _obj({"key": S, "so_what": S, "deep": {"type": "array", "items": _obj({"lead": S, "text": S})}})
+NOTE = _obj({"key": S, "so_what": S, "ideas": SL, "deep": {"type": "array", "items": _obj({"lead": S, "text": S})},
+             "glossary": {"type": "array", "items": _obj({"term": S, "desc": S})}})
+IDEA = _obj({"idea": S, "why": S, "related": S, "check": S, "risk": S, "horizon": S})
 COV = {"type": "array", "items": _obj({
     "item": S,
     "status": {"type": "string", "enum": ["확인 완료", "부분 확인", "확인함-해당없음", "확인함(구조적 지연)", "확인 실패"]},
@@ -428,7 +431,8 @@ PART_SCHEMAS = {
     "issues": _obj({"issues": {"type": "array", "items": SLIDE}, "coverage": COV}),
     "holdings": _obj({"holdings": {"type": "array", "items": SLIDE}, "flows": SLIDE, "coverage": COV}),
 }
-SYNTH_SCHEMA = _obj({"hero": _obj({"headline": S, "verdict": S, "points": SL, "watch": SL}), "verdict": SLIDE})
+SYNTH_SCHEMA = _obj({"hero": _obj({"headline": S, "verdict": S, "points": SL, "watch": SL}),
+                     "ideas": {"type": "array", "items": IDEA}, "verdict": SLIDE})
 
 COV_RULE = """coverage status 판정 기준(엄격히): '확인 완료' = 수치 데이터가 있고 원인·의미를 기사 1건 이상으로 확인(수치만으로 충분한 항목 — 지수·섹터·시장폭·글로벌·원자재 수치,
 국채 입찰 결과, FOMC 확률, 일정 — 은 데이터가 있으면 '확인 완료'). '확인함-해당없음' = 찾아봤으나 실제로 새 소식·이벤트가 없음. '확인함(구조적 지연)' = 소스 공표 주기상
@@ -441,7 +445,9 @@ PART_TASKS = {
 조사(WebSearch·WebFetch 합계 12회 이내): ① 미국장 마감 랩업 1~2건 — 오늘의 지배 서사, 지수·섹터·테마(±2% 이상)·상승/하락 상위 종목의 원인
 ② 연준 인사 발언(누가·톤), FOMC 확률(수치에 있는 선물 기반 추정치와 기사 속 CME FedWatch 비교), 국채 입찰 결과의 의미, ECB·BOJ·BOE·한국은행 동향
 ③ 원/달러(서울 종가 기사 있으면 병기)·달러·유가·금·코인 변동 원인 ④ 아시아·유럽 증시와 오늘 코스피 개장에 줄 영향 ⑤ 물가·고용 지표의 24시간 내 새 발표 여부·예상치 대비
-출력: notes — key=핵심 한 문장, so_what=투자자 시사점, deep=원인·의미 2~4문단(lead=소제목, text=4~6문장, 기사 출처명 괄호)
+출력: notes — key=핵심 한 문장(숫자 요약이 아니라 '무슨 의미인가'), so_what=투자자 시사점,
+ideas=이 수치에서 나오는 투자 아이디어 2~4개(각 한 줄: '아이디어 → 근거 → 관련 업종·종목/ETF → 확인할 점·리스크'),
+deep=원인·의미 2~4문단(lead=소제목, text=4~6문장, 기사 출처명 괄호), glossary=해설에 쓴 전문용어 설명(최대 6개, 비전공자 기준 1~2문장)
 (indices=지수·M7, breadth_sectors=시장폭·섹터·테마, rates=금리·연준·입찰·FOMC 확률·해외 중앙은행, fx_commodities=환율·원자재·코인, global=아시아·유럽·코스피 영향,
  macro_data=물가·고용, ytd=연초 대비 흐름, calendar=이번 주 일정·실적 발표 해설). 중요한 내용일수록 deep를 길게.
 coverage 항목: 지수, 시장폭, 섹터, 금리·연준, FedWatch, 국채입찰, 해외중앙은행, 환율, 원자재, 물가·고용, 글로벌, 크레딧·코인, 일정.""",
@@ -539,7 +545,10 @@ def _synth(d, parts, now):
 """ + "\n".join(brief) + f"""
 
 === 출력 ===
-- hero: headline(오늘을 한 줄로), verdict(리스크온/오프 판정과 근거 지표 한 줄), points(오늘 꼭 알아야 할 3~5가지, 각 2~3문장, 수치 포함), watch(오늘·이번 주 주시할 이벤트 2~4개)
+- hero: headline(오늘을 한 줄로), verdict(리스크온/오프 판정과 근거 지표 한 줄), points(오늘 꼭 알아야 할 3~5가지, 각 2~3문장 — 숫자 나열이 아니라 투자자에게 무슨 의미인지), watch(오늘·이번 주 주시할 이벤트 2~4개)
+- ideas: '오늘의 투자 아이디어' 3~5개(위 핵심들을 엮어서). idea=한 줄 아이디어, why=근거(수치·뉴스), related=관련 업종·종목·ETF,
+  check=이 아이디어가 맞으려면 앞으로 확인돼야 할 것(지표·실적·이벤트와 날짜), risk=틀릴 수 있는 이유, horizon=단기(며칠)/중기(몇 주~몇 달) 중 하나와 이유.
+  매수·매도 권유 표현 금지 — '관심 가질 만한 근거'로 서술.
 - verdict: 종합 판단 슬라이드 1장 — deep 4~6문단: (a) 리스크온/오프(VIX·금리·달러·금·소형주·크레딧 근거, 엇갈리면 그 엇갈림의 의미) (b) 주도 섹터와 자금 이탈
   (c) 향후 심리와 주시 변수 (d) 서학개미 시사점(환율·시간대·세금·환전). 앞 해설을 다시 나열하지 말고 종합 해석에 집중.
 웹 검색 없이 위 내용만으로 쓴다. 새로운 사실을 지어내지 말 것.
@@ -578,7 +587,7 @@ def narrative(d, tg_lines):
     for k in failed:
         cov.append({"item": {"market": "시장 수치 해설", "issues": "시장을 움직인 이슈", "holdings": "보유주식·서학개미"}[k],
                     "status": "확인 실패", "source": "-", "gap": "해설 생성 오류(재시도 후에도 실패)"})
-    return {"hero": syn.get("hero"), "verdict": syn.get("verdict"),
+    return {"hero": syn.get("hero"), "verdict": syn.get("verdict"), "ideas": syn.get("ideas") or [],
             "notes": (parts.get("market") or {}).get("notes") or {},
             "issues": (parts.get("issues") or {}).get("issues") or [],
             "holdings": (parts.get("holdings") or {}).get("holdings") or [],
@@ -604,6 +613,17 @@ def holding_slides(nar, d):
     return out
 
 
+def ideas_slide(ideas):
+    """종합 단계가 뽑은 '오늘의 투자 아이디어'를 표 슬라이드로."""
+    s = _blank("TODAY'S IDEAS", "오늘의 투자 아이디어")
+    s["fold_table"] = False
+    s["key"] = "오늘의 수치·뉴스·채널 글을 엮어 뽑은 아이디어입니다. 매수·매도 권유가 아니라 '관심 가질 근거와 확인할 점'입니다."
+    s["table_headers"] = ["아이디어", "근거", "관련 업종·종목", "확인할 점", "리스크", "시간축"]
+    s["table_rows"] = [[i["idea"], i["why"], i["related"], i["check"], i["risk"], i["horizon"]] for i in ideas]
+    s["sources"] = "이 리포트의 수치·해설 종합"
+    return s
+
+
 def covered_topics(nar):
     """텔레그램 브리프에 넘길 '이미 다룬 주제' 목록."""
     L = [f"- {x['title']}: {x['key']}" for x in nar.get("issues", [])]
@@ -620,6 +640,9 @@ def merge(slides, notes):
         s["key"] = n.get("key") or s["key"] or s["title"]
         s["so_what"] = n.get("so_what") or ""
         s["deep"] = n.get("deep") or []
+        s["glossary"] = n.get("glossary") or []
+        if n.get("ideas"):
+            s["boxes"].insert(0, {"title": "💡 투자 아이디어", "bullets": n["ideas"]})
     return [s for _, s in slides]
 
 

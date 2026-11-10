@@ -15,7 +15,7 @@ import traceback
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 
-from . import analyze, llm, macro, mailer, render
+from . import analyze, glossary, llm, macro, mailer, render
 from .collect import KST, collect, mark_read
 
 # auto = 텔레그램 대화 목록에 있는 모든 구독 채널(비공개 채널 포함, 사기 표시·리포트 채널 제외)
@@ -278,7 +278,7 @@ def main():
     bd = macro.base_date(data) if data else ""
     if nar and nar.get("hero"):
         h = nar["hero"]
-        sections.append(("오늘의 핵심", {"headline": h["headline"], "slides": [],
+        sections.append(("오늘의 핵심", {"headline": h["headline"], "slides": [macro.ideas_slide(nar["ideas"])] if nar.get("ideas") else [],
                                        "summary": h["points"] + [f"**시장 판정** — {h['verdict']}"] + [f"**주시** — {w}" for w in h["watch"]]}, None, "top"))
     if data:
         nums = macro.merge(macro.number_slides(data), nar["notes"] if nar else None)
@@ -299,6 +299,14 @@ def main():
         pos = len(sections) - 1 if data else len(sections)  # 일정 섹션 앞에 넣는다
         sections[pos:pos] = _light_sections(brief_posts, digests, analyses)
         notes.append("Claude 사용 마감 시각(구독 한도 초기화 보호) 이후에 시작돼 AI 해설 없이 수치·요약표 위주의 간이 브리프로 보냈습니다.")
+
+    try:
+        gdb = glossary.annotate(sections)
+        if not test:
+            glossary.save(gdb)
+        log(f"용어 각주: {sum(len(s.get('footnotes', [])) for _, d, _, _ in sections for s in d['slides'])}개 (누적 사전 {len(gdb)}개)")
+    except Exception:
+        log("용어 각주 실패: " + traceback.format_exc().splitlines()[-1])
 
     date_label = f"텔레그램 {since:%m.%d %H:%M} ~ {until:%m.%d %H:%M} KST" + (f" · 미국장 {bd} 종가 기준" if bd else "")
     notes += [f"수집 대상: 구독 채널 {n_channels}개 + 리포트 갤러리",
