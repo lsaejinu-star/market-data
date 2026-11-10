@@ -25,7 +25,7 @@ on:
         default: false
 
 permissions:
-  contents: read
+  contents: write   # 용어 각주 누적 횟수(data/glossary.json) 저장
   actions: write
 
 concurrency:
@@ -133,6 +133,16 @@ jobs:
         run: |
           set -o pipefail
           python -m tgbrief.main 2>&1 | tee "$RUNNER_TEMP/brief.log"
+
+      - name: Save glossary counts
+        if: success() && steps.dup.outputs.skip != 'true' && !(github.event_name == 'workflow_dispatch' && inputs.test)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/glossary.json 2>/dev/null || exit 0
+          if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
+          git commit -m "용어 각주 누적 횟수 $(TZ=Asia/Seoul date +%F)"
+          git pull --rebase --autostash && git push
 
       - name: Re-arm next-day timer
         if: always() && !(github.event_name == 'workflow_dispatch' && inputs.test)

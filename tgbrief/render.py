@@ -76,17 +76,29 @@ def slide(s, page, links, sid=""):
         o.append('<div class="kpis">' + "".join(
             f'<div class="kpi {TONE.get(k["tone"], "")}"><div class="v">{f(k["v"])}</div><div class="l">{f(k["l"])}</div></div>'
             for k in s["kpis"]) + "</div>")
-    if s.get("charts"):
-        o.append('<div class="charts">' + "".join(chart(c) for c in s["charts"]) + "</div>")
-    if s["boxes"]:
-        o.append('<div class="g2">')
-        for i, b in enumerate(s["boxes"], 1):
-            o.append(f'<div class="box"><h4><span class="n">{i}</span>{f(b["title"])}</h4><ul class="b">'
-                     + "".join(f"<li>{f(x)}</li>" for x in b["bullets"]) + "</ul></div>")
-        o.append("</div>")
+    def charts():
+        if s.get("charts"):
+            o.append('<div class="charts">' + "".join(chart(c) for c in s["charts"]) + "</div>")
+
+    def boxes():
+        if s["boxes"]:
+            o.append('<div class="g2">')
+            for i, b in enumerate(s["boxes"], 1):
+                o.append(f'<div class="box{" idea" if b["title"].startswith("💡") else ""}"><h4><span class="n">{i}</span>{f(b["title"])}</h4><ul class="b">'
+                         + "".join(f"<li>{f(x)}</li>" for x in b["bullets"]) + "</ul></div>")
+            o.append("</div>")
+
+    # 투자 아이디어 박스가 있으면 차트보다 먼저 보여준다
+    if s["boxes"] and s["boxes"][0]["title"].startswith("💡"):
+        boxes(); charts()
+    else:
+        charts(); boxes()
     if s["table_headers"] and s["table_rows"]:
-        o.append('<div style="margin-top:14px;overflow-x:auto"><table class="t"><tr>' + "".join(f"<th>{f(x)}</th>" for x in s["table_headers"]) + "</tr>"
-                 + "".join("<tr>" + "".join(f"<td>{f(c)}</td>" for c in r) + "</tr>" for r in s["table_rows"]) + "</table></div>")
+        tbl = ('<div style="margin-top:14px;overflow-x:auto"><table class="t"><tr>' + "".join(f"<th>{f(x)}</th>" for x in s["table_headers"]) + "</tr>"
+               + "".join("<tr>" + "".join(f"<td>{f(c)}</td>" for c in r) + "</tr>" for r in s["table_rows"]) + "</table></div>")
+        if s.get("fold_table"):  # 긴 수치표는 접어 둔다(눌러서 펼침)
+            tbl = f'<details class="fold"><summary>수치표 펼치기 ({len(s["table_rows"])}행)</summary>{tbl}</details>'
+        o.append(tbl)
     if s["deep"] or s["calc"] or s["so_what"]:
         o.append('<div class="deep"><div class="dh">🔍 상세 해설</div>')
         o += [f'<p><b class="ld">{f(d["lead"])}</b> {f(d["text"])}</p>' for d in s["deep"]]
@@ -95,6 +107,10 @@ def slide(s, page, links, sid=""):
         if s["so_what"]:
             o.append(f'<div class="sw">💡 <b>So what</b> — {f(s["so_what"])}</div>')
         o.append("</div>")
+    fn = s.get("footnotes") or []
+    if fn:
+        o.append('<div class="fn"><div class="fnh">용어 설명</div><ol>' + "".join(
+            f"<li><b>{html.escape(t)}</b> — {html.escape(d)}</li>" for t, d in fn) + "</ol></div>")
     o.append(f'</div><div class="src">근거: {f(s["sources"])}</div></section>')
     return "\n".join(o)
 
