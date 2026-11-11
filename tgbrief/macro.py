@@ -217,6 +217,10 @@ def _n(v, nd=2):
     return f"{v:,.{nd}f}"
 
 
+def _p2(v, sign=""):
+    return f"{v:{sign}.2f}%" if isinstance(v, (int, float)) else "-"
+
+
 def _tone(v):
     return "up" if isinstance(v, (int, float)) and v > 0 else "down" if isinstance(v, (int, float)) and v < 0 else "neutral"
 
@@ -255,143 +259,164 @@ def number_slides(d):
     out = []
     bd = base_date(d)
 
-    us = _g(d, "us_indices")
-    s = _blank("US MARKET CLOSE", f"미국 증시 마감 ({bd} 종가, 미 동부시간)")
-    for n in ("S&P500", "나스닥종합", "다우존스", "러셀2000", "필라델피아반도체(SOX)", "VIX"):
-        it = us.get(n, {})
-        if _ok(it):
-            s["kpis"].append({"v": f"{_n(it['close'])} ({_pct(it.get('change_pct'))})", "l": n,
-                              "tone": _tone(it.get("change_pct"))})
-    s["charts"] = [_chart("지수 등락률", {k: v for k, v in us.items() if k != "VIX"}), _chart("매그니피센트7·노키아 등락률", _g(d, "stocks"))]
-    s["table_headers"] = ["지수·종목", "종가", "등락률", "기준일"]
-    s["table_rows"] = _rows(us) + _rows(_g(d, "stocks"))
-    s["sources"] = src
-    out.append(("indices", s))
-
-    b = d.get("breadth_latest") or {}
-    s = _blank("BREADTH & SECTORS", "시장폭과 섹터·테마 흐름")
-    if b.get("count"):
-        sp = us.get("S&P500", {}).get("change_pct")
-        s["kpis"] = [
-            {"v": f"{b['advancers']} / {b['decliners']}", "l": f"S&P500 상승/하락 종목 ({b.get('last_date')})", "tone": _tone(b["advancers"] - b["decliners"])},
-            {"v": f"{b['new_52w_highs']} / {b['new_52w_lows']}", "l": "52주 신고가/신저가(종가)", "tone": "neutral"},
-            {"v": f"{b['pct_above_50dma']}% · {b['pct_above_200dma']}%", "l": "50일선·200일선 위 종목 비율", "tone": "neutral"},
-            {"v": f"{_pct(b['equal_weight_avg_change_pct'])} vs {_pct(sp)}", "l": "동일가중 평균 vs S&P500(시총가중)", "tone": _tone(b["equal_weight_avg_change_pct"])},
-        ]
-        s["table_headers"] = ["구분", "종목", "섹터", "등락률"]
-        s["table_rows"] = ([["상승 상위", f"{x['name']}({x['symbol']})", x.get("sector", ""), _pct(x["change_pct"])] for x in b.get("top_gainers", [])[:5]]
-                           + [["하락 상위", f"{x['name']}({x['symbol']})", x.get("sector", ""), _pct(x["change_pct"])] for x in b.get("top_losers", [])[:5]])
-    s["charts"] = [_chart("섹터 ETF 11개 등락률(SPDR)", _g(d, "sector_etfs")), _chart("테마 ETF 등락률", _g(d, "theme_etfs"))]
-    s["sources"] = src + " · 시장폭은 S&P500 구성종목 기준 직접 계산"
-    out.append(("breadth_sectors", s))
-
-    m = (d.get("macro_latest") or {}).get("series", {})
-    tr = d.get("treasury") or []
-    s = _blank("RATES & CREDIT", "금리·크레딧")
-    rows = []
-    if tr:
-        t0 = tr[0]; t1 = tr[1] if len(tr) > 1 else {}
-        for k, lab in (("3 Mo", "3개월"), ("2 Yr", "2년"), ("10 Yr", "10년"), ("30 Yr", "30년")):
-            if k in t0:
-                ch = (t0[k] - t1[k]) * 100 if k in t1 else None
-                rows.append([f"국채 {lab}", f"{t0[k]:.2f}%", f"{ch:+.0f}bp" if ch is not None else "-", f"{t0['date']} (미 재무부)"])
-        if "2 Yr" in t0 and "10 Yr" in t0:
-            sp_now = (t0["10 Yr"] - t0["2 Yr"]) * 100
-            rows.append(["10년-2년 스프레드", f"{sp_now:+.0f}bp", "역전" if sp_now < 0 else "정상(우상향)", t0["date"]])
-        if "10 Yr" in t0:
-            ch10 = (t0["10 Yr"] - t1.get("10 Yr", t0["10 Yr"])) * 100
-            s["kpis"].append({"v": f"{t0['10 Yr']:.2f}% ({ch10:+.0f}bp)", "l": "미 국채 10년", "tone": _tone(ch10)})
-        if "2 Yr" in t0:
-            ch2 = (t0["2 Yr"] - t1.get("2 Yr", t0["2 Yr"])) * 100
-            s["kpis"].append({"v": f"{t0['2 Yr']:.2f}% ({ch2:+.0f}bp)", "l": "미 국채 2년", "tone": _tone(ch2)})
-    for sid, lab, unit in (("DFF", "실효연방기금금리(EFFR)", "%"), ("BAMLH0A0HYM2", "하이일드 스프레드(HY OAS)", "%p")):
-        it = m.get(sid)
-        if it:
-            rows.append([lab, f"{it['value']:.2f}{unit}", f"{(it.get('change') or 0) * 100:+.0f}bp", f"{it['period']} (FRED)"])
-            if sid == "BAMLH0A0HYM2":
-                s["kpis"].append({"v": f"{it['value']:.2f}%p", "l": "HY 스프레드(1영업일 지연)", "tone": _tone(it.get("change") or 0)})
-    s["table_headers"] = ["항목", "수준", "전일 대비", "기준"]
-    s["table_rows"] = rows
-    fw = d.get("fedwatch") or []
-    if fw:
-        s["boxes"].append({"title": "다음 FOMC 금리 확률(연방기금 선물 기반 추정)", "bullets": [
-            f"{x['meeting']} 회의: " + ", ".join(f"{k} {v}%" for k, v in x["probs"].items()) + f" (시장 기대 변화 {x['change_bp']:+.0f}bp)" for x in fw]})
-    rec = ((d.get("news_latest") or {}).get("treasury_auctions") or {}).get("recent") or []
-    if rec:
-        s["boxes"].append({"title": "최근 국채 입찰 결과", "bullets": [
-            f"{a['auction_date']} {a['type']} {a['term']}{'(재발행)' if a.get('reopening') == 'Yes' else ''}: "
-            + (f"낙찰금리 {a['high_yield']}%" if a.get("high_yield") else f"할인율 {a['high_discount_rate']}%" if a.get("high_discount_rate") else "낙찰금리 -")
-            + (f", 응찰률 {a['bid_to_cover']}배" if a.get("bid_to_cover") else "")
-            + (f", 해외(간접) {a['indirect_pct']}%" if a.get("indirect_pct") is not None else "")
-            for a in rec[:6]]})
-    s["sources"] = "미 재무부 일일 국채 수익률 · FRED · CME 연방기금 선물(Yahoo) · 재무부 입찰 결과"
-    out.append(("rates", s))
-
-    s = _blank("FX · COMMODITIES · CRYPTO", "환율·원자재·코인")
-    fx, cm, cr = _g(d, "fx"), _g(d, "commodities"), _g(d, "crypto")
-    k = d.get("krw_official") or {}
-    for n in ("원/달러", "달러인덱스(DXY)"):
-        it = fx.get(n, {})
-        if _ok(it):
-            s["kpis"].append({"v": f"{_n(it['close'])} ({_pct(it.get('change_pct'))})", "l": n + (" (글로벌 시세)" if n == "원/달러" else ""), "tone": _tone(it.get("change_pct"))})
-    for n in ("WTI", "금"):
-        it = cm.get(n, {})
-        if _ok(it):
-            s["kpis"].append({"v": f"{_n(it['close'])} ({_pct(it.get('change_pct'))})", "l": f"{n} 근월물", "tone": _tone(it.get("change_pct"))})
-    s["charts"] = [_chart("원자재 근월물 등락률", cm), _chart("환율·코인 등락률", {**fx, **cr})]
-    s["table_headers"] = ["항목", "가격", "등락률", "기준일"]
-    s["table_rows"] = _rows(fx, 4) + _rows(cm) + _rows(cr, 0)
-    if k.get("status") == "ok":
-        s["table_rows"].insert(0, ["원/달러 매매기준율(한국은행)", _n(k.get("value")), _pct(k.get("change_pct")), k.get("date", "")])
-    s["sources"] = src + (" · 한국은행 ECOS" if k.get("status") == "ok" else "")
-    out.append(("fx_commodities", s))
-
-    s = _blank("GLOBAL MARKETS", "글로벌 증시")
-    s["charts"] = [_chart("아시아·유럽 지수 등락률", _g(d, "world_indices"))]
-    s["table_headers"] = ["지수", "종가", "등락률", "기준일"]
-    s["table_rows"] = _rows(_g(d, "world_indices"))
-    s["sources"] = src
-    out.append(("global", s))
-
-    s = _blank("MACRO DATA", "물가·고용 지표 (직전 발표치)")
-    rows = []
-    for sid in ("CPIAUCSL", "CPILFESL", "PCEPI", "PCEPILFE", "PPIFIS"):
-        it = m.get(sid)
-        if it:
-            rows.append([it["name"], it["period"][:7], f"{it.get('mom_pct', 0):+.2f}%", f"{it.get('yoy_pct', 0):.2f}%", f"{it.get('prev_yoy_pct', 0):.2f}%"])
-    for sid in ("UNRATE", "PAYEMS", "ICSA"):
-        it = m.get(sid)
-        if it:
-            val = f"{it['value']:.1f}%" if sid == "UNRATE" else (f"{it.get('change', 0):+,.0f}천 명" if sid == "PAYEMS" else f"{it['value']:,.0f}")
-            prev = f"{it.get('prev_value', 0):.1f}%" if sid == "UNRATE" else (f"{it.get('prev_change', 0):+,.0f}천 명" if sid == "PAYEMS" else f"{it.get('prev_value', 0):,.0f}")
-            rows.append([it["name"], it["period"][:10] if sid == "ICSA" else it["period"][:7], val, "", prev])
-    s["table_headers"] = ["지표", "해당 기간", "전월비/수준", "전년비", "직전(전년비/수준)"]
-    s["table_rows"] = rows
-    cpi = m.get("CPIAUCSL")
-    if cpi:
-        s["kpis"].append({"v": f"{cpi['yoy_pct']:.2f}%", "l": f"CPI 전년비 ({cpi['period'][:7]})", "tone": _tone(cpi["yoy_pct"] - cpi.get("prev_yoy_pct", cpi["yoy_pct"]))})
-    un = m.get("UNRATE")
-    if un:
-        s["kpis"].append({"v": f"{un['value']:.1f}%", "l": f"실업률 ({un['period'][:7]})", "tone": "neutral"})
-    s["sources"] = "FRED(BLS·BEA 원자료). 지수에서 계산해 공식 발표 반올림과 0.1%p 다를 수 있음"
-    out.append(("macro_data", s))
-
-    h = d.get("history_ytd") or {}
-    items = []
-    names = {"SPY": "S&P500(SPY)", "QQQ": "나스닥100(QQQ)", "DIA": "다우(DIA)", "IWM": "러셀2000(IWM)", "SOXX": "반도체(SOXX)",
-             "UUP": "달러(UUP)", "KRW": "원/달러", "WTI": "WTI", "GOLD": "금", "BTC": "비트코인"}
-    y0 = f"{bd[:4]}-01-01" if bd else ""
-    for key, lab in names.items():
-        ser = h.get(key) or []
-        cur = [v for dt, v in ser if dt <= bd] if bd else []
-        start = [v for dt, v in sorted(ser) if dt >= y0]
-        if cur and start:
-            items.append({"label": lab, "value": round((cur[0] / start[0] - 1) * 100, 2)})
-    if items:
-        s = _blank("YEAR TO DATE", f"연초 대비 등락률 ({bd[:4]}년)")
-        s["charts"] = [{"kind": "change", "title": "연초 첫 거래일 대비 등락률", "unit": "%", "items": sorted(items, key=lambda x: -x["value"])}]
+    try:
+        us = _g(d, "us_indices")
+        s = _blank("US MARKET CLOSE", f"미국 증시 마감 ({bd} 종가, 미 동부시간)")
+        for n in ("S&P500", "나스닥종합", "다우존스", "러셀2000", "필라델피아반도체(SOX)", "VIX"):
+            it = us.get(n, {})
+            if _ok(it):
+                s["kpis"].append({"v": f"{_n(it['close'])} ({_pct(it.get('change_pct'))})", "l": n,
+                                  "tone": _tone(it.get("change_pct"))})
+        s["charts"] = [_chart("지수 등락률", {k: v for k, v in us.items() if k != "VIX"}), _chart("매그니피센트7·노키아 등락률", _g(d, "stocks"))]
+        s["table_headers"] = ["지수·종목", "종가", "등락률", "기준일"]
+        s["table_rows"] = _rows(us) + _rows(_g(d, "stocks"))
         s["sources"] = src
-        out.append(("ytd", s))
+        out.append(("indices", s))
+    except Exception as e:  # 한 슬라이드가 실패해도 나머지는 만든다
+        log(f"수치 슬라이드 생성 실패: {e.__class__.__name__}: {e}")
+    try:
+
+        b = d.get("breadth_latest") or {}
+        s = _blank("BREADTH & SECTORS", "시장폭과 섹터·테마 흐름")
+        if b.get("count"):
+            sp = us.get("S&P500", {}).get("change_pct")
+            s["kpis"] = [
+                {"v": f"{b['advancers']} / {b['decliners']}", "l": f"S&P500 상승/하락 종목 ({b.get('last_date')})", "tone": _tone(b["advancers"] - b["decliners"])},
+                {"v": f"{b['new_52w_highs']} / {b['new_52w_lows']}", "l": "52주 신고가/신저가(종가)", "tone": "neutral"},
+                {"v": f"{b['pct_above_50dma']}% · {b['pct_above_200dma']}%", "l": "50일선·200일선 위 종목 비율", "tone": "neutral"},
+                {"v": f"{_pct(b['equal_weight_avg_change_pct'])} vs {_pct(sp)}", "l": "동일가중 평균 vs S&P500(시총가중)", "tone": _tone(b["equal_weight_avg_change_pct"])},
+            ]
+            s["table_headers"] = ["구분", "종목", "섹터", "등락률"]
+            s["table_rows"] = ([["상승 상위", f"{x['name']}({x['symbol']})", x.get("sector", ""), _pct(x["change_pct"])] for x in b.get("top_gainers", [])[:5]]
+                               + [["하락 상위", f"{x['name']}({x['symbol']})", x.get("sector", ""), _pct(x["change_pct"])] for x in b.get("top_losers", [])[:5]])
+        s["charts"] = [_chart("섹터 ETF 11개 등락률(SPDR)", _g(d, "sector_etfs")), _chart("테마 ETF 등락률", _g(d, "theme_etfs"))]
+        s["sources"] = src + " · 시장폭은 S&P500 구성종목 기준 직접 계산"
+        out.append(("breadth_sectors", s))
+    except Exception as e:  # 한 슬라이드가 실패해도 나머지는 만든다
+        log(f"수치 슬라이드 생성 실패: {e.__class__.__name__}: {e}")
+    try:
+
+        m = (d.get("macro_latest") or {}).get("series", {})
+        tr = d.get("treasury") or []
+        s = _blank("RATES & CREDIT", "금리·크레딧")
+        rows = []
+        if tr:
+            t0 = tr[0]; t1 = tr[1] if len(tr) > 1 else {}
+            for k, lab in (("3 Mo", "3개월"), ("2 Yr", "2년"), ("10 Yr", "10년"), ("30 Yr", "30년")):
+                if k in t0:
+                    ch = (t0[k] - t1[k]) * 100 if k in t1 else None
+                    rows.append([f"국채 {lab}", f"{t0[k]:.2f}%", f"{ch:+.0f}bp" if ch is not None else "-", f"{t0['date']} (미 재무부)"])
+            if "2 Yr" in t0 and "10 Yr" in t0:
+                sp_now = (t0["10 Yr"] - t0["2 Yr"]) * 100
+                rows.append(["10년-2년 스프레드", f"{sp_now:+.0f}bp", "역전" if sp_now < 0 else "정상(우상향)", t0["date"]])
+            if "10 Yr" in t0:
+                ch10 = (t0["10 Yr"] - t1.get("10 Yr", t0["10 Yr"])) * 100
+                s["kpis"].append({"v": f"{t0['10 Yr']:.2f}% ({ch10:+.0f}bp)", "l": "미 국채 10년", "tone": _tone(ch10)})
+            if "2 Yr" in t0:
+                ch2 = (t0["2 Yr"] - t1.get("2 Yr", t0["2 Yr"])) * 100
+                s["kpis"].append({"v": f"{t0['2 Yr']:.2f}% ({ch2:+.0f}bp)", "l": "미 국채 2년", "tone": _tone(ch2)})
+        for sid, lab, unit in (("DFF", "실효연방기금금리(EFFR)", "%"), ("BAMLH0A0HYM2", "하이일드 스프레드(HY OAS)", "%p")):
+            it = m.get(sid)
+            if it:
+                rows.append([lab, f"{it['value']:.2f}{unit}", f"{(it.get('change') or 0) * 100:+.0f}bp", f"{it['period']} (FRED)"])
+                if sid == "BAMLH0A0HYM2":
+                    s["kpis"].append({"v": f"{it['value']:.2f}%p", "l": "HY 스프레드(1영업일 지연)", "tone": _tone(it.get("change") or 0)})
+        s["table_headers"] = ["항목", "수준", "전일 대비", "기준"]
+        s["table_rows"] = rows
+        fw = d.get("fedwatch") or []
+        if fw:
+            s["boxes"].append({"title": "다음 FOMC 금리 확률(연방기금 선물 기반 추정)", "bullets": [
+                f"{x['meeting']} 회의: " + ", ".join(f"{k} {v}%" for k, v in x["probs"].items()) + f" (시장 기대 변화 {x['change_bp']:+.0f}bp)" for x in fw]})
+        rec = ((d.get("news_latest") or {}).get("treasury_auctions") or {}).get("recent") or []
+        if rec:
+            s["boxes"].append({"title": "최근 국채 입찰 결과", "bullets": [
+                f"{a['auction_date']} {a['type']} {a['term']}{'(재발행)' if a.get('reopening') == 'Yes' else ''}: "
+                + (f"낙찰금리 {a['high_yield']}%" if a.get("high_yield") else f"할인율 {a['high_discount_rate']}%" if a.get("high_discount_rate") else "낙찰금리 -")
+                + (f", 응찰률 {a['bid_to_cover']}배" if a.get("bid_to_cover") else "")
+                + (f", 해외(간접) {a['indirect_pct']}%" if a.get("indirect_pct") is not None else "")
+                for a in rec[:6]]})
+        s["sources"] = "미 재무부 일일 국채 수익률 · FRED · CME 연방기금 선물(Yahoo) · 재무부 입찰 결과"
+        out.append(("rates", s))
+    except Exception as e:  # 한 슬라이드가 실패해도 나머지는 만든다
+        log(f"수치 슬라이드 생성 실패: {e.__class__.__name__}: {e}")
+    try:
+
+        s = _blank("FX · COMMODITIES · CRYPTO", "환율·원자재·코인")
+        fx, cm, cr = _g(d, "fx"), _g(d, "commodities"), _g(d, "crypto")
+        k = d.get("krw_official") or {}
+        for n in ("원/달러", "달러인덱스(DXY)"):
+            it = fx.get(n, {})
+            if _ok(it):
+                s["kpis"].append({"v": f"{_n(it['close'])} ({_pct(it.get('change_pct'))})", "l": n + (" (글로벌 시세)" if n == "원/달러" else ""), "tone": _tone(it.get("change_pct"))})
+        for n in ("WTI", "금"):
+            it = cm.get(n, {})
+            if _ok(it):
+                s["kpis"].append({"v": f"{_n(it['close'])} ({_pct(it.get('change_pct'))})", "l": f"{n} 근월물", "tone": _tone(it.get("change_pct"))})
+        s["charts"] = [_chart("원자재 근월물 등락률", cm), _chart("환율·코인 등락률", {**fx, **cr})]
+        s["table_headers"] = ["항목", "가격", "등락률", "기준일"]
+        s["table_rows"] = _rows(fx, 4) + _rows(cm) + _rows(cr, 0)
+        if k.get("status") == "ok":
+            s["table_rows"].insert(0, ["원/달러 매매기준율(한국은행)", _n(k.get("value")), _pct(k.get("change_pct")), k.get("date", "")])
+        s["sources"] = src + (" · 한국은행 ECOS" if k.get("status") == "ok" else "")
+        out.append(("fx_commodities", s))
+    except Exception as e:  # 한 슬라이드가 실패해도 나머지는 만든다
+        log(f"수치 슬라이드 생성 실패: {e.__class__.__name__}: {e}")
+    try:
+
+        s = _blank("GLOBAL MARKETS", "글로벌 증시")
+        s["charts"] = [_chart("아시아·유럽 지수 등락률", _g(d, "world_indices"))]
+        s["table_headers"] = ["지수", "종가", "등락률", "기준일"]
+        s["table_rows"] = _rows(_g(d, "world_indices"))
+        s["sources"] = src
+        out.append(("global", s))
+    except Exception as e:  # 한 슬라이드가 실패해도 나머지는 만든다
+        log(f"수치 슬라이드 생성 실패: {e.__class__.__name__}: {e}")
+    try:
+
+        s = _blank("MACRO DATA", "물가·고용 지표 (직전 발표치)")
+        rows = []
+        for sid in ("CPIAUCSL", "CPILFESL", "PCEPI", "PCEPILFE", "PPIFIS"):
+            it = m.get(sid)
+            if it:
+                rows.append([it.get("name", sid), str(it.get("period", ""))[:7], _p2(it.get("mom_pct"), "+"), _p2(it.get("yoy_pct")), _p2(it.get("prev_yoy_pct"))])
+        for sid in ("UNRATE", "PAYEMS", "ICSA"):
+            it = m.get(sid)
+            if it:
+                val = f"{it['value']:.1f}%" if sid == "UNRATE" else (f"{it.get('change', 0):+,.0f}천 명" if sid == "PAYEMS" else f"{it['value']:,.0f}")
+                prev = f"{it.get('prev_value', 0):.1f}%" if sid == "UNRATE" else (f"{it.get('prev_change', 0):+,.0f}천 명" if sid == "PAYEMS" else f"{it.get('prev_value', 0):,.0f}")
+                rows.append([it["name"], it["period"][:10] if sid == "ICSA" else it["period"][:7], val, "", prev])
+        s["table_headers"] = ["지표", "해당 기간", "전월비/수준", "전년비", "직전(전년비/수준)"]
+        s["table_rows"] = rows
+        cpi = m.get("CPIAUCSL")
+        if cpi and isinstance(cpi.get("yoy_pct"), (int, float)) and isinstance(cpi.get("prev_yoy_pct"), (int, float)):
+            s["kpis"].append({"v": f"{cpi['yoy_pct']:.2f}%", "l": f"CPI 전년비 ({cpi['period'][:7]})", "tone": _tone(cpi["yoy_pct"] - cpi.get("prev_yoy_pct", cpi["yoy_pct"]))})
+        un = m.get("UNRATE")
+        if un:
+            s["kpis"].append({"v": f"{un['value']:.1f}%", "l": f"실업률 ({un['period'][:7]})", "tone": "neutral"})
+        s["sources"] = "FRED(BLS·BEA 원자료). 지수에서 계산해 공식 발표 반올림과 0.1%p 다를 수 있음"
+        out.append(("macro_data", s))
+    except Exception as e:  # 한 슬라이드가 실패해도 나머지는 만든다
+        log(f"수치 슬라이드 생성 실패: {e.__class__.__name__}: {e}")
+    try:
+
+        h = d.get("history_ytd") or {}
+        items = []
+        names = {"SPY": "S&P500(SPY)", "QQQ": "나스닥100(QQQ)", "DIA": "다우(DIA)", "IWM": "러셀2000(IWM)", "SOXX": "반도체(SOXX)",
+                 "UUP": "달러(UUP)", "KRW": "원/달러", "WTI": "WTI", "GOLD": "금", "BTC": "비트코인"}
+        y0 = f"{bd[:4]}-01-01" if bd else ""
+        for key, lab in names.items():
+            ser = h.get(key) or []
+            cur = [v for dt, v in ser if dt <= bd] if bd else []
+            start = [v for dt, v in sorted(ser) if dt >= y0]
+            if cur and start:
+                items.append({"label": lab, "value": round((cur[0] / start[0] - 1) * 100, 2)})
+        if items:
+            s = _blank("YEAR TO DATE", f"연초 대비 등락률 ({bd[:4]}년)")
+            s["charts"] = [{"kind": "change", "title": "연초 첫 거래일 대비 등락률", "unit": "%", "items": sorted(items, key=lambda x: -x["value"])}]
+            s["sources"] = src
+            out.append(("ytd", s))
+    except Exception as e:  # 한 슬라이드가 실패해도 나머지는 만든다
+        log(f"수치 슬라이드 생성 실패: {e.__class__.__name__}: {e}")
     return out
 
 

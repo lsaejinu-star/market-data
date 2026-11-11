@@ -127,8 +127,11 @@ def _load_state(since, cut):
 
 
 def _light_mode():
-    """예약 실행이 Claude 마감 시각(기본 07:15 KST) 이후에 시작되면 True.
+    """TG_FORCE_LIGHT=1(오늘 앞선 자동 실행이 이미 실패한 경우)이면 항상 간이 모드.
+    예약 실행이 Claude 마감 시각(기본 07:15 KST) 이후에 시작되면 True.
     이후에 Claude를 쓰면 08:00 이후까지 이어져 업무 시간 5시간 한도를 새로 시작시키기 때문."""
+    if os.environ.get("TG_FORCE_LIGHT") == "1":
+        return True
     if os.environ.get("GITHUB_EVENT_NAME") != "schedule" and os.environ.get("TG_AUTO") != "1":
         return False
     h, m = _hhmm(os.environ.get("TG_CLAUDE_DEADLINE"), "07:15")
@@ -276,24 +279,48 @@ def main():
     # 5) 하나의 흐름으로 조립: 핵심 → 시장 수치·해설 → 투자 아이디어 → 보유주식·서학개미 → 리포트 → 일정·종합판단
     sections = []
     bd = macro.base_date(data) if data else ""
-    if nar and nar.get("hero"):
+
+    def add(label, build):
+        """섹션 하나를 만들다 실패해도 나머지 섹션과 메일 발송은 계속한다."""
+        try:
+            sec = build()
+            if sec:
+                sections.append(sec)
+        except Exception:
+            log(f"{label} 조립 실패: " + traceback.format_exc().splitlines()[-1])
+            notes.append(f"{label} 섹션을 만드는 중 오류가 발생해 이번 메일에서 제외됐습니다.")
+
+    def top():
         h = nar["hero"]
-        sections.append(("오늘의 핵심", {"headline": h["headline"], "slides": [macro.ideas_slide(nar["ideas"])] if nar.get("ideas") else [],
-                                       "summary": h["points"] + [f"**시장 판정** — {h['verdict']}"] + [f"**주시** — {w}" for w in h["watch"]]}, None, "top"))
-    if data:
+        return ("오늘의 핵심", {"headline": h["headline"], "slides": [macro.ideas_slide(nar["ideas"])] if nar.get("ideas") else [],
+                              "summary": h["points"] + [f"**시장 판정** — {h['verdict']}"] + [f"**주시** — {w}" for w in h["watch"]]}, None, "top")
+
+    def mkt():
         nums = macro.merge(macro.number_slides(data), nar["notes"] if nar else None)
-        sections.append(("시장 수치와 해설", {"headline": "", "summary": [], "slides": nums + (nar["issues"] if nar else [])}, None, "mkt"))
+        slides = nums + (nar["issues"] if nar else [])
+        return ("시장 수치와 해설", {"headline": "", "summary": [], "slides": slides}, None, "mkt") if slides else None
+
+    def hold():
+        sl = macro.holding_slides(nar, data) + ([nar["flows"]] if nar.get("flows") else [])
+        return ("보유주식(구글·노키아) · 서학개미 동향", {"headline": "", "summary": [], "slides": sl}, None, "hold") if sl else None
+
+    def end():
+        cal = macro.merge([("calendar", macro.calendar_slide(data))], nar["notes"] if nar else None)
+        tail = cal + (([nar["verdict"]] if nar.get("verdict") else []) + [macro.coverage_slide(nar["coverage"], data)] if nar else [])
+        return ("일정 · 종합 판단", {"headline": "", "summary": [], "slides": tail}, None, "end")
+
+    if nar and nar.get("hero"):
+        add("오늘의 핵심", top)
+    if data:
+        add("시장 수치와 해설", mkt)
     if tg_deck:
         sections.append(("오늘의 투자 아이디어 · 텔레그램 채널", tg_deck, None, "brief"))
-    hold = (macro.holding_slides(nar, data) + ([nar["flows"]] if nar.get("flows") else [])) if nar else []
-    if hold:
-        sections.append(("보유주식(구글·노키아) · 서학개미 동향", {"headline": "", "summary": [], "slides": hold}, None, "hold"))
+    if nar:
+        add("보유주식·서학개미", hold)
     if rep_deck:
         sections.append(("리포트 갤러리 · 미국 증시 리포트 분석", rep_deck, None, "rep"))
     if data:
-        cal = macro.merge([("calendar", macro.calendar_slide(data))], nar["notes"] if nar else None)
-        tail = cal + (([nar["verdict"]] if nar.get("verdict") else []) + [macro.coverage_slide(nar["coverage"], data)] if nar else [])
-        sections.append(("일정 · 종합 판단", {"headline": "", "summary": [], "slides": tail}, None, "end"))
+        add("일정·종합 판단", end)
 
     if light:
         pos = len(sections) - 1 if data else len(sections)  # 일정 섹션 앞에 넣는다

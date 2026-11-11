@@ -63,6 +63,12 @@ jobs:
                 --json updatedAt --jq "[.[] | select(.updatedAt >= \"$since\")] | length")
           echo "오늘 06:00 KST 이후 완료된 성공 실행: $n"
           if [ "$n" -gt 0 ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; fi
+          f=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-report.yml --status failure -L 20 \
+                --json createdAt --jq "[.[] | select(.createdAt >= \"$since\")] | length")
+          if [ "$f" -gt 0 ]; then
+            echo "오늘 앞선 실행이 실패함 → 이번에는 Claude 없이 간이 브리프로(사용량 보호)"
+            echo "force_light=1" >> "$GITHUB_OUTPUT"
+          fi
 
       - uses: actions/checkout@v6
         if: steps.dup.outputs.skip != 'true'
@@ -113,6 +119,7 @@ jobs:
           TG_TEST: ${{ (github.event_name == 'workflow_dispatch' && inputs.test) && '1' || '0' }}
           TG_CLAUDE_DEADLINE: "07:15"
           TG_AUTO: ${{ (github.event_name == 'schedule' || inputs.auto) && '1' || '0' }}
+          TG_FORCE_LIGHT: ${{ steps.dup.outputs.force_light }}
           TG_STATE: ${{ runner.temp }}/prep_state.json
           TG_PREP_AT: "03:00"
           TG_API_ID: ${{ secrets.TG_API_ID }}
