@@ -1,20 +1,26 @@
 name: telegram-report
 
-# 매일: 전날 07:00~당일 06:00 KST 구독 채널 + 리포트 갤러리 수집, 미국장 시세·금리·지표·일정 수집
-# → Claude(구독, Claude Code CLI) 분석·매크로 해설(웹 검색) → 하나의 슬라이드형 HTML을 07:30에 메일 발송
-# 03:00 이전 글은 1단계(telegram-prep.yml)가 03:00에 미리 요약해 둔 결과를 이어받는다(Claude 5시간 한도가 08:00에 초기화되도록).
-# 공개 저장소이므로 아무것도 커밋/업로드하지 않고, 로그에는 건수·사용량만 남긴다.
+# 하루 두 번 투자 브리프 메일:
+#   아침: 전날 19:00 ~ 당일 07:00 글 → 07:30 발송 (03:00 이전 글은 1단계 telegram-prep.yml이 03:00에 미리 요약 →
+#         Claude 사용이 03:00에 시작해 08:00 전에 끝나므로 구독 5시간 한도가 08:00에 초기화)
+#   저녁: 당일 07:00 ~ 19:00 글 → 19:30 발송
+# 구성: 텔레그램 투자 아이디어 + 리포트 갤러리(미장) + (아침만) 파이썬으로 만든 시장 수치표·일정(AI 해설 없음)
+# 정시 실행은 brief-timer.yml(릴레이 타이머)이 담당하고, 아래 예약(cron)은 백업이다.
+# 공개 저장소이므로 수집 원문·결과물은 커밋하지 않고(직전 브리프 기억은 암호화), 로그에는 건수·사용량만 남긴다.
 
 on:
-  # GitHub 예약 실행은 이 저장소에서 4~6시간씩 늦게 시작되는 경우가 많다.
-  # 그래서 새벽에 여러 번 걸어두고, 06:00 전에 시작된 실행은 06:00까지 기다렸다가 수집한다.
-  # 그날 이미 발송된 뒤에 도착한 실행은 아무것도 하지 않는다(중복 발송 방지).
   schedule:
-    - cron: "0 17 * * *"    # 한국 02:00
-    - cron: "30 18 * * *"   # 한국 03:30
-    - cron: "5 21 * * *"    # 한국 06:05
+    - cron: "0 18 * * *"    # 한국 03:00 (아침 백업, 07:00까지 대기)
+    - cron: "30 19 * * *"   # 한국 04:30 (아침 백업)
+    - cron: "0 6 * * *"     # 한국 15:00 (저녁 백업, 19:00까지 대기)
+    - cron: "30 7 * * *"    # 한국 16:30 (저녁 백업)
   workflow_dispatch:
     inputs:
+      slot:
+        description: "아침(morning) / 저녁(evening) / 자동(auto: 시각으로 판단)"
+        type: choice
+        options: [auto, morning, evening]
+        default: auto
       test:
         description: "시험 모드(메일 제목에 [TEST], 발송 시각 대기·텔레그램 읽음 처리 안 함)"
         type: boolean
@@ -25,7 +31,7 @@ on:
         default: false
 
 permissions:
-  contents: write   # 용어 각주 누적 횟수(data/glossary.json) 저장
+  contents: write   # 직전 브리프 기억(암호화) 저장
   actions: write
 
 concurrency:
@@ -38,35 +44,45 @@ jobs:
     timeout-minutes: 350
     if: github.repository == 'lsaejinu-star/market-data'
     steps:
-      - name: Wait for 06:00 KST & skip if today's brief was already sent
+      - name: Decide slot, wait for start time & skip duplicates
         id: dup
-        if: github.event_name == 'schedule' || inputs.auto
         env:
           GH_TOKEN: ${{ github.token }}
+          SLOT_IN: ${{ inputs.slot }}
+          GATED: ${{ (github.event_name == 'schedule' || inputs.auto) && '1' || '0' }}
         run: |
+          hour=$((10#$(TZ=Asia/Seoul date +%H)))
+          slot="$SLOT_IN"
+          if [ -z "$slot" ] || [ "$slot" = "auto" ]; then
+            if [ "$hour" -lt 13 ]; then slot=morning; else slot=evening; fi
+          fi
+          echo "slot=$slot" >> "$GITHUB_OUTPUT"
+          next=$([ "$slot" = "morning" ] && echo evening || echo prep)
+          echo "next=$next" >> "$GITHUB_OUTPUT"
+          echo "브리프: $slot"
+          [ "$GATED" = "1" ] || exit 0
+          hh=$([ "$slot" = "morning" ] && echo "07:00" || echo "19:00")
           now=$(date +%s)
-          target=$(date -d "$(TZ=Asia/Seoul date +%Y-%m-%d) 06:00 +0900" +%s)
+          target=$(date -d "$(TZ=Asia/Seoul date +%Y-%m-%d) $hh +0900" +%s)
           wait=$((target - now))
-          if [ "$wait" -lt -10800 ]; then
-            echo "09:00 KST 이후에 시작됨 → 오늘 자동 발송은 건너뜀(업무 시간 Claude 한도 보호)"
+          if [ "$wait" -lt -7200 ]; then
+            echo "$hh 보다 2시간 넘게 늦게 시작됨 → 이번 자동 발송은 건너뜀"
             echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0
           fi
           if [ "$wait" -gt 18000 ]; then
-            echo "06:00 KST까지 5시간 넘게 남음 → 이번 실행은 건너뜀(다음 예약 실행이 처리)"
+            echo "$hh 까지 5시간 넘게 남음 → 이번 실행은 건너뜀(다음 실행이 처리)"
             echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0
           fi
-          if [ "$wait" -gt 0 ]; then
-            echo "06:00 KST까지 $((wait / 60))분 대기"; sleep "$wait"
-          fi
-          since=$(date -u -d "$(TZ=Asia/Seoul date +%Y-%m-%d) 06:00 +0900" +%Y-%m-%dT%H:%M:%SZ)
+          if [ "$wait" -gt 0 ]; then echo "$hh KST까지 $((wait / 60))분 대기"; sleep "$wait"; fi
+          since=$(date -u -d "@$target" +%Y-%m-%dT%H:%M:%SZ)
           n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-report.yml --status success -L 20 \
                 --json updatedAt --jq "[.[] | select(.updatedAt >= \"$since\")] | length")
-          echo "오늘 06:00 KST 이후 완료된 성공 실행: $n"
-          if [ "$n" -gt 0 ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; fi
+          echo "$hh 이후 완료된 성공 실행: $n"
+          if [ "$n" -gt 0 ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
           f=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-report.yml --status failure -L 20 \
-                --json createdAt --jq "[.[] | select(.createdAt >= \"$since\")] | length")
+                --json updatedAt --jq "[.[] | select(.updatedAt >= \"$since\")] | length")
           if [ "$f" -gt 0 ]; then
-            echo "오늘 앞선 실행이 실패함 → 이번에는 Claude 없이 간이 브리프로(사용량 보호)"
+            echo "앞선 실행이 실패함 → 이번에는 Claude 없이 간이 브리프로(사용량 보호)"
             echo "force_light=1" >> "$GITHUB_OUTPUT"
           fi
 
@@ -94,37 +110,40 @@ jobs:
           npm install -g @anthropic-ai/claude-code
           claude --version
 
-      - name: Load 03:00 prep state
+      - name: Load 03:00 prep state & last brief memory
         if: steps.dup.outputs.skip != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
           TG_SESSION: ${{ secrets.TG_SESSION }}
+          SLOT: ${{ steps.dup.outputs.slot }}
         run: |
-          since=$(date -u -d "$(TZ=Asia/Seoul date +%Y-%m-%d) 00:00 +0900" +%Y-%m-%dT%H:%M:%SZ)
-          ids=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-prep.yml --status success -L 10 \
-                  --json databaseId,updatedAt --jq ".[] | select(.updatedAt >= \"$since\") | .databaseId")
-          for id in $ids; do
-            if gh run download "$id" -R "$GITHUB_REPOSITORY" -n prep-state -D "$RUNNER_TEMP/prep" 2>/dev/null; then
-              openssl enc -d -aes-256-cbc -pbkdf2 -in "$RUNNER_TEMP/prep/prep_state.enc" -out "$RUNNER_TEMP/prep_state.json" -pass env:TG_SESSION \
-                && echo "1단계 결과 사용 (run $id)" && break
-            fi
-          done
-          [ -f "$RUNNER_TEMP/prep_state.json" ] || echo "1단계 결과 없음 → 전 구간을 이번에 처리"
-          # 전날 리포트 기억(다룬 주제·확인할 점) — 암호화돼 저장소에 있음
+          if [ "$SLOT" = "morning" ]; then
+            since=$(date -u -d "$(TZ=Asia/Seoul date +%Y-%m-%d) 00:00 +0900" +%Y-%m-%dT%H:%M:%SZ)
+            ids=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-prep.yml --status success -L 10 \
+                    --json databaseId,updatedAt --jq ".[] | select(.updatedAt >= \"$since\") | .databaseId")
+            for id in $ids; do
+              if gh run download "$id" -R "$GITHUB_REPOSITORY" -n prep-state -D "$RUNNER_TEMP/prep" 2>/dev/null; then
+                openssl enc -d -aes-256-cbc -pbkdf2 -in "$RUNNER_TEMP/prep/prep_state.enc" -out "$RUNNER_TEMP/prep_state.json" -pass env:TG_SESSION \
+                  && echo "1단계 결과 사용 (run $id)" && break
+              fi
+            done
+            [ -f "$RUNNER_TEMP/prep_state.json" ] || echo "1단계 결과 없음 → 전 구간을 이번에 처리"
+          fi
           if [ -f data/brief_memory.enc ]; then
             openssl enc -d -aes-256-cbc -pbkdf2 -in data/brief_memory.enc -out "$RUNNER_TEMP/brief_memory.json" -pass env:TG_SESSION \
-              && echo "전날 리포트 기억 불러옴" || echo "전날 리포트 기억 복호화 실패"
+              && echo "직전 브리프 기억 불러옴" || echo "직전 브리프 기억 복호화 실패"
           fi
 
       - name: Build & send brief
         if: steps.dup.outputs.skip != 'true'
         env:
           TG_PHASE: final
+          TG_SLOT: ${{ steps.dup.outputs.slot }}
           TG_MEMORY: ${{ runner.temp }}/brief_memory.json
           TG_MEMORY_OUT: ${{ runner.temp }}/brief_memory_new.json
           TG_TEST: ${{ (github.event_name == 'workflow_dispatch' && inputs.test) && '1' || '0' }}
-          TG_CLAUDE_DEADLINE: "07:15"
+          TG_CLAUDE_DEADLINE: "07:30"
           TG_AUTO: ${{ (github.event_name == 'schedule' || inputs.auto) && '1' || '0' }}
           TG_FORCE_LIGHT: ${{ steps.dup.outputs.force_light }}
           TG_STATE: ${{ runner.temp }}/prep_state.json
@@ -141,34 +160,30 @@ jobs:
           TG_REPORT_CHANNEL: ${{ vars.TG_REPORT_CHANNEL }}
           TG_EXCLUDE: ${{ vars.TG_EXCLUDE }}
           TG_MAX_REPORTS: ${{ vars.TG_MAX_REPORTS }}
-          TG_SEND_AT: "07:30"
-          TG_WINDOW_START: "07:00"
-          TG_WINDOW_END: "06:00"
         run: |
           set -o pipefail
           python -m tgbrief.main 2>&1 | tee "$RUNNER_TEMP/brief.log"
 
-      - name: Save glossary counts & report memory
+      - name: Save last brief memory (encrypted)
         if: success() && steps.dup.outputs.skip != 'true' && !(github.event_name == 'workflow_dispatch' && inputs.test)
         env:
           TG_SESSION: ${{ secrets.TG_SESSION }}
         run: |
+          [ -f "$RUNNER_TEMP/brief_memory_new.json" ] || exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -f "$RUNNER_TEMP/brief_memory_new.json" ]; then
-            openssl enc -aes-256-cbc -pbkdf2 -salt -in "$RUNNER_TEMP/brief_memory_new.json" -out data/brief_memory.enc -pass env:TG_SESSION
-            git add data/brief_memory.enc
-          fi
-          git add data/glossary.json 2>/dev/null || true
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in "$RUNNER_TEMP/brief_memory_new.json" -out data/brief_memory.enc -pass env:TG_SESSION
+          git add data/brief_memory.enc
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
-          git commit -m "용어 각주 누적 횟수·리포트 기억(암호화) $(TZ=Asia/Seoul date +%F)"
+          git commit -m "직전 브리프 기억(암호화) $(TZ=Asia/Seoul date '+%F %H시')"
           git pull --rebase --autostash && git push
 
-      - name: Re-arm next-day timer
+      - name: Re-arm timer
         if: always() && !(github.event_name == 'workflow_dispatch' && inputs.test)
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run brief-timer.yml -R "$GITHUB_REPOSITORY" -f stage=prep || true
+          NEXT: ${{ steps.dup.outputs.next }}
+        run: gh workflow run brief-timer.yml -R "$GITHUB_REPOSITORY" -f stage="${NEXT:-prep}" || true
 
       - name: Notify on failure
         if: failure() && steps.dup.outputs.skip != 'true'
@@ -176,4 +191,4 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
-        run: python -m tgbrief.notify "오늘 투자 브리프" "$RUNNER_TEMP/brief.log"
+        run: python -m tgbrief.notify "${{ steps.dup.outputs.slot == 'evening' && '저녁' || '아침' }} 투자 브리프" "$RUNNER_TEMP/brief.log"
