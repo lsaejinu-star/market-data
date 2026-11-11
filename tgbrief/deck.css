@@ -81,8 +81,5 @@ table.bars td.neg .b{border-radius:4px 0 0 4px}
 .lg{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:12.5px;color:var(--ink)}
 .lg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
 
-.fn{margin-top:14px;padding:10px 14px;background:#F7F8FA;border-left:3px solid #CBD5E1;border-radius:6px;font-size:12.5px;color:#475569}
-.fn .fnh{font-weight:700;color:#334155;margin-bottom:4px}
-.fn ol{margin:0;padding-left:18px}.fn li{margin:3px 0;line-height:1.55}
 .box.idea{background:#FFF7ED;border-color:#FDBA74}
 .fold{margin-top:14px}.fold summary{cursor:pointer;color:#1F2A44;font-weight:700;font-size:13px;padding:6px 0}
