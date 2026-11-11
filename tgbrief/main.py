@@ -15,7 +15,7 @@ import traceback
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 
-from . import analyze, glossary, llm, macro, mailer, memory, render
+from . import analyze, llm, macro, mailer, memory, render
 from .collect import KST, collect, mark_read
 
 # auto = 텔레그램 대화 목록에 있는 모든 구독 채널(비공개 채널 포함, 사기 표시·리포트 채널 제외)
@@ -35,31 +35,34 @@ def _hhmm(v, default):
     return int(h), int(m)
 
 
+def slot_of(now):
+    """아침(19~07시 글, 07:30 발송) / 저녁(07~19시 글, 19:30 발송). TG_SLOT이 없으면 시각으로 정한다."""
+    s = (os.environ.get("TG_SLOT") or "").strip()
+    if s in ("morning", "evening"):
+        return s
+    return "morning" if now.astimezone(KST).hour < 13 else "evening"
+
+
 def window(now):
-    """전날 TG_WINDOW_START ~ 당일 TG_WINDOW_END (KST). 기본 07:00 ~ 06:00."""
-    sh, sm = _hhmm(os.environ.get("TG_WINDOW_START"), "07:00")
-    eh, em = _hhmm(os.environ.get("TG_WINDOW_END"), "06:00")
+    """아침: 전날 19:00 ~ 당일 07:00 / 저녁: 당일 07:00 ~ 19:00 (KST)."""
     today = now.astimezone(KST)
-    until = today.replace(hour=eh, minute=em, second=0, microsecond=0)
-    if until > today:  # 아직 마감 시각 전이면 전날 마감 기준
-        until -= timedelta(days=1)
-    since = (until - timedelta(days=1)).replace(hour=sh, minute=sm)
-    return since, until
+    if slot_of(now) == "morning":
+        until = today.replace(hour=7, minute=0, second=0, microsecond=0)
+        return until - timedelta(hours=12), until
+    until = today.replace(hour=19, minute=0, second=0, microsecond=0)
+    return until - timedelta(hours=12), until
 
 
 def prep_window(now):
-    """prep 단계: 오늘 보낼 브리프의 구간 시작 ~ 오늘 TG_PREP_AT(기본 03:00)."""
-    sh, sm = _hhmm(os.environ.get("TG_WINDOW_START"), "07:00")
-    eh, em = _hhmm(os.environ.get("TG_WINDOW_END"), "06:00")
+    """아침 1단계: 전날 19:00 ~ 당일 TG_PREP_AT(기본 03:00)."""
     ph, pm = _hhmm(os.environ.get("TG_PREP_AT"), "03:00")
     today = now.astimezone(KST)
-    until = today.replace(hour=eh, minute=em, second=0, microsecond=0)
-    since = (until - timedelta(days=1)).replace(hour=sh, minute=sm)
-    return since, until.replace(hour=ph, minute=pm)
+    until = today.replace(hour=7, minute=0, second=0, microsecond=0)
+    return until - timedelta(hours=12), until.replace(hour=ph, minute=pm)
 
 
 def wait_until_send_time(now_fn=lambda: datetime.now(KST)):
-    sh, sm = _hhmm(os.environ.get("TG_SEND_AT"), "07:30")
+    sh, sm = _hhmm(os.environ.get("TG_SEND_AT"), "07:30" if slot_of(now_fn()) == "morning" else "19:30")
     target = now_fn().replace(hour=sh, minute=sm, second=0, microsecond=0)
     wait = (target - now_fn()).total_seconds()
     if 0 < wait < 3 * 3600:
@@ -134,8 +137,10 @@ def _light_mode():
         return True
     if os.environ.get("GITHUB_EVENT_NAME") != "schedule" and os.environ.get("TG_AUTO") != "1":
         return False
-    h, m = _hhmm(os.environ.get("TG_CLAUDE_DEADLINE"), "07:15")
     now = datetime.now(KST)
+    if slot_of(now) != "morning":  # 저녁 브리프는 08:00 초기화와 무관
+        return False
+    h, m = _hhmm(os.environ.get("TG_CLAUDE_DEADLINE"), "07:30")
     return now >= now.replace(hour=h, minute=m, second=0, microsecond=0) and now.hour < 12
 
 
@@ -179,9 +184,11 @@ def main():
     _, cut = prep_window(until)
     st = _load_state(since, cut) if (os.environ.get("TG_PHASE") or "final") == "final" else None
     test = (os.environ.get("TG_TEST") or "0") == "1"
-    mem = memory.load(f"{until:%Y-%m-%d}")
+    slot = slot_of(datetime.now(KST))
+    mem_key = f"{until:%Y-%m-%d %H}"
+    mem = memory.load(mem_key)
     if mem:
-        log(f"전날({mem['date']}) 기억: 다룬 주제 {len(mem.get('topics', []))}개, 확인할 점 {len(mem.get('checks', []))}개")
+        log(f"직전 브리프({mem['date']}시) 기억: 다룬 주제 {len(mem.get('topics', []))}개")
     light = _light_mode()
     if light:
         log("Claude 마감 시각 이후에 시작된 예약 실행 → Claude를 쓰지 않는 간이 브리프로 작성(5시간 한도 보호)")
@@ -204,10 +211,11 @@ def main():
 
     notes = []
     cap = int(os.environ.get("TG_MAX_REPORTS") or 25)
-    macro_on = (os.environ.get("TG_MACRO") or "1") == "1"
+    # 매크로는 파이썬으로 만드는 수치표·일정만(AI 해설·웹 조사 없음), 미국장 마감 직후인 아침 브리프에만
+    macro_on = (os.environ.get("TG_MACRO") or "1") == "1" and slot == "morning"
     ex = ThreadPoolExecutor(max_workers=4)
     # 매크로 데이터는 미국 종가가 반영되도록 수집 마감 10분 뒤부터 별도 스레드로 수집
-    fut_data = ex.submit(macro.collect, until + timedelta(minutes=10)) if macro_on else None
+    fut_data = ex.submit(macro.collect) if macro_on else None
     fut_rep = ex.submit(_report_analyses, report_posts, cap) if not light else None
 
     # 1) 구독 채널 전수 요약 (새 글만, prep 결과와 합침)
@@ -240,37 +248,22 @@ def main():
     log(f"리포트 {n_groups}건 중 미장 관련 {n_us}건, 분석 {len(analyses)}건")
     fut_syn = ex.submit(analyze.synthesize_reports, analyses) if analyses and not light else None
 
-    # 3) 매크로: 수집 → 해설(웹 검색)
+    # 3) 매크로 수치(파이썬 수집만)
     data = nar = None
     if fut_data:
         try:
             data = fut_data.result()
-            ta = (data.get("news_latest") or {}).get("treasury_auctions") or {}
-            log(f"매크로 데이터 수집 완료: 기준 거래일 {macro.base_date(data)}, 일정 {len(data.get('calendar', []))}건, 국채 {len(data.get('treasury', []))}일치, "
-                f"입찰 결과 {len(ta.get('recent') or [])}건({ta.get('source', '-')}), 실적 일정 {len(data.get('earnings') or [])}건, FOMC 확률 {len(data.get('fedwatch') or [])}회의")
-            nar = macro.narrative(data, tg_lines, memory.topics_text(mem), memory.checks_text(mem)) if not light else None
-            from collections import Counter
-            cnt = Counter(r["status"] for r in nar["coverage"])
-            if nar.get("failed"):
-                notes.append("매크로 해설 일부(" + ", ".join(nar["failed"]) + ") 생성 중 오류가 발생해 빠졌습니다.")
-            if not nar.get("hero"):
-                notes.append("오늘의 핵심·종합 판단 생성 중 오류가 발생해 빠졌습니다.")
-            log(f"매크로 해설: 이슈 {len(nar['issues'])}장, 커버리지 {len(nar['coverage'])}항목 — " + " / ".join(f"{k} {v}" for k, v in cnt.most_common()))
-            for r in nar["coverage"]:
-                if r["status"] in ("부분 확인", "확인 실패"):
-                    log(f"  {r['status']}: {r['item']}")  # 항목명만(내용은 공개 로그에 남기지 않음)
+            log(f"매크로 수치 수집 완료: 기준 거래일 {macro.base_date(data)}, 일정 {len(data.get('calendar', []))}건")
         except Exception:
-            log("매크로 파트 실패: " + traceback.format_exc().splitlines()[-1])
-            notes.append("매크로 해설 생성 중 오류가 발생해 수치 위주로만 실었습니다.")
+            log("매크로 수치 수집 실패: " + traceback.format_exc().splitlines()[-1])
+            notes.append("시장 수치 수집 중 오류가 발생해 이번 메일에서 제외됐습니다.")
 
-    # 4) 텔레그램 아이디어 브리프 — 매크로에서 이미 다룬 주제는 반복하지 않도록 목록을 넘긴다
-    covered = macro.covered_topics(nar) if nar else ""
-    if mem:
-        covered += "\n[어제 리포트에서 다룬 주제]\n" + memory.topics_text(mem)
+    # 4) 텔레그램 아이디어 브리프 — 직전 브리프에서 이미 다룬 주제는 새 전개가 없으면 생략
+    covered = ("[직전 브리프에서 다룬 주제]\n" + memory.topics_text(mem)) if mem else ""
     tg_deck = None
     if brief_posts and digests and not light:
         try:
-            tg_deck = analyze.channel_brief(brief_posts, digests, with_macro=macro_on, covered=covered)
+            tg_deck = analyze.channel_brief(brief_posts, digests, with_macro=True, covered=covered)
             extra, low = analyze.coverage_slide(brief_posts, digests, [tg_deck])
             if extra:
                 tg_deck["slides"].append(extra)
@@ -281,7 +274,7 @@ def main():
     rep_deck = result(fut_syn, "리포트 갤러리 종합")
     ex.shutdown(wait=False)
 
-    # 5) 하나의 흐름으로 조립: 핵심 → 시장 수치·해설 → 투자 아이디어 → 보유주식·서학개미 → 리포트 → 일정·종합판단
+    # 5) 조립: 텔레그램 투자 아이디어 → 리포트 갤러리 → (아침) 시장 수치·일정(파이썬 수치표, AI 해설 없음)
     sections = []
     bd = macro.base_date(data) if data else ""
 
@@ -295,73 +288,45 @@ def main():
             log(f"{label} 조립 실패: " + traceback.format_exc().splitlines()[-1])
             notes.append(f"{label} 섹션을 만드는 중 오류가 발생해 이번 메일에서 제외됐습니다.")
 
-    def top():
-        h = nar["hero"]
-        sl = ([macro.ideas_slide(nar["ideas"])] if nar.get("ideas") else []) + ([macro.followup_slide(nar["followups"])] if nar.get("followups") else [])
-        return ("오늘의 핵심", {"headline": h["headline"], "slides": sl,
-                              "summary": h["points"] + [f"**시장 판정** — {h['verdict']}"] + [f"**주시** — {w}" for w in h["watch"]]}, None, "top")
-
     def mkt():
-        nums = macro.merge(macro.number_slides(data), nar["notes"] if nar else None)
-        slides = nums + (nar["issues"] if nar else [])
-        return ("시장 수치와 해설", {"headline": "", "summary": [], "slides": slides}, None, "mkt") if slides else None
+        slides = macro.merge(macro.number_slides(data), None) + macro.merge([("calendar", macro.calendar_slide(data))], None)
+        return ("시장 수치·일정 (참고)", {"headline": "", "summary": [], "slides": slides}, None, "mkt") if slides else None
 
-    def hold():
-        sl = macro.holding_slides(nar, data) + ([nar["flows"]] if nar.get("flows") else [])
-        return ("보유주식(구글·노키아) · 서학개미 동향", {"headline": "", "summary": [], "slides": sl}, None, "hold") if sl else None
-
-    def end():
-        cal = macro.merge([("calendar", macro.calendar_slide(data))], nar["notes"] if nar else None)
-        tail = cal + (([nar["verdict"]] if nar.get("verdict") else []) + [macro.coverage_slide(nar["coverage"], data)] if nar else [])
-        return ("일정 · 종합 판단", {"headline": "", "summary": [], "slides": tail}, None, "end")
-
-    if nar and nar.get("hero"):
-        add("오늘의 핵심", top)
-    if data:
-        add("시장 수치와 해설", mkt)
     if tg_deck:
-        sections.append(("오늘의 투자 아이디어 · 텔레그램 채널", tg_deck, None, "brief"))
-    if nar:
-        add("보유주식·서학개미", hold)
+        sections.append(("투자 아이디어 · 텔레그램 채널", tg_deck, None, "brief"))
     if rep_deck:
         sections.append(("리포트 갤러리 · 미국 증시 리포트 분석", rep_deck, None, "rep"))
-    if data:
-        add("일정·종합 판단", end)
-
     if light:
-        pos = len(sections) - 1 if data else len(sections)  # 일정 섹션 앞에 넣는다
-        sections[pos:pos] = _light_sections(brief_posts, digests, analyses)
-        notes.append("Claude 사용 마감 시각(구독 한도 초기화 보호) 이후에 시작돼 AI 해설 없이 수치·요약표 위주의 간이 브리프로 보냈습니다.")
+        sections += _light_sections(brief_posts, digests, analyses)
+        notes.append("Claude 사용 마감 시각(구독 한도 초기화 보호) 이후에 시작돼 AI 해설 없이 요약표 위주의 간이 브리프로 보냈습니다.")
+    if data:
+        add("시장 수치·일정", mkt)
 
-    try:
-        gdb = glossary.annotate(sections)
-        if not test:
-            glossary.save(gdb)
-            if nar and not light:
-                memory.save(memory.build(f"{until:%Y-%m-%d}", nar, tg_deck, rep_deck))
-        log(f"용어 각주: {sum(len(s.get('footnotes', [])) for _, d, _, _ in sections for s in d['slides'])}개 (누적 사전 {len(gdb)}개)")
-    except Exception:
-        log("용어 각주 실패: " + traceback.format_exc().splitlines()[-1])
+    if not test and not light and (tg_deck or rep_deck):
+        try:
+            memory.save(memory.build(mem_key, None, tg_deck, rep_deck))
+        except Exception:
+            log("브리프 기억 저장 실패: " + traceback.format_exc().splitlines()[-1])
 
     date_label = f"텔레그램 {since:%m.%d %H:%M} ~ {until:%m.%d %H:%M} KST" + (f" · 미국장 {bd} 종가 기준" if bd else "")
     notes += [f"수집 대상: 구독 채널 {n_channels}개 + 리포트 갤러리",
               f"채널 글 {len(brief_posts)}건을 모두 읽고(이미지 {n_img}장 포함) 본문 또는 '그 밖에 알아둘 소식'에 반영했습니다."
-              + (f" ({cut:%H:%M} 이전 {len(prev_posts)}건은 {cut:%H:%M}에 1차로, 이후 {len(new_posts)}건은 06:00에 읽음)" if st else ""),
+              + (f" ({cut:%H:%M} 이전 {len(prev_posts)}건은 {cut:%H:%M}에 1차로, 이후 {len(new_posts)}건은 {until:%H:%M}에 읽음)" if st else ""),
               f"영상·투표 등 내용을 읽을 수 없는 글 {media_only}건은 제외됐습니다.",
               f"리포트 {n_groups}건 중 미국 증시 관련 {n_us}건 분석"]
     if data:
-        notes += ["시세: Yahoo Finance(이 작업에서 직접 수집) · 국채: 미 재무부 · 물가·고용·EFFR·HY 스프레드: FRED · 일정: ForexFactory · 입찰: TreasuryDirect",
+        notes += ["시장 수치는 파이썬이 직접 수집한 값(AI 해설 없음) — 시세: Yahoo Finance · 국채: 미 재무부 · 물가·고용·EFFR·HY 스프레드: FRED · 일정: ForexFactory · 입찰: TreasuryDirect",
                   "시장폭은 S&P500 구성종목 기준 직접 계산(거래소 전체 집계 아님), 원자재는 근월물 선물, 원/달러는 글로벌 시세"]
     notes += ["텔레그램 내용은 미검증 정보입니다. 정보 제공 목적이며 투자 조언이 아닙니다. 투자 판단과 책임은 투자자 본인에게 있습니다."]
     if errors:
         notes.append(f"수집 실패 채널 {len(errors)}개(채널명 변경·비공개 전환 가능성)")
 
-    title = f"{until:%m월 %d일} 투자 브리프" + (" (간이)" if light else "")
+    title = f"{until:%m월 %d일} {'아침' if slot == 'morning' else '저녁'} 투자 브리프" + (" (간이)" if light else "")
     stats = [(f"{len(brief_posts)}건", "채널 글 전수 확인"), (f"{n_us}건", "미장 리포트 분석"),
-             (f"{sum(len(d['slides']) for _, d, _, _ in sections)}장", "슬라이드"), (bd or "-", "미국장 기준일")]
+             (f"{sum(len(d['slides']) for _, d, _, _ in sections)}장", "슬라이드"), (f"{since:%H}~{until:%H}시", "수집 구간")]
     html_doc = render.page(title, date_label, stats, sections, notes) if sections else \
         f"<p>{date_label} 동안 분석할 내용이 없거나 분석에 실패했습니다.</p>"
-    fname = f"invest_brief_{until:%Y%m%d}.html"
+    fname = f"invest_brief_{until:%Y%m%d_%H}.html"
     with open(os.path.join(os.environ.get("RUNNER_TEMP", "/tmp"), fname), "w", encoding="utf-8") as fp:
         fp.write(html_doc)
     log(f"Claude 사용량(구독, 이번 단계): 호출 {llm.USAGE['calls']}회, 입력 {llm.USAGE['input']:,} / 출력 {llm.USAGE['output']:,} 토큰"

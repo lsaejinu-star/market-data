@@ -1,6 +1,6 @@
 name: telegram-prep
 
-# 투자 브리프 1단계(03:00 KST): 전날 07:00 ~ 당일 03:00 텔레그램 글 전수 요약 + 리포트 갤러리 분석.
+# 아침 투자 브리프 1단계(03:00 KST): 전날 19:00 ~ 당일 03:00 텔레그램 글 전수 요약 + 리포트 갤러리 분석.
 # Claude 구독 5시간 한도가 03:00에 시작해 08:00에 초기화되도록, Claude 사용을 03:00부터 시작한다.
 # 결과는 TG_SESSION으로 암호화해 1일 보관 아티팩트로 넘기고, 2단계(telegram-report, 06:00)가 이어받는다.
 
@@ -86,8 +86,6 @@ jobs:
           TG_EXCLUDE: ${{ vars.TG_EXCLUDE }}
           TG_MAX_REPORTS: ${{ vars.TG_MAX_REPORTS }}
           TG_PREP_AT: "03:00"
-          TG_WINDOW_START: "07:00"
-          TG_WINDOW_END: "06:00"
         run: |
           set -o pipefail
           python -m tgbrief.main 2>&1 | tee "$RUNNER_TEMP/prep.log"
@@ -113,4 +111,4 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
-        run: python -m tgbrief.notify "03:00 1단계(06:00 단계가 전 구간을 대신 처리 예정)" "$RUNNER_TEMP/prep.log"
+        run: python -m tgbrief.notify "03:00 아침 1단계(07:00 단계가 전 구간을 대신 처리 예정)" "$RUNNER_TEMP/prep.log"
