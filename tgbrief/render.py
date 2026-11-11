@@ -107,10 +107,6 @@ def slide(s, page, links, sid=""):
         if s["so_what"]:
             o.append(f'<div class="sw">💡 <b>So what</b> — {f(s["so_what"])}</div>')
         o.append("</div>")
-    fn = s.get("footnotes") or []
-    if fn:
-        o.append('<div class="fn"><div class="fnh">용어 설명</div><ol>' + "".join(
-            f"<li><b>{html.escape(t)}</b> — {html.escape(d)}</li>" for t, d in fn) + "</ol></div>")
     o.append(f'</div><div class="src">근거: {f(s["sources"])}</div></section>')
     return "\n".join(o)
 

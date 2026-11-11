@@ -441,8 +441,7 @@ def calendar_slide(d):
 
 # ───────────────────────── 해설 (Claude + 웹 검색) ─────────────────────────
 
-NOTE = _obj({"key": S, "so_what": S, "ideas": SL, "deep": {"type": "array", "items": _obj({"lead": S, "text": S})},
-             "glossary": {"type": "array", "items": _obj({"term": S, "desc": S})}})
+NOTE = _obj({"key": S, "so_what": S, "ideas": SL, "deep": {"type": "array", "items": _obj({"lead": S, "text": S})}})
 IDEA = _obj({"idea": S, "why": S, "related": S, "check": S, "risk": S, "horizon": S})
 COV = {"type": "array", "items": _obj({
     "item": S,
@@ -476,7 +475,7 @@ PART_TASKS = {
 ③ 원/달러(서울 종가 기사 있으면 병기)·달러·유가·금·코인 변동 원인 ④ 아시아·유럽 증시와 오늘 코스피 개장에 줄 영향 ⑤ 물가·고용 지표의 24시간 내 새 발표 여부·예상치 대비
 출력: notes — key=핵심 한 문장(숫자 요약이 아니라 '무슨 의미인가'), so_what=투자자 시사점,
 ideas=이 수치에서 나오는 투자 아이디어 2~4개(각 한 줄: '아이디어 → 근거 → 관련 업종·종목/ETF → 확인할 점·리스크'),
-deep=원인·의미 2~4문단(lead=소제목, text=4~6문장, 기사 출처명 괄호), glossary=해설에 쓴 전문용어 설명(최대 6개, 비전공자 기준 1~2문장)
+deep=원인·의미 2~4문단(lead=소제목, text=4~6문장, 기사 출처명 괄호)
 (indices=지수·M7, breadth_sectors=시장폭·섹터·테마, rates=금리·연준·입찰·FOMC 확률·해외 중앙은행, fx_commodities=환율·원자재·코인, global=아시아·유럽·코스피 영향,
  macro_data=물가·고용, ytd=연초 대비 흐름, calendar=이번 주 일정·실적 발표 해설). 중요한 내용일수록 deep를 길게.
 coverage 항목: 지수, 시장폭, 섹터, 금리·연준, FedWatch, 국채입찰, 해외중앙은행, 환율, 원자재, 물가·고용, 글로벌, 크레딧·코인, 일정.""",
@@ -701,7 +700,6 @@ def merge(slides, notes):
         s["key"] = n.get("key") or s["key"] or s["title"]
         s["so_what"] = n.get("so_what") or ""
         s["deep"] = n.get("deep") or []
-        s["glossary"] = n.get("glossary") or []
         if n.get("ideas"):
             s["boxes"].insert(0, {"title": "💡 투자 아이디어", "bullets": n["ideas"]})
     return [s for _, s in slides]
