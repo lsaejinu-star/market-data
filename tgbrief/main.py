@@ -15,7 +15,7 @@ import traceback
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 
-from . import analyze, glossary, llm, macro, mailer, render
+from . import analyze, glossary, llm, macro, mailer, memory, render
 from .collect import KST, collect, mark_read
 
 # auto = 텔레그램 대화 목록에 있는 모든 구독 채널(비공개 채널 포함, 사기 표시·리포트 채널 제외)
@@ -179,6 +179,9 @@ def main():
     _, cut = prep_window(until)
     st = _load_state(since, cut) if (os.environ.get("TG_PHASE") or "final") == "final" else None
     test = (os.environ.get("TG_TEST") or "0") == "1"
+    mem = memory.load(f"{until:%Y-%m-%d}")
+    if mem:
+        log(f"전날({mem['date']}) 기억: 다룬 주제 {len(mem.get('topics', []))}개, 확인할 점 {len(mem.get('checks', []))}개")
     light = _light_mode()
     if light:
         log("Claude 마감 시각 이후에 시작된 예약 실행 → Claude를 쓰지 않는 간이 브리프로 작성(5시간 한도 보호)")
@@ -245,7 +248,7 @@ def main():
             ta = (data.get("news_latest") or {}).get("treasury_auctions") or {}
             log(f"매크로 데이터 수집 완료: 기준 거래일 {macro.base_date(data)}, 일정 {len(data.get('calendar', []))}건, 국채 {len(data.get('treasury', []))}일치, "
                 f"입찰 결과 {len(ta.get('recent') or [])}건({ta.get('source', '-')}), 실적 일정 {len(data.get('earnings') or [])}건, FOMC 확률 {len(data.get('fedwatch') or [])}회의")
-            nar = macro.narrative(data, tg_lines) if not light else None
+            nar = macro.narrative(data, tg_lines, memory.topics_text(mem), memory.checks_text(mem)) if not light else None
             from collections import Counter
             cnt = Counter(r["status"] for r in nar["coverage"])
             if nar.get("failed"):
@@ -262,6 +265,8 @@ def main():
 
     # 4) 텔레그램 아이디어 브리프 — 매크로에서 이미 다룬 주제는 반복하지 않도록 목록을 넘긴다
     covered = macro.covered_topics(nar) if nar else ""
+    if mem:
+        covered += "\n[어제 리포트에서 다룬 주제]\n" + memory.topics_text(mem)
     tg_deck = None
     if brief_posts and digests and not light:
         try:
@@ -292,7 +297,8 @@ def main():
 
     def top():
         h = nar["hero"]
-        return ("오늘의 핵심", {"headline": h["headline"], "slides": [macro.ideas_slide(nar["ideas"])] if nar.get("ideas") else [],
+        sl = ([macro.ideas_slide(nar["ideas"])] if nar.get("ideas") else []) + ([macro.followup_slide(nar["followups"])] if nar.get("followups") else [])
+        return ("오늘의 핵심", {"headline": h["headline"], "slides": sl,
                               "summary": h["points"] + [f"**시장 판정** — {h['verdict']}"] + [f"**주시** — {w}" for w in h["watch"]]}, None, "top")
 
     def mkt():
@@ -331,6 +337,8 @@ def main():
         gdb = glossary.annotate(sections)
         if not test:
             glossary.save(gdb)
+            if nar and not light:
+                memory.save(memory.build(f"{until:%Y-%m-%d}", nar, tg_deck, rep_deck))
         log(f"용어 각주: {sum(len(s.get('footnotes', [])) for _, d, _, _ in sections for s in d['slides'])}개 (누적 사전 {len(gdb)}개)")
     except Exception:
         log("용어 각주 실패: " + traceback.format_exc().splitlines()[-1])
