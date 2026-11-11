@@ -452,7 +452,11 @@ NOTE_KEYS = ("indices", "breadth_sectors", "rates", "fx_commodities", "global", 
 
 # 조사를 세 갈래로 나눠 병렬 실행(하나가 실패해도 나머지는 살아남고, 실패한 갈래만 재시도) → 마지막에 짧은 종합 호출
 PART_SCHEMAS = {
-    "market": _obj({"notes": _obj({k: NOTE for k in NOTE_KEYS}), "coverage": COV}),
+    "market": _obj({"notes": _obj({k: NOTE for k in NOTE_KEYS}), "coverage": COV,
+                    "followups": {"type": "array", "items": _obj({
+                        "idea": S, "check": S,
+                        "status": {"type": "string", "enum": ["확인됨(아이디어 지지)", "확인됨(아이디어 약화)", "아직 미확인", "판단 보류"]},
+                        "finding": S, "source": S})}}),
     "issues": _obj({"issues": {"type": "array", "items": SLIDE}, "coverage": COV}),
     "holdings": _obj({"holdings": {"type": "array", "items": SLIDE}, "flows": SLIDE, "coverage": COV}),
 }
@@ -467,7 +471,7 @@ gap은 완료·해당없음이면 빈 문자열. 소스가 막히면 이유를 �
 PART_TASKS = {
     "market": """너의 담당: '시장 수치 해설'. 아래 수치 슬라이드 8개에 붙일 해설(notes)만 쓴다. 정책·관세·지정학·개별 기업 뉴스·보유주식·서학개미는 다른 담당이 쓰므로
 자세히 쓰지 말 것(필요하면 한 줄 언급만).
-조사(WebSearch·WebFetch 합계 12회 이내): ① 미국장 마감 랩업 1~2건 — 오늘의 지배 서사, 지수·섹터·테마(±2% 이상)·상승/하락 상위 종목의 원인
+조사(WebSearch·WebFetch 합계 15회 이내): ① 미국장 마감 랩업 1~2건 — 오늘의 지배 서사, 지수·섹터·테마(±2% 이상)·상승/하락 상위 종목의 원인
 ② 연준 인사 발언(누가·톤), FOMC 확률(수치에 있는 선물 기반 추정치와 기사 속 CME FedWatch 비교), 국채 입찰 결과의 의미, ECB·BOJ·BOE·한국은행 동향
 ③ 원/달러(서울 종가 기사 있으면 병기)·달러·유가·금·코인 변동 원인 ④ 아시아·유럽 증시와 오늘 코스피 개장에 줄 영향 ⑤ 물가·고용 지표의 24시간 내 새 발표 여부·예상치 대비
 출력: notes — key=핵심 한 문장(숫자 요약이 아니라 '무슨 의미인가'), so_what=투자자 시사점,
@@ -532,7 +536,22 @@ def _compact(d):
     return "\n".join(L)
 
 
-def _part_prompt(part, d, tg_lines, now):
+def _part_prompt(part, d, tg_lines, now, prev_topics="", prev_checks=""):
+    prev = ""
+    if prev_topics:
+        prev += f"""
+=== 어제 리포트에서 이미 상세히 다룬 주제 ===
+{prev_topics}
+→ 위 주제는 어제 자세히 설명했으므로 오늘은 다시 풀어쓰지 말 것. 어제 이후 새로운 전개·수치가 있을 때만 '어제 이후 변화'로 짧게 쓰고,
+  새 전개가 없으면 생략한다. 그만큼 오늘 처음 나온 내용을 더 깊게 쓴다.
+"""
+    if part == "market" and prev_checks:
+        prev += f"""
+=== 어제 리포트의 '확인할 점' (오늘 반드시 점검) ===
+{prev_checks}
+→ followups: 위 항목마다 오늘 수치·뉴스로 확인한 결과를 쓴다. status는 확인됨(아이디어 지지)/확인됨(아이디어 약화)/아직 미확인/판단 보류 중 하나,
+  finding=무엇을 확인했고 그래서 어제 아이디어가 어떻게 됐는지 2~3문장(수치 포함), source=확인한 출처. 필요하면 검색 3회 이내 추가 사용.
+"""
     return f"""지금은 {now:%Y-%m-%d %H:%M} KST. 한국 개인투자자(미국주식 투자)용 데일리 브리핑의 일부를 맡았다.
 아래 수치는 오늘 아침 자동 수집한 확정치로, 이미 표·차트로 리포트에 들어간다(재조회 금지, 그대로 인용).
 
@@ -542,6 +561,7 @@ def _part_prompt(part, d, tg_lines, now):
 === 텔레그램 채널 요약(미검증, 별도 '투자 아이디어' 섹션이 따로 있음 — 참고만) ===
 {tg_lines}
 
+{prev}
 === 담당과 조사 ===
 {PART_TASKS[part]}
 뉴스는 최근 24시간(주말이면 직전 거래일 마감 이후) 기사만, 발행일시를 확인하고 인용. 수치표의 시세는 다시 찾지 말 것.
@@ -583,14 +603,14 @@ def _synth(d, parts, now):
                     [{"type": "text", "text": prompt}], SYNTH_SCHEMA, max_tokens=24000)
 
 
-def narrative(d, tg_lines):
+def narrative(d, tg_lines, prev_topics="", prev_checks=""):
     """세 갈래 병렬 조사 + 종합. 갈래가 실패해도 나머지로 리포트를 만든다(각 호출은 llm에서 2회 재시도)."""
     from concurrent.futures import ThreadPoolExecutor
     now = datetime.now(KST)
     sysmsg = "미국 증시 매크로·뉴스를 조사해 한국 개인투자자용 데일리 브리핑을 쓰는 시니어 애널리스트."
     parts, failed = {}, []
     with ThreadPoolExecutor(max_workers=3) as ex:
-        futs = {k: ex.submit(ask_json, ANALYSIS_MODEL, sysmsg, [{"type": "text", "text": _part_prompt(k, d, tg_lines, now)}],
+        futs = {k: ex.submit(ask_json, ANALYSIS_MODEL, sysmsg, [{"type": "text", "text": _part_prompt(k, d, tg_lines, now, prev_topics, prev_checks)}],
                              PART_SCHEMAS[k], max_tokens=48000, tools=("WebSearch", "WebFetch"), max_turns=40)
                 for k in PART_SCHEMAS}
         for k, f in futs.items():
@@ -613,6 +633,7 @@ def narrative(d, tg_lines):
         cov.append({"item": {"market": "시장 수치 해설", "issues": "시장을 움직인 이슈", "holdings": "보유주식·서학개미"}[k],
                     "status": "확인 실패", "source": "-", "gap": "해설 생성 오류(재시도 후에도 실패)"})
     return {"hero": syn.get("hero"), "verdict": syn.get("verdict"), "ideas": syn.get("ideas") or [],
+            "followups": (parts.get("market") or {}).get("followups") or [],
             "notes": (parts.get("market") or {}).get("notes") or {},
             "issues": (parts.get("issues") or {}).get("issues") or [],
             "holdings": (parts.get("holdings") or {}).get("holdings") or [],
@@ -646,6 +667,21 @@ def ideas_slide(ideas):
     s["table_headers"] = ["아이디어", "근거", "관련 업종·종목", "확인할 점", "리스크", "시간축"]
     s["table_rows"] = [[i["idea"], i["why"], i["related"], i["check"], i["risk"], i["horizon"]] for i in ideas]
     s["sources"] = "이 리포트의 수치·해설 종합"
+    return s
+
+
+def followup_slide(rows):
+    """어제 '확인할 점'의 오늘 점검 결과."""
+    s = _blank("FOLLOW-UP", "어제 확인할 점, 오늘 점검 결과")
+    s["fold_table"] = False
+    s["key"] = "어제 리포트의 아이디어마다 '확인할 점'을 오늘 데이터·뉴스로 점검했습니다."
+    ok = sum(1 for r in rows if r["status"].startswith("확인됨(아이디어 지지)"))
+    weak = sum(1 for r in rows if "약화" in r["status"])
+    s["kpis"] = [{"v": f"{ok}건", "l": "아이디어 지지", "tone": "up"}, {"v": f"{weak}건", "l": "아이디어 약화", "tone": "down"},
+                 {"v": f"{len(rows) - ok - weak}건", "l": "미확인·보류", "tone": "neutral"}]
+    s["table_headers"] = ["어제 아이디어", "확인할 점", "결과", "오늘 확인한 내용", "출처"]
+    s["table_rows"] = [[r["idea"], r["check"], r["status"], r["finding"], r["source"]] for r in rows]
+    s["sources"] = "어제 리포트 · 오늘 수집 데이터·기사"
     return s
 
 
