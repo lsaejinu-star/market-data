@@ -1,11 +1,11 @@
-name: telegram-prep
+name: claude-warmup
 
-# 아침 투자 브리프 1단계(03:00 KST): 전날 19:00 ~ 당일 03:00 텔레그램 글 전수 요약 + 리포트 갤러리 분석.
-# Claude 구독 5시간 한도가 03:00에 시작해 08:00에 초기화되도록, Claude 사용을 03:00부터 시작한다.
-# 결과는 TG_SESSION으로 암호화해 1일 보관 아티팩트로 넘기고, 2단계(telegram-report, 06:00)가 이어받는다.
+# 03:00 KST에 Claude를 아주 짧게 한 번 호출해(조사 없음) 구독 5시간 한도 창을 03:00에 시작시킨다
+# → 06:00 아침 브리프 작업이 이 창 안에서 끝나고, 한도는 08:00에 초기화된다.
+# (파일 이름은 기존 실행 기록·타이머 호환을 위해 telegram-prep.yml 유지)
 
 on:
-  # GitHub 예약 실행은 3~6시간 늦게 시작되는 일이 잦아 미리 여러 번 걸어 두고 03:00까지 기다린다.
+  # 정시 실행은 brief-timer.yml이 담당. 아래 예약은 백업(GitHub 예약은 몇 시간씩 늦을 수 있어 미리 걸고 03:00까지 대기).
   schedule:
     - cron: "30 13 * * *"   # 한국 22:30
     - cron: "0 15 * * *"    # 한국 00:00
@@ -13,22 +13,22 @@ on:
   workflow_dispatch:
     inputs:
       auto:
-        description: "자동 실행(타이머가 호출) — 예약 실행과 같은 규칙 적용"
+        description: "자동 실행(타이머가 호출) — 03:00까지 대기·중복 확인 적용"
         type: boolean
         default: false
 
 permissions:
   contents: read
-  actions: read
+  actions: write
 
 concurrency:
   group: telegram-prep
   cancel-in-progress: false
 
 jobs:
-  prep:
+  warmup:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 340
     if: github.repository == 'lsaejinu-star/market-data'
     steps:
       - name: Wait for 03:00 KST & skip duplicates
@@ -44,71 +44,39 @@ jobs:
           if [ $((now - target)) -gt 10800 ]; then target=$((target + 86400)); fi
           wait=$((target - now))
           if [ "$wait" -gt 18000 ]; then echo "03:00까지 5시간 넘게 남음 → 건너뜀"; echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
-          if [ "$wait" -lt -9900 ]; then echo "05:45 이후 도착 → 건너뜀(06:00 단계가 전체 처리)"; echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
-          since=$(date -u -d "@$((target - 3600))" +%Y-%m-%dT%H:%M:%SZ)
+          # 05:55 이후면 의미 없음(06:00 브리프가 곧 Claude를 쓰기 시작)
+          if [ "$wait" -lt -10500 ]; then echo "05:55 이후 도착 → 건너뜀"; echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          since=$(date -u -d "@$((target - 1800))" +%Y-%m-%dT%H:%M:%SZ)
           n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-prep.yml --status success -L 20 \
-                --json updatedAt --jq "[.[] | select(.updatedAt >= \"$since\")] | length")
-          if [ "$n" -gt 0 ]; then echo "오늘 1단계가 이미 완료됨 → 건너뜀"; echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+                --json updatedAt,conclusion --jq "[.[] | select(.updatedAt >= \"$since\")] | length")
+          if [ "$n" -gt 0 ]; then echo "오늘 활성화가 이미 완료됨 → 건너뜀"; echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          # 03:00 전에는 절대 호출하지 않는다(그러면 한도 창이 일찍 시작돼 06:00 작업이 새 창을 연다)
           if [ "$wait" -gt 0 ]; then echo "03:00 KST까지 $((wait / 60))분 대기"; sleep "$wait"; fi
-
-      - uses: actions/checkout@v6
-        if: steps.gate.outputs.skip != 'true'
-
-      - uses: actions/setup-python@v6
-        if: steps.gate.outputs.skip != 'true'
-        with:
-          python-version: "3.12"
-          cache: pip
-          cache-dependency-path: requirements-telegram.txt
 
       - uses: actions/setup-node@v6
         if: steps.gate.outputs.skip != 'true'
         with:
           node-version: "22"
 
-      - name: Install
-        if: steps.gate.outputs.skip != 'true'
-        run: |
-          pip install -r requirements-telegram.txt
-          npm install -g @anthropic-ai/claude-code
-
-      - name: Prep (digest until 03:00)
+      - name: Warm up Claude (one tiny call)
         if: steps.gate.outputs.skip != 'true'
         env:
-          TG_PHASE: prep
-          TG_STATE: ${{ runner.temp }}/prep_state.json
-          TG_API_ID: ${{ secrets.TG_API_ID }}
-          TG_API_HASH: ${{ secrets.TG_API_HASH }}
-          TG_SESSION: ${{ secrets.TG_SESSION }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          TG_CHANNELS: ${{ vars.TG_CHANNELS }}
-          TG_REPORT_CHANNEL: ${{ vars.TG_REPORT_CHANNEL }}
-          TG_EXCLUDE: ${{ vars.TG_EXCLUDE }}
-          TG_MAX_REPORTS: ${{ vars.TG_MAX_REPORTS }}
-          TG_PREP_AT: "03:00"
         run: |
-          set -o pipefail
-          python -m tgbrief.main 2>&1 | tee "$RUNNER_TEMP/prep.log"
+          npm install -g @anthropic-ai/claude-code >/dev/null 2>&1
+          cd "$RUNNER_TEMP"
+          for i in 1 2 3; do
+            if echo "Reply with OK only." | claude -p --model claude-haiku-5-5 --max-turns 1 --tools "" \
+                 --setting-sources "" --strict-mcp-config --output-format json > out.json 2> err.txt; then
+              python3 -c "import json;d=json.load(open('out.json'));print('활성화 완료:', d.get('result','')[:20], '· 토큰', d.get('usage',{}).get('output_tokens'))"
+              exit 0
+            fi
+            echo "호출 실패 → 30초 후 재시도 $i/3"; sleep 30
+          done
+          tail -3 err.txt; exit 1
 
-      - name: Encrypt state
-        if: steps.gate.outputs.skip != 'true'
+      - name: Re-arm timer
+        if: always()
         env:
-          TG_SESSION: ${{ secrets.TG_SESSION }}
-        run: |
-          openssl enc -aes-256-cbc -pbkdf2 -salt -in "$RUNNER_TEMP/prep_state.json" -out "$RUNNER_TEMP/prep_state.enc" -pass env:TG_SESSION
-          rm -f "$RUNNER_TEMP/prep_state.json"
-
-      - uses: actions/upload-artifact@v6
-        if: steps.gate.outputs.skip != 'true'
-        with:
-          name: prep-state
-          path: ${{ runner.temp }}/prep_state.enc
-          retention-days: 1
-
-      - name: Notify on failure
-        if: failure() && steps.gate.outputs.skip != 'true'
-        env:
-          GMAIL_USER: ${{ secrets.GMAIL_USER }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          MAIL_TO: ${{ secrets.MAIL_TO }}
-        run: python -m tgbrief.notify "03:00 아침 1단계(07:00 단계가 전 구간을 대신 처리 예정)" "$RUNNER_TEMP/prep.log"
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run brief-timer.yml -R "$GITHUB_REPOSITORY" -f after="$(date +%s)" || true
