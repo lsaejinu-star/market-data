@@ -44,13 +44,13 @@ def slot_of(now):
 
 
 def window(now):
-    """아침: 전날 19:00 ~ 당일 07:00 / 저녁: 당일 07:00 ~ 19:00 (KST)."""
+    """아침: 전날 19:00 ~ 당일 06:00 / 저녁: 당일 06:00 ~ 19:00 (KST)."""
     today = now.astimezone(KST)
     if slot_of(now) == "morning":
-        until = today.replace(hour=7, minute=0, second=0, microsecond=0)
-        return until - timedelta(hours=12), until
+        until = today.replace(hour=6, minute=0, second=0, microsecond=0)
+        return until - timedelta(hours=11), until
     until = today.replace(hour=19, minute=0, second=0, microsecond=0)
-    return until - timedelta(hours=12), until
+    return until - timedelta(hours=13), until
 
 
 def prep_window(now):
@@ -140,7 +140,7 @@ def _light_mode():
     now = datetime.now(KST)
     if slot_of(now) != "morning":  # 저녁 브리프는 08:00 초기화와 무관
         return False
-    h, m = _hhmm(os.environ.get("TG_CLAUDE_DEADLINE"), "07:30")
+    h, m = _hhmm(os.environ.get("TG_CLAUDE_DEADLINE"), "07:15")
     return now >= now.replace(hour=h, minute=m, second=0, microsecond=0) and now.hour < 12
 
 

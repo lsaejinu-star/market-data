@@ -1,17 +1,17 @@
 name: telegram-report
 
 # 하루 두 번 투자 브리프 메일:
-#   아침: 전날 19:00 ~ 당일 07:00 글 → 07:30 발송 (03:00 이전 글은 1단계 telegram-prep.yml이 03:00에 미리 요약 →
-#         Claude 사용이 03:00에 시작해 08:00 전에 끝나므로 구독 5시간 한도가 08:00에 초기화)
-#   저녁: 당일 07:00 ~ 19:00 글 → 19:30 발송
+#   아침: 전날 19:00 ~ 당일 06:00 글을 06:00에 한 번에 조사 → 07:30 발송
+#         (03:00에 claude-warmup이 Claude를 아주 짧게 호출해 5시간 한도 창을 시작 → 08:00 초기화)
+#   저녁: 당일 06:00 ~ 19:00 글을 19:00에 조사 → 19:30 발송
 # 구성: 텔레그램 투자 아이디어 + 리포트 갤러리(미장) + (아침만) 파이썬으로 만든 시장 수치표·일정(AI 해설 없음)
 # 정시 실행은 brief-timer.yml(릴레이 타이머)이 담당하고, 아래 예약(cron)은 백업이다.
 # 공개 저장소이므로 수집 원문·결과물은 커밋하지 않고(직전 브리프 기억은 암호화), 로그에는 건수·사용량만 남긴다.
 
 on:
   schedule:
-    - cron: "0 18 * * *"    # 한국 03:00 (아침 백업, 07:00까지 대기)
-    - cron: "30 19 * * *"   # 한국 04:30 (아침 백업)
+    - cron: "0 17 * * *"    # 한국 02:00 (아침 백업, 06:00까지 대기)
+    - cron: "30 18 * * *"   # 한국 03:30 (아침 백업)
     - cron: "0 6 * * *"     # 한국 15:00 (저녁 백업, 19:00까지 대기)
     - cron: "30 7 * * *"    # 한국 16:30 (저녁 백업)
   workflow_dispatch:
@@ -57,11 +57,9 @@ jobs:
             if [ "$hour" -lt 13 ]; then slot=morning; else slot=evening; fi
           fi
           echo "slot=$slot" >> "$GITHUB_OUTPUT"
-          next=$([ "$slot" = "morning" ] && echo evening || echo prep)
-          echo "next=$next" >> "$GITHUB_OUTPUT"
           echo "브리프: $slot"
           [ "$GATED" = "1" ] || exit 0
-          hh=$([ "$slot" = "morning" ] && echo "07:00" || echo "19:00")
+          hh=$([ "$slot" = "morning" ] && echo "06:00" || echo "19:00")
           now=$(date +%s)
           target=$(date -d "$(TZ=Asia/Seoul date +%Y-%m-%d) $hh +0900" +%s)
           wait=$((target - now))
@@ -110,26 +108,12 @@ jobs:
           npm install -g @anthropic-ai/claude-code
           claude --version
 
-      - name: Load 03:00 prep state & last brief memory
+      - name: Load last brief memory
         if: steps.dup.outputs.skip != 'true'
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ github.token }}
           TG_SESSION: ${{ secrets.TG_SESSION }}
-          SLOT: ${{ steps.dup.outputs.slot }}
         run: |
-          if [ "$SLOT" = "morning" ]; then
-            since=$(date -u -d "$(TZ=Asia/Seoul date +%Y-%m-%d) 00:00 +0900" +%Y-%m-%dT%H:%M:%SZ)
-            ids=$(gh run list -R "$GITHUB_REPOSITORY" --workflow telegram-prep.yml --status success -L 10 \
-                    --json databaseId,updatedAt --jq ".[] | select(.updatedAt >= \"$since\") | .databaseId")
-            for id in $ids; do
-              if gh run download "$id" -R "$GITHUB_REPOSITORY" -n prep-state -D "$RUNNER_TEMP/prep" 2>/dev/null; then
-                openssl enc -d -aes-256-cbc -pbkdf2 -in "$RUNNER_TEMP/prep/prep_state.enc" -out "$RUNNER_TEMP/prep_state.json" -pass env:TG_SESSION \
-                  && echo "1단계 결과 사용 (run $id)" && break
-              fi
-            done
-            [ -f "$RUNNER_TEMP/prep_state.json" ] || echo "1단계 결과 없음 → 전 구간을 이번에 처리"
-          fi
           if [ -f data/brief_memory.enc ]; then
             openssl enc -d -aes-256-cbc -pbkdf2 -in data/brief_memory.enc -out "$RUNNER_TEMP/brief_memory.json" -pass env:TG_SESSION \
               && echo "직전 브리프 기억 불러옴" || echo "직전 브리프 기억 복호화 실패"
@@ -143,11 +127,9 @@ jobs:
           TG_MEMORY: ${{ runner.temp }}/brief_memory.json
           TG_MEMORY_OUT: ${{ runner.temp }}/brief_memory_new.json
           TG_TEST: ${{ (github.event_name == 'workflow_dispatch' && inputs.test) && '1' || '0' }}
-          TG_CLAUDE_DEADLINE: "07:30"
+          TG_CLAUDE_DEADLINE: "07:15"
           TG_AUTO: ${{ (github.event_name == 'schedule' || inputs.auto) && '1' || '0' }}
           TG_FORCE_LIGHT: ${{ steps.dup.outputs.force_light }}
-          TG_STATE: ${{ runner.temp }}/prep_state.json
-          TG_PREP_AT: "03:00"
           TG_API_ID: ${{ secrets.TG_API_ID }}
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
           TG_SESSION: ${{ secrets.TG_SESSION }}
@@ -182,8 +164,7 @@ jobs:
         if: always() && !(github.event_name == 'workflow_dispatch' && inputs.test)
         env:
           GH_TOKEN: ${{ github.token }}
-          NEXT: ${{ steps.dup.outputs.next }}
-        run: gh workflow run brief-timer.yml -R "$GITHUB_REPOSITORY" -f stage="${NEXT:-prep}" || true
+        run: gh workflow run brief-timer.yml -R "$GITHUB_REPOSITORY" -f after="$(date +%s)" || true
 
       - name: Notify on failure
         if: failure() && steps.dup.outputs.skip != 'true'
